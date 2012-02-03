@@ -1,0 +1,98 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` = 'Buy a professional product built over more than 2 years (and improved continuously) at a bargain price thanks to our economy of scales.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT7';
+UPDATE  `pc_translation` SET  `string` = 'Compra un prodotto professionale sviluppato in oltre 2 anni (e migliorato di continuo) ad un prezzo imperdibile grazie alla nostra economia di scala.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT7';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK', '3', '71', '0', NULL, '0', '2012-02-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK', 'Check out our advanced features', '2012-02-01 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK', 'Scopri le nostre funzionalità avanzate', '2012-02-01 00:00:00');
+
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>
+<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>
+<li>our unique feature (we call it "%s") is ideal for your GTD weekly review</li>
+<li>Plancake is Open Source - therefore you are not locked-in</li>
+<li>we made our Premium edition very affordable - check out our <a href="%s">plans and prices</a></li>
+<li>we are very passionate about time management and personal development: which is why we publish inspirational articles on our blog and we are writing a book on those topics</li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>
+<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>
+<li>la nostra feature esclusiva (l''abbiamo chiamata "%s") è ideale per la tua revisione settimanale GTD</li>
+<li>Plancake è Open Source - quindi non sarai "ingabbiato"</li>        
+<li>abbiamo reso la nostra edizione Premium molto conveniente - dai un''occhiata ai nostri <a href="%s">piani e prezzi</a></li>
+<li>siamo veramente appassionati di gestione del tempo e sviluppo personale: ecco perché pubblichiamo articoli di ispirazione nel nostro blog e stiamo scrivendo un libro su quegli argomenti</li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>
+<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>
+<li>our unique feature (we call it <em>%s</em>) is ideal for your GTD weekly review</li>
+<li>Plancake is Open Source - therefore you are not locked-in</li>
+<li>we made our Premium edition very affordable - check out our <a href="%s">plans and prices</a></li>
+<li>we are very passionate about time management and personal development: which is why we publish inspirational articles on our blog and we are writing a book on those topics</li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>
+<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>
+<li>la nostra feature esclusiva (l''abbiamo chiamata <em>%s</em>) è ideale per la tua revisione settimanale GTD</li>
+<li>Plancake è Open Source - quindi non sarai "ingabbiato"</li>        
+<li>abbiamo reso la nostra edizione Premium molto conveniente - dai un''occhiata ai nostri <a href="%s">piani e prezzi</a></li>
+<li>siamo veramente appassionati di gestione del tempo e sviluppo personale: ecco perché pubblichiamo articoli di ispirazione nel nostro blog e stiamo scrivendo un libro su quegli argomenti</li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+UPDATE `pc_string` SET `note` = 'the first placeholder is the name "split view"' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = '<p>
+    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />
+    That''s simply because you can use the mobile/smartphone application also with your desktop/laptop.
+</p>
+
+<p>
+    Please bear in mind we have tested the offline application successfully on <b>Google Chrome</b> - some other browsers may not be supporting
+    the new technologies we are leveraging just yet.
+</p>
+
+<p>
+    To use the offline application you just need to append <em>/mobile</em> to the address of your account.
+</p>
+
+<p>
+    Your account URL: <br>
+    <em>http://www.plancake.com/account.php</em>
+</p>
+
+<p>
+    Offline application URL:<br />
+    <em>http://www.plancake.com/account.php<b>/mobile</b></em>    
+</p>
+
+<p>
+    The first time you reach the offline application (and after every time you clear your browser cache), your data
+    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />
+    <b>If you''re using a public or shared computer, don''t allow offline use.</b>    
+</p>  
+
+<p>
+Every time you make a change, the modification will <b>NOT</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. 
+</p>
+    
+<p>
+Once you are ready to synchronise the data between your computer and the Plancake servers (and the other way around, too), click the ''Sync'' button at the bottom of the screen (you need an Internet connection available to sync).
+</p>
+
+<p>
+    If you are a Plancake user and you are logged in, you can activate it now from here: <br />
+    <a href="%s">%s</a>
+</p>
+
+<p>In the future, we would like to integrate the offline capability in the main web application itself, so that you don''t need to change URL in order to use it.</p>
+
+<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>
+' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_OFFLINE_USE_BODY1';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

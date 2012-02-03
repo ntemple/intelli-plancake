@@ -1,0 +1,26 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_HEADER_BLOG', '103', '55', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_BLOG', 'blog', NULL), ('it', 'ACCOUNT_HEADER_BLOG', 'blog', NULL);
+
+ALTER TABLE `pc_user` ADD `latest_blog_access` datetime DEFAULT NULL AFTER `avatar_random_suffix`;
+
+UPDATE `pc_user` SET `latest_blog_access`='2011-04-01 23:00:00';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('WEBSITE_CONTACT_US_ARTICLE_REASON', '19', '305', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_CONTACT_US_ARTICLE_REASON', '...would like to submit an article for the Plancake blog', NULL), ('it', 'WEBSITE_CONTACT_US_ARTICLE_REASON', '...vorrei inviare un articolo per il blog di Plancake', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

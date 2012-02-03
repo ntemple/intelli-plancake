@@ -1,0 +1,9 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` MODIFY `dst_active` TINYINT(1) default 0 AFTER `id`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+

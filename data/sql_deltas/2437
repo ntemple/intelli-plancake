@@ -1,0 +1,85 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Calendar' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_LISTS_ALL_SCHEDULED';
+UPDATE  `pc_translation` SET  `string` =  'Calendario' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_LISTS_ALL_SCHEDULED';
+
+UPDATE  `pc_translation` SET  `string` =  'Calendar' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_WITH_DUE_DATE';
+UPDATE  `pc_translation` SET  `string` =  'Calendario' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_WITH_DUE_DATE';
+
+UPDATE `pc_translation` SET `string` = 'We constantly improve Plancake based on the feedback of our users. <br />
+Our Company is very passionate about making people delightful to be with us: the core team personally reply to all enquiries usually within few hours and publish inspiration articles on the Plancake blog.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_BODY';
+UPDATE `pc_translation` SET `string` = 'Miglioriamo Plancake constantemente in base al feedback dei nostri utenti. <br />
+La nostra azienda tiene molto a rendere the persone estremamente felici di averci scelto: il team risponde personalmente a tutte le richieste solitamente in poche ore e pubblica articoli ispiratori sul blog di Plancake.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_BODY';
+UPDATE `pc_translation` SET `string` = 'Award-winning and Customer-centric Product' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_TITLE';
+UPDATE `pc_translation` SET `string` = 'Prodotto vincitore di premi e incentrato sull''utente' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_TITLE';
+
+CREATE TABLE IF NOT EXISTS `pc_testimonial` (
+  `id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `job_position` varchar(256) NOT NULL,
+  `company` varchar(256) DEFAULT NULL,
+  `city` varchar(256) NOT NULL,
+  `country` varchar(256) NOT NULL,
+  `comment` text NOT NULL,
+  `photo_link` varchar(256) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`,`user_id`)
+) ENGINE=InnoDB;
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS', '112', '1000', '0', NULL, '0', '2011-10-09 00:00:00'), ('ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH', '112', '1010', '0', NULL, '0', '2011-10-09 00:00:00'), ('ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH', '112', '1020', '0', NULL, '0', '2011-10-09 00:00:00'), ('ACCOUNT_MAIN_CONTENT_CAL_PREV_7_DAYS', '112', '1030', '0', NULL, '0', '2011-10-09 00:00:00'), ('ACCOUNT_MAIN_CONTENT_CAL_JUMP_TO_DATE', '112', '1040', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS', 'Next 7 days', '2011-10-09 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH', 'Next month', '2011-10-09 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH', 'Previous month', '2011-10-09 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_CAL_PREV_7_DAYS', 'Previous 7 days', '2011-10-09 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_CAL_JUMP_TO_DATE', 'Jump to date:', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS', 'Prossimi 7 giorni', '2011-10-09 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH', 'Prossimo mese', '2011-10-09 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_CAL_PREV_7_DAYS', '7 giorni fa', '2011-10-09 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH', '1 mese fa', '2011-10-09 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_CAL_JUMP_TO_DATE', 'Vai alla data:', '2011-10-09 00:00:00');
+
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_JAN', '110', '200', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_FEB', '110', '210', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_MAR', '110', '220', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_APR', '110', '230', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_MAY', '110', '240', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_JUN', '110', '250', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_JUL', '110', '260', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_AUG', '110', '270', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_SEP', '110', '280', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_OCT', '110', '290', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_NOV', '110', '300', '0', NULL, '0', '2011-10-09 00:00:00');
+INSERT INTO `pc_string` VALUES ('ACCOUNT_MONTH_FULL_DEC', '110', '310', '0', NULL, '0', '2011-10-09 00:00:00');
+
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_JAN', 'Gennaio', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_FEB', 'Febbraio', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_MAR', 'Marzo', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_APR', 'Aprile', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_MAY', 'Maggio', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_JUN', 'Giugno', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_JUL', 'Luglio', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_AUG', 'Agosto', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_SEP', 'Settembre', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_OCT', 'Ottobre', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_NOV', 'Novembre', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('it', 'ACCOUNT_MONTH_FULL_DEC', 'Dicembre', '2011-10-09 00:00:00');
+
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_JAN', 'January', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_FEB', 'February', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_MAR', 'March', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_APR', 'April', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_MAY', 'May', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_JUN', 'June', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_JUL', 'July', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_AUG', 'August', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_SEP', 'September', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_OCT', 'October', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_NOV', 'November', '2011-10-09 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en', 'ACCOUNT_MONTH_FULL_DEC', 'December', '2011-10-09 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_CAL_NO_TASKS', '112', '1050', '0', NULL, '0', '2011-10-12 00:00:00');
+INSERT INTO `pc_translation` VALUES ('en',  'ACCOUNT_MAIN_CONTENT_CAL_NO_TASKS',  'No tasks for today.',  '2011-10-12 00:00:00'), ('it',  'ACCOUNT_MAIN_CONTENT_CAL_NO_TASKS',  'Nessuna attività per oggi.',  '2011-10-12 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

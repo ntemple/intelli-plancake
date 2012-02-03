@@ -1,0 +1,68 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Makes your life and your work easier.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Ti rende la vita e il lavoro più semplice.' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Priority support' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT';
+UPDATE  `pc_translation` SET  `string` =  'Supporto con priorità' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT';
+
+UPDATE  `pc_translation` SET  `string` = 'Access your data on the go - no need to install software and works even when an internet connection is not available!' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP2_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Accedi ai tuoi dati mentre sei in giro - non c''è nulla da scaricare e funziona anche senza connessione a Internet!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP2_BODY';
+
+UPDATE  `pc_translation` SET  `string` =  'Having everything under control helps you make better choices, focus your energy and have more time.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Avere tutto sotto controllo ti aiuta a prendere decisioni migliori, focalizzare la tua energia e aver più tempo.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY';
+
+UPDATE  `pc_translation` SET  `string` = 'Organize all your projects and things you need to do in one place, with the help of an inbox, calendar, lists, tags, repeating tasks and a very easy-to-use interface.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY';
+UPDATE  `pc_translation` SET  `string` = 'Organizza tutti i tuoi progetti, tutte le cose che devi fare in un unico posto con l''aiuto di una inbox, calendario, liste, etichette, attività ripetitive e una interfaccia facile da usare.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY';
+
+UPDATE `pc_translation` SET  `string` =  '...you''ll have access to all of the great tools in Plancake.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_TESTIMONIAL1';
+
+UPDATE `pc_translation` SET `string` = '<ul>
+<li>...you''ll have access to all of the great tools in Plancake.<span class="pc_testimonialAuthor">Lifehacker.com</span></li>
+<li>One key to effective task management is using a versatile todo list manager. Plancake is a solid application...<span class="pc_testimonialAuthor">Ostatic.com</span></li>
+<li>Plancake is great, works well, has plenty of shortcuts and makes managing your work and tasks even easier.<span class="pc_testimonialAuthor">Makeuseof.com</span></li>
+</ul>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_BLOCK_PRESS_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER', '1', '730', '0', NULL, '0', '2012-01-17 00:00:00'), ('WEBSITE_HOMEPAGE_WHY_US_HEADER', '1', '740', '0', NULL, '0', '2012-01-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER', 'Who''s Plancake for?', '2012-01-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER', 'Per chi è Plancake?', '2012-01-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_WHY_US_HEADER', 'Why us?', '2012-01-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_WHY_US_HEADER', 'Perché noi?', '2012-01-17 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY', '1', '735', '0', NULL, '0', '2012-01-17 00:00:00'), ('WEBSITE_HOMEPAGE_WHY_US_BODY', '1', '745', '0', NULL, '0', '2012-01-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY', 'Plancake is for entrepreneurs, freelancers, managers, employees, mums and dads - whoever feels they are very busy and would like to find focus, relax and more time for themselves.', '2012-01-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY', 'Plancake è per imprenditori, liberi professionisti, manager, impiegati, mamme e papà - chiunque senta di essere molto impegnato e vorrebbe trovare focus, relax e più tempo da dedicare a se stesso.', '2012-01-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_WHY_US_BODY', '<li>the people working at Plancake.com are very nice and they don''t hide :-)</li>
+<li>our users are extremely happy with our customer service</li>
+<li>Plancake is open source - therefore the user is not locked-in</li>        
+<li>Plancake works on any computer, tablet and smartphone</li>
+<li>Plancake is very intuitive and simple-to-use</li>', '2012-01-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_WHY_US_BODY', '<li>le persone che lavorano a Plancake.com son simpatiche e non si nascondono :-)</li>
+<li>i nostri utenti sono estremamente soddisfatti del supporto clienti</li>
+<li>Plancake è open source - l''utente non è quindi "ingabbiato"</li>        
+<li>Plancake funziona su ogni computer, tablet e smartphone</li>
+<li>Plancake è molto intuitivo e semplice da usare</li>', '2012-01-17 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'Repeating tasks (e.g.: "Do bookkeeping on the second last day of each month")' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+UPDATE  `pc_translation` SET  `string` =  'Attività ripetitive (e.g.: "Aggiornare i registri ogni mese al penultimo giorno")' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+
+UPDATE  `pc_translation` SET  `string` =  'Export/Backup - full control over your data' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT';
+UPDATE  `pc_translation` SET  `string` =  'Esporta/Backup - peino controllo dei tuoi dati' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT';
+
+UPDATE `pc_translation` SET `string` = '<li>our users are extremely happy with our customer service</li>
+<li>Plancake is free and its Premium account very affordable</li>
+<li>Plancake is open source - therefore the user is not locked-in</li>        
+<li>Plancake works on any computer, tablet and smartphone</li>
+<li>Plancake is very intuitive and simple-to-use</li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+UPDATE `pc_translation` SET `string` = '<li>i nostri utenti sono estremamente soddisfatti del supporto clienti</li>
+<li>Plancake é gratis e il suo account Premium è conveniente</li>
+<li>Plancake è open source - l''utente non è quindi "ingabbiato"</li>        
+<li>Plancake funziona su ogni computer, tablet e smartphone</li>
+<li>Plancake è molto intuitivo e semplice da usare</li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

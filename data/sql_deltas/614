@@ -1,0 +1,19 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `avatar_random_suffix` VARCHAR(32) default '' AFTER `just_activated`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP `avatar_random_suffix`
+
+SET FOREIGN_KEY_CHECKS=1;

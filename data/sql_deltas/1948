@@ -1,0 +1,18 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG', '118', '500', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG', 'Read more on our blog:', NULL), ('it', 'ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG', 'Continua a leggere sul blog', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

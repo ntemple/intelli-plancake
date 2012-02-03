@@ -1,0 +1,10 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [jquery-ui-1.8.9.custom.css, common.css, account.css, jquery.simpleTooltip.css, contacts.css]
+
+  javascripts:    [jquery-1.5.2.min.js, jquery-ui-1.8.9.custom.min.js, jquery.blockUI.js, jquery.simpleTooltip.js, library.js, sprintf.js, common.js, account.js, notes.js]
+
+  has_layout:     true
+  layout:         layout

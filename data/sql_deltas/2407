@@ -1,0 +1,148 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Planning is a piece of cake.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Pianificare è diventato un gioco da ragazzi.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE  `pc_string` SET  `note` =  '"piece of cake" is an idiom and means something very easy and fun to do' WHERE  `pc_string`.`id` = 'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'A header (the item in orange on the picture) is not a list but it groups together lists having something in common. It is useful for organizing your lists visually and creating hierarchies. <br />
+Headers are NOT clickable.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_HINT_LIST_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Un titolo (l''elemento in arancione nell''immagine) non è una lista ma ragruppa le liste aventi qualcosa in comune. E'' utile per organizzare le tue liste visivamente e creare gerarchie. <br />
+I titoli NON sono clickabili.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_HINT_LIST_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'A header (as seen in lists) is not a task but it groups together tasks having something in common.
+It is useful for organizing your tasks visually and creating dependencies.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_HINT_TASK_HEADER';
+
+UPDATE  `pc_translation` SET  `string` = 'Un titolo (similmente alle liste) non è un''attività ma raggruppa delle attività aventi qualcosa in comune. E'' utile per organizzare le tue liste visivamente e creare gerarchie.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_HINT_TASK_HEADER';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_MAX_LISTS_FOR_FREE_ACCOUNTS', '116', '700', '0', 'The first placeholder is a number which is the maximum number of lists', '0', '2011-10-04 00:00:00'), ('ACCOUNT_ERROR_MAX_TAGS_FOR_FREE_ACCOUNTS', '116', '710', '0', 'The first placeholder is a number which is the maximum number of tags', '0', '2011-10-04 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_MAX_LISTS_FOR_FREE_ACCOUNTS', 'Free accounts can''t manage more than %d lists. <a href="%s">Upgrade now</a> to overcome this limitation.', '2011-10-04 00:00:00'), ('it', 'ACCOUNT_ERROR_MAX_LISTS_FOR_FREE_ACCOUNTS', 'Gli account gratuiti non possono gestire più di %d liste.  <a href="%s">Passa ad un account Premium</a> per eliminare questa limitazione.', '2011-10-04 00:00:00'), ('en', 'ACCOUNT_ERROR_MAX_TAGS_FOR_FREE_ACCOUNTS', 'Free accounts can''t manage more than %d tags. <a href="%s">Upgrade now</a> to overcome this limitation.', '2011-10-04 00:00:00'), ('it', 'ACCOUNT_ERROR_MAX_TAGS_FOR_FREE_ACCOUNTS', 'Gli account gratuiti non possono gestire più di %d etichette. <a href="%s">Passa ad un account Premium</a> per eliminare questa limitazione.', '2011-10-04 00:00:00');
+
+UPDATE  `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'ACCOUNT_MAIN_CONTENT_TODO_HINT';
+
+/*
+START OF RENAMING TODO
+*/
+
+UPDATE `pc_list` SET `title`='Default list' WHERE `title`='Todo' AND `is_todo`=1;
+UPDATE `pc_list` SET `title`='Lista di default' WHERE `title`='Cose da fare' AND `is_todo`=1;
+
+UPDATE  `pc_translation` SET  `string` =  'The ''Deafult list'' can''t be deleted.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_DELETE_TODO_LIST';
+UPDATE  `pc_translation` SET  `string` =  'La ''Lista di default'' non può essere cancellata.' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_ERROR_CANT_DELETE_TODO_LIST';
+
+UPDATE  `pc_translation` SET  `string` =  'You can''t edit the Inbox and the Default list.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_ERROR_CANT_EDIT_SYSTEM_LIST';
+UPDATE  `pc_translation` SET  `string` =  'Non puoi modificare la lista Inbox e la lista di default.' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_ERROR_CANT_EDIT_SYSTEM_LIST';
+
+UPDATE  `pc_translation` SET  `string` =  'Default list' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_LISTS_TODO';
+UPDATE  `pc_translation` SET  `string` =  'Lista di default' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_LISTS_TODO';
+
+UPDATE  `pc_translation` SET  `string` =  'The position of the Inbox and of the Default list can''t be changed.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_ERROR_INBOX_TODO_NO_REORDER';
+UPDATE  `pc_translation` SET  `string` =  'La posizione della Inbox e della lista di default non può essere cambiata.' WHERE  `pc_translation`.`language_id` = 'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_ERROR_INBOX_TODO_NO_REORDER';
+
+UPDATE  `pc_translation` SET  `string` =  'There is nothing to reorder as you only have one list. Remember the Inbox and the Default list can not be reordered.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_ERROR_NO_LISTS_TO_REORDER';
+UPDATE  `pc_translation` SET  `string` =  'Non puoi riordinare nulla dato che hai una sola lista. Ricorda che non puoi riordinare la Inbox e la lista di default.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_ERROR_NO_LISTS_TO_REORDER';
+
+UPDATE `pc_translation` SET `string` = 'You can append some shortcuts to the task description to quickly add information to the task.
+<p>
+A task description shortcut can be used with:
+<ul>
+    <li>your tags (i.e.: %%money)</li>
+    <li>due date expressions (i.e.: %%in 2 days) (for a full list of due date shortcuts, click the options)</li>
+    <li>due time expressions (i.e.: @12)</li>
+    <li>the word <em>%%inbox</em> (to add the task directly to your Inbox)</li>
+    <li>the word <em>%%todo</em> (to add the task directly to your Default list)</li>
+</ul>
+</p>
+<p>
+Here are some examples:
+<ul>
+    <li>buy a laptop %%todo</li>
+    <li>pay Morgan %%next monday %%money @21</li>
+    <li>meet Jason at the pub after work %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+UPDATE `pc_translation` SET `string` = 'Puoi usare alcune scorciatoie alla fine della descrizione dell''attività per aggiungere velocemente informazioni a essa.
+<p>
+Una scorciatoia per la descrizione dell''attività può essere usata con:
+<ul>
+    <li>le tue etichette (per esempio: %%soldi)</li>
+    <li>espressioni di data (per esempio: %%in 2 days) (per una lista completa di scorciatoie per la data, clicca le opzioni)</li>
+    <li>espressioni di tempo (per esempio: @12)</li>
+    <li>la parola <em>%%inbox</em> (per aggiungere l''attività direttamente nella Inbox)</li>
+    <li>la parola <em>%%todo</em> (per aggiungere l''attività direttamente nella lista di default)</li>
+</ul>
+</p>
+<p>
+Ecco alcuni esempi:
+<ul>
+    <li>comprare un portatile %%todo</li>
+    <li>pagare Michele %%next monday %%money @21</li>
+    <li>incontrare Gianna al pub dopo il lavoro %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+/*
+END OF RENAMING TODO
+*/
+
+
+
+UPDATE `pc_translation` SET `string` = 'When you add a task and you are not inside a list or you don''t specify a list explicitly, Plancake uses this ''Default list''. <br />
+This list is ideal for holding all the generic tasks that wouldn''t belong to any of the lists you have created. <br />
+You can rename this list if you wish.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1';
+UPDATE `pc_translation` SET `string` = 'Quando aggiungi un''attività e non sei dentro una lista o non spefichi una lista esplicitamente, Plancake use questa ''Lista di default''. <br />
+Questa lista è ideale per contenere tutte le attività generiche che non apparterrebbero a nessuna delle liste che hai creato.<br />
+Se preferisci puoi rinominare questa lista.
+' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_HIDE_SCHEDULED_TASKS', '112', '800', '0', NULL, '0', '2011-10-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_HIDE_SCHEDULED_TASKS', 'Hide scheduled tasks', '2011-10-05 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_HIDE_SCHEDULED_TASKS', 'Nascondi attività con data', '2011-10-05 00:00:00');
+
+
+UPDATE  `pc_translation` SET  `string` =  'Web designers and creators of the Plancake logo',
+`updated_at` =  '2011-10-05 00:09:13' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_TEAM_RINEERS_POSITION';
+
+UPDATE  `pc_translation` SET  `string` =  'Web designer e creatori del logo di Plancake',
+`updated_at` =  '2011-10-05 00:09:13' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_TEAM_RINEERS_POSITION';
+
+UPDATE `pc_translation` SET `string` = 'We are co-owners of Three TEN Seven Design, LLC. <br />
+The company was named after our wedding-date and is a US-based company which currently has branches in Philadelphia, PA and Savannah, GA. <br />
+We proudly designed the Plancake website and logo.', `updated_at` = '2011-10-05 00:09:13' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_RINEERS_INFO';
+
+UPDATE `pc_translation` SET `string` = 'Siamo i proprietari dell''azienda Three TEN Seven Design, LLC. <br />
+L''azienda ha preso questo nome dal nostro giorno di matrimonio e ha attualmente due sedi negli Stati Uniti: a Philadelphia e Savannah. <br />
+Siamo orgogliosi di aver curato il design e il logo di Plancake.', `updated_at` = '2011-10-05 00:09:13' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_RINEERS_INFO';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER';
+DELETE FROM `pc_string` WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE';
+DELETE FROM `pc_string` WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY', '112', '810', '0', NULL, '0', '2011-10-05 00:00:00'), ('ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DATE', '112', '820', '0', NULL, '0', '2011-10-05 00:00:00'), ('ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DRAG_ORDER', '112', '830', '0', NULL, '0', '2011-10-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY', 'sort tasks by:', '2011-10-05 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DATE', 'due date', '2011-10-05 00:00:00'), ('en', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DRAG_ORDER', 'drag and drop order', '2011-10-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY', 'ordina attività per:', '2011-10-05 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DATE', 'data di scadenza', '2011-10-05 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_SORT_TASKS_BY_DRAG_ORDER', 'ordine di trascinamento', '2011-10-05 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'The Inbox should be used for temporary storage.<br />
+You can
+quickly jot down tasks or ideas in it (e.g.: during a phone call) and come back later to them to better organize them or get them done. <br />
+It is also used by some Plancake services (Android app, Google Calendar, Email-to-Inbox).' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_CANT_DRAG_WHEN_SORTED_BY_DATE', '116', '550', '0', NULL, '0', '2011-10-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_CANT_DRAG_WHEN_SORTED_BY_DATE', 'You can''t drag and drop tasks when you order them by due date - please change the filter selection.', '2011-10-05 00:00:00'), ('it', 'ACCOUNT_ERROR_CANT_DRAG_WHEN_SORTED_BY_DATE', 'Non puoi trascinare le attività quando queste sono ordinate per data di scadenza - per continuare devi cambiare il filtro di ordinamento.', '2011-10-05 00:00:00');
+
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_ERROR_CANT_DROP_TO_PANEL',`string` = 'You can drop tasks only over the lists and tags on the left side of the screen - not over the other task pane.',`updated_at` = '2011-07-14 02:52:54' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_DROP_TO_PANEL';
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

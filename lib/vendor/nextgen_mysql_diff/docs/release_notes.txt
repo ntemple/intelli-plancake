@@ -1,0 +1,7 @@
+19 April 2010
+
+Basic comparison.
+
+Still to do:
+_ implementation of the AFTER statement
+_ all the advanced features of a table (primary keys, indexes, ...)

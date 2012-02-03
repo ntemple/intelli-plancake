@@ -1,0 +1,19 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar`
+  CHANGE  `calendar_id`  `calendar_url` VARCHAR( 255 ) NULL DEFAULT NULL;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar`
+  CHANGE  `calendar_url`  `calendar_id` VARCHAR( 255 ) NULL DEFAULT NULL;
+
+SET FOREIGN_KEY_CHECKS=1;

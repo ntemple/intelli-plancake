@@ -1,0 +1,58 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_NEWSLETTER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_NEWSLETTER';
+
+UPDATE  `pc_translation` SET  `string` =  'I agree to receive communications from Plancake.com from time to time.
+' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_REGISTRATION_NEWSLETTER';
+
+UPDATE  `pc_translation` SET  `string` =  'Accetto di ricevere comunicazioni da Plancake.com occasionalmente.
+' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_REGISTRATION_NEWSLETTER';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP', '104', '398', '0', NULL, '0', '2012-01-06 00:00:00'), ('ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE', '104', '399', '0', NULL, '0', '2012-01-06 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP', 'Mobile app - works on iPhone, Android, Blackberry, Symbian and other platforms', '2012-01-06 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP', 'Applicazione mobile - funziona su iPhone, Android, Blackberry, Symbian e altre piattaforme', '2012-01-06 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE', 'Offline use', '2012-01-06 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE', 'Uso offline', '2012-01-06 00:00:00');
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_OFFLINE_USE_BODY1',`string` = '<p>\n    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />\n    That''s simply because you can use the mobile/smartphone application also with your desktop/laptop.\n</p>\n\n<p>\n    Please bear in mind we have tested the offline application successfully on <b>Google Chrome</b> - some other browsers may not be supporting\n    the new technologies we are leveraging just yet.\n</p>\n\n<p>\n    To use the offline application you just need to append <em>/mobile</em> to the address of your account.\n</p>\n\n<p>\n    Your account URL: <br>\n    <em>http://www.plancake.com/account.php</em>\n</p>\n\n<p>\n    Offline application URL:<br />\n    <em>http://www.plancake.com/account.php<b>/mobile</b></em>    \n</p>\n\n<p>\n    The first time you reach the offline application (and after every time you clear your browser cache), your data\n    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />\n    <b>If you''re using a public or shared computer, don''t allow offline use.</b>    \n</p>  \n\n<p>\nEvery time you make a change, the modification will <b>NOT</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. \n</p>\n    \n<p>\nOnce you are ready to synchronise the data between your computer and the Plancake servers (and the other way around, too), click the ''Sync'' button at the bottom of the screen (you need an Internet connection available to sync).\n</p>\n\n<p>\n    If you are a Plancake user and you are logged in, you can activate it now from here: <br />\n    <a href="%s">%s</a>\n</p>\n\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>\n',`updated_at` = '2012-01-06 18:37:25' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_OFFLINE_USE_BODY1';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY1',`string` = '  <p>\n      With Plancake Mobile we decided to go for an innovative route (by using HTML5) rather than building a native application for each smartphone operating system. <br />\n      This way we can make improvements quickly as we only need to maintain one codebase, as opposed to 4 or 5 of them.\n  </p>\n  \n  <p>\n      What does that mean to you?\n      <ul>\n          <li>you can use Plancake Mobile even without an Internet connection and have a nice shortcut on your home screen, as with most native apps.</li>\n          <li>you don''t need to install anything from the app store - just need to visit www.plancake.com with your smartphone</li>\n          <li>when Plancake receives updates and bug fixes, your smartphone will be able to use them immediately, no manual updating required! </li>\n      </ul>\n  </p>',`updated_at` = '2012-01-06 18:23:14' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY1';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2',`string` = '  <p>\n      Plancake Mobile works on any smartphone with a web browser supporting the basic functionalities of HTML5 - nowadays most smartphones should do. <br />\n      When you login to Plancake Mobile for the first time, the app will tell you if you browser lacks any required features - you don''t need to check yourself.\n  </p>\n  \n  <p>\n      iPhone users and Android users (from 2.0 upwards) should be supported straight away.\n  </p>\n  <p>\n      Older versions of Android and maybe also users of Symbyan, Blackberry and other platforms may need to install Opera Mobile (a great mobile web browser!) \n      on their smartphone and access Plancake from there. Installing Opera Mobile is very easy - just check your app store.\n  </p>',`updated_at` = '2012-01-06 18:24:59' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3',`string` = '  <p>\n  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!\n  </p>\n  \n  <p>\n      Once you are logged in, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />\n      Please, check the browser menu to see how to create such a shortcut (you will probably need to create a Bookmark first).\n  </p>\n  \n  <p>\n      The first time you log in, all the data in your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even\n      without an Internet connection.\n</p>\n\n<p>\n      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />\n  </p>\n\n  <p>\n      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at\n      the bottom of the screen (you need an Internet connection available to sync).\n  </p>\n\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>',`updated_at` = '2012-01-06 18:29:20' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3';
+DELETE FROM `pc_translation` WHERE `language_id` = 'gb';
+
+ALTER TABLE `pc_promotion_code` ADD `note` varchar(512) DEFAULT '' AFTER `max_uses`;
+
+CREATE TABLE IF NOT EXISTS `pc_contact_company` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `pc_contact` ADD `company_id` int(10) unsigned DEFAULT NULL AFTER `language`;
+ALTER TABLE `pc_contact`
+  ADD CONSTRAINT `pc_contact_FK_2` FOREIGN KEY (`company_id`) REFERENCES `pc_contact_company` (`id`);
+
+UPDATE `pc_string` SET `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_PRESS_FACT5';
+UPDATE `pc_string` SET `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_PRESS_FACT6';
+
+UPDATE `pc_string` SET  `sort_order_in_category` =  '58' WHERE  `pc_string`.`id` =  'WEBSITE_PRESS_IMAGES_TITLE';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_PRESS_FACT8', '10', '48', '0', NULL, '0', '2012-01-07 00:00:00'), ('WEBSITE_PRESS_FACT9', '10', '49', '0', NULL, '0', '2012-01-07 00:00:00'), ('WEBSITE_PRESS_FACT10', '10', '50', '0', NULL, '0', '2012-01-07 00:00:00'), ('WEBSITE_PRESS_FACT11', '10', '51', '0', NULL, '0', '2012-01-07 00:00:00'), ('WEBSITE_PRESS_FACT12', '10', '52', '0', NULL, '0', '2012-01-07 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_PRESS_FACT8', 'fascinated by London and its multicultural environment, the founder left his job in Italy, his home country, and moved to the UK in 2007', '2012-01-07 00:00:00'), ('en', 'WEBSITE_PRESS_FACT9', 'Emma Highett, <b>Voice of London''s buses</b>, is the voice of our video tutorial', '2012-01-07 00:00:00'), ('en', 'WEBSITE_PRESS_FACT10', 'in December 2011 Plancake won a nationwide Twitter competition run by StartUp Britain (a project supported by the UK Government)', '2012-01-07 00:00:00'), ('en', 'WEBSITE_PRESS_FACT11', 'our blog features high-quality articles originally by Andrea Giuliodori, one of the most respected Italian bloggers on Personal Development', '2012-01-07 00:00:00'), ('en', 'WEBSITE_PRESS_FACT12', 'the Plancake web application works also offline thanks to HTML5, a cutting edge web technology - HTML5 also powers our mobile app, therefore we didn''t need to develop native apps for iPhone, iPad and Android', '2012-01-07 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_PRESS_FACT8', 'affascinato da Londra e dalla sua multiculturalità, il fondatore lasciò il suo lavoro a Genova, dove era nato, e si trasferì nel Regno Unito nel 2007', '2012-01-07 00:00:00'), ('it', 'WEBSITE_PRESS_FACT9', 'Emma Highett, <b>la voce dei bus di Londra</b>, è anche la voce del nostro video tutorial', '2012-01-07 00:00:00'), ('it', 'WEBSITE_PRESS_FACT10', 'nel Dicembre 2011 Plancake vinse una Twitter competition a livello nazionale indetta da StartUp Britain (un progetto supportato dal governo britannico)', '2012-01-07 00:00:00'), ('it', 'WEBSITE_PRESS_FACT11', 'il nostro blog contiene articoli di elevata qualità scritti originariamente da Andrea Giuliodori, uno dei maggiori blogger italiani di Sviluppo Personale', '2012-01-07 00:00:00'), ('it', 'WEBSITE_PRESS_FACT12', 'l''applicazione di Plancake funziona anche offline grazie a HTML5, una tecnologia web di ultima generazione  - HTML5 è stato anche usato per la applicazione mobile, quindi non si è reso necessario sviluppare alcuna applicazione nativa per iPhone, iPad e Android', '2012-01-07 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

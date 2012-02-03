@@ -1,0 +1,110 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Hi. Questions? Feedback? Send them to Dan. We love to hear from you.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG';
+UPDATE `pc_translation` SET `string` = 'Domande o idee? Non aspettiamo altro: inviale ad Andrea.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG';
+
+UPDATE  `pc_translation` SET  `string` =  'Access anywhere' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP2_TITLE';
+UPDATE  `pc_translation` SET  `string` =  'Accedi ovunque' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP2_TITLE';
+
+UPDATE `pc_translation` SET `string` = 'You can
+quickly jot down tasks or ideas in your Inbox (e.g.: during a phone call or before leaving your house in a rush) and come back later to them to better organize them into your other lists or get them done straightaway. <br />
+It is also used by some Plancake services (Android app, Google Calendar, Email-to-Inbox).' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+UPDATE `pc_translation` SET `string` = 'Puoi aggiungere attività o idee velocemente nella tua Inbox (per esempio durante una telefonata o prima di uscire di case in fretta) e riguardarle in seguito per organizzarle meglio nelle altre liste o portarle a termine immediatamente. <br />
+E'' usata da alcuni servizi di Plancake per "recapitare" attività (applicazione Mobile, Google Calendar, Email-2-Inbox) ma ' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+UPDATE `pc_translation` SET `string` = 'You can
+quickly jot down tasks or ideas in your Inbox (e.g.: during a phone call or before leaving your house in a rush) and come back later to them to better organize them into your other lists or get them done straightaway. <br />
+Your Inbox is also used by some Plancake services (Android app, Google Calendar, Email-to-Inbox).' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+UPDATE `pc_translation` SET `string` = 'Puoi inserire attività o idee velocemente nella tua Inbox (per esempio durante una telefonata o prima di uscire di case di fretta) e riguardarle in seguito per organizzarle meglio nelle altre liste o portarle a termine immediatamente. <br />
+La list Inbox è anche usata da alcuni servizi di Plancake per "recapitare" attività (applicazione Mobile, Google Calendar, Email-2-Inbox).' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+UPDATE `pc_translation` SET `string` = 'You can append some shortcuts to the task description to quickly add information to the task.
+<p>
+A task description shortcut can be used with:
+<ul>
+    <li>due date expressions (e.g.: <em>%%in 2 days</em>, <em>%%tod</em> for today, <em>%%tom</em> for tomorrow, <em>%%tue</em> for next Tuesday)</li>
+    <li>your tags (i.e.: %%money)</li>
+    <li>due time expressions (i.e.: @12)</li>
+    <li>the word <em>%%inbox</em> (to add the task directly to your Inbox)</li>
+    <li>the word <em>%%todo</em> (to add the task directly to your Default list)</li>
+</ul>
+</p>
+<p>
+Here are some examples:
+<ul>
+    <li>buy a laptop %%todo</li>
+    <li>pay Morgan %%next monday %%money @21</li>
+    <li>meet Jason at the pub after work %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+UPDATE `pc_translation` SET `string` = 'Puoi usare alcune scorciatoie alla fine della descrizione dell''attività per aggiungere velocemente informazioni a essa.
+<p>
+Una scorciatoia per la descrizione dell''attività può essere usata con:
+<ul>
+    <li>espressioni di data (e.g.: <em>%%in 2 days</em>, <em>%%tod</em> per today, <em>%%tom</em> per tomorrow, <em>%%tue</em> per il prossimo Tuesday)</li>
+    <li>le tue etichette (per esempio: %%soldi)</li>
+    <li>espressioni di tempo (per esempio: @12)</li>
+    <li>la parola <em>%%inbox</em> (per aggiungere l''attività direttamente nella Inbox)</li>
+    <li>la parola <em>%%todo</em> (per aggiungere l''attività direttamente nella lista di default)</li>
+</ul>
+</p>
+<p>
+Ecco alcuni esempi:
+<ul>
+    <li>comprare un portatile %%todo</li>
+    <li>pagare Michele %%next monday %%money @21</li>
+    <li>incontrare Gianna al pub dopo il lavoro %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+UPDATE `pc_translation` SET `string` = 'You can append some shortcuts to the task description to quickly add information to the task.
+<p>
+A task description shortcut can be used with:
+<ul>
+<li>due date expressions (e.g.: <b>%%in 2 days</b>, <b>%%tod</b> for today, <b>%%tom</b> for tomorrow, <b>%%tue</b> for next Tuesday)</li>
+<li>your tags (i.e.: <b>%%business</b>)</li>
+<li>due time expressions (i.e.: <b>@12</b>)</li>
+<li>the word <b>%%inbox</b> (to add the task directly to your Inbox)</li>
+<li>the word <b>%%todo</b> (to add the task directly to your Default list)</li>
+</ul>
+</p>
+<p>
+Here are some examples:
+<ul>
+<li>buy a laptop %%todo</li>
+<li>pay Morgan %%next monday %%money @21</li>
+<li>meet Jason at the pub after work %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+UPDATE `pc_translation` SET `string` = 'Puoi usare alcune scorciatoie alla fine della descrizione dell''attività per aggiungere velocemente informazioni a essa.
+<p>
+Una scorciatoia per la descrizione dell''attività può essere usata con:
+<ul>
+    <li>espressioni di data (e.g.: <b>%%in 2 days</b>, <b>%%tod</b> per today, <b>%%tom</b> per tomorrow, <b>%%tue</b> per il prossimo Tuesday)</li>
+    <li>le tue etichette (per esempio: <b>%%business</b>)</li>
+    <li>espressioni di tempo (per esempio: <b>@12</b>)</li>
+    <li>la parola <b>%%inbox</b> (per aggiungere l''attività direttamente nella Inbox)</li>
+    <li>la parola <b>%%todo</b> (per aggiungere l''attività direttamente nella lista di default)</li>
+</ul>
+</p>
+<p>
+Ecco alcuni esempi:
+<ul>
+    <li>comprare un portatile %%todo</li>
+    <li>pagare Michele %%next monday %%money @21</li>
+    <li>incontrare Gianna al pub dopo il lavoro %%tom @11.15pm</li>
+</ul>
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_HINT_TASK_DESCRIPTION_SHORTCUTS';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

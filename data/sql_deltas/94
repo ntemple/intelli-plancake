@@ -1,0 +1,5 @@
+ALTER TABLE `pc_task` ADD `from_auto` tinyint(1) NOT NULL AFTER `is_header`;
+
+@@@UNDO@@@
+
+ALTER TABLE `pc_task` DROP `from_auto`;

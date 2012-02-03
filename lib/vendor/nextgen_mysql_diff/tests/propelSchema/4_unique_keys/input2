@@ -1,0 +1,324 @@
+
+# This is a fix for InnoDB in MySQL >= 4.1.x
+# It "suspends judgement" for fkey relationships until are tables are set.
+SET FOREIGN_KEY_CHECKS = 0;
+
+#-----------------------------------------------------------------------------
+#-- pc_user
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_user`;
+
+
+CREATE TABLE `pc_user`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(25)  NOT NULL,
+	`email` VARCHAR(80)  NOT NULL,
+	`encrypted_password` VARCHAR(40)  NOT NULL,
+	`salt` VARCHAR(12)  NOT NULL COMMENT 'for strengthening of password',
+	`date_format` TINYINT(2) UNSIGNED default 0 COMMENT '0->Y-m-d, 3->d-m-Y, 4->m-d-Y',
+	`timezone_id` TINYINT UNSIGNED,
+	`dst_active` TINYINT(1) default 0,
+	`api_key` VARCHAR(32),
+	`rememberme_key` VARCHAR(32),
+	`awaiting_activation` TINYINT(1) default 1,
+	`newsletter` TINYINT(1) default 0,
+	`forum_id` INTEGER UNSIGNED COMMENT 'it\'s the corresponding id in the forum_users table',
+	`last_login` DATETIME,
+	`language` VARCHAR(8) default '' COMMENT 'comes from the user agent accept language',
+	`ip_address` VARCHAR(15) default '',
+	`max_lists_sort_order` SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all his/her lists',
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_user_U_1` (`email`),
+	KEY `pc_user_I_1`(`forum_id`),
+	INDEX `pc_user_FI_1` (`timezone_id`),
+	CONSTRAINT `pc_user_FK_1`
+		FOREIGN KEY (`timezone_id`)
+		REFERENCES `pc_timezone` (`id`)
+                ON UPDATE CASCADE
+                ON DELETE CASCADE
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_failed_logins
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_failed_logins`;
+
+
+CREATE TABLE `pc_failed_logins`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`times` TINYINT UNSIGNED  NOT NULL,
+	`updated_at` DATETIME,
+	PRIMARY KEY (`user_id`),
+	CONSTRAINT `pc_failed_logins_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_activation_token
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_activation_token`;
+
+
+CREATE TABLE `pc_activation_token`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`token` VARCHAR(16)  NOT NULL,
+	PRIMARY KEY (`user_id`),
+	UNIQUE KEY `pc_activation_token_U_1` (`token`),
+	CONSTRAINT `pc_activation_token_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_counter
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_counter`;
+
+
+CREATE TABLE `pc_counter`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(31),
+	`value` INTEGER UNSIGNED,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_password_reset_token
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_password_reset_token`;
+
+
+CREATE TABLE `pc_password_reset_token`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`token` VARCHAR(16)  NOT NULL,
+	PRIMARY KEY (`user_id`),
+	UNIQUE KEY `pc_password_reset_token_U_1` (`token`),
+	CONSTRAINT `pc_password_reset_token_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_plancake_email_address
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_plancake_email_address`;
+
+
+CREATE TABLE `pc_plancake_email_address`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`email` VARCHAR(63)  NOT NULL COMMENT 'the domain @plancake.com is omitted',
+	PRIMARY KEY (`user_id`),
+	UNIQUE KEY `pc_plancake_email_address_U_1` (`email`),
+	KEY `pc_plancake_email_address_I_1`(`email`),
+	CONSTRAINT `pc_plancake_email_address_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_list
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_list`;
+
+
+CREATE TABLE `pc_list`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`creator_id` INTEGER UNSIGNED  NOT NULL,
+	`title` VARCHAR(255)  NOT NULL,
+	`sort_order` SMALLINT UNSIGNED default 0,
+	`is_header` TINYINT(1) default 0,
+	`is_inbox` TINYINT(1) default 0 NOT NULL,
+	`is_todo` TINYINT(1) default 0 NOT NULL,
+	`max_tasks_sort_order` SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all its tasks',
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_list_U_1` (`title`),
+	UNIQUE KEY `pc_list_U_2` (`is_todo`),
+	KEY `pc_list_I_1`(`creator_id`, `sort_order`),
+	CONSTRAINT `pc_list_FK_1`
+		FOREIGN KEY (`creator_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_task
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_task`;
+
+
+CREATE TABLE `pc_task`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`list_id` INTEGER UNSIGNED  NOT NULL,
+	`description` VARCHAR(255)  NOT NULL,
+	`sort_order` SMALLINT UNSIGNED default 0,
+	`due_date` DATE,
+	`repetition_id` TINYINT UNSIGNED,
+	`repetition_param` TINYINT UNSIGNED default 0,
+	`is_completed` TINYINT(1) default 0 NOT NULL,
+	`is_header` TINYINT(1) default 0,
+	`note` TEXT default '',
+	`contexts` VARCHAR(31) default '' COMMENT 'it is a comma separated list',
+	`completed_at` DATETIME,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`),
+	KEY `pc_task_I_1`(`list_id`, `is_completed`, `due_date`, `sort_order`),
+	CONSTRAINT `pc_task_FK_1`
+		FOREIGN KEY (`list_id`)
+		REFERENCES `pc_list` (`id`),
+	INDEX `pc_task_FI_2` (`repetition_id`),
+	CONSTRAINT `pc_task_FK_2`
+		FOREIGN KEY (`repetition_id`)
+		REFERENCES `pc_repetition` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_timezone
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_timezone`;
+
+
+CREATE TABLE `pc_timezone`
+(
+	`id` TINYINT UNSIGNED  NOT NULL,
+	`label` VARCHAR(8)  NOT NULL COMMENT 'the second part of the label says whether those countries observe DST at all',
+	`description` VARCHAR(127)  NOT NULL,
+	`offset` SMALLINT SIGNED default 0 COMMENT 'in minutes from UTC',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_timezone_U_1` (`label`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_users_lists
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_users_lists`;
+
+
+CREATE TABLE `pc_users_lists`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`list_id` INTEGER UNSIGNED  NOT NULL,
+	PRIMARY KEY (`user_id`,`list_id`),
+	CONSTRAINT `pc_users_lists_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`),
+	INDEX `pc_users_lists_FI_2` (`list_id`),
+	CONSTRAINT `pc_users_lists_FK_2`
+		FOREIGN KEY (`list_id`)
+		REFERENCES `pc_list` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_session
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_session`;
+
+
+CREATE TABLE `pc_session`
+(
+	`id` VARCHAR(64)  NOT NULL,
+	`data` TEXT,
+	`time` INTEGER UNSIGNED,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_watchdog
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_watchdog`;
+
+
+CREATE TABLE `pc_watchdog`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`type` VARCHAR(16)  NOT NULL,
+	`description` TEXT,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_email_change_history
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_email_change_history`;
+
+
+CREATE TABLE `pc_email_change_history`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`old_email` VARCHAR(80)  NOT NULL,
+	`new_email` VARCHAR(80)  NOT NULL,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`,`user_id`),
+	INDEX `pc_email_change_history_FI_1` (`user_id`),
+	CONSTRAINT `pc_email_change_history_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_users_contexts
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_users_contexts`;
+
+
+CREATE TABLE `pc_users_contexts`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`context` VARCHAR(31)  NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `pc_users_contexts_FI_1` (`user_id`),
+	CONSTRAINT `pc_users_contexts_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_repetition
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_repetition`;
+
+
+CREATE TABLE `pc_repetition`
+(
+	`id` TINYINT UNSIGNED  NOT NULL,
+	`human_expression` VARCHAR(63)  NOT NULL,
+	`computer_expression` VARCHAR(63)  NOT NULL COMMENT 'a PHP strtostring compatible expression',
+	`needs_param` TINYINT(1) default 0 COMMENT 'whether the expression needs a numerical parameter',
+	`is_param_cardinal` TINYINT(1) default 0,
+	`min_param` TINYINT UNSIGNED default 0,
+	`max_param` TINYINT UNSIGNED default 0,
+	`sort_order` TINYINT UNSIGNED default 0,
+	`has_divider_below` TINYINT(1) default 0 COMMENT 'says whether to add a divider below in a combo box',
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_repetition_U_1` (`computer_expression`)
+)Type=InnoDB;
+
+# This restores the fkey checks, after having unset them earlier
+SET FOREIGN_KEY_CHECKS = 1;

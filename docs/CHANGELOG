@@ -1,0 +1,706 @@
+=== Version 2.3.18 ===
+_ fixed a bug with the PcTask::delete method
+_ fixed problem with GCal
+
+=== Version 2.3.17 ===
+_ fixed a problem with the API to make the userKey have effect
+_ fixed a bug with the PlancakeEmailParser: not parsing Mac OSX newline character correctly
+_ add the Spanish language
+_ minor change to the Settings page
+_ added backend modules
+_ made the Google Calendar Integration more robust
+
+=== Version 2.3.16 ===
+_ fixed a bug with the Google Calendar integration
+_ users can generate their user key for API
+_ make the API work also with JSONP [this doesn't affect the downloadable package]
+_ changed the license for the PlancakeEmailParser [this doesn't affect the downloadable package much]
+
+=== Version 2.3.15 ===
+_ RSS blog posts shows links at the bottom
+_ we can archive strings
+_ import limited to once every 24 hours
+_ prices showed also on the public part
+_ improved subscription page
+_ added the section for them to contribute
+_ finalized the open-source page
+
+=== Version 2.3.14 ===
+_ some improvements
+_ Google Calendar available to everyone
+
+=== Version 2.3.13 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.12 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.11 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.10 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.9 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.8 ===
+_ fixed some bugs with the deploy
+
+=== Version 2.3.7 ===
+_ Open Source release
+
+=== Version 2.3.6 ===
+_ Open Source release (first stage)
+
+=== Version 2.3.5 ===
+_ localised the footer
+_ improved homepage
+_ fixed a problem with the Email Parser
+_ done landing page for Plancake Team
+
+=== Version 2.3.4 ===
+_ done draft for opensource page
+_ new footer
+
+=== Version 2.3.3 ===
+_ some improvements to the GCal integration
+
+=== Version 2.3.2 ===
+_ some improvements to the GCal integration
+
+=== Version 2.3.1 ===
+_ some improvements to the GCal integration
+
+=== Version 2.3.0 ===
+_ done GCal integration
+
+=== Version 2.2.69 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.68 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.67 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.66 ===
+_ added some screenshots for japanese
+_ fixed a problem with the translation system
+_ improvements to the import functionality
+
+=== Version 2.2.65 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.64 ===
+_ some improvements to the GCal integration
+_ fixed a bug with the translation system
+
+=== Version 2.2.63 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.62 ===
+_ some improvements to the GCal integration
+
+=== Version 2.2.61 ===
+_ new version of Zend GData
+
+=== Version 2.2.60 ===
+_ export/backup
+_ import
+
+=== Version 2.2.59 ===
+_ fixed problem with footer
+
+=== Version 2.2.58 ===
+_ fixed a bug in JS
+
+=== Version 2.2.57 ===
+_ blog improvements
+
+=== Version 2.2.56 ===
+_ fixed a problem with the subscription to blog categories
+
+=== Version 2.2.55 ===
+_ improved the blog
+_ fixed problem with culture
+
+=== Version 2.2.54 ===
+_ fixed a bug with the cache
+
+=== Version 2.2.53 ===
+_ better blog
+_ fixed some Italian bugs
+
+=== Version 2.2.52 ===
+_ done all legal documents
+
+=== Version 2.2.51 ===
+_ fixed some bugs
+
+=== Version 2.2.50 ===
+_ Fixed some bugs in the Italian version
+_ launched Italian version
+
+=== Version 2.2.49 ===
+_ banner in the Settings page is lower
+_ fixed some bugs in the Italian version
+_ improved terms and conditions
+_ translated screenshot and tutorial to Italian
+
+=== Version 2.2.48 ===
+_ added some more files in the repo
+_ 'New task' button is visible on the overview page
+
+
+=== Version 2.2.47 ===
+_ system to keep track of articles
+_ Facebook like button in the account
+
+
+=== Version 2.2.46 ===
+_ some fixes for the Italian version
+_ more logos
+
+=== Version 2.2.45 ===
+_ launched contacts
+
+=== Version 2.2.44 ===
+_ changes settings banner
+_ added repetition tooltip
+_ added tooltip also for icon buttons
+_ the 'New task' button has been moved
+_ when creating a new task, the system detects and autopopulate accordingly on Today, Starred and tags
+_ new animation on completition
+
+=== Version 2.2.43 ===
+_ changes to API to break back-compatibility
+
+=== Version 2.2.42 ===
+_ More strings to translate
+
+=== Version 2.2.41 ===
+_ fixed a bug in the GCal integration
+_ API version 3
+
+=== Version 2.2.40 ===
+_ fixed a bug in the GCal integration
+
+=== Version 2.2.39 ===
+_ some GCal improvements
+
+=== Version 2.2.38 ===
+_ some GCal improvements
+
+=== Version 2.2.37 ===
+_ some GCal improvements
+
+=== Version 2.2.36 ===
+_ some GCal improvements
+
+=== Version 2.2.35 ===
+_ some GCal fixes
+
+=== Version 2.2.34 ===
+_ some bug fixes
+
+=== Version 2.2.33 ===
+_ some more translation
+
+=== Version 2.2.32 ===
+_ fixed some bugs with the cache
+
+=== Version 2.2.31 ===
+_ now memcached is working for translation system
+
+=== Version 2.2.30 ===
+_ fixed some bugs
+_ some improvements
+
+=== Version 2.2.29 ===
+_ new translation strings
+
+=== Version 2.2.28 ===
+_ improvements to translation system
+
+=== Version 2.2.27 ===
+_ developed the language system
+
+
+=== Version 2.2.26 ===
+_ fixed some bugs in the Google Calendar Integration
+_ system to translate quotes to Italian
+_ updated team page
+_ fixed a bug deleting tasks
+_ improved the browser tab
+
+=== Version 2.2.25 ===
+_ fixed some bugs in the Google Calendar Integration
+
+=== Version 2.2.24 ===
+_ fixed some bugs in the Google Calendar Integration
+
+=== Version 2.2.23 ===
+_ improved the guide
+_ more Google Calendar Integration
+_ new 'add task' form
+
+=== Version 2.2.22 ===
+_ fixed some bugs to repetitive tasks
+
+=== Version 2.2.21 ===
+_ some Calendar improvements
+_ improved the 'recurrent tasks' system
+_ fixed a bug when resetting due time
+_ removed 'dragging detection'
+
+=== Version 2.2.20 ===
+_ some Calendar improvements
+
+=== Version 2.2.19 ===
+_ some layout fixes
+
+=== Version 2.2.18 ===
+_ some Calendar development
+_ improved the addTask controls
+
+=== Version 2.2.17 ===
+_ some Calendar development
+
+=== Version 2.2.16 ===
+_ improved the feedback box
+_ SSL support
+
+=== Version 2.2.15 ===
+_ Fixed some bugs with Google Calendar
+_ fixed some bugs
+
+=== Version 2.2.14 ===
+_ fixed a bug in time shortcut
+
+=== Version 2.2.13 ===
+_ fixed a bug in time shortcut
+
+=== Version 2.2.12 ===
+_ renamed PcTaskPeer::create to PcTaskPeer::createOrEdit
+_ fixed and improved setting a due time
+
+=== Version 2.2.11 ===
+_ improvement to Google Calendar integration
+_ fixed some bugs
+
+
+=== Version 2.2.10 ===
+_ improvement to Google Calendar integration
+_ started the admin area
+
+=== Version 2.2.9 ===
+_ launched the 'All Starred' section
+_ launched the 'Today/Tomorrow' section
+_ 'start reordering' action has been removed
+_ while reordering lists, we block 'Inbox' and 'Todo'
+_ the 'completed tasks' views show also the name of the list the task belongs to
+_ fixed problems with keyboard shortcuts first introduced by the previous release
+
+=== Version 2.2.8 ===
+_ fixed the problem with revision number after deploy
+_ the 'New Task' button is always visible, no matter how much you scroll down the page
+_ fixed a bug: it wasn't possible to delete tasks on development
+_ moved the Facebook block away from the account
+_ changed slogan (we think the new one is more meaningful)
+_ refactoring of the footer
+_ we have renamed 'Calendar' to 'All scheduled' (I am sure you will agree that is more appropriate)
+_ improved the usability of the API documentation
+_ improved look and social widget on the blog
+_ added social widgets to most public pages
+_ started Italian support from the Forum and tickets
+_ tickets can be either in English or Italian
+_ now you can edit a task also by clicking on its due date or due time
+_ while reordering, the reorder icon is hidden (for lists)
+_ developed system for quote of the day
+_ usability improvement: scheduled tasks are greyed out while reordering
+_ added 'Add Task' button also at the bottom of the form
+_ moved the 'Add task' button
+_ be able to see scheduled tasks on the Todo list on demand
+_ filter by tags is always expanded
+_ delete account option in settings
+_ quick-feedback system
+
+=== Version 2.2.6 ===
+_ upgrade to Symfony 1.4.8
+_ update JQuery and JQuery UI
+_ fixed a bug: the release number wasn't updated after deploy
+_ fixed the automatic payment
+
+=== Version 2.2.5 ===
+_ fixed a bug with the data-model
+
+=== Version 2.2.4 ===
+_ improved the subscription system
+_ fixed impressions for the Paypal thank you page
+
+
+=== Version 2.2.3 ===
+_ updated API documentation about selecting many weekdays at once
+_ best bet for start of the week
+_ best bet for time format
+_ shortcuts for time
+_ refresh list button
+_ improved linkification of links
+_ fixed bug with the introductory tutorial
+_ fixed a bug: it wasn't possible to set midnight as due time
+
+=== Version 2.2.2 ===
+_ changed the Google Analytics code
+_ added ability to choose multiple weekday for task repeat (i.e.: monday, thursday and friday)
+
+
+=== Version 2.2.1 ===
+_ fixed a bug with the API and due_time for getTasks
+_ updated the Java API kit to reflects the new features in 2.2.0
+_ fixed the API documentation
+
+=== Version 2.2.0 ===
+_ changed the Plancake email address domain from plancake.com to plancakebox.com
+_ the last_login timestamp is refreshed also for the API use
+_ improved homepage
+_ moved Calendar at the top of the left column
+_ fixed a bug with the 'g' shortcut for the Calendar
+_ added Google Calendar initialization
+_ fixed a bug: the list action icon disappear 'forever' when you click the 'options' button
+_ improved sfMinifierTask
+_ added support for due time
+_ added ability to choose the first day of the week (Sunday or Monday)
+_ ability to star items
+
+=== Version 2.1.11 ===
+_ usability: detected attempt to sort items in a list
+_ updated the welcome tasks
+_ recorded last_login for a user
+_ removed the route to the 'download' page
+_ fixed a bug: the icon hints weren't displayed in IE
+
+=== Version 2.1.10 ===
+_ changed the location of the OpenId library
+_ changed the location of the nextgen_mysql_diff library
+_ added the the Zend GData library
+
+=== Version 2.1.9 ===
+_ fixed a bug with list order, when deleting a list
+_ new version of the API to fix a problem with order of lists
+
+=== Version 2.1.8 ===
+_ usability improvements
+
+=== Version 2.1.7 ===
+_ removed 'Roadmap' account sidebar block
+_ updated Roadmap
+_ usability improvements
+
+=== Version 2.1.6 ===
+_ improvements to job advs
+_ improvements to homepage
+_ improvements to testimomials block
+
+=== Version 2.1.5 ===
+_ further implementation of Google OpenId
+
+=== Version 2.1.4 ===
+_ started implementation of Google OpenId
+
+=== Version 2.1.3 ===
+_ fixed problem with logo
+
+=== Version 2.1.2 ===
+_ fixed a bug with the delete functionality for notes
+
+=== Version 2.1.1 ===
+_ new version of CKeditor
+_ fixed the bug about CKeditor that is not compressible by yuicompressor
+_ fixed some minor problems
+
+=== Version 2.1.0 ===
+_ restyling of the website
+
+=== Version 2.0.1 ===
+_ improved the Services page
+_ minor changes
+
+=== Version 2.0.0 ===
+_ launched notes section
+
+=== Version 1.9.21 ===
+_ changed some job descriptions
+_ changed the location of the 'Developers' link
+_ removed the 'reorder tasks' link
+_ removed the 'contribute' side block
+_ fixed a bug with the Supporters system
+
+=== Version 1.9.20 ===
+_ launched 'jobs' section
+_ launched subscription system
+
+=== Version 1.9.16 ===
+_ Plancake is not Open-Source anymore
+
+=== Version 1.9.15 ===
+_ fixed some bugs with the 'dirty tasks' functionality
+
+=== Version 1.9.14 ===
+_ fixed a problem with the API: tasks cache wasn't cleared properly
+_ fixed a bug with the whatHasChanged API method
+
+=== Version 1.9.13 ===
+_ Fixed some bugs with the API
+
+=== Version 1.9.12 ===
+_ fixed to the getLists API method to make the sort_order field clearer
+_ fixed the getTasks API method
+_ add the whatHasChanged API method
+_ added some columns to the pc_supporter table
+_ fixed some issues with the Java API kit
+
+=== Version 1.9.11 ===
+_ improved the API:
+__ when requesting a token, you can send additional information
+__ the token being issued carries the information whether the account is a 'supporter account'
+__ added the support for task due_time
+__ before issueing an API key, we check it is unique
+__ before issueing an API token, we check it is unique
+__ the taskId in the Java API kit is now of type long
+__ the 'only_due_today_and_tomorrow' filter return also the overdue tasks
+
+=== Version 1.9.10 ===
+_ updated 'Roadmap' section
+_ improvements to the API client libraries: the token is now accessible
+_ fixed some problem with the Java API kit in the case there weren't deleted items
+
+=== Version 1.9.9 ===
+_ fixed some issues with the API
+_ fixed some issues with the PHP API client
+_ created the Java API client
+_ some improvements to the database schema
+_ added the field task.is_starred to the API for future expansion
+
+=== Version 1.9.8 ===
+_ recurrent tasks are inserted in the history when marked as done
+_ we now accept upper case date expression (good for IPad users)
+
+=== Version 1.9.7 ===
+_ fixed some bugs related to tags
+
+=== Version 1.9.6 ===
+_ fixed bug: tags differing just for case weren't handled properly. Now tags are case-insensitive.
+_ fixed bug: it was possible to add a tag that was already existing
+
+=== Version 1.9.5 ===
+_ added better Facebook Like button to the accounts
+
+=== Version 1.9.4 ===
+_ fixed Facebook Like button
+
+=== Version 1.9.3 ===
+_ added advertisement on the Setting pages
+_ added advertisement on the blog pages
+
+=== Version 1.9.2 ===
+_ added the API (still experimental)
+_ we keep track of the deleted tasks, lists and tags (in order to back the API)
+_ we keep track of when a list, task or tag is last updated (in order to back the API)
+_ fixed a minor bug: when deleting a tag, the references in the tasks table weren't deleted
+_ removed the 'add/edit tags' link while adding a new task
+
+=== Version 1.9.1 ===
+_ fixed a problem with the avatars: if changed, you needed to clear the browser's
+cache for the cache to take effect
+
+=== Version 1.9.0 ===
+_ created blog
+_ added social widgets
+_ users will be able to upload their avatars
+_ improved the detection of a new release available
+_ added 'press' section
+_ added 'roadmap' section
+_ added 'meet the team' section
+_ added 'services' section
+_ improved the 'collaborate' section
+_ improved the 'developers' section
+_ updated sfErrorNotifierPlugin
+_ specify the day of the week for any entry on the Calendar
+_ added a sign up button on the home page
+
+=== Version 1.8.1 ===
+_ included the motto in the logo
+_ increased the number of advertisements displayed
+_ moved the donate button at the buttom of the sidebar
+_ fixed a bug: it wasn't possible to cancel the sorting mode before starting sorting
+_ fixed a bug: long task descriptions were cut without a clear feedback on the user interface
+_ fixed a bug: advertisements were interfering with the introductory video
+_ made the code more robust to avoid the same bug as above for lists and contexts
+_ disabled the autocomplete for task description textfields
+
+
+
+=== Version 1.8.0 ===
+_ fixed a bug first introduced by the previous release: the 'printer-friendly version' button wasn't
+working for the completed tasks (thanks to joellorcaabrigo for bug reporting)
+
+=== Version 1.7.9 ===
+_ tidied up the account sidebar by introducing some buttons. This change will also create some room for displaying advertisements
+_ created an introductory 90-second video. That will be shown to every new user and
+it will be always available by clicking one of the new buttons on the account sidebar
+_ new users will get some tasks in their inbox to help them start with Plancake
+
+
+=== Version 1.7.8 ===
+_ fixed a bug - removing tag keeps task in former tag while filtering by tag
+_ improved the logo (there were some cross-browser issues)
+
+=== Version 1.7.7 ===
+_ fixed a bug introduced by the previous release while typing foreign languages
+
+=== Version 1.7.6 ===
+_ some improvements to the sfErrorNotifierPlugin
+_ fixed a bug about different URL encryption/decryption between Javascript and PHP during AJAX calls
+_ minor improvement to the date setting code
+
+=== Version 1.7.5 ===
+_ fixed a bug - in some particoular situations, the details of a task were used for the following task inserted
+_ some improvements to the sfErrorNotifierPlugin
+_ some code clean up
+
+=== Version 1.7.4 ===
+_ improvement of the task shortcuts
+_ you can also use %%inbox and %%todo as task shortcuts
+_ contexts are now called tags
+_ installed the version 1.5 of the sfErrorNotifierPlugin
+_ added an help button next to the text field where you write the task description
+_ fixed a usability bug: the help links across the web interface weren't reacting to clicks
+_ fixed a usability issue: Incorrect syntax in the task entry box causes the text to be cleared (thanks to nskyers)
+_ fixed a bug: the setDueDate method was accepting date shortcuts such as 'in 1 mondddth', setting a wrong due date - we have added a filter
+_ fixed a bug: the JS function addEditTaskCallback was called twice while adding a task from the calendar
+
+
+=== Version 1.7.2 ===
+_ changed the way we parse the body of an email to create a note for a task
+_ made the generation of the plancake inbox more robust against spammers
+_ added 'printer friendly version' for completed tasks
+_ on the login form, the remember me box is not ticked by default (thanks to Nathan)
+_ fixed a bug: sorting items, new arrangement confirmed when I press cancel (thanks to nskyers)
+_ fixed a bug: killed the foreign key constraint error on the tasks_contexts table that was shown without any apparent logic
+_ fixed a bug: when editing the list name, the tasks in that list keep the old list name in their description (thanks to joellorcaabrigo)
+_ fix problem with flashy notes (thanks to Nathan)
+
+=== Version 1.7.1 ===
+_ fixed a bug introduced by revision 370 - editing a task was resetting the contexts
+_ improved the look of the donate button on the right-hand side of the user account
+_ usability improvement - in the Calendar, tasks due on the same date are ordered by list
+_ fixed a bug: the task repetition functionality wasn't working properly with some timezone
+_ fixed a bug: some keyboard shortcuts which make use of the CTRL key were clashing with some regular keyboard operations (thanks to nskyers)
+_ added new extension to the forum to handle attachments
+
+=== Version 1.7.0 ===
+_ added the opportunity to filter by two contexts: first by 'global context' and then by 'page context'
+_ made the two context filters ('general' and 'page') more similar
+_ fixed an annoying issue with contexts: while adding a new task, clicking on the context label wasn't enough to select the context  (thanks to axin)
+_ added a missing step in the installation document for users installing from the trunk
+_ fixed a compatibility issue with MySQL 5.5
+_ improved a message to the user (from 'Send this order' to 'Use this order')
+
+=== Version 1.6.9 ===
+_ improved robustness of the email-to-inbox component: we parse each email in a new process so that
+if a fatal error stops the parsing of an email, the others get parsed anyway
+_ fixed some bugs in the deployment script
+
+=== Version 1.6.8 ===
+_ made the email-to-inbox component more robust
+_ fixed bug on IE7 that wasn't allowing users to see completed tasks
+_ fixed bug on IE7 that was causing the interface to behave strangely after creating a new list
+
+=== Version 1.6.7 ===
+_ re-engineered the filter by context: now you are able to filter all the lists
+_ HTML code in the description or note of the task will be correctly rendered
+_ improved the robustness of the email-to-Inbox component
+_ bug fix: made the 'delete completed tasks' link work again
+_ bug fix: fixed a bug with the Inbox counter when putting back a task as to be done
+
+=== Version 1.6.6 ===
+_ added the donation section
+
+=== Version 1.6.5 ===
+_ fixed a bug in the package to download (http://www.plancake.com/forums/topic/56/installation-error/)
+_ added the Plancake products section
+
+=== Version 1.6.4 ===
+_ fixed a problem in the package to download: the plancake version file was missing
+
+=== Version 1.6.3 ===
+_ email-to-inbox: bug fix - the subject of the email was truncated to the first line
+_ email-to-inbox: now you can specify the Plancake email address among several
+recipients, including also CC field
+_ email-to-inbox: now you can use the body of the email to add a note
+_ bug fix - when trying to add a note below an existing one, pressing 'r' triggers
+the reorder mode
+
+=== Version 1.6.1 ===
+_ Linkify for tasks
+_ Add an easy way to broadcast tasks to go to all the inboxes
+_ The email generated from the 'contact' form contains also the reason for the contact
+_ Add the 'updates-discovery' feature for Plancake installations
+
+=== Version 1.6.0 ===
+_ Fixed a major bug with the email-to-inbox component
+_ Eased the debug of the email-to-inbox component
+_ The installation has been made easier
+
+=== Version 1.5.2 ===
+_ Changed the key combinations for triggering the keyboard shortcuts. The use of
+the CTRL button wasn't a good idea because it is used by the browser and
+to type foreign characters.
+_ Fixed a bug - the link to the list in the task description was broken
+_ Fixed a problem with the email-to-task component - the parsing of the email
+wasn't very robust
+_ Improved the error notification for the email-to-task component
+_ Fixed a problem with the remember-me feature
+_ Fixed a problem with the filter by context
+_ Minor fixes
+
+
+=== Version 1.5.1 ===
+_ fixed the broken links in the account-overview page
+_ fixed some problems with the installation in the case you aren't run neither
+the forum or SVN
+
+=== Version 1.5.0 ===
+_ it is possible to set recurrent tasks (ie. every week, every first day of the month, every first Thursday of the month)
+_ keyboard shortcuts
+_ it is possible to add tasks via email (the email address will contain the username)
+_ new 'Print list' functionality
+_ it is possible to act on the completed tasks
+
+=== Version 1.3.0 ===
+_ Created the Inbox list
+_ Created the Todo list
+_ Created a Calendar
+_ Introduction of Contexts
+_ Improved the overview page
+
+=== Version 1.1.0 ===
+_ Improved the usability of the registration form with some label tags.
+_ BUG: on the overview page, the task counters weren't restricted to the logged in user
+_ Re-design the lists navigation
+_ Re-design the actions for lists (add/edit, delete, add)
+_ Introduced the right column in the layour
+_ Introduced a top navigation
+_ Better feedback messages for the user
+_ BUG: the activation email had a typo in the subject
+_ user able to edit their password and email address
+_ user able to their your timezone and date format
+_ added the live clock
+_ re-engineered the DateFormat class
+_ you can add a note to a task
+_ you can move a task to a different list
+_ you can set headers also among tasks
+
+
+

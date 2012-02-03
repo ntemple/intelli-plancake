@@ -1,0 +1,9 @@
+all:
+  http_metas:
+    content-type: text/html
+
+  stylesheets:    [-*]
+  javascript:    [-*]
+
+  has_layout:     false
+

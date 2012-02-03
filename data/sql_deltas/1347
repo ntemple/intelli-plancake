@@ -1,0 +1,28 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_quote_of_the_day` ADD `is_tip` tinyint(1) DEFAULT '0' COMMENT '0->proper quote, 1->tip from team' AFTER `quote_author`;
+
+CREATE TABLE IF NOT EXISTS `pc_google_calendar_session_token` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `token` varchar(64) NOT NULL DEFAULT '',
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_google_calendar_session_token_FI_1` (`user_id`)
+) ENGINE=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_google_calendar_session_token`;
+ALTER TABLE `pc_quote_of_the_day` DROP `is_tip`;
+
+SET FOREIGN_KEY_CHECKS=1;

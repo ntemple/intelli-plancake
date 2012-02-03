@@ -1,0 +1,18 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('WEBSITE_FOOTER_OPEN_SOURCE_LINK', '8', '220', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_FOOTER_OPEN_SOURCE_LINK', 'Open Source', NULL), ('it', 'WEBSITE_FOOTER_OPEN_SOURCE_LINK', 'Open Source', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

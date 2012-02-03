@@ -1,0 +1,251 @@
+Plancake Installation
+=====================
+
+This software is meant to be installed on a Web Server (not on a desktop computer).
+For more info: http://www.plancake.com
+
+System Requirements
+-------------------
+_ SSL access to the server
+_ MySQL database 4.0 or later with InnoDB Storage Engine
+_ Apache with mod_rewrite enabled
+_ PHP 5.2.4 or later
+_ permission to set Apache Virtual hosts on the server
+
+
+About the Software
+-----------------
+This is a PHP/MySQL application developed using the PHP framework Symfony (http://www.symfony-project.org/).
+Despite of that, you don't need to know Symfony in order to install and use Plancake.
+
+
+Installation
+------------
+We will assume you want to install Plancake in the directory /var/www/myplancake and
+set up this domain for it: http://plancake.mywebsite.com
+
+1 - Create an empty database using InnoDB as storage engine and utf8_general_ci as collation
+
+1.5 - Make sure the collation of the database is utf8_general_ci
+
+2 - Download Plancake and extract it (probably you have already done that).
+
+3 - Copy all the files and directories inside the 'plancake' directory you have just extracted to /var/www/myplancake
+
+4 - Make sure you have ownership on the directories and files in /var/www/myplancake (use the 'chown -R' command)
+
+5 - Run:  chmod +x /var/www/myplancake/symfony
+
+6 - From the directory /var/www/myplancake, run:
+./symfony configure
+That will ask you some questions in order to setup Plancake correctly
+
+7 - From the directory /var/www/myplancake, run:
+./symfony install
+That will create all the tables in the database.
+
+8 - From the directory /var/www/myplancake, run:
+./symfony create-user [email_address] [password]
+i.e.: ./symfony create-user me@mywebsite.com 45rerTo3
+
+That will create the first user.
+You can run this create-user command anytime you want to add a new user.
+The user can also reset their password from the 'Settings' page on their Plancake account
+
+9 - Now you just need to set the Apache Virtual Host to something like this (note the Documentroot ends with 'web'):
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        ServerName http://plancake.mywebsite.com
+
+        DocumentRoot /var/www/myplancake/web
+        DirectoryIndex index.php
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+
+        <Directory "/var/www/myplancake/web">
+                AllowOverride All
+                Allow from All
+        </Directory>
+
+        AddDefaultCharset UTF-8
+
+        ErrorLog /var/log/apache2/plancake-error.log
+        CustomLog /var/log/apache2/plancake-access.log combined
+</VirtualHost>
+
+10 - Reload Apache
+
+Congratulation! You are ready to go. Visit http://plancake.mywebsite.com and login
+
+We would like this installation to be simpler, a-la-Wordpress: you upload all
+the files in a directory and launch a web installer, without having to fiddle
+with the Apache config file.
+If you would like to contribute some of your time on this improvement, please contact me:
+dan@plancake.com
+
+
+Troubleshooting
+---------------
+Have you got problems? Double check the permissions of the files. Is mod_rewrite enabled in Apache?
+To get support, feel free to use our Forum: http://www.plancake.com/forums/index.php
+
+
+Setup of the email-to-inbox component
+-------------------------------------
+So far you have installed the Plancake web application - you can add/edit tasks/lists
+via your Web browser.
+
+This set up is quite difficult because involves changing the configuration of Postfix.
+Please contact me if you would like to contribute some of your time to make this feature
+work using POP3 or IMAP protocol:
+dan@plancake.com
+
+You may also want to set up the gorgeous :-) email-to-inbox component
+on your server.
+That will allow you to add tasks to your Inbox via emails sent to your Plancake email address.
+Now the bad news: it will not be easy at all. But for any problem, you can ask
+help on the forum.
+
+To find out what your Plancake email address is, just go to the 'Settings' area of your account.
+It will be something like:
+inbox_xxxxxxx_5434@plancake.mywebsite.com
+The important part is what comes before the '@' sign. In fact, the domain is not that important, as
+it will depend on your Postfix configuration.
+At the end of these configuration steps, you will be able to send emails to
+inbox_xxxxxxx_5434@domain_you_set_up_on_postfix.
+
+The only Plancake file you need to edit is config/app.yml. Search for 'emailToInbox' in that
+file and edit the three values that come straight after.
+The rest is Postfix and cron configuration. That requires good system administrator skills.
+
+For the email-to-inbox feature we are not using any POP3 server. Instead, we are reading
+the incoming emails locally on the filesystem of the server (as they are regular files).
+To achieve that, we are using Postfix as SMTP server using the Maildir format
+(that basically means storing each email in a different file).
+
+All the steps to replicate our setup are as follows.
+We will assume you have edited your app.yml as follows:
+
+inboxUser: catchall
+incomingEmailsDirectory: /var/spool/mail/catchall
+mailServerDomain: mywebsite.com
+
+and that you are installing Postfix from scratch on a RedHat machine with IP 1.2.3.4
+
+1 _ setup this DNS record to be able to receive the emails to your domain
+MX 10 mywebsite.com
+
+2 _ make sure the hostname of the server is something like
+server.mywebsite.com
+
+3 _ make sure in /etc/hosts there is something like this
+127.0.0.1  server.mywebsite.com server localhost localhost.localdomain
+
+4 _ uninstall sendmail (that should be installed as default MTA)
+/etc/init.d/sendmail stop
+yum remove sendmail
+
+5 _ install Postfix
+yum install postfix
+
+6 _ edit /etc/postfix/main.cf:
+myhostname = server.mywebsite.com
+mydomain = mywebsite.com
+myorigin = mywebsite.com
+inet_interfaces = all
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+mail_spool_directory = /var/spool/mail/
+
+7 _ In /etc/postfix/main.cf add
+luser_relay = catchall
+local_recipient_maps =
+
+8 _ create a local catchall user
+/usr/sbin/useradd -g users -s /bin/bash catchall
+
+9 _ set a password for it
+passwd catchall
+
+10 _ add the catchall user to the apache group
+/usr/sbin/usermod -Gapache catchall
+
+11 _ rm /var/spool/mail/catchall
+
+12 _ mkdir -p /var/spool/mail/catchall/cur
+
+13 _ mkdir /var/spool/mail/catchall/new
+
+14 _ mkdir /var/spool/mail/catchall/tmp
+
+15 _ chown -R catchall.mail /var/spool/mail/catchall/
+
+16 _ chmod -R 770 /var/spool/mail/catchall/
+
+17 _ chown catchall.users /var/spool/mail/catchall/cur/
+
+18 _ chown catchall.users /var/spool/mail/catchall/new
+
+19 _ /etc/init.d/postfix start
+
+20 _ double check the 'emailToInbox' section in config/app.yml reflects your
+Postfix settings
+
+21 _ Add this cronjob (change the path to symfony accordingly to your set up):
+*/3 * * * * catchall /var/www/myplancake/symfony cron:check-email-to-inbox --env=prod
+
+
+
+Troubleshooting the email-to-inbox component
+--------------------------------------------
+Probably you will not get this component to work in the first attempt.
+The causes of the problem can be basically two:
+a) issue with delivering emails to your server (the more likely)
+b) issue with parsing the emails by Plancake
+
+So first of all, you have to make sure the issue is not a).
+_ When you send an email to your Plancake email address (i.e. inbox_myname_4325@plancake.mywebsite.com)
+can you see a new file in the /var/spool/mail/catchall/new directory of the catchall user?
+_ If not, when you send an email directly to your catchall user (i.e. catchall@plancake.mywebsite.com)
+can you see a new file in the /var/spool/mail/catchall/new directory of the catchall user?
+
+If a) is not the problem, then it should be b).
+Try to run
+/var/www/myplancake/symfony cron:check-email-to-inbox --env=prod
+and check the debug output. You can post it on the forum. We will be glad to
+help you.
+
+-----------------------------------------
+
+We love to hear from you ♥. Please, send us any feedback.
+Even if you don't speak English, don't worry, use your native language (we have great confidence in Google Translate :-))
+http://www.plancake.com/contact
+
+Please contact us if you need any commercial support with the installation of any component or if you would like any customization:
+http://www.plancake.com/contact
+
+Please consider contributing with bug fixes or improvements:
+dan@plancake.com
+
+Plancake homepage: http://www.plancake.com
+Support: http://www.plancake.com/forums/forum/13/support-for-developers/
+Subscribe to our blog: http://www.plancake.com/blog
+Follow us on Twitter: http://twitter.com/plancakebakers
+Follow us on Facebook: http://www.facebook.com/plancake
+Donations ♥ : http://www.plancake.com/donate
+
+"Plancake" and "Plancake Team" are trademarks of Daniele Occhipinti.
+(by the way, what about using Plancake Team for team collaboration? team.plancake.com)
+
+Brought to you by Danyuki Software Limited, a startup tech company based in London, UK.
+
+
+
+Happy plancaking!
+
+Daniele Occhipinti
+Director and Founder of Plancake
+email: dan@plancake.com
+skype: dan_plan (I can speak English and Italian)

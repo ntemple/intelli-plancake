@@ -1,0 +1,41 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_string` SET  `sort_order_in_category` =  '500' WHERE  `pc_string`.`id` =  'WEBSITE_CONTACT_US_THANK_YOU_MSG';
+
+INSERT INTO  `pc_string` (
+`id` ,
+`category_id` ,
+`sort_order_in_category` ,
+`max_length` ,
+`note` ,
+`created_at`
+)
+VALUES (
+'WEBSITE_CONTACT_US_COMPANY_INFO',  '19',  '90',  '0', NULL , NULL
+);
+
+
+INSERT INTO  `pc_translation` (
+`language_id` ,
+`string_id` ,
+`string` ,
+`updated_at`
+)
+VALUES (
+'en',  'WEBSITE_CONTACT_US_COMPANY_INFO',  'Plancake.com is run by Danyuki Software Limited, a company incorporated in England and based in London, UK.', NULL
+), (
+'it',  'WEBSITE_CONTACT_US_COMPANY_INFO',  'Plancake.com è gestito da Danyuki Software Limited, un''azienda creata in Inghilterra, con sede a Londra, UK.', NULL
+);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

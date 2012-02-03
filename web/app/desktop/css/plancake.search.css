@@ -1,0 +1,30 @@
+#searchForm {
+    background: url("/app/desktop/img/search_background.png") no-repeat scroll 0 0 #fff;
+    border: 2px solid #ADD1F3;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;      
+    padding: 5px 3px 3px 2px;
+    width: 190px;
+}
+
+#searchQuery {
+    border: medium none;
+    outline: medium none;    
+    width: 145px;
+    margin-left: 20px;
+    padding: 2px;
+    background-color: transparent;
+}
+
+#searchQuery.light {
+    color: #999;    
+}
+
+.searchWarning {
+    text-align: center;
+    padding: 5px 10px;
+    font-style: italic;
+    font-weight: bold;
+    color: #666;
+}

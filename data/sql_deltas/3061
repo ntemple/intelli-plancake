@@ -1,0 +1,49 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Task Manager for your ideas, appointments, todos and commitments. Syncs on PC, Mac, Linux, iPad, iPhone, Android, Blackberry, Symbian and more.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+UPDATE `pc_translation` SET `string` = 'Personal organiser per le tue idee, appuntamenti e cose da fare. Si sincronizza su PC, Mac, Linux, iPad, iPhone, Android, Blackberry e altri.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+
+UPDATE `pc_translation` SET `string` = 'Online Task Manager, GTD, Organiser and Calendar' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+UPDATE `pc_translation` SET `string` = 'Online Personal Organiser, GTD,  Calendario e Agenda' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+UPDATE  `pc_translation` SET  `string` =  '<a href="%s">Check out Plancake features</a> or <a href="%s">Start an easier life with Plancake today</a>' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS';
+UPDATE  `pc_translation` SET  `string` = '<a href="%s">Scopri le funzionalità di Plancake</a> o <a href="%s">Inizia a semplificarti la vita con Plancake da oggi</a>' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Feel free to:
+<ul>
+<li>take and use any screenshot of the application</li>
+<li>use <a href="/images/mascot_big.png">our mascot</a></li>
+<li>use <a href="/images/mascot_and_name_big.png">our logo</a></li>
+<li>use these pictures of Daniele, the Plancake founder: %s</li>
+</ul>
+
+However, the copyright of those will remain with Danyuki Software Limited, owner of Plancake.com. <br />
+Images should not be modified or used without reference to Plancake.com.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Sei libero di:
+<ul>
+<li>catturare e usare immagini dell''applicazione</li>
+<li>usare <a href="/images/mascot_big.png">la nostra mascotte</a></li>
+<li>usare <a href="/images/mascot_and_name_big.png">il nostro logo</a></li>
+<li>usare queste foto di Daniele, il fondatore di Plancake: %s</a> </li>
+</ul> 
+
+Comunque, i diritti d''autore per esse rimarranno di Danyuki Software Limited, proprietaria di Plancake.com. <br />
+Le immagini non devono essere modificate o usate senza fare riferimento a Plancake.com.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,57 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = '<p>
+    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />
+    That''s simply because you can use the mobile/smartphone version also with your desktop/laptop.
+</p>
+
+<p>
+    <img src="/images/offline_use_guide1.png" />
+</p>
+
+<h3>Set up while still online</h3>
+<p>
+    In order to activate the offline support, you need to go to the Mobile version from your laptop or desktop <b>while Internet is available</b>: <br />
+<a href="%s">%s</a>    <b>[you need to be logged in]</b><br />
+After that first time, you can use the Mobile version (at that address) from your laptop or desktop even when the Internet is not available.
+</p>
+
+<p>
+    The first time you reach the Mobile application (and after every time you clear your browser cache), your data
+    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />
+    <b>If you''re using a public or shared computer, don''t allow offline use.</b>    
+</p>
+
+<h3>How to use the offline support when Internet is not available</h3>
+<p>
+If you try to reach Plancake.com while you don''t have an Internet access, the system will redirect you automatically to the Mobile version. <br />
+Otherwise, if the Internet goes down while you are using the Plancake web application, you can switch to the Mobile application by clicking the icon shown below (you need to open up your "My account" navigation first).
+</p>
+
+<p>
+<img src="/images/offline_use_guide2.png" />
+</p>
+  
+<h3>Synchronizing changes</h3>
+<p>
+Changes on the Web application or on the Mobile application are <b>not</b> synchronised automatically - just hit the ''Sync'' button at the bottom of the screen when you are ready to transfer them.
+</p>
+
+<h3>Roadmap</h3>
+<p>In the future, we would like to integrate the offline capability in the main web application itself, so that you don''t need to change URL in order to use it.</p>
+
+<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>
+' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_OFFLINE_USE_BODY1';
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_PLAY_VIDEO', '1', '660', '0', NULL, '0', '2012-02-02 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_PLAY_VIDEO', 'Play video', '2012-02-02 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_PLAY_VIDEO', 'Guarda il video', '2012-02-02 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

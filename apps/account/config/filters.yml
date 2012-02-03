@@ -1,0 +1,19 @@
+rendering: ~
+security: 
+  mpSecurity:
+  class: mpSecurityFilter
+
+secure:
+  class: sfSecureFilter
+
+# insert your own filters here
+sf_custom_auth_rememberme:
+  class: CustomAuthRemembermeFilter
+
+sf_user_culture:
+  class: sfUserCultureFilter
+
+cache:     ~
+common:
+  class: sfCommonFilter
+execution: ~

@@ -1,0 +1,31 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_repetition` ADD `initial_computer_expression` varchar(63) NOT NULL COMMENT 'a PHP strtostring compatible expression' AFTER `computer_expression`;
+
+UPDATE  `pc_repetition` SET `initial_computer_expression`='sunday' WHERE `id`=1;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='monday' WHERE `id`=2;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='tuesday' WHERE `id`=3;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='wednesday' WHERE `id`=4;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='thursday' WHERE `id`=5;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='friday' WHERE `id`=6;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='saturday' WHERE `id`=7;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='today' WHERE `id`=8;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='this weekday' WHERE `id`=9;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='today' WHERE `id`>=10 AND `id`<=16;
+UPDATE  `pc_repetition` SET `initial_computer_expression`=`computer_expression` WHERE `id`>=18;
+UPDATE  `pc_repetition` SET `initial_computer_expression`='' WHERE `id`=34;
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_repetition` DROP `initial_computer_expression`;
+
+SET FOREIGN_KEY_CHECKS=1;

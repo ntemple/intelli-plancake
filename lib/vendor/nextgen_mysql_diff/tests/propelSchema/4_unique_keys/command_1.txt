@@ -1,0 +1,1 @@
+./nextgen-mysql-diff.php --enable-log --logger=FileLogger PropelSchema [INPUT1] PropelSchema [INPUT2] StandardFile [OUTPUT]

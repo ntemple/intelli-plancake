@@ -1,0 +1,44 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('WEBSITE_FOOTER_LEGAL_HEADER', '8', '300', '0', NULL, NULL), ('WEBSITE_FOOTER_COMPANY_HEADER', '8', '310', '0', NULL, NULL), ('WEBSITE_FOOTER_DEVELOPERS_HEADER', '8', '320', '0', NULL, NULL), ('WEBSITE_FOOTER_SUPPORT_HEADER', '8', '330', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_FOOTER_LEGAL_HEADER', 'Legal', NULL), ('en', 'WEBSITE_FOOTER_COMPANY_HEADER', 'Company', NULL), ('en', 'WEBSITE_FOOTER_DEVELOPERS_HEADER', 'Developers', NULL), ('en', 'WEBSITE_FOOTER_SUPPORT_HEADER', 'Support', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_FOOTER_LEGAL_HEADER', 'Legale', NULL), ('it', 'WEBSITE_FOOTER_COMPANY_HEADER', 'L''Azienda', NULL), ('it', 'WEBSITE_FOOTER_DEVELOPERS_HEADER', 'Sviluppatori', NULL), ('it', 'WEBSITE_FOOTER_SUPPORT_HEADER', 'Supporto', NULL);
+
+UPDATE  `pc_translation` SET `string`='Organizza la tua vita privata e professionale & annota tutte le tue idee.' WHERE `string_id`='WEBSITE_HOMEPAGE_MAIN_COPY' AND `language_id`='it';
+UPDATE  `pc_translation` SET `string`='Organize your private and professional life & capture all your ideas.' WHERE `string_id`='WEBSITE_HOMEPAGE_MAIN_COPY' AND `language_id`='en';
+
+UPDATE  `pc_translation` SET `string`='Gratis | Open Source | Online | Supporta GTD | Funzionalità extra per account Pro' WHERE `string_id`='WEBSITE_HOMEPAGE_SECONDARY_COPY' AND `language_id`='it';
+UPDATE  `pc_translation` SET `string`='Free | Open Source | Online | Supports GTD | Extra features for Pro accounts' WHERE `string_id`='WEBSITE_HOMEPAGE_SECONDARY_COPY' AND `language_id`='en';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_SIGN_UP_EMAIL', '1', '500', '0', NULL, NULL), ('WEBSITE_HOMEPAGE_SIGN_UP_PASSWORD', '1', '510', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_SIGN_UP_EMAIL', 'email', NULL), ('it', 'WEBSITE_HOMEPAGE_SIGN_UP_EMAIL', 'email', NULL), ('en', 'WEBSITE_HOMEPAGE_SIGN_UP_PASSWORD', 'password', NULL), ('it', 'WEBSITE_HOMEPAGE_SIGN_UP_PASSWORD', 'password', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_PERSONAL_TITLE', '3', '400', '0', NULL, NULL), ('WEBSITE_SERVICES_HOME_PERSONAL_BODY', '3', '410', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_PERSONAL_TITLE', 'Optimized for individuals', NULL), ('it', 'WEBSITE_SERVICES_HOME_PERSONAL_TITLE', 'Ottimizzato per uso individuale', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_PERSONAL_BODY', 'With Plancake you don\'t need to worry about privacy or sharing settings or people accidentally reading your data because of a misconfiguration. <br /> However, if you need a team collaboration tool, please visit <a href="http://team.plancake.com">Plancake Team</a>.', NULL), ('it', 'WEBSITE_SERVICES_HOME_PERSONAL_BODY', 'Con Plancake non hai bisogno di preoccuparti di impostare condivisioni o limiti di privacy e non corri il rischio che qualcuno legga i tuoi dati perché hai sbagliato un settaggio. <br />Tuttavia, se hai bisogno di un programma per la collaborazione all\'interno di un team, perpiacere visita <a href="http://team.plancake.com">Plancake Team</a>.', NULL);
+
+CREATE TABLE IF NOT EXISTS `pc_team_collab_tool_newsletter` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(64) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

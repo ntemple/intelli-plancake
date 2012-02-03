@@ -1,0 +1,21 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'already registered? Then <a href="%s">log in</a>.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_ALREADY_REGISTERED';
+UPDATE `pc_translation` SET `string` = 'ya estás registrado? Entonces <a href="%s">inicia sesión</a>.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_ALREADY_REGISTERED';
+UPDATE `pc_translation` SET `string` = 'sei già iscritto? Allora <a href="%s">accedi</a>.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_ALREADY_REGISTERED';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+UPDATE  `pc_translation` SET  `string` =  'Free, Online To-do list, Task Manager, Calendar and Organiser' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+UPDATE  `pc_translation` SET  `string` =  'Agenda Organizer, Calendario, Gestione di progetti e attività gratis e online.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

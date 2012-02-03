@@ -1,0 +1,8 @@
+_freshness:
+  enabled:  true
+  lifetime: 300
+
+
+all:
+  with_layout: false   # Default value
+  lifetime:    86400   # Default value

@@ -1,0 +1,13 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'If you need any help, please send an email to Dan at <a href="mailto:%s">%s</a>.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_MOBILE_APP_HELP_CONTACT';
+UPDATE  `pc_translation` SET  `string` =  'Se hai bisogno di qualsiasi aiuto, puoi inviare una email a Daniele <a href="mailto:%s">%s</a>. ' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_MOBILE_APP_HELP_CONTACT';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

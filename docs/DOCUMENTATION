@@ -1,0 +1,190 @@
+Plancake Documentation
+======================
+
+This is a PHP/MySQL application developed using the PHP framework Symfony (http://www.symfony-project.org/).
+We use Swift Mailer as mail library and the public Symfony plugin sfErrorNotifierPlugin (developed by ourselves).
+
+
+Terms
+-----
+First of all, let's clear the terms: a list (can be a project) is made up of tasks (they can be called actions, too).
+What is sometimes referred as context is a tag.
+What is sometimes referred as Supporter is a user holding a Premium account.
+The Default list used to be called Todo list.
+
+
+Adding a task
+-------------
+When adding a new task:
+_ a new request is sent to the server
+_ the server replies with an <li> tag
+_ the <li> is placed on the page in the correct order by Javascript
+
+The other approach would have been to insert directly the item on the page with JS and then sending the request on the background with AJAX.
+
+But in our way:
+_ we can perform advanced filtering with PHP (JS would be less powerful)
+_ we can perform advanced parsing (JS would be less powerful)
+_ when the item comes up on the page, we are sure it has been stored on the server (a todo list manager is a critical application - one lost item may mean losing a big idea or a very important thing to do)
+
+
+The AJAX requests
+-----------------
+The AJAX requests are submitted via 'POST' method because that has got a more semantic sense as we update (rather than retrieve) information on the server and, moreover, to avoid possible caching by the browser and issue with urlencoding (in particular an action could have some critical character to carry in a URL).
+
+If you want to return an error to the user after a AJAX request, just start the returning data with this string:
+ERROR:
+
+
+Symfony specifics
+-----------------
+We use the schema.xml rather than schema.yml because it works better with the enumerations and it allow you to use onDelete statements.
+
+In the factories.yml, we override the default timeout value for the user (30 mins) to prevent the user getting logged out after 30 mins of non-activity.
+
+We don't use the application-specific app.yml to create a project-wide app.yml
+
+There is a filter for the rememberme feature (on the whole program).
+
+We suggest to use the URL www.plancake for local developing - unfortunately the URL's sometimes are hardcoded, so be careful
+
+In the local development is much better to use the same database connection for any environment (dev, prod, ...).
+
+You should use the proper Symfony task for the upload because it doesn't upload the databases.yml (see rsync_exclude.txt). It uploads in a staging area (see properties.ini).
+But if you just want to install it on your server just forget about this but upload everything.
+
+Compression of JS and CSS files
+-------------------------------
+We use YUI compressor
+While deploying, the view.yml file of the account and public applications are changed:
+the list of js files is replaced with just one compressed file.
+Same goes for CSS files.
+We have included extra JS files in the account/note module because there was a bug compressing
+the CKEditor JS files
+
+
+Events
+-------
+_ user.sign_up fired after a user signs up - params: PcUser user, string plainPassword
+_ custom_auth.login fired after a user logs in - params: PcUser user, boolean remember
+_ custom_auth.logout fired after a user logs out - params: PcUser user
+_ user.set_password fired after a user logs in - params: PcUser user, string plainPassword
+_ user.set_username fired when the user sets the username - param: PcUser user
+_ user.set_email fired when the user resets the email address - param: PcUser user
+_ user.set_timezone fired when the user resets the timezone - param: PcUser user
+_ user.set_date_format fired when the user resets the date format - param: PcUser user
+_ user.set_dst fired when the user sets the dst - param: PcUser user
+
+
+Timezone and Date format
+------------------------
+_ I have set default_timezone to UTC on Symfony (see the file settings.yml of th applications).
+That defines the default timezone used by PHP
+(http://www.symfony-project.org/reference/1_2/en/04-Settings#chapter_04_sub_default_timezone)
+That means all the created_at, updated_at dates are UTC and time() returns a UTC timestamp.
+That means we don't need to change the php.ini or the Operative System settings.
+
+_ Everything in the database is UTC (including due dates). The only method that should take care of the conversion between UTC and local timezone is getFormattedLocalTimezone
+
+_ During the registration I detect the timezone and whether the DST in active right now in the country
+where the user comes from. That is done by Javascript (timezoneDetection.js), so it depends on the 
+Operative System setting of Timezone; quite reliable.
+_ The timezones are stored in the PcTimezone table. The second part of the label says whether those 
+countries observe DST at all; it doesn't say whether the DST is now active...the table is something static.
+To detect that we use Javascript, see previous point
+_ A live clock is displayed on the right hand side. This is very important cause the use can easily
+realize whether the clock needs adjustment, for example because of DST. That is quite lickely as
+we detect DST only during the registration. I don't try to detect it at every connection because the
+user may have edited the DST setting and I may just overwrite that change with my detection.
+_ This is the link for the detection Javascript:
+http://www.onlineaspect.com/2007/06/08/auto-detect-a-time-zone-with-javascript/
+I am copying here some parts (just in the case the URL won't be available)
+As I started reading up on the getTimezoneOffset code I realized it was too buggy to be used in any critical application. The function returned inconsistent results in different browsers and it never seemed to account for daylight savings time correctly. It quickly became clear that I was going to have to write my own script if I wanted this to work.
+How I ended up doing it:
+There are basically two things needed to figure out a visitors time zone. First, we need to determine the time offset from Greenwich Mean Time (GMT). This can easily be done by creating two dates (one local, and one in GMT) and comparing the time difference between them:
+The second thing that you need to know is whether the location observes daylight savings time (DST) or not. Since DST is always observed during the summer, we can compare the time offset between two dates in January, to the time offset between two dates in June. If the offsets are different, then we know that the location observes DST. If the offsets are the same, then we know that the location DOES NOT observe DST.
+Once, I had this code written, the next step was to compile a list of the various time zones around the world along with their opinions on DST. I actually ended up using the list of time zones from Microsoft Windows. It was rather time consuming to compile this list, so I hope you can make use of my work to save yourself some time.
+ 
+
+Caching
+-------
+Caching speeds up your application but make it more difficult to mantain. So we have used it where it was easy to mantain and where we saw potential major performance improvements.
+
+To enable memcache, edit the apps/account/factories.yml file.
+
+We have used two types of caching:
+_ the Symfony native (the one explained in the books) when caching partials and components
+_ A custom one through the class PcCache (that actually uses the Symfony cache classes) to
+cache queries result.
+
+We have used caching for 5 methods and 3 components/partials:
+_ PcUser::getLists()   key:methodName+userId   reset on: save/delete any list by the user
+_ PcUser::getSystemLists()   key:methodName+userId   reset on: save/delete any list by the user
+_ PcUser::getAllLists()   key:methodName+userId   reset on: save/delete any list by the user
+_ PcUser::getContexts()   key:methodName+userId   reset on: save/delete any context by the user
+_ PcUser::getContextsArray()   key:methodName+userId   reset on: save/delete any context by the user
+
+_ lists/_mainNavigation   key:methodName+userId   reset on: save/delete any list by the user, change language
+_ task/_incompletedTask   key:methodName+userId+datestamp   reset on: save/delete the task by the user
+_ task/_completedTask   key:methodName+userId   reset on: save/delete the task by the user
+
+Actually, there isn't much more where we can use caching effectively:
+_no for calendar/index because it would one version for all users (Sf would save only one version as it is an action)
+_no for list/index because the cached version would be served without permission check
+_no for PcList::getIncompletedTasksWithDate because I should reset it every time a user edit a task as the task could be moved from one list to another and it is very difficult to track that
+_no for PcList::getIncompletedTasksWithoutDate (see previous point)
+
+We use a datestamp for the key of task/_incompletedTask, because the due date expression changes (i.e.: from 'in2days' to 'tomorrow') after midnight.
+
+We reset the cache in the save() and delete() methods of our model classes [see clearRelevantCache method]. In this way we are sure we act every time an object is created/edited/deleted.
+
+We use two different classes for handling the Sumfony cache:
+_ PcFileCache on the development machine
+_ PcMemcache on the live servers (we change configuration during the upload)
+
+Unfortunately the method to clear the cache in the PcTask class does not work when triggered by an application other than 'account', such us 'api'. That was a huge problem that we worked around by creating the pc_dirty_task table.
+
+We use memcached also to store our strings.
+
+Serving pages via AJAX
+-----------------------
+Some pages are served via AJAX to speed up the loading time: all lists and the calendar.
+The overview page is not one of them because we needed a starting page containing all the elements to load, and as a base for the URL's of the pages served via AJAX.
+The setting page is not served via AJAX because the submission of the form would break.
+The link we want to be the trigger for requesting a page via AJAX must have the 'loadViaAJAX' class and the href must have a leading # character. The served page is a normal Symfony action without any layout. The new content will be loaded inside the mainContent div.
+The dynamic content should have a h2 tag that will be used as title for the document.
+
+
+Email-to-inbox component
+------------------------
+Emails come with a very big signature very often. That's why we needed to introduce the %% metacharacters also for the body of the email.
+Without that, people having a signature set in their email client would always add the signature as a note for the task.
+
+
+Useful Links
+------------
+Google Calendar Integration
+http://code.google.com/apis/calendar/data/2.0/developers_guide.html
+http://code.google.com/apis/gdata/docs/auth/authsub.html
+
+
+License
+-------
+Please, read the license carefully (you can find it in the file LICENSE at the root of the project).
+
+"Plancake" is a trademark of Daniele Occhipinti
+
+
+Misc
+----
+What we call tags are called contexts throughout the whole code
+
+All the CSS identifiers have got a pc_ prefix for easy integration with other pieces of software (i.e.: forum).
+
+You need the PHP extension curl to make the forum login integration work.
+
+
+
+To get support, feel free to use our Forum: http://www.plancake.com/forums/index.php
+
+For more info: http://www.plancake.com

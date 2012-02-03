@@ -1,0 +1,20 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_REGISTRATION_PLATFORM', '14', '147', '0', NULL, '0', '2011-12-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_REGISTRATION_PLATFORM', 'Plancake works on almost any tablet and smartphone using an Internet browser - even offline.', '2011-12-30 00:00:00'), ('it', 'WEBSITE_REGISTRATION_PLATFORM', 'Plancake funziona su quasi tutte le tablet e smartphone utilizzando un browser Internet - anche offline.', '2011-12-30 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'Plancake works on almost any tablet and smartphone. Just go to www.plancake.com with your Internet browser and enjoy Plancake even offline.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_PLATFORM';
+UPDATE `pc_translation` SET `string` = 'Plancake funziona su quasi tutte le tablet e smartphone. Ti basta andare su www.plancake.com con tuo browser per utilizzare Plancake, addirittura senza connessione Internet.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_PLATFORM';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES', '104', '535', '0', NULL, '0', '2011-12-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES', 'Are you a charity or social enterprise? Then you can contact us to apply for some discounted accounts.', '2011-12-30 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES', 'Siete una istituzione benefica o una social enterprise? Allora puoi contattarci per richiedere qualcuno dei nostri account scontati.', '2011-12-30 00:00:00');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

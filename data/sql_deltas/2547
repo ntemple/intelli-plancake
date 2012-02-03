@@ -1,0 +1,36 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_EDIT_LIST_BTN', '114', '230', '0', NULL, '0', '2011-10-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_EDIT_LIST_BTN', 'edit list', '2011-10-21 00:00:00'), ('it', 'ACCOUNT_HINT_EDIT_LIST_BTN', 'modifica lista', '2011-10-21 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_LISTS_COLLAPSE', '106', '200', '0', NULL, '0', NULL), ('ACCOUNT_LISTS_EXPAND', '106', '210', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_LISTS_COLLAPSE', 'collapse lists', '2011-10-21 00:00:00'), ('it', 'ACCOUNT_LISTS_COLLAPSE', 'nascondi liste', '2011-10-21 00:00:00'), ('en', 'ACCOUNT_LISTS_EXPAND', 'expand lists', '2011-10-21 00:00:00'), ('it', 'ACCOUNT_LISTS_EXPAND', 'mostra liste', '2011-10-21 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'search your tasks...' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_SEARCH_YOUR_TASKS';
+UPDATE  `pc_translation` SET  `string` =  'cerca tra le attività...' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_SEARCH_YOUR_TASKS';
+
+UPDATE  `pc_translation` SET  `string` =  'news' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+UPDATE  `pc_translation` SET  `string` =  'news' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+
+UPDATE  `pc_translation` SET  `string` =  'upgrade now!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+UPDATE  `pc_translation` SET  `string` =  'vai premium!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+
+UPDATE  `pc_translation` SET  `string` =  'show options' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_OPTIONS_LINK';
+UPDATE  `pc_translation` SET  `string` =  'mostra opzioni' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_OPTIONS_LINK';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_ADD_HIDE_TASK_OPTIONS_LINK', '112', '181', '0', NULL, '0', '2011-10-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_ADD_HIDE_TASK_OPTIONS_LINK', 'hide options', '2011-10-23 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_ADD_HIDE_TASK_OPTIONS_LINK', 'nascondi opzioni', '2011-10-23 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_GCAL_SLOW_DOWN_WARNING', '115', '850', '0', NULL, '0', '2011-10-24 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_GCAL_SLOW_DOWN_WARNING', 'Please be aware activating the integration with Google Calendar will slow down your Plancake account speed.', '2011-10-24 00:00:00'), ('it', 'ACCOUNT_SETTINGS_GCAL_SLOW_DOWN_WARNING', 'Perpiacere tieni presente che l''attivazione dell''integrazione con Google Calendar rallenterà il tuo account.', '2011-10-24 00:00:00');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

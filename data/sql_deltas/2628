@@ -1,0 +1,31 @@
+    SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'The Plancake blog includes the category <em>Press Releases</em> that filters all the entries about very important features
+and news. <br />
+You can subscribe to that stream <a href="%s">here &nbsp;<img class="pc_noBorder" src="%s" /></a>.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FOLLOW_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'El blog Plancake incluye la categoría <em> Notas de Prensa </ em> que filtra todas las entradas acerca de las características más importante
+y noticias. <br/>
+Tu puedes suscribirte a la corriente de <a href="%s"> aquí <img class="pc_noBorder" src="%s" /> </a>.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FOLLOW_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Le blog de Plancake contient une catégorie <em>Press Releases</em> qui filtre les entrées sur des fonctionnalités importantes
+ou sur les nouveautés. <br />
+Inscrivez-vous à ce flux <a href="%s">ici  <img class="pc_noBorder" src="%s" /></a>.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FOLLOW_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Il blog di Plancake comprende la categoria <em>Press Releases</em>  in cui sono contenute novità e informazioni su nuove funzioni molto importanti. <br />
+Puoi iscriverti a questo servizio <a href="%s">qui  <img class="pc_noBorder" src="%s" /></a>.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FOLLOW_US_BODY';
+
+UPDATE  `pc_translation` SET  `string` =  '<b>No risk</b> - 30-day <b>money-back guarantee</b> - no questions asked.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT6';
+UPDATE  `pc_translation` SET  `string` =  '<b>Nessun rischio</b> - <b>garanzia</b> di 30 giorni per avere un rimborso completo.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT6';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

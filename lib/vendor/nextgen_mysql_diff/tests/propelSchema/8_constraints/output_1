@@ -1,0 +1,13 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_counter` ADD CONSTRAINT `pc_failed_logins_FK_1` (`pc_failed_logins_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`));
+
+ALTER TABLE `pc_email_change_history` DROP CONSTRAINT `pc_email_change_history_FK_1`;
+
+ALTER TABLE `pc_users_contexts` DROP CONSTRAINT `pc_users_contexts_FK_1`;
+
+ALTER TABLE `pc_users_contexts` ADD CONSTRAINT `pc_users_contexts_FK_1` (`pc_users_contexts_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`) ON UPDATE CASCADE ON DELETE CASCADE);
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,55 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Enjoy Plancake on the go - no need to install software and works even if Internet is not available!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP2_BODY';
+UPDATE `pc_translation` SET `string` = 'Usa Plancake mentre sei in giro - non c''è nulla da scaricare e funziona anche senza connessione a Internet!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP2_BODY';
+
+ALTER TABLE `pc_paypal_product` ADD `discount_percentage` int(10) unsigned DEFAULT NULL  AFTER `item_price_currency`;
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `discount_percentage`, `subscription_type_id`, `paypal_button_code`) VALUES
+(20, '720', 'Plancake Premium One-Year Subscription (EUR) - 20% discount', '19.20', 'EUR', 20, 3, 'ESGH72YVQY8QG'),
+(21, '820', 'Plancake Premium One-Year Subscription (JPY) - 20% discount', '2160.00', 'JPY', 20, 3, 'E9L49BKPYXX8S'),
+(22, '620', 'Plancake Premium One-Year Subscription (USD) - 20% discount', '24.00', 'USD', 20, 3, '5HG4LLGRLRA5A'),
+(23, '520', 'Plancake Premium One-Year Subscription (GBP) - 20% discount', '16.00', 'GBP', 20, 3, 'VP6DX88VKVTHJ');
+
+DROP TABLE `pc_promotion_code`;
+
+CREATE TABLE IF NOT EXISTS `pc_promotion_code` (
+  `id` varchar(10) NOT NULL,
+  `code` varchar(25) NOT NULL DEFAULT '',
+  `discount_percentage` int(2) NOT NULL,
+  `expiry_date` date NOT NULL,
+  `only_for_new_customers` tinyint(1) NOT NULL DEFAULT '0',
+  `uses_count` int(11) NOT NULL DEFAULT '0',
+  `max_uses` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `pc_promotion_code` (`id`, `code`, `discount_percentage`, `expiry_date`, `only_for_new_customers`, `uses_count`, `max_uses`, `created_at`) VALUES
+('1', 'XMAS2011', 20, '2012-01-03', 0, 0, 100, '2011-12-22 15:06:42');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT', '104', '270', '0', NULL, '0', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT', 'Premium support', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT', 'Supporto Premium', '2011-12-22 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY', '104', '280', '0', NULL, '0', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY', 'No risk - 30-day money-back guarantee', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY', 'Nessun rischio - garanzia di 30 giorni per avere un rimborso completo', '2011-12-22 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_CHOOSE_CURRENCY', '104', '605', '0', NULL, '0', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_CHOOSE_CURRENCY', 'select currency', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_CHOOSE_CURRENCY', 'seleziona valuta', '2011-12-22 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_PROMOTION_CODE_ERROR_INVALID_CODE', '104', '1000', '0', NULL, '0', '2011-12-22 00:00:00'), ('ACCOUNT_PROMOTION_CODE_ERROR_EXPIRED_CODE', '104', '1010', '0', NULL, '0', '2011-12-22 00:00:00'), ('ACCOUNT_PROMOTION_CODE_ERROR_MAX_USES_REACHED', '104', '1020', '0', NULL, '0', '2011-12-22 00:00:00'), ('ACCOUNT_PROMOTION_CODE_ERROR_ONLY_FOR_NEW_CUSTOMERS', '104', '1030', '0', NULL, '0', '2011-12-22 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_PROMOTION_CODE_ERROR_INVALID_CODE', 'The discount code in not valid - is there any letter missing?', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_PROMOTION_CODE_ERROR_INVALID_CODE', 'Il codice non è valido - hai dimenticato qualche lettera?', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_PROMOTION_CODE_ERROR_EXPIRED_CODE', 'The discount code has expired.', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_PROMOTION_CODE_ERROR_EXPIRED_CODE', 'Il codice di promozione è scaduto', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_PROMOTION_CODE_ERROR_MAX_USES_REACHED', 'This code reached the maximum number of uses.', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_PROMOTION_CODE_ERROR_MAX_USES_REACHED', 'Questo codice ha raggiunto il massimo numero di utilizzazioni.', '2011-12-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_PROMOTION_CODE_ERROR_ONLY_FOR_NEW_CUSTOMERS', 'This code can only be used by new customers.', '2011-12-22 00:00:00'), ('it', 'ACCOUNT_PROMOTION_CODE_ERROR_ONLY_FOR_NEW_CUSTOMERS', 'Questo codice può essere utilizzato solo da nuovi clienti.', '2011-12-22 00:00:00');
+
+ALTER TABLE `pc_user` ADD `last_promotional_code_inserted` varchar(25) NOT NULL DEFAULT '' COMMENT 'the user hasn''t necessarily used it' AFTER `latest_breaking_news_closed`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

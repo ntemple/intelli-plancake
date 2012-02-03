@@ -1,0 +1,108 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_contact` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `email` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `language` varchar(2) NOT NULL,
+  `creator_id` int(10) unsigned NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_contact_FI_1` (`creator_id`)
+) ENGINE=InnoDB ;
+
+CREATE TABLE IF NOT EXISTS `pc_contacts_tags` (
+  `contact_id` int(10) unsigned NOT NULL,
+  `tag_id` int(10) unsigned NOT NULL,
+  `creator_id` int(10) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`contact_id`,`tag_id`),
+  KEY `pc_contacts_tags_FI_2` (`tag_id`),
+  KEY `pc_contacts_tags_FI_3` (`creator_id`)
+) ENGINE=InnoDB ;
+
+CREATE TABLE IF NOT EXISTS `pc_contact_note` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contact_id` int(10) unsigned NOT NULL,
+  `content` text NOT NULL,
+  `creator_id` int(10) unsigned NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_contact_note_FI_1` (`contact_id`),
+  KEY `pc_contact_note_FI_2` (`creator_id`)
+) ENGINE=InnoDB;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_contact_note`
+--
+ALTER TABLE `pc_contact_note`
+  ADD CONSTRAINT `pc_contact_note_FK_1` FOREIGN KEY (`contact_id`) REFERENCES `pc_contact` (`id`),
+  ADD CONSTRAINT `pc_contact_note_FK_2` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+CREATE TABLE IF NOT EXISTS `pc_contact_tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `creator_id` int(10) unsigned NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_contact_tag_FI_1` (`creator_id`)
+) ENGINE=InnoDB ;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_contact`
+--
+ALTER TABLE `pc_contact`
+  ADD CONSTRAINT `pc_contact_FK_1` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+--
+-- Constraints for table `pc_contacts_tags`
+--
+ALTER TABLE `pc_contacts_tags`
+  ADD CONSTRAINT `pc_contacts_tags_FK_1` FOREIGN KEY (`contact_id`) REFERENCES `pc_contact` (`id`),
+  ADD CONSTRAINT `pc_contacts_tags_FK_2` FOREIGN KEY (`tag_id`) REFERENCES `pc_contact_tag` (`id`),
+  ADD CONSTRAINT `pc_contacts_tags_FK_3` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+--
+-- Constraints for table `pc_contact_note`
+--
+ALTER TABLE `pc_contact_note`
+  ADD CONSTRAINT `pc_contact_note_FK_1` FOREIGN KEY (`contact_id`) REFERENCES `pc_contact` (`id`),
+  ADD CONSTRAINT `pc_contact_note_FK_2` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+--
+-- Constraints for table `pc_contact_tag`
+--
+ALTER TABLE `pc_contact_tag`
+  ADD CONSTRAINT `pc_contact_tag_FK_1` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+
+INSERT INTO `pc_contact_tag` (`id`, `name`, `creator_id`, `updated_at`, `created_at`) VALUES (NULL, 'twitter', '4', '2011-03-21 17:57:44', '2011-03-21 17:57:48'), (NULL, 'facebook', '4', '2011-03-21 17:57:57', '2011-03-21 17:58:00');
+INSERT INTO `pc_contact_tag` (`id`, `name`, `creator_id`, `updated_at`, `created_at`) VALUES (NULL, 'contributor', '4', '2011-03-21 17:57:44', '2011-03-21 17:57:48'), (NULL, 'pending', '4', '2011-03-21 17:57:57', '2011-03-21 17:58:00');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

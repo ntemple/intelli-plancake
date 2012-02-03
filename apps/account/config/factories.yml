@@ -1,0 +1,52 @@
+prod:
+  logger:
+    class: sfNoLogger
+    param:
+      level: err
+      loggers: null
+cli:
+  controller:
+    class: sfConsoleController
+  request:
+    class: sfConsoleRequest
+  response:
+    class: sfConsoleResponse
+test:
+  storage:
+    class: sfSessionTestStorage
+    param:
+      session_path: %SF_TEST_CACHE_DIR%/sessions
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: false
+all:
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url: true
+      extra_parameters_as_query_string: true
+  storage:
+    class: sfPDOSessionStorage
+    param:
+      session_name: pcoeirtnte34
+      db_table: pc_session
+      database: propel
+      db_id_col: id
+      db_data_col: data
+      db_time_col: time
+  user:
+    class: myUser
+    param:
+      timeout: 32400
+      logging: %SF_LOGGING_ENABLED%
+      use_flash: true
+      default_culture: %SF_DEFAULT_CULTURE%
+  view_cache:
+    class: sfFileCache
+    param:
+      automatic_cleaning_factor: 0
+      cache_dir: %SF_TEMPLATE_CACHE_DIR%
+      lifetime: 500000
+      prefix: %SF_APP_DIR%/template
+

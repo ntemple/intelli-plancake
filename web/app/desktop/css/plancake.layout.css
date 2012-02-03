@@ -1,0 +1,229 @@
+#content {
+    position: relative; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+    width: 100%; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+    height: 100%; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+    overflow: auto; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+}
+
+#sidebar {
+    background-color: #E8ECFF;
+    float: left;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-right: 1px solid #ccc;
+}
+
+#panels {
+    /* float: right; */
+    margin-left: 220px;
+    margin-right: 5px;
+    height: 100%;
+}
+
+#panel1 {
+    float: left;    
+    position: relative;
+    padding-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 100%;
+}
+
+.panel1Alone {
+    margin-left: 35px !important;
+}
+
+#panel2 {
+    float: right; 
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 100%;
+}
+
+.panel {
+    border-top: 2px solid #fff;    
+    height: 100%;
+    margin-top: 10px;
+    overflow: visible;
+    padding-top: 10px;
+    position: relative;
+}
+
+.activePanel {
+    background-color: #fef6df;
+    border-top: 2px solid #ff6622;
+}
+
+#panelSeparator {
+    position: absolute;
+    right: -8px;
+    top: 0px;
+    height: 600px;
+    width: 6px;
+    padding: 0px;
+    /* background: #f6a828 url(/app/desktop/img/panel_separator.gif) repeat-y center; */    
+    background-color: #f6a828;
+}
+
+#panelSeparator.hover {
+    cursor: pointer;
+}
+
+#panelSeparator.active {
+    background: #da8 url(/app/desktop/img/panel_separator.gif) no-repeat center;
+    opacity: 0.7;  
+}
+
+#mainAd { 
+    padding: 5px;
+}
+
+#mainAd a { 
+    display: block;
+    float: right;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+
+.tip ul li {
+    list-style: square !important;
+    margin-left: 15px;
+}
+
+div.panelActions {
+    position: absolute;
+    top: 2px;
+    right: 8px;    
+}
+
+.panelAction {
+    float: right;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fff;       
+}
+
+.reloadContentPanel {
+    background: url(/app/desktop/img/reload.png) no-repeat center; 
+}
+
+.printContentPanel {
+    background: url(/app/desktop/img/print.png) no-repeat center;  
+}
+
+.hidePanel2 {
+    background: url(/app/desktop/img/collapse_icon.png) no-repeat center; 
+}
+
+.editPanel {
+    background: url(/app/desktop/img/edit_icon.png) no-repeat center; 
+}
+
+.showPanel2 {
+    background: url(/app/desktop/img/expand_icon.png) no-repeat center;
+}
+
+.panelAction:hover {
+    border: 1px solid #f2bf30;
+    cursor: pointer;
+}
+
+#breakingNews {
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+    padding-right: 20px;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    background:#fedf82;
+    border: 5px outset #e4a231;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;    
+    font-family:Arial,"Times New Roman",Georgia,Serif;
+    font-size: 14px;
+    color: #06243c;
+    font-weight: bold;
+    text-align: center;    
+}
+
+#breakingNews a {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #0e508a !important;    
+}
+
+a#breakingNewsClose {
+    float: right;
+    font-size: 26px;
+    margin: -6px -16px;
+    font-weight: bold;
+    line-height: 0.5;
+    position: relative;
+    color: #e4a231 !important;
+    text-decoration: none !important;
+}
+
+.subscriptionAlert {
+}
+
+.subscriptionAlert p {
+    margin: 20px;
+}
+
+.subscriptionAlert a.extendSubscription {
+    float: right;
+}
+
+.hideableHint {
+    border: 3px solid #028EFF;
+    margin: 15px 10px;
+    padding: 10px 20px 10px 30px;
+    background: url("/app/desktop/img/info_icon.png") no-repeat scroll 5px 12px #D9EBF9;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;    
+    line-height: 1.2em;
+    font-family:Arial,"Times New Roman",Georgia,Serif;
+    font-size:14px; 
+}
+
+.hideableHintClose {
+    color: #028EFF;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 0.5;
+    float: right;
+    margin: -6px -16px;
+    position: relative;
+}
+
+.hideableHintClose:hover {
+    cursor: pointer;
+}
+
+
+#initialLoader {
+    background-image: url('/app/desktop/img/ajax_loader_big_orange.gif');
+    background-repeat: no-repeat;
+    width: 66px;
+    height: 66px;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+#initialLoader div {
+    background-image: url(/app/desktop/img/mascot_micro.png);
+    width: 32px;
+    height: 25px;
+    margin-left: 16px;
+}
+
+#loadingProblemLink {
+    display: block;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}

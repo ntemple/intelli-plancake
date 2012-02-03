@@ -1,0 +1,16 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_google_calendar_event` CHANGE  `task_id`  `task_id` INT( 10 ) UNSIGNED NOT NULL;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

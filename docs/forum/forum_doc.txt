@@ -1,0 +1,11 @@
+Forum Integration:
+_ It is a one-way integration: from Plancake to the Forum. If the user clicks on the login and registration links, the user is redirected to the corresponding Plancake pages.
+_ During Plancake registration, no username is asked to make the registration as smart as possible.
+Then, we ask for that the first time we try to access the forum as a logged in user.
+_ Template integration: header and footer
+_ Functional integration: registration, login, logout, password reset, change of the email
+_ We compute the password the same way (actually Plancake forces the salt to be strictly alphanumeric)
+_ username, email, password, salt are the same type and length in the two database schemas
+_ check document forum_integration.txt
+_ Important check: if the user is authenticated and without a username (the Plancake registration doesn't ask for a username), we need the user to set it because when they post they must have a username
+_ We always login to the forum with rememberme set (regardless the user checks or not the 'rememberme' checkbox on the Plancake form). That is because of the annoying visit timeout feature of the forum. In this way, we will be sure our users will not get logged out from the forum while they are still logged in the website. In the Forum common.php we check this: if the user is not login in the Plancake, we will log out the user from the Forum.

@@ -1,0 +1,113 @@
+ul#lists {
+    margin-bottom: 0px;
+}
+
+#hackToScrollToBottomList {
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-top: 0px;
+    padding-top: 0px;  
+}
+
+#hackToScrollToBottomList input {
+    width: 1px;
+    height: 1px;
+}
+
+ul#tags {
+    margin-bottom: 0px;
+}
+
+
+#hackToScrollToBottomTag {
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin-top: 0px;
+    padding-top: 0px;    
+}
+
+#hackToScrollToBottomTag input {
+    width: 1px;
+    height: 1px;
+    border: 1px solid #E8ECFF !important;
+}
+
+ul#lists li, ul#tags li {
+    padding: 3px 2px;
+    border-bottom: 1px dotted #aaa;
+    font-size: 90%;
+    padding-right: 43px;
+    position: relative;
+}
+
+ul#lists li.hover, ul#tags li.hover {
+    background-color: #ffee99;
+    cursor: pointer;
+}
+
+ul#lists li.selected, ul#tags li.selected {
+    background-color: #ffcc33;
+}
+
+div#listsTitle, div#tagsTitle {
+    position: relative;
+    width: 200px;
+}
+
+.listAction, .tagAction {
+    width: 18px;
+    height: 18px;
+    display: none;
+    z-index: 5;    
+}
+
+.editList, .editTag {
+    position: absolute;
+    top: 2px;
+    right: 0px;    
+}
+
+.addBelowList {
+    position: absolute;
+    top: 2px;
+    right: 25px;
+}
+
+.hovered {
+    background-color: #feca40;
+}
+
+.dropped {
+    /* background-color: green; */
+}
+
+.ui-state-highlight { 
+    height: 1.5em; 
+    line-height: 1.2em;
+    background-color: yellow;
+}
+
+
+ul#lists .header {
+    color: #ff9922;
+    font-weight: bold;
+}
+
+.collapseListsBtn .ui-button {
+    padding: 0px 5px;
+}
+
+#listsActions, #tagsActions {
+    position: absolute;
+    top: -9px;
+    right: 0px;
+    margin: 0px;
+}
+
+#listsActions a, #tagsActions a {
+    float: right;
+    margin-left: 7px;
+    font-size: 80%;
+}

@@ -1,0 +1,33 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_dirty_task` (
+  `user_id` int(10) unsigned NOT NULL,
+  `task_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`task_id`),
+  KEY `pc_dirty_task_FI_2` (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_dirty_task`
+--
+ALTER TABLE `pc_dirty_task`
+  ADD CONSTRAINT `pc_dirty_task_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`),
+  ADD CONSTRAINT `pc_dirty_task_FK_2` FOREIGN KEY (`task_id`) REFERENCES `pc_task` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_dirty_task`;
+
+SET FOREIGN_KEY_CHECKS=1;

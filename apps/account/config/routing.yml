@@ -1,0 +1,57 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+notes:
+  url:   /notes
+  param: { module: notes, action: index }
+
+note:
+  url:   /note
+  param: { module: note, action: index }
+
+note_save:
+  url:   /note/save
+  param: { module: note, action: save }
+
+note_edit:
+  url:   /note/:id
+  param: { module: note, action: index }
+  requirements: { id: \d+ }
+
+note_delete:
+  url:   /note/delete
+  param: { module: note, action: delete }
+
+login:
+  url:   /login
+  param: { module: customAuth, action: login }
+
+logout:
+  url:   /logout
+  param: { module: customAuth, action: logout }
+
+list:
+  url:   /listId/:listId
+  param: { module: list, action: index }
+  requirements: { listId: \d+ }
+
+subscribe:
+  url:   /upgrade
+  param: { module: subscribe, action: index }
+
+forgotten-password:
+  url:   /forgotten-password
+  param: { module: customAuth, action: forgottenPassword }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+backup_package:
+  url:   /plancake_backup.zip
+  param: { module: settings, action: backupPackage }
+
+default:
+  url:   /:module/:action/*

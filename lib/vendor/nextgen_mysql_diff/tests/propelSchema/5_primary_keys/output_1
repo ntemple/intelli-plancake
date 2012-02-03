@@ -1,0 +1,15 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_failed_logins` DROP PRIMARY KEY;
+
+ALTER TABLE `pc_failed_logins` ADD PRIMARY KEY (`user_id`, `times`);
+
+ALTER TABLE `pc_activation_token` DROP PRIMARY KEY;
+
+ALTER TABLE `pc_users_lists` DROP PRIMARY KEY;
+
+ALTER TABLE `pc_rep` ADD PRIMARY KEY (`id`, `max_param`);
+
+SET FOREIGN_KEY_CHECKS=1;
+

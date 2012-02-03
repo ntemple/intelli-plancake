@@ -1,0 +1,31 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_user_key` (
+  `user_id` int(10) unsigned NOT NULL,
+  `key` varchar(32) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `pc_user_key_U_1` (`key`),
+  KEY `pc_user_key_I_1` (`key`)
+) ENGINE=InnoDB;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_user_key`
+--
+ALTER TABLE `pc_user_key`
+  ADD CONSTRAINT `pc_user_key_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+SET FOREIGN_KEY_CHECKS=1;

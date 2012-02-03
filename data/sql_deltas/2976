@@ -1,0 +1,13 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake Mobile - for Android, iPhone, Blackberry, Windows Mobile and other platforms' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake Mobile - per Android, iPhone, Blackberry, Windows Mobile e altre piattaforme' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

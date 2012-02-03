@@ -1,0 +1,120 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_supporter` DROP `is_free`;
+ALTER TABLE `pc_supporter` DROP `free_reason`;
+
+ALTER TABLE `pc_user` ADD `has_requested_free_trial` tinyint(1) DEFAULT '0' AFTER `just_activated`;
+
+
+
+CREATE TABLE IF NOT EXISTS `pc_subscription_type` (
+  `id` tinyint(2) unsigned NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `expiration_time_expression` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pc_paypal_product` (
+  `id` int(10) unsigned NOT NULL,
+  `item_number` varchar(32) NOT NULL,
+  `item_name` varchar(64) NOT NULL,
+  `item_price` varchar(16) NOT NULL,
+  `item_price_currency` varchar(5) NOT NULL,
+  `subscription_type_id` tinyint(2) unsigned NOT NULL,
+  `paypal_button_code` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_paypal_product_FI_1` (`subscription_type_id`)
+) ENGINE=InnoDB;
+ALTER TABLE `pc_paypal_product`
+  ADD CONSTRAINT `pc_paypal_product_FK_1` FOREIGN KEY (`subscription_type_id`) REFERENCES `pc_subscription_type` (`id`);
+
+CREATE TABLE IF NOT EXISTS `pc_paypal_transaction` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_number` varchar(32) NOT NULL DEFAULT '',
+  `item_name` varchar(64) NOT NULL DEFAULT '',
+  `custom_field` varchar(127) NOT NULL DEFAULT '',
+  `payment_status` varchar(32) NOT NULL DEFAULT '',
+  `payment_amount` varchar(16) NOT NULL DEFAULT '',
+  `payment_currency` varchar(5) NOT NULL DEFAULT '',
+  `transaction_id` varchar(64) NOT NULL DEFAULT '',
+  `parent_transaction_id` varchar(64) NOT NULL DEFAULT '',
+  `receiver_email` varchar(127) NOT NULL DEFAULT '',
+  `residence_country` varchar(8) NOT NULL DEFAULT '',
+  `payer_email` varchar(127) NOT NULL DEFAULT '',
+  `payment_date` varchar(32) NOT NULL DEFAULT '',
+  `error` tinyint(2) unsigned DEFAULT '0' COMMENT '0->no error, 1->HTTP error, 2->transaction error, 3->dodgy transaction, 4->duplicate transaction',
+  `raw_data` mediumtext NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pc_subscription` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `subscription_type_id` tinyint(2) unsigned NOT NULL,
+  `was_gift` tinyint(1) NOT NULL DEFAULT '0',
+  `was_automatic` tinyint(1) NOT NULL DEFAULT '0',
+  `paypal_transaction_id` varchar(64) NOT NULL DEFAULT '',
+  `is_refunded_or_reversed` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_subscription_I_1` (`user_id`),
+  KEY `pc_subscription_FI_1` (`subscription_type_id`)
+) ENGINE=InnoDB;
+ALTER TABLE `pc_subscription`
+  ADD CONSTRAINT `pc_subscription_FK_1` FOREIGN KEY (`subscription_type_id`) REFERENCES `pc_subscription_type` (`id`),
+  ADD CONSTRAINT `pc_subscription_FK_2` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+INSERT INTO `pc_subscription_type` (`id`, `name`, `expiration_time_expression`) VALUES
+(1, 'free 2-week trial', '2 weeks'),
+(2, '3-month subscription', '3 months'),
+(3, '1-year subscription', '1 year');
+
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `subscription_type_id`, `paypal_button_code`) VALUES
+(1, '130', 'Plancake Supporter One-Year Subscription (USD)', '30.00', 'USD', 3, 'KQC8A2EZQKQ3G'),
+(2, '110', 'Plancake Supporter 3-Month Subscription (USD)', '10.00', 'USD', 2, 'N8FEUUCM7WHE4'),
+(3, '220', 'Plancake Supporter One-Year Subscription (GBP)', '20.00', 'GBP', 3, 'LMRP7UWGNS5PN'),
+(4, '207', 'Plancake Supporter 3-Month Subscription (GBP)', '7.00', 'GBP', 2, 'WAJVKPB8LHDRA'),
+(5, '324', 'Plancake Supporter One-Year Subscription (EUR)', '24.00', 'EUR', 3, 'UV6EH8YL4D8RY'),
+(6, '308', 'Plancake Supporter 3-Month Subscription (EUR)', '8.00', 'EUR', 2, 'HDAKRUNHLY49N'),
+(7, '300', 'Test Plancake Supporter Subscription', '0.01', 'EUR', 2, 'QXWYTV9CAU94U');
+
+
+INSERT INTO  `pc_subscription` (
+`id` ,
+`user_id` ,
+`subscription_type_id` ,
+`was_gift` ,
+`was_automatic` ,
+`paypal_transaction_id` ,
+`created_at`
+)
+VALUES
+(NULL ,  '4',  '3',  '1',  '0', NULL ,  '2010-12-01 19:49:10'),
+(NULL ,  '3336',  '3',  '0',  '0', NULL ,  '2010-12-11 19:49:36'),
+(NULL ,  '1456',  '3',  '0',  '0', NULL ,  '2010-12-14 19:49:36'),
+(NULL ,  '2161',  '3',  '1',  '0', NULL ,  '2010-12-16 19:49:10'),
+(NULL ,  '874',  '3',  '0',  '0', NULL ,  '2010-12-21 19:49:36'),
+(NULL ,  '2277',  '3',  '0',  '0', NULL ,  '2010-12-21 19:49:10'),
+(NULL ,  '4094',  '3',  '0',  '0', NULL ,  '2011-01-21 19:49:36'),
+(NULL ,  '4180',  '3',  '0',  '0', NULL ,  '2011-01-31 19:49:10'); 
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP `has_requested_free_trial`;
+
+DROP TABLE `pc_subscription_type`;
+DROP TABLE `pc_paypal_product`;
+DROP TABLE `pc_paypal_transaction`;
+DROP TABLE `pc_subscription`;
+
+SET FOREIGN_KEY_CHECKS=1;

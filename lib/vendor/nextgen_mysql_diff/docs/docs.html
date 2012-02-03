@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+      <h1>NextGen Mysql Diff</h1>
+
+      <h2>Introduction</h2>
+      <p>
+        NextGen Mysql Diff is free software, distributed under the terms of the LGPL license.
+      </p>
+
+      <p>
+          NextGen is a command line tool meaning that it can be easily integrated into other scripts (i.e.: release management scripts).
+          <br />
+          There isn't a configuration file. Nonetheless, NextGen is totally configurable as you can use many command line arguments and options
+      </p>
+
+      <h2>Guide</h2>
+      <p>
+        One of the main design goals was to offer a total extensibility. The user can change and redefined anything.
+        <br />
+        There are three ways to extend NextGen:
+        <ul>
+            <li>creating brand new classes in the 'local' directory (that you can pass as command line arguments)</li>
+            <li>extending existing classes in the 'local' directory</li>
+            <li>redefining an existing class in the 'local' directory</li>
+        </ul>
+      </p>
+
+      <p>
+        Why is NextGen a great tool for database change management?
+        <ul>
+            <li>it is totally configurable</li>
+            <li>it is an automated tool but, by default, it may require some user interaction to advise about important decisions</li>
+        </ul>
+      </p>
+
+      <h4>Available options and arguments</h4>
+      <p>
+          The <em>--answer</em> option is very important for create automated tests.
+
+      </p>
+
+      <h4>How to build tests</h4>
+      <p>
+          To do
+      </p>
+
+      <h4>Some important notes</h4>
+      <ul>
+          <li>Even if you are allowed to use two different engines for the two
+              inputs, doing that may result in wrong outputs
+              (unless those two engines are really hardcore!).
+              You should always use the same engine for both the outputs.
+          </li>
+      </ul>
+
+<h2>Development</h2>
+<p>
+The SVN repository for the project can be found here: <br />
+svn://repo.plancake.com/nextgen_mysql_diff
+</p>
+
+<p>
+You can browser the repository with just your browser here: <br />
+<a href="http://svn.plancake.com/listing.php?repname=NextGen+MySQL+diff&">http://svn.plancake.com/listing.php?repname=NextGen+MySQL+diff&</a>
+</p>
+
+<p>
+The tracking system for NextGen is hosted by the Plancake project:<br />
+<a href="http://tracking.plancake.com/">http://tracking.plancake.com/</a>
+</p>
+
+      <h2>Troubleshooting</h2>
+      If you get this message:
+
+      <p class="code">
+        bash: ./nextgen-mysql-diff.php: Permission denied
+      </p>
+
+      you need to:
+
+      <p class="code">
+        chmod +x nextgen-mysql-diff.php
+      </p>
+
+  </body>
+</html>

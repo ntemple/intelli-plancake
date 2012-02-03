@@ -1,0 +1,17 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_timezone`;
+
+ALTER TABLE `pc_user` CHANGE `awaiting_activation` `awaiting_activation2` TINYINT(1) default 1;
+
+ALTER TABLE `pc_user` ADD `awaiting_activation3` TINYINT(1) default 1 AFTER `awaiting_activation2`;
+
+ALTER TABLE `pc_session` MODIFY `id` VARCHAR(74)  NOT NULL;
+
+ALTER TABLE `pc_watchdog` CHANGE `type` `type2` VARCHAR(17)  NOT NULL;
+
+ALTER TABLE `pc_watchdog` DROP `created_at`;
+
+SET FOREIGN_KEY_CHECKS=1;

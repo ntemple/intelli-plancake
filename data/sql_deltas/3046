@@ -1,0 +1,34 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `language_id` = 'it',`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN',`string` = 'Crea un accout adesso',`updated_at` = '2011-03-06 00:09:13' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+UPDATE `pc_string` SET  `note` =  'can be translated as "create an accout now"' WHERE  `pc_string`.`id` =  'WEBSITE_GENERAL_SIGN_UP_BTN';
+UPDATE `pc_string` SET  `max_length` =  '20' WHERE  `pc_string`.`id` =  'WEBSITE_GENERAL_SIGN_UP_BTN';
+
+UPDATE  `pc_translation` SET  `string` =  'No contract, <b>no automatic renewals</b>, just pay-as-you-go.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT1';
+UPDATE  `pc_translation` SET  `string` =  'Nessun contratto, <b>nessun rinnovo automatico</b>, paga di volta in volta.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_BENEFIT1';
+
+UPDATE  `pc_string` SET  `note` =  'pay-as-you-go is an idiom meaning "you decide to pay when your credit is gone"' WHERE  `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_BENEFIT1';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT', '104', '275', '0', NULL, '0', '2012-01-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT', 'No contract or automatic renewals', '2012-01-22 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT', 'Nessun contratto o rinnovi automatici', '2012-01-22 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_PAYMENT_VIA_BANK', '104', '533', '0', NULL, '0', '2012-01-22 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_PAYMENT_VIA_BANK', 'If you live in the UK and you would prefer to pay via bank transfer, please <a href="%s">contact us</a>.', '2012-01-22 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_PAYMENT_VIA_BANK', 'Se vivi nel Regno Unito e preferiresti pagare con trasferimento bancario, puoi <a href="%s">contattarci qui</a>.', '2012-01-22 00:00:00');
+
+UPDATE `pc_paypal_product` SET `item_price` = '29.90' WHERE `pc_paypal_product`.`id` = 1;
+UPDATE `pc_paypal_product` SET `item_price` = '19.90' WHERE `pc_paypal_product`.`id` = 3;
+UPDATE `pc_paypal_product` SET `item_price` = '23.90' WHERE `pc_paypal_product`.`id` = 5;
+UPDATE `pc_paypal_product` SET `item_price` = '2690.00' WHERE `pc_paypal_product`.`id` = 8;
+UPDATE `pc_paypal_product` SET `item_price` = '19.12' WHERE `pc_paypal_product`.`id` = 20;
+UPDATE `pc_paypal_product` SET `item_price` = '2152.00' WHERE `pc_paypal_product`.`id` = 21;
+UPDATE `pc_paypal_product` SET `item_price` = '23.92' WHERE `pc_paypal_product`.`id` = 22;
+UPDATE `pc_paypal_product` SET `item_price` = '15.92' WHERE `pc_paypal_product`.`id` = 23;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

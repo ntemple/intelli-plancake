@@ -1,0 +1,8 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Tasks in this filter are <b>ordered by due date</b>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE';
+UPDATE `pc_translation` SET `string` = 'Le attività in questo filtro sono <b>ordinate per data di scadenza</b>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE';
+UPDATE `pc_translation` SET `string` = 'Tasks are <b>ordered by sort order</b> (you can change the order by drag and drop)' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER';
+UPDATE `pc_translation` SET `string` = 'Puoi cambiare l''<b>ordine della attività</b> in questa lista col trascinamento' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER';
+
+SET FOREIGN_KEY_CHECKS=1;

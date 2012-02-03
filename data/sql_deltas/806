@@ -1,0 +1,19 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_supporter` ADD `is_free` tinyint(1) NOT NULL DEFAULT '0' AFTER `expiry_date`;
+ALTER TABLE  `pc_supporter` ADD `free_reason` varchar(255) DEFAULT NULL AFTER `is_free`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_supporter` DROP `is_free`;
+ALTER TABLE  `pc_supporter` DROP `free_reason`;
+
+SET FOREIGN_KEY_CHECKS=1;

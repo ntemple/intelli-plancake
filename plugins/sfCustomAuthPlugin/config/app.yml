@@ -1,0 +1,12 @@
+all:
+  rememberMe:
+    cookieName: rememberme
+    secret: r95yF65Ud3r8aOl   # this must be random
+    timeout: 1209600    # 1209600 secs is 2 weeks, IF YOU CHANGE IT; YOU NEED TO CHANGE IT ALSO IN THE FORUM login.php (search for this value)
+
+  bruteForceLockout:
+    loginAttemptThreshold:  4    # number of log in attempts before being locked out the upper boundary for this value comes from the MySQL datatype: tinyint
+    lockoutDuration: 300         # number of seconds to lock an account after login_attempt_threshold attempts    
+
+  forgottenPassword:
+    secret: r95yF65Ud3r8aOl  # this must be random

@@ -1,0 +1,103 @@
+all:
+  accountApp:
+    frontController: account.php
+
+  publicApp:
+    frontController: 
+
+  site:
+    url: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_url'); echo "\n"; ?>
+    maintenance: 0  # set to put the account under maintenance    
+    urlForUpdates: http://updates.plancake.com/updates # DO NOT EDIT THIS
+    version: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/version'); echo "\n"; ?>
+    showLegal: false # whether to show links to legal documents or not
+    limitForTasksDone: 30
+    svnRepositoryUrl: svn://repo.plancake.com/plancake_web
+    svnInstalledOnTheServer: false
+    retentionTimeForCompletedTasksForSupporters: 6 # in months
+    retentionTimeForCompletedTasksForNonSupporters: 2 # in months
+    maxTasksForNonSupporter: 300
+    maxListsForNonSupporter: 10
+    maxTagsForNonSupporter: 4    
+    maxNotesForNonSupporter: 3
+    
+    langs:
+      - en
+    langsUnderDev:
+      - jp
+    defaultLang: en
+
+    updatesStringDivider: --|--
+    adminUserEmails:
+      - me@mywebsite.com
+    staffEmails:
+      - me@mywebsite.com
+
+    # to prevent abuse
+    maxLists: 300
+    maxNotes: 500
+    maxTags: 100
+    maxTasks: 5000
+
+  gcal:
+    debug: false
+
+  emailAddress:
+    admin: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_email'); echo "\n"; ?>
+    contact: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_email'); echo "\n"; ?>
+    paypalSeller: paypal@example.com
+    director: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_email'); echo "\n"; ?>
+    support: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_email'); echo "\n"; ?> 
+
+  mailServer:
+    username: contact@my.plancake.com
+    password: mypass
+    host: smtp.plancake.com
+    port: 465
+    encryption: tls
+
+  emailToInbox:
+    inboxUser: catchall  # the Linux user eho receives the Inbox mail from all the users (a catchall)
+    incomingEmailsDirectory: /var/mail/catchall/new # the directory to check for new emails (probably you will need 'new' at the end)
+    mailServerDomain: plancake.mywebsite.com # this is the domain set up on Postfix
+
+  password:
+    minLength: 4  # you shouldn't decrease this value
+    maxLength: 40 # you shouldn't increase this value in order to keep the Forum Integration working
+
+  email:
+    minLength: 8  # you shouldn't decrease this value
+    maxLength: 80 # you shouldn't increase this value in order to keep the Forum Integration working
+
+  username:
+    minLength: 4  # you shouldn't decrease this value
+    maxLength: 25 # you shouldn't increase this value in order to keep the Forum Integration working
+
+  forum:
+    enabled: false
+    tablePrefix: forum_ # you need to copy it from the forum config.php file
+    cookieName: forum_cookie_11111111 # EDIT THIS # you need to copy it from the forum config.php file
+    timeoutVisit: 1800 # this must be the same value as set in the forum administration
+
+  registration:
+    secret: r854tTrhgf9654  # this should be random
+
+  avatar:
+    relativeRoot: forums/img/avatars  # from the webroot
+    width: 48                         # pixels
+    height: 48                        # pixels
+    maxSize: 2000000                  # max size in bytes
+    relativeDefaultPath: forums/img/avatars/default.png
+
+  blog:
+    entriesPerPage: 10
+
+  api:
+    tokenValidity: 6                 # hours
+    version: 3
+    minVersion: 3                    # the minimum supported version
+    maxRequestsPerHour: 200
+    maxDownloadBandwidthPerHour: 700     # KB
+    
+  googleCalendarIntegration:
+    privateKeyPath: config/google_data_rsakey.pem    

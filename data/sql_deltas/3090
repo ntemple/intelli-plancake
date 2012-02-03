@@ -1,0 +1,39 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Sign up for a Plancake account' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'Iscriviti a Plancake' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_HEADER';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_CREATE_ACCOUNT_BTN';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_CREATE_ACCOUNT_BTN';
+
+UPDATE `pc_translation` SET  `string` =  'Create my account' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_CREATE_ACCOUNT_BTN';
+
+
+UPDATE  `pc_translation` SET  `string` =  'Free edition' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_FREE_ACCOUNT';
+UPDATE  `pc_translation` SET  `string` =  'Edizione gratuita' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_FREE_ACCOUNT';
+
+UPDATE  `pc_translation` SET  `string` =  'Premium edition' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_SUPPORTER_ACCOUNT';
+UPDATE  `pc_translation` SET  `string` =  'Edizione Premium' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_SUPPORTER_ACCOUNT';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_MARKETING_COPY', '104', '700', '125', NULL, '0', '2012-01-29 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_MARKETING_COPY', 'Make your life even easier and contribute to the development of Plancake for the cost of a cappuccino per month!', '2012-01-29 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_MARKETING_COPY', 'Rendi la tua vita più semplice e contribuisci allo sviluppo di Plancake al costo di un cappuccino al mese!', '2012-01-29 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_ONLY_X_PER_YEAR', '104', '165', '0', 'the placeholder is the price (including currency sign)', '0', '2012-01-29 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_ONLY_X_PER_YEAR', 'only %s/year', '2012-01-29 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_ONLY_X_PER_YEAR', 'solo %s all''anno', '2012-01-29 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_BENEFIT7', '104', '77', '0', NULL, '0', '2012-01-29 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_BENEFIT7', 'Buy a professional product built over more than 3 years (and improved continuously) at a bargain price thanks to our economy of scales.', '2012-01-29 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_BENEFIT7', 'Compra un prodotto professionale sviluppato in oltre 3 anni (e migliorato di continuo) ad un prezzo imperdibile grazie alla nostra economia di scala.', '2012-01-29 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

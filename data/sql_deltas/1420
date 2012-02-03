@@ -1,0 +1,24 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar` ADD `email_address` varchar(123) NOT NULL DEFAULT '' AFTER `session_token`;
+ALTER TABLE `pc_repetition` ADD `ical_rrule` varchar(63) NOT NULL AFTER `has_divider_below`;
+
+
+UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=SU' WHERE `pc_repetition`.`id` = 1; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=MO' WHERE `pc_repetition`.`id` = 2; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=TU' WHERE `pc_repetition`.`id` = 3; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=WE' WHERE `pc_repetition`.`id` = 4; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=TH' WHERE `pc_repetition`.`id` = 5; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=FR' WHERE `pc_repetition`.`id` = 6; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=SA' WHERE `pc_repetition`.`id` = 7; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=DAILY' WHERE `pc_repetition`.`id` = 8; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR ' WHERE `pc_repetition`.`id` = 9; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=DAILY;INTERVAL=X' WHERE `pc_repetition`.`id` = 10; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;INTERVAL=1' WHERE `pc_repetition`.`id` = 11; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;INTERVAL=X' WHERE `pc_repetition`.`id` = 12; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;INTERVAL=1' WHERE `pc_repetition`.`id` = 13; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;INTERVAL=X' WHERE `pc_repetition`.`id` = 14; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=YEARLY' WHERE `pc_repetition`.`id` = 15; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=YEARLY;INTERVAL=X' WHERE `pc_repetition`.`id` = 16; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=X' WHERE `pc_repetition`.`id` = 17; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=-1' WHERE `pc_repetition`.`id` = 18; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=-2' WHERE `pc_repetition`.`id` = 19; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XSU' WHERE `pc_repetition`.`id` = 20; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XMO' WHERE `pc_repetition`.`id` = 21; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XTU' WHERE `pc_repetition`.`id` = 22; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XWE' WHERE `pc_repetition`.`id` = 23; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XTH' WHERE `pc_repetition`.`id` = 24; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XFR' WHERE `pc_repetition`.`id` = 25; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=XSA' WHERE `pc_repetition`.`id` = 26; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1SU' WHERE `pc_repetition`.`id` = 27; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1MO' WHERE `pc_repetition`.`id` = 28; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1TU' WHERE `pc_repetition`.`id` = 29; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1WE' WHERE `pc_repetition`.`id` = 30; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1TH' WHERE `pc_repetition`.`id` = 31; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1FR' WHERE `pc_repetition`.`id` = 32; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=MONTHLY;BYDAY=-1SA' WHERE `pc_repetition`.`id` = 33; UPDATE `pc_repetition` SET `ical_rrule` = 'FREQ=WEEKLY;BYDAY=X' WHERE `pc_repetition`.`id` = 34;
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar` DROP `email_address`;
+ALTER TABLE `pc_repetition` DROP `ical_rrule`;
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,31 @@
+#socialWidgets {
+    float: left;
+    width: 195px !important;
+    padding: 5px 2px 0px 2px;
+    background-color: #FDF5CE;
+}
+
+a#twitterSocial {
+    display: block;
+    float: left; 
+    width: 55px;
+    height: 100%;
+    height: 20px;
+    background-image: url('/app/desktop/img/tweet.png');
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+#facebookSocial {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    height: 30px;
+    width: 75px;
+}
+
+#googleSocial {
+    display: block; 
+    float: right;
+    margin-right: 3px;   
+}

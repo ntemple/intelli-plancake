@@ -1,0 +1,24 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'You should be able to use this mobile app without an Internet connection. <br />
+Tap the ''sync'' button at the bottom of the screen to send changes to the server and to update your mobile app with changes from other devices. ' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MOBILE_APP_HELP_CONTENT';
+
+UPDATE `pc_translation` SET `string` = 'Dovresti poter usare questa applicazione mobile senza connessione ad Internet.<br />
+Premi il tasto ''sync'' in fondo allo schermo per inviare cambiamenti al server e per aggiornare la tua applicazione mobile con cambiamenti da altri dispositivi.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MOBILE_APP_HELP_CONTENT';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_APP_SETTINGS_BUTTON', '205', '15', '0', NULL, '0', '2012-01-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_SETTINGS_BUTTON', 'settings', '2012-01-19 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_SETTINGS_BUTTON', 'impostazioni', '2012-01-19 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN', '205', '130', '0', NULL, '0', '2012-01-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN', 'reset local data', '2012-01-19 00:00:00'), ('it', 'ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN', 'resetta i dati locali', '2012-01-19 00:00:00');
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

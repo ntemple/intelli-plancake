@@ -1,0 +1,77 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+
+
+
+UPDATE `pc_translation` SET `string` = '<h3>Your membership is expiring in a few days.</h3>
+
+<p>
+You may want to extend it in order not to lose the benefits reserved for Premium accounts.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ABOUT_TO_EXPIRE';
+
+
+
+
+
+
+
+UPDATE `pc_translation` SET `string` = '<h3>Il tuo abbonamento scadrà tra pochi giorni</h3>
+
+<p>
+Potrai prolungarlo per continuare a usufruire dei vantaggi riservati agli account Premium.
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ABOUT_TO_EXPIRE';
+
+
+
+
+
+
+
+UPDATE `pc_translation` SET `string` = '<h3>Your membership expired</h3>
+
+<p>
+You may want to extend it in order not to lose the benefits reserved for Premium accounts.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_EXPIRED';
+
+
+
+
+
+
+UPDATE `pc_translation` SET `string` = '<h3>Il tuo abbonamento è terminato</h3>
+
+<p>
+Potrai prolungarlo per continuare a usufruire dei vantaggi riservati agli account Premium.
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_EXPIRED';
+
+
+
+
+
+
+UPDATE `pc_translation` SET `string` = '  <p>
+      Plancake Mobile works on any smartphone with a web browser supporting the basic functionalities of HTML5 - nowadays most smartphones should do. <br />
+      When you login to Plancake Mobile for the first time, the app will tell you if you browser lacks any required features - you don''t need to check yourself.
+  </p>
+  
+  <p>
+      iPhone users and Android users (from 2.1 upwards) should be supported straight away.
+  </p>
+  <p>
+      Older versions of Android and maybe also users of Symbyan, Blackberry and other platforms may need to install Opera Mobile or Dolphin HD on their smartphone and access Plancake from there. Installing Opera Mobile is very easy - just check your app store.
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+
+
+
+
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

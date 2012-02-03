@@ -1,0 +1,13 @@
+PcSubscriptionType:
+  PcSubscriptionType1:
+    id: 1
+    name: 'free 2-week trial'
+    expiration_time_expression: '2 weeks'
+  PcSubscriptionType2:
+    id: 2
+    name: '3-month subscription'
+    expiration_time_expression: '3 months'
+  PcSubscriptionType3:
+    id: 3
+    name: '1-year subscription'
+    expiration_time_expression: '1 year'

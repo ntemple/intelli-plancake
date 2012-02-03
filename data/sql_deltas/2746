@@ -1,0 +1,37 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'In June 2011 Plancake won the prestigious <b>Shell LiveWire Grand Ideas Award</b>. More details <a href="%s">here</a>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACT7';
+UPDATE `pc_translation` SET `string` = 'Nel Giugno 2011 Plancake ha vinto il prestigioso <b>Shell LiveWire Grand Ideas Award</b>. Maggiori dettagli <a href="%s">qui</a>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACT7';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_PRESS_FACT2_PRICES', '10', '43', '0', NULL, '0', '2011-11-24 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_PRESS_FACT2_PRICES', '(you can find more about plans and prices <a target="_blank" href="%s">here</a>)', '2011-11-24 00:00:00'), ('it', 'WEBSITE_PRESS_FACT2_PRICES', '(puoi trovare informazioni sui piani di abbonamento <a target="_blank" href="%s">qui</a>)', '2011-11-24 00:00:00');
+
+
+INSERT INTO `pc_string_category` (`id`, `name`, `note`, `link`, `in_account`, `in_misc`, `sort_order`, `created_at`) VALUES ('205', 'Mobile app', NULL, NULL, '1', '0', '800', '2011-11-27 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_APP_SYNC_BUTTON', '205', '10', '10', 'it can make sense to translate it as "sync" - no change', '0', '2011-11-27 00:00:00'), ('ACCOUNT_MOBILE_APP_HELP_BUTTON', '205', '20', '10', NULL, '0', '2011-11-27 00:00:00'), ('ACCOUNT_MOBILE_APP_HELP_CONTENT', '205', '30', '0', NULL, '0', '2011-11-27 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_SYNC_BUTTON', 'sync', '2011-11-27 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_SYNC_BUTTON', 'sync', '2011-11-27 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_HELP_BUTTON', 'help', '2011-11-27 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_HELP_BUTTON', 'aiuto', '2011-11-27 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_HELP_CONTENT', 'You can use this mobile app without an Internet connection. <br />
+Any change you make will not be automatically sent to the Plancake servers.<br />
+Only by tapping the ''Sync'' button at the bottom of the screen, the changes to the mobile app and those to the web app will be synchronised. ', '2011-11-27 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_HELP_CONTENT', 'Puoi usare questa applicazione mobile senza connessione ad Internet.<br />
+Le modifiche che fai non verranno mandate ai server di Plancake in automatico.<br />
+Solo premendo il tasto ''Sync'' in fondo allo schermo, i cambiamenti alla mobile app e quelli su Internet verranno sincronizzati.', '2011-11-27 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_APP_HELP_CONTACT', '205', '40', '0', NULL, '0', '2011-11-27 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_HELP_CONTACT', 'Anytime, for any reason, you can send an email to Dan, the founder of Plancake at <a href="mailto:%s">%s</a>.', '2011-11-27 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_HELP_CONTACT', 'In qualsiasi momento e per qualsiasi ragione, puoi inviare una email a Daniele, il fondatore di Plancake <a href="mailto:%s">%s</a>. ', '2011-11-27 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_APP_SYNC_OK', '205', '50', '0', NULL, '0', '2011-11-27 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_APP_SYNC_OK', 'The synchronisation has been completed successfully.', '2011-11-27 00:00:00'), ('it', 'ACCOUNT_MOBILE_APP_SYNC_OK', 'La sincronizzazione è stata ultimata con successo.', '2011-11-27 00:00:00');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,36 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE `pc_tasks_contexts`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`task_id` INTEGER UNSIGNED  NOT NULL,
+	`users_contexts_id` INTEGER UNSIGNED  NOT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `pc_tasks_contexts_FI_1` (`users_contexts_id`),
+	CONSTRAINT `pc_tasks_contexts_FK_1`
+		FOREIGN KEY (`users_contexts_id`)
+		REFERENCES `pc_users_contexts` (`id`)
+		ON DELETE CASCADE,
+	INDEX `pc_tasks_contexts_FI_2` (`task_id`),
+	CONSTRAINT `pc_tasks_contexts_FK_2`
+		FOREIGN KEY (`task_id`)
+		REFERENCES `pc_task` (`id`)
+		ON DELETE CASCADE
+)Type=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_tasks_contexts`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

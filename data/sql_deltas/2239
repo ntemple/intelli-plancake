@@ -1,0 +1,23 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_blog_post` ADD `italian_url` text AFTER `content`;
+UPDATE `pc_blog_post` SET `italian_url`='http://www.efficacemente.com/2008/10/come-applicare-la-legge-di-parkinson/' WHERE `id`=81;
+UPDATE `pc_blog_post` SET `italian_url`='http://www.efficacemente.com/2008/10/efficacia-3-definizioni-che-non-ti-aspetti/' WHERE `id`=80;
+
+ALTER TABLE `pc_blog_post` ADD `is_reviewed` tinyint(1) DEFAULT '0' AFTER `italian_url`;
+ALTER TABLE `pc_blog_post` ADD `is_published` tinyint(1) DEFAULT '0' AFTER `is_reviewed`;
+ALTER TABLE `pc_blog_post` ADD `published_at` datetime DEFAULT NULL AFTER `is_published`;
+
+UPDATE  `pc_blog_post` SET `is_reviewed` = 1;
+UPDATE  `pc_blog_post` SET `is_published` = 1;
+UPDATE  `pc_blog_post` SET `published_at`=`created_at`;
+INSERT INTO `pc_blog_category` (`id`, `name`, `slug`) VALUES ('6', 'Company Milestones', 'company-milestones');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

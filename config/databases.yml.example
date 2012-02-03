@@ -1,0 +1,9 @@
+all:
+  propel:
+    class: sfPropelDatabase
+    param:
+      encoding:   utf8
+      classname: PropelPDO
+      dsn: '<?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/db_dns'); echo "'\n"; ?>
+      username: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/db_username'); echo "\n"; ?>
+      password: '<?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/db_password'); echo "'\n"; ?>

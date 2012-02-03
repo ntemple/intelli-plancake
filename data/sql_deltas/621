@@ -1,0 +1,20 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP `api_key`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `api_key` varchar(32) DEFAULT NULL AFTER `dst_active`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

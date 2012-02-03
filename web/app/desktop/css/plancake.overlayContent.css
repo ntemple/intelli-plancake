@@ -1,0 +1,44 @@
+/*!************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+span#quoteContent
+{
+    display: block;
+    padding: 30px 60px;
+    width: 80%;
+    font-size: 160%;
+    color: #1C94C4;
+    background: url(/app/desktop/img/quote_icon.png) no-repeat 5px 10px;
+}
+
+span#quoteAuthor
+{
+    display: block;
+    width: 96%;
+    font-size: 120%;
+    text-align: right;
+    margin-right: 60px;
+    color: #1C94C4;    
+}
+
+div#hideQuote {
+    margin: 30px 20px 5px 20px;
+    font-size: 90%;
+}

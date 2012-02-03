@@ -1,0 +1,8 @@
+autoload:
+  vendor_openid:
+    path:      %SF_LIB_DIR%/vendor/openid
+    recursive: on
+
+  zend_gdata:
+    path:      %SF_LIB_DIR%/vendor/ZendGdata/library
+    recursive: on

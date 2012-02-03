@@ -1,0 +1,84 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'You won''t need to remember to buy the milk or to call Michael anymore.
+' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Non avrai più bisogno di ricordarti di comprare il latte o di chiamare Davide.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+UPDATE `pc_translation` SET `string` = 'You can pay also with credit or debit card without a Paypal account, still via Paypal.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_BENEFIT3';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+
+UPDATE  `pc_translation` SET  `string` =  'Sign up now' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+UPDATE  `pc_translation` SET  `string` =  'Iscriviti adesso' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_GENERAL_SIGN_UP_BTN';
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GTD_READY'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_LISTS_TAGS'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES', '104', '115', '0', NULL, '0', '2011-09-14 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES', '<td class="nonCenteredContent">Lots of useful functionalities</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>', '2011-09-14 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES', '<td class="nonCenteredContent">Tante utili funzionalità</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>', '2011-09-14 00:00:00');
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">History of completed tasks</td>
+<td><img src="/images/orange_tick.png" /><br />(the last %s months are kept)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(the last %s months are kept)</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Archivio delle attività completate</td>
+<td><img src="/images/orange_tick.png" /><br />(gli ultimi %s mesi sono accessibili)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(gli ultimi %s mesi sono accessibili)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Notes (Word-like app to create notes)</td>
+<td><img src="/images/orange_tick.png" /> <p>(up to 3 notes)</p></td>
+<td class="supporter"><img src="/images/tick.png" /> <p>(up to 500 notes)</p></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Note (applicazione simile a Word per creare note)</td>
+<td><img src="/images/orange_tick.png" /> <br />(fino a 3 note)</td>
+<td class="supporter"><img src="/images/tick.png" /> <br />(fino a 500 note)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_GUARANTEE', '104', '365', '0', NULL, '0', '2011-09-14 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GUARANTEE', '<td class="nonCenteredContent">30-day money-back guarantee - no question asked</td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>', '2011-09-14 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GUARANTEE', '<td class="nonCenteredContent">Garanzia di 30 giorni per avere un rimborso completo</td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>', '2011-09-14 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS', '104', '392', '0', NULL, '0', '2011-09-15 00:00:00'), ('ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS', '104', '395', '0', NULL, '0', '2011-09-15 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS', '<td class="nonCenteredContent">Max number of lists</td><td>%d</td><td class="supporter">unlimited</td>', '2011-09-15 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS', '<td class="nonCenteredContent">Numero massimo di liste</td><td>%d</td><td class="supporter">illimitato</td>', '2011-09-15 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS', '<td class="nonCenteredContent">Max number of tags</td><td>%d</td><td class="supporter">unlimited</td>', '2011-09-15 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS', '<td class="nonCenteredContent">Numero massimo di etichette</td><td>%d</td><td class="supporter">illimitato</td>', '2011-09-15 00:00:00');
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Notes (Word-like app to create notes)</td>
+<td><img src="/images/orange_tick.png" /> <p>(up to %d notes)</p></td>
+<td class="supporter"><img src="/images/tick.png" /> <p>(up to 500 notes)</p></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Note (applicazione simile a Word per creare note)</td>
+<td><img src="/images/orange_tick.png" /> <br />(fino a %d note)</td>
+<td class="supporter"><img src="/images/tick.png" /> <br />(fino a 500 note)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Max number of documents</td>
+<td>%d</td>
+<td class="supporter">unlimited</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Numero massimo di documenti</td>
+<td>%d</td>
+<td class="supporter">illimitato</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">History of completed tasks (in months)</td>
+<td>%d</td>
+<td class="supporter">%d</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Archivio delle attività completate (in mesi)</td>
+<td>%d</td>
+<td class="supporter">%d</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

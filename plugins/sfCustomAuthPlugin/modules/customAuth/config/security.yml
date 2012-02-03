@@ -1,0 +1,2 @@
+all:
+  require_ssl: true

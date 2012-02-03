@@ -1,0 +1,137 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+--
+-- Table structure for table `pc_bookkeeping_category`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_bookkeeping_category` (
+  `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Dumping data for table `pc_bookkeeping_category`
+--
+
+INSERT INTO `pc_bookkeeping_category` (`id`, `name`) VALUES
+(1, 'book'),
+(2, 'infrastructure'),
+(3, 'consultancy'),
+(4, 'office'),
+(5, 'travel'),
+(6, 'other');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_bookkeeping_contact`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_bookkeeping_contact` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Dumping data for table `pc_bookkeeping_contact`
+--
+
+INSERT INTO `pc_bookkeeping_contact` (`id`, `name`) VALUES
+(1, 'Amazon'),
+(2, 'Rapidswitch'),
+(3, 'GoDaddy'),
+(4, '123-reg'),
+(5, 'Aruba');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_bookkeeping_entry`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_bookkeeping_entry` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_id` tinyint(2) unsigned NOT NULL,
+  `contact_id` smallint(5) unsigned DEFAULT NULL,
+  `amount` float NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `vat` varchar(2) DEFAULT NULL,
+  `category_id` tinyint(2) unsigned NOT NULL,
+  `payment_method_id` tinyint(2) unsigned NOT NULL,
+  `ref_number` varchar(2) DEFAULT NULL,
+  `needs_clarification` tinyint(1) NOT NULL DEFAULT '0',
+  `question` varchar(255) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_bookkeeping_entry_FI_1` (`type_id`),
+  KEY `pc_bookkeeping_entry_FI_2` (`contact_id`),
+  KEY `pc_bookkeeping_entry_FI_3` (`category_id`),
+  KEY `pc_bookkeeping_entry_FI_4` (`payment_method_id`)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_bookkeeping_payment_method`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_bookkeeping_payment_method` (
+  `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Dumping data for table `pc_bookkeeping_payment_method`
+--
+
+INSERT INTO `pc_bookkeeping_payment_method` (`id`, `name`) VALUES
+(1, 'debit card'),
+(2, 'cash'),
+(3, 'paypal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_bookkeeping_type`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_bookkeeping_type` (
+  `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+--
+-- Dumping data for table `pc_bookkeeping_type`
+--
+
+INSERT INTO `pc_bookkeeping_type` (`id`, `name`) VALUES
+(1, 'expense'),
+(2, 'income');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_bookkeeping_entry`
+--
+ALTER TABLE `pc_bookkeeping_entry`
+  ADD CONSTRAINT `pc_bookkeeping_entry_FK_1` FOREIGN KEY (`type_id`) REFERENCES `pc_bookkeeping_type` (`id`),
+  ADD CONSTRAINT `pc_bookkeeping_entry_FK_2` FOREIGN KEY (`contact_id`) REFERENCES `pc_bookkeeping_contact` (`id`),
+  ADD CONSTRAINT `pc_bookkeeping_entry_FK_3` FOREIGN KEY (`category_id`) REFERENCES `pc_bookkeeping_category` (`id`),
+  ADD CONSTRAINT `pc_bookkeeping_entry_FK_4` FOREIGN KEY (`payment_method_id`) REFERENCES `pc_bookkeeping_payment_method` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

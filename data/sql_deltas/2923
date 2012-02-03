@@ -1,0 +1,53 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'GENERAL_TWITTER_COPY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'GENERAL_TWITTER_COPY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'GENERAL_TWITTER_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake: for becoming more organised and taking control of all the things you need to do.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Plancake: per diventare più organizzato e acquistare controllo su tutte le cose da fare.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_META_OG_TITLE';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_META_OG_TITLE';
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake: for becoming more organised and taking control of all the things you need to do.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_META_OG_TITLE';
+UPDATE  `pc_translation` SET  `string` =  'Plancake: per diventare più organizzato e acquistare controllo su tutte le cose da fare.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_META_OG_TITLE';
+
+ALTER TABLE `pc_user` ADD `session_entry_point` varchar(128) DEFAULT '' AFTER `last_promotional_code_inserted`;
+ALTER TABLE `pc_user` ADD `session_referral` varchar(128) DEFAULT '' AFTER `session_entry_point`;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS', '104', '397', '0', NULL, '0', '2012-01-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS', 'Email reminders', '2012-01-01 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS', 'Promemoria via email', '2012-01-01 00:00:00');
+
+ALTER TABLE `pc_user` ADD `reminders_active` tinyint(1) DEFAULT '0' AFTER `avatar_random_suffix`;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EMAIL_REMINDERS', '115', '1500', '0', NULL, '0', '2012-01-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS', 'Email reminders', '2012-01-01 00:00:00'), ('it', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS', 'Promemoria via email', '2012-01-01 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EMAIL_REMINDERS_SUCCESS', '115', '1510', '0', NULL, '0', '2012-01-01 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_SUCCESS', 'You have updated your email reminders setting.', '2012-01-01 00:00:00'), ('it', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_SUCCESS', 'Hai aggiornato il settaggio per i promemoria via email.', '2012-01-01 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EMAIL_REMINDERS_EXPLANATION', '115', '1520', '0', NULL, '0', '2012-01-02 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_EXPLANATION', 'If enabled, email reminders are sent at around 6 in the morning with all the tasks due on the day. <br />
+This feature is available to Premium accounts only.', '2012-01-02 00:00:00'), ('it', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_EXPLANATION', 'Se abilitati, i promemoria via email sono spediti intorno alle 6 di mattina con tutte le attività da essere fatte durante la giornata. <br />
+Questa funzionalità è disponibile solo agli utenti Premium.', '2012-01-02 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_REMINDERS_NOTE', '104', '650', '0', NULL, '0', '2012-01-02 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_REMINDERS_NOTE', 'You need to upgrade to the Premium account in order to activate email reminders and get other benefits.', '2012-01-02 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_REMINDERS_NOTE', 'Devi passare all''account Premium per poter attivare i promemoria via email e ottenere altri vantaggi.', '2012-01-02 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EMAIL_REMINDERS_EMAIL_SUBJECT', '115', '1530', '0', NULL, '0', '2012-01-02 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_EMAIL_SUBJECT', 'today reminders', '2012-01-02 00:00:00'), ('it', 'ACCOUNT_SETTINGS_EMAIL_REMINDERS_EMAIL_SUBJECT', 'promemoria di oggi', '2012-01-02 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_OVERDUE', '118', '9', '0', NULL, '0', '2012-01-02 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_OVERDUE', 'overdue', '2012-01-02 00:00:00'), ('it', 'ACCOUNT_MISC_OVERDUE', 'scadute', '2012-01-02 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,12 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `language_id` = 'it',`string_id` = 'ACCOUNT_SUBSCRIPTION_EXPIRED',`string` = '<h3>Il tuo abbonamento è terminato</h3>\r\n\r\n<p>\r\nIl tuo abbonamento è terminato.\r\n</p>\r\n\r\n<p>\r\nPotrai prolungarlo per continuare a usufruire dei vantaggi riservati agli account Premium.\r\n</p>',`updated_at` = '2011-09-05 00:00:00' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_EXPIRED';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

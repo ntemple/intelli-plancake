@@ -1,0 +1,24 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_quote_of_the_day` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `quote` varchar(512) NOT NULL DEFAULT '',
+  `quote_author` varchar(64) NOT NULL DEFAULT '',
+  `shown_on` int(10) unsigned DEFAULT NULL COMMENT 'YYYYmmdd format',
+  PRIMARY KEY (`id`),
+  KEY `pc_quote_of_the_day_I_1` (`shown_on`)
+) ENGINE=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_quote_of_the_day`;
+
+SET FOREIGN_KEY_CHECKS=1;

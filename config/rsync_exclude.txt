@@ -1,0 +1,11 @@
+.svn
+.project
+.buildpath
+.settings
+/web/uploads/*
+/web/plancake.zip
+/cache/*
+/log/*
+/web/*_dev.php
+/web/*_test.php
+/plancake_var/*

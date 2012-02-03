@@ -1,0 +1,72 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'User Experience Consultant and Business Development Consultant for Japan' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+UPDATE `pc_translation` SET `string` = 'User Experience Consultant and Business Development Consultant per il Giappone' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+
+UPDATE  `pc_translation` SET  `string` =  'Business Development Consultant for Italy (and more)' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_TEAM_ANDREA_POSITION';
+UPDATE  `pc_translation` SET  `string` =  'Business Consultant per il mercato italiano (e altro)' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_TEAM_ANDREA_POSITION';
+
+
+UPDATE `pc_translation` SET `string` = '<p>
+Thank you for upgrading to a Premium account.
+</p>
+
+<p>
+We hope you will enjoy all the extra services reserved just for you.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ACTIVATION_THANK_YOU';
+
+
+UPDATE `pc_translation` SET `string` = '<b>No risk</b> - 30-day <b>money back guarantee</b> - no questions asked.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_BENEFIT6';
+
+UPDATE `pc_translation` SET `string` = 'Enhanced security
+<p>(your account data - lists, tasks, notes - are encrypted with SSL)</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Printer friendly version' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT';
+
+UPDATE  `pc_translation` SET  `string` =  'No risk - 30 day money back guarantee' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY';
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_SUBSCRIPTION_1_YEAR',`string` = '1 year membership',`updated_at` = '2011-12-31 11:11:12' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_1_YEAR';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_SUBSCRIPTION_2_WEEKS',`string` = '2 week free trial',`updated_at` = '2011-12-31 11:10:46' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_2_WEEKS';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_SUBSCRIPTION_3_MONTHS',`string` = '3 month membership',`updated_at` = '2011-12-31 11:11:06' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_3_MONTHS';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_SUBSCRIPTION_ACTIVATE_FREE_TRIAL',`string` = 'activate 2 week free trial now',`updated_at` = '2011-12-31 11:11:15' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ACTIVATE_FREE_TRIAL';
+
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_HOMEPAGE_STEP1_BODY',`string` = 'Empty your mind into lists and tasks - manage all your todos, ideas and appointments in a simple and fun way.',`updated_at` = '2011-12-31 10:14:32' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP1_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_HOMEPAGE_STEP2_BODY',`string` = 'Enjoy Plancake on the go - no need to install software and works even when an internet connection is not available!',`updated_at` = '2011-12-31 10:02:53' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP2_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_HOMEPAGE_STEP3_BODY',`string` = 'Having control over all the things you need to get done empowers you - leaving time to focus on what you love.',`updated_at` = '2011-12-31 10:05:16' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP3_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_HOMEPAGE_STEP3_TITLE',`string` = 'Relax and Smile!',`updated_at` = '2011-12-29 15:27:20' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_STEP3_TITLE';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_LOGIN_ACCOUNT_LOCKED_ERROR',`string` = 'Your account is still locked because a malicious attack was detected. Maybe you failed to enter the correct details too many times? Please try again in few minutes.',`updated_at` = '2011-12-31 11:00:21' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_ACCOUNT_LOCKED_ERROR';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_LOGIN_DETAILS_ERROR',`string` = 'Sorry, those details did not match any on our system! Please, try again or click <a href="%s">here</a> to recover your password.',`updated_at` = '2011-12-31 11:01:53' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_DETAILS_ERROR';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_LOGIN_NOT_REGISTERED_YET',`string` = 'not registered yet? <a href="%s">Sign up now</a>.',`updated_at` = '2011-12-31 10:59:19' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_NOT_REGISTERED_YET';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_LOGIN_WITH_GOOGLE_ACCOUNT',`string` = 'Sign in with your Google Account',`updated_at` = '2011-12-31 10:59:20' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_WITH_GOOGLE_ACCOUNT';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_ANDROID_APP_BODY',`string` = 'Use Plancake on the go with your Android device, even when there is no internet connection! <br />\nCheck what you need to do and add tasks to your Plancake when on the move.',`updated_at` = '2011-12-31 10:35:10' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_ANDROID_APP_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY',`string` = 'Thanks to this extension, you don''t need to bring up the Plancake website everytime you want to add a task.\n<br />\nWithout leaving the webpage you are viewing, you will be able to jott down your ideas and add them to Plancake.',`updated_at` = '2011-12-31 10:44:25' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK',`string` = 'You can install the extension in Google Chrome from <a target="_blank" href="%s">here</a>.',`updated_at` = '2011-12-31 10:44:44' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY',`string` = 'You can create an item in Plancake by sending an email to your Plancake email address. Quickly record ideas, tasks and appointments without the need to log in!<br />\nIf your device supports voice commands you may be able to add tasks using your voice via this service.',`updated_at` = '2011-12-31 10:34:12' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY',`string` = 'Plancake caters for those wishing to use the well-known GTD methodology in order to achieve stress-free productivity.<br />\nDump what is on your mind to your Inbox, filter lists by tags (contexts) and light up stars to mark next actions.',`updated_at` = '2011-12-31 10:25:55' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY',`string` = 'Plancake Mobile works on any modern smartphone without the need to install anything from the app store. <br />\nIt also works offline, all the benefits of an app without the space requirements!<br />\nJust go to www.plancake.com with your smartphone web browser. Easy!',`updated_at` = '2011-12-31 10:39:02' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_OFFLINE_BODY',`string` = 'Plancake doesn''t always need an internet connection in order to work! <br />\nThat means you can use it in the middle of the desert, underground or 10,000 feet in the air!\nThen, once the web application detects\nan internet connection is available, it updates your Plancake with all the newly adding information.',`updated_at` = '2011-12-31 10:48:10' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_OFFLINE_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY',`string` = 'Wherever you are, the ideas and notes you have made will be at hand. <br />\nYou will get a Word-like editor where you can add even images.',`updated_at` = '2011-12-31 10:22:05' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY',`string` = 'Organize all your projects and things you need to do in one place, with the help of an inbox, calendar, lists, tags, repeating tasks, intuitive item reordering, keyboard shortcuts and a very easy-to-use interface. <br /> \nYou will feel everything is under control.',`updated_at` = '2011-12-31 10:20:50' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY',`string` = 'Plancake can send you emails to make sure you don''t forget what you need to do without checking your account.',`updated_at` = '2011-12-31 10:37:09' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_BODY',`string` = 'We constantly improve Plancake based on the feedback of our users. <br />\nOur Company is passionate about ensuring people are delighted with us and our service: the core team personally reply to all enquiries, usually within few hours and publish inspirational articles on the Plancake blog.',`updated_at` = '2011-12-31 10:51:23' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_SUPPORT_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_SERVICES_HOME_TRANSLATIONS_BODY',`string` = 'We have an advanced system where users can contribute to translating the website, thanks to this we have numerous translations!',`updated_at` = '2011-12-31 10:42:49' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_TRANSLATIONS_BODY';
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'WEBSITE_TEAM_JACK_INFO',`string` = 'Based near Cambridge, I am currently working as an Embedded Software Engineer in the broadcasting sector. <br />\nI do all I can to contribute something to software that I use and love. <br />\nAs a native English speaker, I cast an eye over the text that is written for Plancake.\n',`updated_at` = '2011-12-31 10:56:56' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_JACK_INFO';
+
+UPDATE  `pc_translation` SET  `string` =  'Abito a Cambridge (UK) e lavoro come Ingegnere di Sistemi Embedded nel settore broadcasting. <br />
+Faccio tutto quello che posso per contribuire ai software che uso e amo. <br />
+Parlando Inglese come lingua madre, revisiono i testi Inglesi per Plancake.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_TEAM_JACK_INFO';
+
+UPDATE `pc_translation` SET  `string` =  'Are you a charity or social enterprise? If so, you can contact us to apply for discounted Premium accounts.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

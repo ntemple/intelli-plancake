@@ -1,0 +1,1398 @@
+/*!************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+body
+{
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  color: #191919;
+}
+
+body a
+{
+  text-decoration: none;
+  color: #00579C;
+}
+
+body a:hover
+{
+    text-decoration: underline;
+}
+
+body a:visited
+{
+  text-decoration: none;
+  color: #00579C;
+}
+
+h1 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color:#005cb8;
+    margin:0 auto;
+    margin-bottom: 20px;
+    padding-right: 90px;
+}
+
+h2
+{
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 30px;
+    margin-top: 0px;
+    color: #005CB8;
+    font-family: verdana;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3
+{
+  color: #005CB8;
+  margin-bottom: 0px;
+}
+
+h4
+{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #ff9922;
+  white-space: nowrap;
+}
+
+h4.noBackground
+{
+  background-color: #fff;
+  color: #191919;
+  width: 100%;
+  text-align: right;
+}
+
+h4.noBackground a
+{
+  text-decoration: underline;
+}
+
+ul
+{
+  list-style-type:none;
+  padding-left: 10px;
+}
+
+ul li
+{
+  background-image: url('/images/bullet.png');
+  background-repeat:no-repeat;
+  padding-left: 18px;
+}
+
+ul ul
+{
+  list-style-type:none;
+}
+
+ul ul li
+{
+  background-image: url('/images/bullet_small.png');
+  background-repeat:no-repeat;
+  padding-bottom: 3px;
+  padding-left:14px; 
+}
+
+li
+{
+  margin-bottom: 5px;
+}
+
+ul.noIndent
+{
+  margin-left: 0px;
+  padding-left: 0px;
+  text-indent: 0em;
+}
+
+#pc_header
+{
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-family: Verdana, Arial, "Times New Roman",Georgia,Serif; /* useful for integration */
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 0px;
+}
+
+a#pc_logo
+{
+  position: relative;
+  display: block;
+  float: left;
+  color: #ff9922;
+  font-weight: bold;
+  font-size: 24px;
+  width: 272px;
+  background-image: url('/images/homepage_sprite2.png');
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  height: 69px;
+  padding: 0px;
+  margin: 0px;
+}
+
+span#pc_slogan
+{
+    display: block;
+    position: absolute;
+    top: 55px;
+    left: 3px;
+    color: #19d;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Georgia,Verdana, Arial, "Times New Roman",Serif;
+}
+
+div#pc_innerHeader
+{
+  width: 950px;
+  margin: auto;
+  position: relative;
+}
+
+#pc_headerLinks
+{
+  position: absolute;
+  font-size: 14px;
+  top: 35px;
+  right: 10px;
+  height: 20px;
+}
+
+a#pc_myAccountButton {
+    display: block;
+    float: right;
+    margin-right: 30px;
+}
+
+a.pc_headerLink
+{
+  height: 20px;
+  float: left;
+  padding-top: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right: 1px solid #306579;
+  color: #1F537B;
+}
+
+#pc_headerLinks a.selected
+{
+  background-color: #005CB8;
+  color: #fff;
+}
+
+a.pc_headerLink:hover
+{
+  background-color: #1F537B;
+  color: #fff;
+}
+
+div#subHeader {
+    width: 100%;
+    height: 55px;
+    margin: 0px;
+    padding: 0px;
+    background: url("/images/subheader_background.png") repeat-x scroll 0 0 transparent;
+}
+
+a.googleAccountLink
+{
+  background-image: url('/images/google_icon_small.png');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  height: 20px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+div#headerLoginSignupArea {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    width: 455px;
+    white-space: nowrap;
+}
+
+a#pc_loginButton
+{
+  background-position: 0 0;
+  width: 65px;
+  height: 20px;
+}
+
+
+a#pc_googleAccountLoginButton
+{
+  position: relative;
+  padding-bottom: 7px;
+}
+
+a#pc_registerButton
+{
+  width: 65px;
+  height: 20px;
+}
+
+div#pc_googleAccountLinkRegister
+{
+    width: 100%;
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+div#pc_googleAccountLinkRegister a
+{
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+#pc_content
+{
+  width: 946px;
+  margin: auto;
+  position: relative;
+}
+
+p.pc_hint
+{
+  text-indent: 20px;
+  background-image: url('/images/hint_icon.png');
+  background-repeat: no-repeat;
+}
+
+div.pc_leftColumn
+{
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  width: 650px;
+}
+
+div.pc_sidebar
+{
+  margin-top: 0px;
+  padding-top: 0px;
+  float: right;
+  width: 250px;
+}
+
+div.pc_sidebarBlock h4
+{
+}
+
+div.pc_sidebarBlock
+{
+/*   border-bottom: 1px dotted #ff9922; */
+}
+
+div#pc_screencast
+{
+  float: right;
+  margin-right:0px;
+  padding-right: 0px;
+  margin-top: 10px;
+}
+
+div#pc_screencastCentered
+{
+  margin: auto;
+  margin-top: 10px;
+}
+
+p#freshnessStats
+{
+    clear: both;
+    background-color: #EEEEFF;
+    border-top: 2px solid #1F537B;
+    border-bottom: 2px solid #1F537B;
+    padding: 10px 5px;
+    color: #1F537B;
+    float: right;
+    margin-top: 40px;
+    margin-right: 15px;
+    width: 400px;
+}
+
+/*********** FORMS *****************/
+
+/**************************************************/
+
+#pc_terms
+{
+  font-weight: normal;
+}
+
+/****** API navigation Sidebar *********/
+#pc_apiNavigationSidebar
+{
+  position: fixed;
+  line-height: 150%;
+}
+
+#pc_apiNavigationSidebar div#apiNavMethods
+{
+    margin-left: 10px;
+}
+
+
+/****** Testimonial Sidebar *********/
+#pc_testimonialsSidebar ul
+{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#pc_testimonialsSidebar ul li
+{
+  display: block;
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  background-image: none;
+}
+
+li#testimonial1
+{
+    background-position: 0px 0px;
+}
+
+li#testimonial2
+{
+    background-position: 0px -100px;
+}
+
+li#testimonial3
+{
+    background-position: 0px -200px;
+}
+
+#pc_testimonialsSidebar .pc_testimonialAuthor
+{
+  display: block;
+  width: 100%;
+  text-align: right;
+  font-style: italic;
+}
+
+#pc_testimonialsSidebar ul
+{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#pc_testimonialsSidebar ul li
+{
+  list-style-image: none;
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+
+/****** Bottom menu *********/
+#pc_bottomMenu
+{
+  clear: both;
+  border-top: 1px dotted #ff9922; 
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 650px;
+/*   background-color: #ffff66; */
+}
+
+#subscriptionPage #pc_bottomMenu {
+    width: 100% !important;
+}
+
+#pc_readMore
+{
+  width: 350px;
+  padding: 5px;
+/*   border-right: 1px dotted #ff9922; */
+}
+
+#subscriptionPage #pc_readMore {
+    width: 600px !important;
+}
+
+#pc_readMore ul
+{
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+#pc_signUpNow
+{
+  float: right;
+  margin-bottom: 10px;
+  width: 260px;
+  padding: 5px;
+}
+
+a.signUpButton {
+    font-size: 30px;
+    margin: 0px;
+    padding: 10px 25px;
+    font-family: 'Comfortaa', cursive;
+    border: solid 1px #0861ba;
+    text-align: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-box-shadow: 1px 1px 0px #28b7ff inset;
+    -moz-box-shadow: 1px 1px 0px #28b7ff inset;
+    box-shadow: 1px 1px 0px #28b7ff inset;
+    background: #289fff;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#289fff), to(#0e83f9));
+    background: -webkit-linear-gradient(#289fff, #0e83f9);
+    background: -moz-linear-gradient(#289fff, #0e83f9);
+    background: -ms-linear-gradient(#289fff, #0e83f9);
+    background: -o-linear-gradient(#289fff, #0e83f9);
+    background: linear-gradient(#289fff, #0e83f9);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#289fff', endColorstr='#0e83f9'); /* for IE */
+    color:#fff !important;
+    text-decoration:none;
+    white-space: nowrap;
+}
+
+a.signUpButton:hover {
+    text-decoration: none;
+    border: solid 1px #0289f5;    
+    background: #2ba1ff;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#0e83f9), to(#2ba1ff));
+    background: -webkit-linear-gradient(#0e83f9, #2ba1ff);
+    background: -moz-linear-gradient(#0e83f9, #2ba1ff);
+    background: -ms-linear-gradient(#0e83f9, #2ba1ff);
+    background: -o-linear-gradient(#0e83f9, #2ba1ff);
+    background: linear-gradient(#0e83f9, #2ba1ff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e83f9', endColorstr='#2ba1ff'); /* for IE */    
+}
+
+/* I want to apply PIE only to IE9, because PIE doesn't work properly on IE8 on some computers */
+/* On the contrary the 'filter' property works fine with IE7 and IE8 but not with IE9 - it interfere with round corners */
+@media all and (min-width:0) { /* IE9 hacks */
+    a.signUpButton { filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) \0/; } /* IE9 hack */
+    a.signUpButton { -pie-background: linear-gradient(#289fff, #0e83f9) \0/; behavior: url(/css/PIE.htc) \0/; } /* IE9 hack */
+    a.signUpButton:hover { filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) \0/; } /* IE9 hack */
+    a.signUpButton:hover { -pie-background: linear-gradient(#0e83f9, #2ba1ff) \0/; behavior: url(/css/PIE.htc) \0/; } /* IE9 hack */
+}
+
+img#screenShot
+{
+  float: right;
+  display: block;
+  padding: 2px;
+  border: 2px solid #1f537b;
+  width: 505px;
+  height: 230px;
+  margin-top: 15px;
+}
+
+img.example
+{
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: 1px solid #aaa;
+}
+
+img.pc_paypal_donate_button
+{
+    border: 0;
+    margin: 5px;
+    margin-left: 35px;
+}
+
+input.pc_donate_button
+{
+    -moz-border-radius-bottomleft:0.2em;
+    -moz-border-radius-bottomright:0.2em;
+    -moz-border-radius-topleft:0.2em;
+    -moz-border-radius-topright:0.2em;
+    background-color:#EEEEEE;
+    border:1px solid #666666;
+    cursor:pointer;
+    font-size:0.8em;
+    padding:0.2em;
+}
+
+input.pc_donate_button:hover {
+    background-color: lightyellow;
+    border: 1px solid red;
+}
+
+img#pc_poweredByPaypal {
+    display: block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    border: 1px dotted blue;
+}
+
+.pc_teamMember
+{
+    clear: both;
+    margin-bottom: 70px;
+}
+
+.pc_teamMember h5
+{
+    font-size: 13px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.pc_teamMember img
+{
+    float: left;
+    margin-right: 40px;
+}
+
+.pc_teamMember#team_danocc img {
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+}
+
+.pc_teamMember#team_yukino img {
+    -webkit-transform: rotate(-6deg);
+    -moz-transform: rotate(-6deg);
+}
+
+.pc_teamMember#team_andocc img {
+    -webkit-transform: rotate(+3deg);
+    -moz-transform: rotate(+3deg);
+}
+
+.pc_teamMember#team_tririn img {
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+}
+
+.pc_teamMember#team_jacmit img {
+    -webkit-transform: rotate(+4deg);
+    -moz-transform: rotate(+4deg);
+}
+
+/* Scale the images on hover, add transitions for smoothing things out, and ensure the hover appears on top */
+.pc_teamMember img.hover {
+    -webkit-transform: scale(1.25) !important;
+    -moz-transform: scale(1.25) !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Add drop shadows and smooth out the transition (Safari only) */
+.pc_teamMember img {
+    -webkit-transition: -webkit-transform .15s linear;
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+    box-shadow: 0 3px 6px rgba(0,0,0,.5);
+}
+ 
+/* On hover, darken the shadows a bit */
+.pc_teamMember img.hover {
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.75);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,.75);
+    box-shadow: 0 3px 6px rgba(0,0,0,.75);
+}
+
+
+
+
+.pc_blog_post_teaser
+{
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #FF9922;
+}
+
+.pc_blog_social
+{
+    position: absolute;
+    bottom: -15px;
+    right: -25px;
+}
+
+.pc_blog_post_header
+{
+    position: relative;
+    padding-right: 200px;
+}
+
+.pc_blog_post_header h2
+{
+    background-color: #fff;
+    border: 0px;
+    background-image: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 0px;
+    font-size: 16px !important;    
+}
+
+.pc_blog_post_header h2 a
+{
+    color: #005CB8;
+    font-family: verdana;
+    font-size: 18px !important;
+    font-weight: bold;    
+    white-space: normal;
+    display: block;
+    width: 630px;
+}
+
+.pc_blog_post
+{
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul#pc_blog_post_comments, #pc_blog_post_comments li
+{
+    margin-left: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+
+#pc_blog_post_comments li
+{
+    list-style-image: none;
+    background-image: none;
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #FF9922;
+    margin-bottom: 15px;
+}
+
+#pc_blog_post_comments img
+{
+    float: left;
+}
+
+#pc_blog_post_comments span.pc_blog_post_comment
+{
+    display: block;
+    padding-left: 65px;
+    margin-top: 5px;
+}
+
+#pc_blog_post_comments span.pc_blog_post_comment_date
+{
+    position: absolute;
+    bottom: 2px;
+    right: 20px;
+    font-size: 11px;
+}
+
+img.pc_post_author
+{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 1px;
+    border: 1px solid #ccc;
+}
+
+.pc_blog_post_content
+{
+    clear: left;
+    padding-bottom: 5px;
+    line-height: 1.5em;
+}
+
+.pc_blog_pagination
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+a#pc_blog_filter_selected
+{
+  background-color: #1F537B;
+  color: #fff;
+}
+
+#pc_blogFiltersSidebar ul
+{
+  padding-left: 10px;
+  margin-left: 0px;
+}
+
+#pc_blogSubscribeSidebar ul
+{
+  padding-left: 10px;
+  margin-left: 0px;
+}
+
+#pc_blogSubscribeSidebar ul li
+{
+  list-style-image: none;
+  list-style: none;
+  background-image: none;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+#pc_apiDocMethods
+{
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 1px dotted #1F537B;
+    margin-top: -25px;
+}
+
+#pc_apiDocMethods h4
+{
+    font-size: 15px;
+    color: #005CB8;
+    background-color: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+#pc_apiDocMethods h5
+{
+    font-size: 13px;
+}
+
+#pc_apiDocMethods .pc_code
+{
+    width: 600px;
+}
+
+#productPitchHeader {
+    color: #E87F00;
+    font-family: 'Comfortaa',cursive;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: left;    
+}
+
+#productPitch {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 25px 0;
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+#pc_services h2 {
+    padding-right: 0px;
+    font-weight: normal;
+    font-size: 16px;    
+}
+
+#pc_services ul
+{
+  width: 100%;
+  margin: 0 auto;
+}
+
+#pc_services ul li
+{
+  float: left;
+  font-size: 13px;
+  list-style: none outside none;
+  margin: 20px 0;
+  height: 250px;
+  padding: 140px 59px 0 0;
+  width: 27%;    
+  background-image: url('/images/features_sprite.png');
+}
+
+#pc_services ul li p
+{
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+
+
+#pc_services ul li#s_email { background-position: 50px 0px; }
+#pc_services ul li#s_calendar { background-position: -450px 0px; }
+#pc_services ul li#s_chrome { background-position: -950px 0px; }
+#pc_services ul li#s_mobile { background-position: -1450px 0px; }
+#pc_services ul li#s_offline { background-position: -1950px 0px; }
+#pc_services ul li#s_personal { background-position: -2450px 0px; }
+#pc_services ul li#s_reminders { background-position: -2950px 0px; }
+#pc_services ul li#s_translations { background-position: -3450px 0px; }
+#pc_services ul li#s_api { background-position: -3950px 0px; }
+#pc_services ul li#s_integrations { background-position: -4450px 0px; }
+#pc_services ul li#s_applications { background-position: -4950px 0px; }
+#pc_services ul li#s_android { background-position: -5450px 0px; }
+
+
+
+
+#pc_services h3
+{
+    margin-bottom: 15px;
+}
+
+a.serviceMoreInfo
+{
+
+}
+
+
+/****** START: homepage *********/
+#homepageSplash {
+    display: block;
+    background-color: #005CB8;
+    background: url("/images/ribbon_background.png") repeat-x scroll 0 0 transparent;
+    margin: 0px auto;
+    height: 545px;  
+    padding-top: 5px;
+}
+
+#homepageSplash > div
+{
+  width: 946px;
+  margin: auto;
+  position: relative;
+}
+
+#homepageSplash h1
+{
+    color: #FFFFFF;
+    font-family: 'Comfortaa';
+    font-size: 26px;
+    margin: 0 3px;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 0 #005CB8;
+    font-weight: normal;
+    margin-bottom: 5px;
+    word-spacing: 10px;
+}
+
+#homepageSplash p
+{
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+}
+
+#homepageSplash a.signUpButton
+{
+    margin-bottom: 0px;
+    float: right;
+    clear: both;
+}
+
+#homepageSplash #watchVideo
+{
+    position: absolute;
+    top: -30px;
+    right: -25px;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);    
+}
+
+#homepageSplash #watchVideo > div
+{
+    text-align: center;
+    margin-top: -15px;
+    color: #f92;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#homepageSplash #watchVideo:hover
+{
+    cursor: pointer;
+    -webkit-transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);    
+}
+
+#homepageBadges {
+    float: right;
+    width: 420px;
+    white-space: nowrap;    
+    margin-bottom: 10px;
+}
+
+#homepageBadges img, #homepageBadges div {
+    float: left;
+    margin-right: 10px;
+    margin-left: 0px;
+}
+
+#homepageBadges div {
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 30px;
+    height: 100%;
+}
+
+#stepsForPlancake {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    float: left;
+    margin-bottom: 0px;
+}
+
+#stepsForPlancake li {
+    background-image: none;
+    float: left;
+    width: 32%;
+    padding-top: 190px;
+    background-repeat: no-repeat;
+    background-image: url(/images/homepage_sprite2.png);
+    margin-top: 0px;
+}
+
+* html #stepsForPlancake li {   /* IE6 CSS hack */
+    background-image: none;
+}
+
+
+#stepsForPlancake li#stepCapture {
+    padding-left: 0px;
+    background-position: -380px 0px;
+}
+
+#stepsForPlancake li#stepAccess {
+    background-position: -765px -10px;
+}
+
+#stepsForPlancake li#stepRelax {
+    background-position: -1180px -10px;
+}
+
+#stepsForPlancake li div.stepHeader {
+    color: #fff;
+    margin-bottom: 0px;
+    padding: 5px 10px;
+    padding-right: 30px;
+    margin-top: 0px;
+    font-size: 20px;
+    white-space: nowrap;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;  
+    width: 275px;
+}
+
+#stepsForPlancake li p {
+    color: #fff;
+    width: 275px;
+    font-size: 14px;
+    padding: 0px;
+    padding-left: 10px;
+    margin: 0px;
+    margin-top: 0px;
+}
+
+#mainSignupButtonWrapper {
+    position: relative;
+    float: right;
+    background-image: url(/images/homepage_sprite2.png);
+    background-repeat: no-repeat;
+    background-position: -1600px -16px;
+    background-attachment: scroll;
+    padding-left: 60px;
+    padding-bottom: 60px;
+    margin-top: 15px;  
+}
+
+#platformsWrapper {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-image: url(/images/platforms_small.png);
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 100px;
+}
+
+*:first-child+html #mainSignupButtonWrapper { /* IE7 hack */
+    width: 235px;
+}
+
+div#whatsPlancakeColumn {
+    float: left;
+    margin: 0 20px;
+    width: 45%;
+    margin-top: -50px;
+    margin-bottom: 30px;
+}
+
+div#whatsPlancakeColumn h2 {
+    display: block;
+    font-family: 'Comfortaa', cursive;
+    color:#005cb8;      
+    margin-bottom: 0px;
+    margin-top: 15px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+div#whatsPlancakeColumn ul#whyUs li {
+    background-image: url("/images/bullet.png");
+    background-repeat: no-repeat;
+    padding-left: 18px;    
+}
+
+div#whatsPlancakeColumn li p {
+    margin-top: 0px;
+}
+
+div#whatsPlancakeColumn ul, div#whatsPlancakeColumn li {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div#whatsPlancakeColumn ul li {
+    background-image: none;
+}
+
+span#homepageMarketingTitles {
+    display: block;
+    color: #E87F00;
+    font-family: 'Comfortaa',cursive;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+div#homepageTestimonials {  
+    float: right;
+    margin: 0 auto;
+    padding: 0;
+    width: 45%;
+    margin-top: -50px;
+    margin-bottom: 30px;    
+}
+
+div#homepageTestimonials .testimonialComment {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+div#homepageTestimonials .testimonialAuthor {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+}
+
+div#homepageTestimonials ul, div#homepageTestimonials li {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div#homepageTestimonials li {
+    background: url("/images/testimonials_1.jpg") no-repeat scroll 0 0 transparent;
+    padding-left: 80px;
+    margin-bottom: 60px;    
+}
+
+div#homepageTestimonials li#homepageTestimonial1 {
+    background-position: 0px 0px;   
+}
+
+div#homepageTestimonials li#homepageTestimonial2 {
+    background-position: -450px 0px;   
+}
+
+div#homepageTestimonials li#homepageTestimonial3 {
+    background-position: -1028px 0px;   
+}
+
+
+div#homepageActionLinks {
+    margin: auto; 
+    clear: both;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    border-top: 1px solid #E87F00;
+}
+
+div#homepageActionLinks a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/****** END: homepage *********/
+
+div#pc_registrationForm input[type=text], div#pc_registrationForm input[type=password]
+{
+    width: 360px;
+    font-size: 18px;
+    border: 1px solid #ff9922;
+    padding: 2px;
+}
+
+.pc_beautifiedSubmitButton {
+    background-color: #FF890A;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 120%;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;    
+}
+
+body#pc_loginPage {
+    height: 100%;
+    background-color: #DDECFB;
+}
+
+div#pc_loginBox {
+    position: relative;
+    margin: auto;
+    margin-top: 70px;
+    padding: 15px;
+    width: 400px; 
+    text-align: left; 
+    border: 1px solid #A6D0F8;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #fff;
+    overflow: visible;
+}
+
+body#pc_loginPage #pc_content {
+    width: 420px !important; 
+}
+
+
+div#pc_loginBox .pc_beautifiedSubmitButton {
+    font-size: 100% !important;
+}
+
+div#pc_loginBox h2 {
+    margin: 0px !important;
+    padding-top: 0px !important;
+}
+
+div#pc_loginBox label[for=login_rememberme] {
+    margin: 0px !important;
+    padding-top: 0px !important;
+}
+
+a#homeLinkForLoginBox {
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: -45px;
+    border: 0px !important;
+}
+
+a#homeLinkForLoginBox img {
+    border: 0px !important;
+}
+
+div#pc_loginForm input[type=text], div#pc_loginForm input[type=password]
+{
+    width: 360px;
+    font-size: 18px;
+    border: 1px solid #ff9922;
+    padding: 5px;
+}
+
+div#pc_loginForm {
+    margin-top: 20px;
+}
+
+div#pc_googleAccountLinkLogin
+{
+    float: right; 
+    margin-top: 8px;    
+}
+
+div#pc_notRegisteredYet {
+    width: 100%;
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+div#pc_googleAccountLinkLogin a
+{
+    font-size: 12px;
+}
+
+div#pc_socialWidgets
+{
+    position: absolute;
+    top: 0px;
+    left: -85px;
+    margin-top: 55px;
+}
+
+div#pc_socialWidgets ul
+{
+    position: fixed;
+    border-right: 1px solid #ff9922;
+    padding: 5px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div#pc_socialWidgets ul li:first-child
+{
+    width: 60px;
+    font-size: 12px;
+    color: #ff9922;
+}
+
+div#pc_socialWidgets ul li
+{
+    background-image: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div#pc_contactForm ul
+{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div#pc_contactForm ul li
+{
+    background-image: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.faqQuestion {
+    display: block;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+  
+.blueBtn {
+    text-decoration: none;     
+    padding: 5px 8px;
+    margin: 0 6px;
+    text-align: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    font-weight: bold;  
+    -webkit-box-shadow: 1px 1px 0px #28b7ff inset;
+    -moz-box-shadow: 1px 1px 0px #28b7ff inset;
+    box-shadow: 1px 1px 0px #28b7ff inset;    
+    color:#fff !important;  
+    background: #289fff;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#289fff), to(#0078EF));
+    background: -webkit-linear-gradient(#289fff, #0078EF);
+    background: -moz-linear-gradient(#289fff, #0078EF);
+    background: -ms-linear-gradient(#289fff, #0078EF);
+    background: -o-linear-gradient(#289fff, #0078EF);
+    background: linear-gradient(#289fff, #0078EF);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#289fff', endColorstr='#0078EF'); /* for IE */    
+}
+
+.blueBtn:hover {
+    text-decoration: none;
+    background: #0078EF;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#0078EF), to(#2ba1ff));
+    background: -webkit-linear-gradient(#0078EF, #2ba1ff);
+    background: -moz-linear-gradient(#0078EF, #2ba1ff);
+    background: -ms-linear-gradient(#0078EF, #2ba1ff);
+    background: -o-linear-gradient(#0078EF, #2ba1ff);
+    background: linear-gradient(#0078EF, #2ba1ff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078EF', endColorstr='#2ba1ff'); /* for IE */    
+}
+
+.orangeBtn {    
+    text-decoration: none;     
+    padding: 5px 8px;
+    margin: 0 6px;
+    text-align: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    font-weight: bold;
+    -webkit-box-shadow: 1px 1px 0px #FFC9C7 inset;
+    -moz-box-shadow: 1px 1px 0px #FFC9C7 inset;
+    box-shadow: 1px 1px 0px #FFC9C7 inset;
+    color:#fff !important;    
+    background: #ff9922;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff9922), to(#FF8707));
+    background: -webkit-linear-gradient(#ff9922, #FF8707);
+    background: -moz-linear-gradient(#ff9922, #FF8707);
+    background: -ms-linear-gradient(#ff9922, #FF8707);
+    background: -o-linear-gradient(#ff9922, #FF8707);
+    background: linear-gradient(#ff9922, #FF8707);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9922', endColorstr='#FF8707'); /* for IE */    
+}
+
+.orangeBtn:hover {    
+    text-decoration: none;
+    border-color: #FFC8B6;
+    background: #2ba1ff;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FF8707), to(#ff9922));
+    background: -webkit-linear-gradient(#FF8707, #ff9922);
+    background: -moz-linear-gradient(#FF8707, #ff9922);
+    background: -ms-linear-gradient(#FF8707, #ff9922);
+    background: -o-linear-gradient(#FF8707, #ff9922);
+    background: linear-gradient(#FF8707, #ff9922);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF8707', endColorstr='#ff9922'); /* for IE */    
+}
+
+span.signupFree {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 0;
+}

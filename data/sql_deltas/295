@@ -1,0 +1,27 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE `pc_donation`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER UNSIGNED  NOT NULL COMMENT 'can be zero if the user is not logged in',
+	`before_donation` TINYINT(1) default 1 COMMENT '1->the user is in the page where to choose the amount; 0->the user has done the donation',
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_donation`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

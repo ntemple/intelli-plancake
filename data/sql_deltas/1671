@@ -1,0 +1,24 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Feel free to take and use any screenshot of the application and <a href="/images/mascot_big.png">our mascot</a>. However, the copyright of those will remain with Plancake.com. <br />
+Images should not be modified or used without reference to Plancake.com.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Cattura pure e usa immagini dell''applicazione e <a href="/images/mascot_big.png">la nostra mascotte</a>. Comunque, i diritti d''autore per esse rimarranno di Plancake.com. <br />
+Le immagini non devono essere modificate o usate senza fare riferimento a Plancake.com.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_IMAGES_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_HEADER_NOTES', '103', '70', '10', '', NULL), ('ACCOUNT_HEADER_TASKS', '103', '80', '10', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_NOTES', 'notes', NULL), ('it', 'ACCOUNT_HEADER_NOTES', 'note', NULL), ('en', 'ACCOUNT_HEADER_TASKS', 'tasks', NULL), ('it', 'ACCOUNT_HEADER_TASKS', 'attività', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,214 @@
+#bottomPanel {
+    background: url("/app/desktop/img/bottombar_bg.png") repeat-x scroll 0 0 transparent;
+    position: fixed;
+    bottom: 0px;
+    color: white;
+    width: 100%;
+    height: 38px;
+    padding: 2px 3px;
+}
+
+#bottomPanel > div {
+    padding: 0px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+#bottomPanel #socialWidgets {
+    display: block; 
+    float: left; 
+    width: 200px; 
+    margin-left: 20px; 
+    margin-top: 7px;
+    position: relative;
+}
+
+/* #bottomPanel #settingsButton {
+    float: left; 
+    margin-left: 20px;
+    margin-top: 6px;    
+} */
+
+#bottomPanel #settingsButton .ui-button-text {
+    font-size: 12px;
+}
+
+#bottomPanel #bottomFilters {
+    margin: auto;
+    margin-top: 2px;   
+}
+
+
+#bottomFilters .ui-button .ui-button-text {
+    font-size: 80%;
+}
+
+#bottomPanel #accountButton {
+    float: left;
+    height: 20px;
+    margin-left: 20px;
+    display: block;
+    margin-top: 6px;
+}
+
+#bottomPanel #blogLinkWrapper {
+    width: 60px;
+    float: right;
+    display: block;    
+    margin-top: 5px; 
+    margin-right: 15px;
+    position: relative;
+}
+
+#bottomPanel #blogLinkWrapper .ui-button-text {
+    padding-top: 1px !important;
+}
+
+#bottomPanel #blogLink {
+    display: block;
+    height: 19px !important;
+}
+
+#bottomPanel #blogLink .ui-button-text {
+    font-size: 12px;
+}
+
+#bottomPanel #accountButton .ui-button-text {
+    font-size: 12px;
+}
+
+#bottomPanel #upgradeButton {
+    float: right; 
+    margin-top: 4px; 
+    margin-right: 80px;
+}
+
+#bottomPanel #upgradeButton .ui-button-text {
+    color: #FFE081;
+    font-size: 13px;
+    background-color: #FF6633;    
+}
+
+#bottomPanel #upgradeButton .ui-button-text:hover {
+    color: #FF6633;
+    background-color: #FFE081;    
+}
+
+#bottomPanel #upgradeButton .ui-icon.upgradeButtonIcon {
+    background-image: url("/app/desktop/img/cake.gif") !important;
+}
+
+#bottomPanel #helpButton {
+    float: right; 
+    margin-top: 4px; 
+    margin-right: 15px;    
+}
+
+#bottomPanel #helpButton {
+    float: right; 
+    margin-top: 4px; 
+    margin-right: 15px;    
+}
+
+#bottomPanel #helpButton .ui-button-text {
+    font-size: 15px;
+    line-height: 1em;
+    padding: 2px !important;
+}
+
+#bottomPanel #helpButton .ui-icon.helpButtonIcon {
+    background-image: url("/app/desktop/img/help_icon.png") !important;
+}
+
+#bottomPanel #videoTutorialButton {
+    float: right; 
+    margin-top: 4px; 
+    margin-right: 15px;    
+}
+
+#bottomPanel #videoTutorialButton .ui-button-text {
+    font-size: 15px;
+    line-height: 1em;
+    padding: 2px !important;
+}
+
+#bottomPanel #videoTutorialButton .ui-icon.videoIcon {
+    background-image: url("/app/desktop/img/video_icon.png") !important;
+}
+
+#secondaryNav {
+    position: fixed;
+    width: 200px;
+    left: 10px;
+    bottom: 41px;
+    text-align: left;
+    border-top: 2px solid #38bcff;
+    border-right: 2px solid #38bcff;
+    border-left: 2px solid #38bcff;    
+    display: none;
+    z-index: 1001; /* one more of the blockUI */
+    background-color: #0790FF;
+    margin: 0px;
+    padding: 0px;
+}
+
+#secondaryNav li {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#secondaryNav li div.secondaryNavItemWrapper {
+    padding: 5px 15px;
+    position: relative;
+}
+
+#secondaryNav li a {
+    display: block;
+    color: #fff;
+    width: 100%;    
+}
+
+.secondaryNavHighlight {
+    background-color: #38bcff;    
+}
+
+#accountButton .ui-button-text {
+    padding-top: 0.1em !important;
+}
+
+#blogLink .ui-button-text {
+    padding-top: 0.1em !important;
+}
+
+#secondaryNav li.secondaryNavDivider {
+    padding-top: 1px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #fff;
+    width: 90%;
+    font-size: 2px !important;
+    height: 3px;
+}
+
+#secondaryNav a.followUsBottomPanel {
+    display: inline;
+    margin-left: 10px;
+}
+
+#secondaryNav a.followUsBottomPanel img {
+    width: 20px;
+    height: 20px;
+}
+
+#secondaryNav a#linkToMobileApp {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    background-image: url("/app/desktop/img/offline_icon.png") !important;
+    z-index: 999;
+}

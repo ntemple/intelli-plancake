@@ -1,0 +1,36 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_paypal_transaction`;
+
+CREATE TABLE IF NOT EXISTS `pc_paypal_transaction` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `item_number` varchar(32) NOT NULL DEFAULT '',
+  `item_name` varchar(64) DEFAULT '',
+  `custom_field` varchar(127) NOT NULL DEFAULT '',
+  `payment_status` varchar(32) NOT NULL DEFAULT '',
+  `payment_amount` varchar(16) NOT NULL DEFAULT '',
+  `payment_currency` varchar(5) NOT NULL DEFAULT '',
+  `transaction_id` varchar(64) NOT NULL DEFAULT '',
+  `parent_transaction_id` varchar(64) DEFAULT '',
+  `receiver_email` varchar(127) NOT NULL DEFAULT '',
+  `residence_country` varchar(8) DEFAULT '',
+  `payer_email` varchar(127) NOT NULL DEFAULT '',
+  `payment_date` varchar(32) NOT NULL DEFAULT '',
+  `error` tinyint(2) unsigned DEFAULT '0' COMMENT '0->no error, 1->HTTP error, 2->transaction error, 3->dodgy transaction, 4->duplicate transaction',
+  `raw_data` mediumtext NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

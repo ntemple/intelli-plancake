@@ -1,0 +1,206 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_list` SET `sort_order` = (1000 - `sort_order`) WHERE `sort_order`>0;
+UPDATE `pc_users_contexts` SET `sort_order` = (100 - `sort_order`);
+ALTER TABLE `pc_user` DROP `max_lists_sort_order`;
+
+ALTER TABLE `pc_list` DROP `max_tasks_sort_order`;
+ALTER TABLE `pc_trashbin_list` DROP `max_tasks_sort_order`;
+
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG',`string` = 'Hi. Questions? Feedback? Tell Dan - Click the \'?\' button to hide this.',`updated_at` = '2011-03-14 20:00:00' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG';
+UPDATE `pc_translation` SET `language_id` = 'it',`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG',`string` = 'Domande o idee? Parlane con Andrea - Clicca il pulsante \'?\' per celare.',`updated_at` = '2011-03-19 01:03:58' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_FEEDBACK_BOX_MSG%';
+
+UPDATE `pc_string` SET `is_archived` = 1 WHERE `id`='ACCOUNT_ERROR_TAG_NOT_VALID';
+UPDATE `pc_string` SET `is_archived` = 1 WHERE `id`='ACCOUNT_SETTINGS_MANAGE_TAGS';
+
+
+ALTER TABLE `pc_task` CHANGE  `sort_order`  `sort_order` SMALLINT( 5 ) NULL DEFAULT  '0';
+ALTER TABLE `pc_trashbin_task` CHANGE  `sort_order`  `sort_order` SMALLINT( 5 ) NULL DEFAULT  '0';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_CLICK_TO_DO_MORE', '118', '510', '0', NULL, '0', '2011-07-08 14:52:47');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_CLICK_TO_DO_MORE', 'click here to do more', NULL), ('it', 'ACCOUNT_MISC_CLICK_TO_DO_MORE', 'Clicca qui per altre azioni', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_NEWS_LINK', '118', '520', '0', NULL, '0', '2011-07-08 14:52:47');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_NEWS_LINK', 'news', NULL), ('it', 'ACCOUNT_MISC_NEWS_LINK', 'news', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_HELP_LINK', '118', '530', '0', NULL, '0', '2011-07-08 14:52:47');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_HELP_LINK', 'help', NULL), ('it', 'ACCOUNT_MISC_HELP_LINK', 'help', NULL);
+
+UPDATE `pc_translation` SET `string` = 'Task added to list ''%s''.' WHERE `language_id` = 'en' AND `string_id` = 'ACCOUNT_SUCCESS_TASK_ADDED';
+UPDATE `pc_translation` SET `string` = 'Attività aggiunta alla lista ''%s''.' WHERE `language_id` = 'it' AND `string_id` LIKE 'ACCOUNT_SUCCESS_TASK_ADDED%';
+
+UPDATE  `pc_translation` SET  `string` =  'Tags' WHERE  `language_id`= 'en' AND  `string_id`='ACCOUNT_TAGS_FILTER_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'Etichette' WHERE  `language_id`= 'it' AND  `string_id` LIKE 'ACCOUNT_TAGS_FILTER_HEADER%';
+
+UPDATE `pc_translation` SET `string` = 'You can reorder tasks only within a list (such as your Inbox).' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_REORDER_WHILE_FILTER_BY_TAG'; 
+UPDATE `pc_translation` SET `string` = 'Puoi riordinare le attività solo quando sei in una lista (come la Inbox).' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_ERROR_CANT_REORDER_WHILE_FILTER_BY_TAG%';
+
+UPDATE `pc_translation` SET `string` = 'With date' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_LISTS_ALL_SCHEDULED'; 
+UPDATE `pc_translation` SET `string` = 'Con data' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_LISTS_ALL_SCHEDULED%';
+
+UPDATE `pc_translation` SET `string` = 'Starred' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_LISTS_STARRED';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_FIELD_LENGTH_ERROR', '116', '510', '0', 'It displays something like: Length of name must be between 5 and 20.', '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_FIELD_LENGTH_ERROR', 'Length of %s must be between %s and %s.', NULL), ('it', 'ACCOUNT_ERROR_FIELD_LENGTH_ERROR', 'La lunghezza di %s deve essere tra %s e %s.', NULL);
+
+UPDATE `pc_translation` SET `string` = 'Tasks with tag ''%s''' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TASKS_BY_TAG'; 
+UPDATE `pc_translation` SET `string` = 'Attività con etichetta ''%s''' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_MAIN_CONTENT_TASKS_BY_TAG%';
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_CANT_REORDER_THESE_TASKS'; 
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_DONE_IN';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_NO_OVERDUE_TASKS';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_NO_TASKS_WITHOUT_DUE_DATE';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_NO_TASKS_WITHOUT_DUE_DATE_LIST';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_NO_TASKS_WITH_DUE_DATE';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_NO_TASKS_WITH_DUE_DATE_LIST';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_TASKS_WITHOUT_DUE_DATE';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_TASKS_WITH_DUE_DATE';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_TASKS_BY_LIST', '112', '13', '0', 'title of the page when filtering by list', '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_BY_LIST', 'Tasks in list ''%s''', '2011-07-09 17:22:25'), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_BY_LIST', 'Attività nella lista ''%s''', '2011-07-09 17:22:29');
+
+INSERT INTO  `pc_string` (
+`id` ,
+`category_id` ,
+`sort_order_in_category` ,
+`max_length` ,
+`note` ,
+`is_archived` ,
+`created_at`
+)
+VALUES (
+'ACCOUNT_MAIN_CONTENT_TASKS_OVERDUE_AND_TODAY',  '112',  '14',  '0', NULL ,  '0',  '2011-07-09 18:01:23'
+), (
+'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_LIST',  '112',  '20',  '0', NULL ,  '0',  '2011-07-09 18:01:33'
+), (
+'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_TAG',  '112',  '21',  '0', NULL ,  '0',  '2011-07-09 18:01:36'
+), (
+'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_OVERDUE_AND_TODAY',  '112',  '22',  '0', NULL ,  '0',  '2011-07-09 18:01:42'
+), (
+'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_WITH_DUE_DATE',  '112',  '23',  '0', NULL ,  '0',  '2011-07-09 18:01:44'
+), (
+'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_STARRED',  '112',  '24',  '0', NULL ,  '0',  '2011-07-09 18:01:51'
+), (
+'ACCOUNT_MAIN_CONTENT_TASKS_STARRED',  '112',  '16',  '0', NULL ,  '0',  '2011-07-09 18:01:55'
+);
+
+UPDATE `pc_string` SET `sort_order_in_category` = '15' WHERE `pc_string`.`id` = 'ACCOUNT_MAIN_CONTENT_TASKS_WITH_DUE_DATE';
+
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_OVERDUE_AND_TODAY', 'Tasks overdue and due today', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_OVERDUE_AND_TODAY', 'Attività passate e di oggi', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_STARRED', 'Starred tasks', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_STARRED', 'Attività importanti', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_LIST', 'Completed tasks in list ''%s''', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_LIST', 'Attività completate nella lista ''%s''', NULL), ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_TAG', 'Comleted tasks in tag ''%s''', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_BY_TAG', 'Attività completate con etichetta ''%s''', NULL), ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_OVERDUE_AND_TODAY', 'All Completed overdue and due today tasks ', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_OVERDUE_AND_TODAY', 'Attività passate e di oggi completate', NULL), ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_WITH_DUE_DATE', 'All Completed tasks with Due Date', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_WITH_DUE_DATE', 'Attività con data completate', NULL), ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_STARRED', 'All Completed Starred tasks', NULL), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_TASKS_STARRED', 'Attività importanti completate', NULL);
+
+UPDATE `pc_translation` SET `string` = 'Tags can''t contain spaces (use -, _ or something like mySon).' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_ERROR_TAG_CANT_HAVE_SPACE';
+UPDATE `pc_translation` SET `string` = 'Un''etichetta non può contenere spazi (usa -, _ or qualcosa come mioFiglio).' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_ERROR_TAG_CANT_HAVE_SPACE%';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_TAGS_TAG_NAME', '113', '310', '0', NULL, '0', '2011-07-09 22:57:18');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_TAGS_TAG_NAME', 'name', NULL), ('it', 'ACCOUNT_TAGS_TAG_NAME', 'nome', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ADD_TASK_BELOW', '107', '15', '0', NULL, '0', '2011-07-09 23:03:29');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ADD_TASK_BELOW', 'Add task below', NULL), ('it', 'ACCOUNT_ADD_TASK_BELOW', 'Aggiungi attività sotto', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_CLICK_TO_SEE_NOTE', '114', '200', '0', NULL, '0', '2011-07-09 23:03:29');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_CLICK_TO_SEE_NOTE', 'click to see note', NULL), ('it', 'ACCOUNT_HINT_CLICK_TO_SEE_NOTE', 'clicca per vedere la nota', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_NEED_ALSO_TASK_DUE_DATE', '116', '520', '0', 'It''s displayed when you try to create a task with due time but no due date', '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_NEED_ALSO_TASK_DUE_DATE', 'Please set a due date together with the due time.', NULL), ('it', 'ACCOUNT_ERROR_NEED_ALSO_TASK_DUE_DATE', 'Perpiacere seleziona una data insieme all''orario.', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_LISTS_LIST_NAME', '106', '100', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_LISTS_LIST_NAME', 'name', '2011-07-09 23:45:51'), ('it', 'ACCOUNT_LISTS_LIST_NAME', 'nome', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_INBOX_TODO_NO_REORDER', '116', '530', '0', 'This error message is shown when you try to reorder the Inbox', '0', '2011-07-09 23:48:19');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_INBOX_TODO_NO_REORDER', 'The position of the Inbox and the Todo list can''t be changed.', '2011-07-09 23:49:56'), ('it', 'ACCOUNT_ERROR_INBOX_TODO_NO_REORDER', 'La posizione della Inbox e ''Cose da fare'' non può essere cambiata.', '2011-07-09 23:50:03');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_CANT_DELETE_TODO_LIST', '116', '205', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_CANT_DELETE_TODO_LIST', 'The ''Todo'' list can''t be deleted.', NULL), ('it', 'ACCOUNT_ERROR_CANT_DELETE_TODO_LIST', 'La lista ''Cose da fare'' non può essere cancellata.', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_LISTS_ADD_LIST_BELOW', '106', '110', '0', NULL, '0', '2011-07-09 23:59:56');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_LISTS_ADD_LIST_BELOW', 'Add list below', NULL), ('it', 'ACCOUNT_LISTS_ADD_LIST_BELOW', 'Aggiungi lista sotto', NULL);
+
+UPDATE `pc_string_category` SET `note` = 'this is part of the navigation at the bottom of the page', `link` = 'http://www.plancake.com/account.php' WHERE `pc_string_category`.`id` = 7;
+
+UPDATE `pc_translation` SET `string` = 'Services & Features' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SERVICES';
+UPDATE `pc_translation` SET `string` = 'Servizi e Funzionalità' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_HEADER_SERVICES%';
+
+UPDATE `pc_translation` SET `string` = 'Switch to Plancake Notes' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_HEADER_NOTES';
+UPDATE `pc_translation` SET `string` = 'Vai a Plancake Notes' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_HEADER_NOTES';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_YES', '118', '120', '0', 'displayed to set a list or task as header', '0', NULL), ('ACCOUNT_MISC_NO', '118', '130', '0', 'displayed to set a list or task as header', '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_YES', 'yes', NULL), ('it', 'ACCOUNT_MISC_YES', 'sì', NULL), ('en', 'ACCOUNT_MISC_NO', 'no', NULL), ('it', 'ACCOUNT_MISC_NO', 'no', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_LISTS_COMPLETED', '106', '33', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_LISTS_COMPLETED', 'Completed', '2011-07-10 13:43:54'), ('it', 'ACCOUNT_LISTS_COMPLETED', 'Completate', '2011-07-10 13:44:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HEADER_FOLLOW_US_FACEBOOK', '103', '100', '0', NULL, '0', NULL), ('ACCOUNT_HEADER_FOLLOW_US_TWITTER', '103', '110', '0', NULL, '0', NULL), ('ACCOUNT_HEADER_SUBSCRIBE_TO_OUR_BLOG', '103', '120', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_FOLLOW_US_FACEBOOK', 'Follow us on Facebook', '2011-07-10 13:47:24'), ('it', 'ACCOUNT_HEADER_FOLLOW_US_FACEBOOK', 'Seguici su Facebook', '2011-07-10 13:47:29'), ('en', 'ACCOUNT_HEADER_FOLLOW_US_TWITTER', 'Follow us on Twitter', '2011-07-10 13:48:00'), ('it', 'ACCOUNT_HEADER_FOLLOW_US_TWITTER', 'Seguici su Twitter', '2011-07-10 13:48:03'), ('en', 'ACCOUNT_HEADER_SUBSCRIBE_TO_OUR_BLOG', 'Subscribe to our Blog', '2011-07-10 13:48:49'), ('it', 'ACCOUNT_HEADER_SUBSCRIBE_TO_OUR_BLOG', 'Segui il nostro blog', '2011-07-10 13:48:52');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_ADD_TASK_AT_THE_BOTTOM', '112', '175', '0', NULL, '0', NULL), ('ACCOUNT_MAIN_CONTENT_NO_TASKS', '112', '300', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_ADD_TASK_AT_THE_BOTTOM', 'Add task at the bottom', '2011-07-10 13:52:37'), ('it', 'ACCOUNT_MAIN_CONTENT_ADD_TASK_AT_THE_BOTTOM', 'Aggiungi attività in fondo', '2011-07-10 13:52:35'), ('en', 'ACCOUNT_MAIN_CONTENT_NO_TASKS', 'There are no tasks in this list/filter at the moment.', '2011-07-10 13:52:29'), ('it', 'ACCOUNT_MAIN_CONTENT_NO_TASKS', 'Non ci sono attività in questa lista/filtro al momento.', '2011-07-10 13:52:26');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_PLANCAKE_TEAM_AD', '118', '200', '0', NULL, '0', '2011-07-10 20:02:58');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_PLANCAKE_TEAM_AD', 'discover a new way to work with your team!', '2011-07-10 20:05:21'), ('it', 'ACCOUNT_MISC_PLANCAKE_TEAM_AD', 'scopri un nuovo modo per lavorare col tuo team!', '2011-07-10 20:05:24');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_TASK_DESCRIPTION_TOO_LONG', '116', '530', '0', NULL, '0', '2011-07-11 20:29:15');
+
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_TASK_DESCRIPTION_TOO_LONG', 'The task description was too long and has been truncated.', '2011-07-11 20:30:42'), ('it', 'ACCOUNT_ERROR_TASK_DESCRIPTION_TOO_LONG', 'La descrizione dell''attività era troppo lunga ed e'' stata troncata.', '2011-07-11 20:30:49');
+
+UPDATE `pc_translation` SET `string` = '<a href="#" class="showScheduledTasksInTodo">Click here</a> if you want to see them anyway.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING2';
+UPDATE `pc_translation` SET `string` = '<a href="#" class="showScheduledTasksInTodo">Clicca qui</a> se le vuoi comunque vedere.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_MAIN_CONTENT_TODO_WARNING2%';
+
+UPDATE `pc_translation` SET `string` = 'Your Todo list does NOT show tasks with due date by default (because there may be a lot).<br />
+They are still shown on ''With date'' and ''Overdue & Today'' filters (see bottom of the page), as for any list.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1';
+UPDATE `pc_translation` SET `string` = 'La tua lista delle cose da fare NON mostra automaticamente le attività con data (perchè potrebbero essere moltissime).<br />
+Esse si trovano nei filtri ''Con data'' e ''Passate & Di Oggi'' (vedi fondo della pagina), come per ogni lista.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1%';
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_CANT_DROP_TO_PANEL', '116', '540', '0', NULL, '0', '2011-07-14 02:52:02');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_CANT_DROP_TO_PANEL', 'You can drop tasks only over the lists and tags on the left side of the screen - not over the other panel.', '2011-07-14 02:52:54'), ('it', 'ACCOUNT_ERROR_CANT_DROP_TO_PANEL', 'Puoi trascinare le attività solo sulle liste e etichette sulla parte sinistra del monitor - non sull''altro pannello.', '2011-07-14 02:53:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE', '112', '400', '0', NULL, '0', '2011-07-14 13:27:26'), ('ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER', '112', '410', '0', NULL, '0', '2011-07-14 13:27:30');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE', 'Tasks in this filter are ordered by due date', '2011-07-14 13:31:21'), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_DUE_DATE', 'Le attività in questo filtro sono ordinate per data di scadenza', '2011-07-14 13:31:24'), ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER', 'Tasks are ordered by sort order (you can change the order by drag and drop)', '2011-07-14 13:31:15'), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_SORTED_BY_SORT_ORDER', 'Puoi cambiare l''ordine della attività in questa lista col trascinamento', '2011-07-14 13:31:12');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_UPGRADE_YOUR_BROWSER', '116', '600', '0', NULL, '0', '2011-07-14 18:54:34');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_UPGRADE_YOUR_BROWSER', 'Your browser is very old and unsecure and it is not compatible with Plancake. Please consider upgrading to Chrome, Firefox, Opera or a newer version of Internet Explorer. Feel free to contact us if you need help.', '2011-07-14 18:55:50'), ('it', 'ACCOUNT_ERROR_UPGRADE_YOUR_BROWSER', 'Il tuo browser è vecchio ed insicuro e non è compatibile con Plancake. Perpiacere sostituiscilo con Chrome, Firefox, Opera o una versione più aggiornata di Internet Explorer. Contattaci pure se hai bisogno di aiuto.', '2011-07-14 18:55:54');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Task added.' WHERE `language_id` = 'en' AND `string_id` = 'ACCOUNT_SUCCESS_TASK_ADDED';
+
+
+DELETE FROM `pc_translation` WHERE `string_id`='ACCOUNT_MISC_HELP_LINK';
+DELETE FROM `pc_string` WHERE `string_id`='ACCOUNT_MISC_HELP_LINK';
+
+DELETE FROM `pc_translation` WHERE `string_id`='ACCOUNT_MISC_NEWS_LINK';
+DELETE FROM `pc_string` WHERE `string_id`='ACCOUNT_MISC_NEWS_LINK';
+
+DELETE FROM `pc_translation` WHERE `string_id`='ACCOUNT_MISC_CLICK_TO_DO_MORE';
+DELETE FROM `pc_string` WHERE `string_id`='ACCOUNT_MISC_CLICK_TO_DO_MORE';
+
+ALTER TABLE  `pc_trashbin_task` CHANGE  `sort_order`  `sort_order` SMALLINT( 5 ) UNSIGNED NULL DEFAULT  '0'
+ALTER TABLE  `pc_task` CHANGE  `sort_order`  `sort_order` SMALLINT( 5 ) UNSIGNED NULL DEFAULT  '0'
+
+ALTER TABLE `pc_list` ADD `max_tasks_sort_order` smallint(5) unsigned DEFAULT '0' COMMENT 'the max sort order of all its tasks';
+ALTER TABLE `pc_trashbin_list` ADD `max_tasks_sort_order` smallint(5) unsigned DEFAULT '0' COMMENT 'the max sort order of all its tasks';
+
+UPDATE `pc_list` SET `sort_order` = (1000 - `sort_order`) WHERE `sort_order`>0;
+UPDATE `pc_user` ADD `max_lists_sort_order` smallint(5) unsigned DEFAULT '0' COMMENT 'the max sort order of all his/her lists';
+
+UPDATE `pc_translation` SET `language_id` = 'en',`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG',`string` = 'Hi. Questions? Feedback? Tell Dan - This box will disappear in %s days.',`updated_at` = '2011-03-14 20:00:00' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG';
+UPDATE `pc_translation` SET `language_id` = 'it',`string_id` = 'ACCOUNT_FEEDBACK_BOX_MSG',`string` = 'Domande o idee? Parlane con Andrea - Questo box sparirà tra %s giorni.',`updated_at` = '2011-03-19 01:03:58' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` LIKE 'ACCOUNT_FEEDBACK_BOX_MSG%';
+
+SET FOREIGN_KEY_CHECKS=1;

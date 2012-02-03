@@ -1,0 +1,17 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  Plancake is a free online task manager, GTD compatible
+    keywords:     online, task, GTD, simple, todo, list, organizer, symfony
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [common.css, public.css, ../app/desktop/css/plancake.overlay.css]
+
+  javascripts:    [jquery-1.5.2.min.js, ../app/desktop/js/plancake.overlay.js, offline/jquery.mobile.detection.js, offline/localDatastore.detection.js, offline/redirectToMobileAppIfReady.js, jquery.blockUI.js, library.js, common.js, public.js, timezoneDetection.js, timezoneDetectionInit.js]
+
+  has_layout:     true
+  layout:         layout

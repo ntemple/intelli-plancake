@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Plancake</title>
+    
+    <script type="text/javascript" src="/js/offline/localDatastore.detection.js"></script>
+    <script>        
+        // we redirect to the mobile app if the offline support has been enabled and is supported
+        if (PLANCAKE.isLocalDatastoreAvailable()) {
+            PLANCAKE.redirectToMobileApp();
+        }
+    </script>     
+</head>
+<body>
+    
+    <a href="http://www.plancake.com" style="color: #EA8318; text-decoration: none">
+        <h1 style="color: #EA8318; text-decoration: none">PLANCAKE</h1>
+    </a>
+    
+    <p>
+        You are now offline - an Internet connection is not available.
+    </p>
+    <p>
+        If you want to use Plancake Offline you need to activate it first while you are connected to the Internet or, alternatively,  you can use Plancake Mobile on your smartphone.
+    </p>
+    <p>
+        If you have already activated Plancake Offline, please <a href="https://www.plancake.com/account.php/mobile">click here</a>.
+    </p>
+    <p>
+        If the link above doesn't work, that means you should be connected to the Internet first.
+    </p>
+</body>
+</html>

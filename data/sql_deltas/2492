@@ -1,0 +1,64 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'description:' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_NEW_TASK_DESCRIPTION';
+UPDATE  `pc_translation` SET  `string` =  'descrizione:' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_NEW_TASK_DESCRIPTION';
+
+UPDATE  `pc_translation` SET  `string` =  'do not repeat' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_TASK_REPETITION_DO_NOT_REPEAT';
+UPDATE  `pc_translation` SET  `string` =  'non ripetere' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_TASK_REPETITION_DO_NOT_REPEAT';
+
+UPDATE  `pc_translation` SET  `string` =  'hide scheduled tasks' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_HIDE_SCHEDULED_TASKS';
+UPDATE  `pc_translation` SET  `string` =  'nascondi attività con data' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_HIDE_SCHEDULED_TASKS';
+
+UPDATE  `pc_translation` SET  `string` =  'what''s a header?' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_WHATS_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'cos''è un titolo?' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_WHATS_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'what can I put in here?' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_NEW_TASK_DUE_DATE_HINT_LINK';
+UPDATE  `pc_translation` SET  `string` =  'cosa posso inserire qui?' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_NEW_TASK_DUE_DATE_HINT_LINK';
+
+UPDATE  `pc_translation` SET  `string` =  'what is this for?' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_PLANCAKE_EMAIL_ADDRESS_WHATS_FOR';
+UPDATE  `pc_translation` SET  `string` =  'a cosa serve?' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_PLANCAKE_EMAIL_ADDRESS_WHATS_FOR';
+
+UPDATE  `pc_translation` SET  `string` =  'what is daylight saving' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_WHATS_DAYLIGHT_SAVING';
+UPDATE  `pc_translation` SET  `string` =  'cos''è l''ora legale' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_WHATS_DAYLIGHT_SAVING';
+
+UPDATE  `pc_translation` SET  `string` =  'go back to Settings' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_GO_BACK';
+UPDATE  `pc_translation` SET  `string` =  'torna alle Impostazioni' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_GO_BACK';
+
+UPDATE  `pc_translation` SET  `string` =  'delete my account' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_DELETE_ACCOUNT_BTN';
+UPDATE  `pc_translation` SET  `string` =  'rimuovi il mio account' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_DELETE_ACCOUNT_BTN';
+
+UPDATE  `pc_translation` SET  `string` =  'save' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_SAVE';
+UPDATE  `pc_translation` SET  `string` =  'salva' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_SAVE';
+
+UPDATE  `pc_translation` SET  `string` =  'add' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_ADD';
+UPDATE  `pc_translation` SET  `string` =  'aggiungi' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_ADD';
+
+UPDATE  `pc_translation` SET  `string` =  'add new task & hit Enter' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_HIT_ENTER';
+UPDATE  `pc_translation` SET  `string` =  'aggiungi attività & Invia' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_HIT_ENTER';
+
+UPDATE  `pc_translation` SET  `string` =  'add task at the bottom' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_AT_THE_BOTTOM';
+UPDATE  `pc_translation` SET  `string` =  'aggiungi attività in fondo' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_AT_THE_BOTTOM';
+
+UPDATE  `pc_translation` SET  `string` =  'Logout' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'GENERAL_LOGOUT';
+UPDATE  `pc_translation` SET  `string` =  'Esci' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_LOGOUT';
+
+UPDATE  `pc_translation` SET  `string` =  'Upgrade now!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+UPDATE  `pc_translation` SET  `string` =  'Vai premium!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+
+UPDATE  `pc_translation` SET  `string` =  'News' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+UPDATE  `pc_translation` SET  `string` =  'News' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HEADER_CONTACT_US', '103', '130', '0', NULL, '0', '2011-10-13 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_CONTACT_US', 'Contact us', '2011-10-13 00:00:00'), ('it', 'ACCOUNT_HEADER_CONTACT_US', 'Contattaci', '2011-10-13 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_EDIT_LIST', '114', '230', '0', NULL, '0', '2011-10-13 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_EDIT_LIST', 'edit list', '2011-10-13 00:00:00'), ('it', 'ACCOUNT_HINT_EDIT_LIST', 'modifica lista', '2011-10-13 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

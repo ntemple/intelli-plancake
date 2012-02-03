@@ -1,0 +1,43 @@
+<?php
+/*************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+/**
+ * notes actions.
+ *
+ * @package    plancake
+ * @subpackage notes
+ * @author     Your name here
+ * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
+ */
+class notesActions extends sfActions
+{
+ /**
+  * Executes index action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->user = PcUserPeer::getLoggedInUser();
+
+    $this->notes = $this->user->getNotes();
+  }
+}

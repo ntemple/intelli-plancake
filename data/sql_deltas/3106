@@ -1,0 +1,23 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('GENERAL_CREATE_ACCOUNT', '2', '1101', '0', NULL, '0', '2012-01-30 00:00:00'), ('GENERAL_LOGIN', '2', '1102', '0', NULL, '0', '2012-01-30 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'GENERAL_CREATE_ACCOUNT', 'Create account', '2012-01-30 00:00:00'), ('it', 'GENERAL_CREATE_ACCOUNT', 'Crea account', '2012-01-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'GENERAL_LOGIN', 'Login', '2012-01-30 00:00:00'), ('it', 'GENERAL_LOGIN', 'Login', '2012-01-30 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_SPLIT_VIEW_HINT', '114', '240', '0', NULL, '0', '2012-01-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_SPLIT_VIEW_HINT', 'Now that you have two panes, you can select which one to show your tasks in by clicking on it (the active pane has got an orange top border).', '2012-01-30 00:00:00'), ('it', 'ACCOUNT_HINT_SPLIT_VIEW_HINT', 'Ora che hai due pannelli, puoi selezionare in quale mostrare le tue attività cliccandoci sopra (il pannello attivo ha un bordo arancione in alto).', '2012-01-30 00:00:00');
+
+ALTER TABLE `pc_user` CHANGE COLUMN `just_activated` `has_desktop_app_been_loaded` tinyint(1) DEFAULT '0';
+UPDATE `pc_user` SET `has_desktop_app_been_loaded` = IF (`has_desktop_app_been_loaded`, 0, 1);
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

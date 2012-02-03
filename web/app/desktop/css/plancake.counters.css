@@ -1,0 +1,32 @@
+.counter {
+    /* background: url("/app/desktop/img/counter_gradient.png") repeat-x scroll 0 0 transparent; */
+    background-color: red;
+    position: absolute;
+    display: none;
+    z-index: 95;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;     
+    height: 14px;
+    max-width: 18px;
+    padding: 2px 3px;
+    text-align: center;    
+}
+
+.inboxCounter {
+    right: 5px;
+    top: 1px;
+}
+
+.todayCounter {
+    left: -5px;
+    top: -7px;
+}
+
+.newsCounter {
+    left: -3px;
+    top: -3px;
+}

@@ -1,0 +1,35 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_archived_task` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `list_id` int(10) unsigned NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `sort_order` smallint(5) unsigned DEFAULT '0',
+  `due_date` date DEFAULT NULL,
+  `due_time` smallint(5) unsigned DEFAULT NULL,
+  `repetition_id` tinyint(3) unsigned DEFAULT NULL,
+  `repetition_param` tinyint(3) unsigned DEFAULT '0',
+  `is_starred` tinyint(1) DEFAULT '0',
+  `is_completed` tinyint(1) NOT NULL DEFAULT '0',
+  `is_header` tinyint(1) NOT NULL DEFAULT '0',
+  `is_from_system` tinyint(1) NOT NULL DEFAULT '0',
+  `note` text,
+  `contexts` varchar(31) DEFAULT '' COMMENT 'it is a comma separated list',
+  `completed_at` datetime DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,68 @@
+/*!************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#overlay {
+    padding: 15px;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background: url('/app/desktop/img/overlay.png') repeat 0 0;
+    display: none;
+    text-align: center;
+}
+
+#overlay-panel {
+    position: relative;
+    text-align: left;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;    
+    border-radius: 5px;
+    margin: 30px auto 0 auto;
+    width: 660px;
+    background: #FFF;
+    padding: 10px 15px;
+}
+
+/** ie6 and below only **/
+* html #overlay {
+    background-image: url('/app/desktop/img/overlay-ie6.png');
+    height: 100%;
+    position: absolute;
+}
+
+#overlay-close {
+    background:url("/app/desktop/img/overlay_close.png") no-repeat scroll 0 0 transparent;
+    cursor:pointer;
+    height:27px;
+    position:absolute;
+    right:-13px;
+    top:-13px;
+    width:27px;
+}

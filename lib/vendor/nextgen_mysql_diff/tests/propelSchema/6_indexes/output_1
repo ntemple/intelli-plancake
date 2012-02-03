@@ -1,0 +1,13 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP INDEX `pc_user_FI_1` ON `pc_user`;
+
+ALTER TABLE `pc_session` ADD INDEX `pc_session_FI_1` (`data`);
+
+DROP INDEX `pc_users_contexts_FI_1` ON `pc_users_contexts` ;
+
+ALTER TABLE `pc_users_contexts` ADD INDEX `pc_users_contexts_FI_1` (`user_id`, `context`);
+
+SET FOREIGN_KEY_CHECKS=1;

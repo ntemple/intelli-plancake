@@ -1,0 +1,30 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_note` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `creator_id` int(10) unsigned NOT NULL,
+  `title` varchar(127) NOT NULL,
+  `content` mediumtext NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_note_I_1` (`creator_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+ALTER TABLE `pc_note`
+  ADD CONSTRAINT `pc_note_FK_1` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_note`;
+
+SET FOREIGN_KEY_CHECKS=1;

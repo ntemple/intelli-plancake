@@ -1,0 +1,15 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_string` SET  `is_archived` =  '0' WHERE  `pc_string`.`id` =  'ACCOUNT_TUTORIAL_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'A quick intro to Plancake' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_TUTORIAL_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'Una rapida introduzione a Plancake' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_TUTORIAL_HEADER';
+UPDATE  `pc_string_category` SET  `note` =  'Shown when you click the ''play'' icon at the bottom of the screen' WHERE  `pc_string_category`.`id` =102;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

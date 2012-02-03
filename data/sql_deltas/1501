@@ -1,0 +1,406 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_language` (
+  `id` char(2) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `sort_order` smallint(6) DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pc_language_U_1` (`name`)
+) ENGINE=InnoDB;
+
+INSERT INTO `pc_language` (`id`, `name`, `sort_order`) VALUES
+('en', 'English', 1),
+('gb', 'Good English', 3),
+('it', 'Italiano', 2);
+
+ALTER TABLE `pc_user` ADD `preferred_language` varchar(2) DEFAULT '' COMMENT 'standard 2-char language abbreviation' AFTER `language`;
+
+CREATE TABLE IF NOT EXISTS `pc_translator` (
+  `user_id` int(10) unsigned NOT NULL,
+  `language_id` char(2) NOT NULL,
+  `has_accepted_agreement` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `pc_translator_FI_1` (`language_id`)
+) ENGINE=InnoDB;
+
+INSERT INTO `pc_translator` (`user_id`, `language_id`, `has_accepted_agreement`, `created_at`) VALUES
+(2774, 'gb', 0, '2011-03-23 00:00:00'),
+(4354, 'it', 0, '2011-03-05 00:00:00'),
+(4, 'it', 0, '2011-03-05 00:00:00');
+
+ALTER TABLE `pc_translator`
+  ADD CONSTRAINT `pc_translator_FK_1` FOREIGN KEY (`language_id`) REFERENCES `pc_language` (`id`) ON DELETE CASCADE;
+
+
+CREATE TABLE IF NOT EXISTS `pc_string_category` (
+  `id` tinyint(3) unsigned NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `note` varchar(128) DEFAULT NULL,
+  `link` varchar(128) DEFAULT NULL,
+  `sort_order` mediumint(8) unsigned NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+--
+-- Dumping data for table `pc_string_category`
+--
+
+INSERT INTO `pc_string_category` (`id`, `name`, `note`, `link`, `sort_order`, `created_at`) VALUES
+(1, 'Website Homepage', NULL, 'http://www.plancake.com', 20, '2011-03-06 00:09:13'),
+(2, 'General', NULL, NULL, 10, '2011-03-06 00:11:08'),
+(3, 'Website Services - Home', NULL, 'http://www.plancake.com/services', 60, '2011-03-06 00:11:48'),
+(4, 'Website Services - Android app', NULL, 'http://www.plancake.com/services/android-application', 70, '2011-03-06 00:11:48'),
+(5, 'Website Services - Email-to-Inbox Service', NULL, 'http://www.plancake.com/services/email-to-inbox', 80, '2011-03-06 00:23:53'),
+(6, 'Website Services - Google Calendar Integration', NULL, 'http://www.plancake.com/services/google-calendar-integration', 90, '2011-03-06 00:23:57'),
+(7, 'Website Header', 'the top of every page', 'http://www.plancake.com', 30, '2011-03-06 00:38:51'),
+(8, 'Website Footer', 'the bottom of every page', 'http://www.plancake.com', 40, '2011-03-06 00:38:51'),
+(9, 'Website Bottom Menu', 'at the bottom of the page, above the footer', 'http://www.plancake.com/services', 50, '2011-03-06 00:40:34'),
+(10, 'Website Press', NULL, 'http://www.plancake.com/press', 100, '2011-03-06 00:47:20'),
+(11, 'Website Team', NULL, 'http://www.plancake.com/team', 110, '2011-03-06 00:47:20'),
+(12, 'Website Guide', 'it is the ''guide'' link at the top menu when you are in your account', 'http://www.plancake.com/help', 120, '2011-03-06 00:49:02'),
+(13, 'Website Login', NULL, 'https://www.plancake.com/login', 130, '2011-03-06 01:40:02'),
+(14, 'Website Registration', NULL, 'https://www.plancake.com/registration', 140, '2011-03-06 01:40:02'),
+(15, 'Website Block - Features', NULL, 'http://www.plancake.com/services', 150, '2011-03-06 02:35:07'),
+(16, 'Website Block - Press', NULL, 'https://www.plancake.com/registration', 160, '2011-03-06 02:35:07'),
+(18, 'Website Block -  Facebook Fan', NULL, 'http://www.plancake.com/blog', 180, '2011-03-06 02:37:07'),
+(19, 'Website Contact us', NULL, 'http://www.plancake.com/contact', 115, '2011-03-06 02:38:14'),
+(20, 'Website Google Login and registration', 'when signing in or signing up with google account', NULL, 200, '2011-03-06 02:38:14'),
+(21, 'Website Forgotten Password', NULL, 'https://www.plancake.com/forgotten-password', 210, '2011-03-06 02:41:51'),
+(22, 'Website Misc', NULL, NULL, 220, '2011-03-06 02:41:51');
+
+
+CREATE TABLE IF NOT EXISTS `pc_string` (
+  `id` varchar(64) NOT NULL,
+  `category_id` tinyint(3) unsigned NOT NULL,
+  `sort_order_in_category` mediumint(8) unsigned NOT NULL,
+  `max_length` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `note` varchar(128) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_string_FI_1` (`category_id`)
+) ENGINE=InnoDB;
+
+--
+-- Dumping data for table `pc_string`
+--
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES
+('GENERAL_SLOGAN', 2, 10, 35, 'try and keep the ''&'' character. Please translate as close as the original as possible', NULL),
+('WEBSITE_BLOCK_FACEBOOK_FAN_HEADER', 18, 10, 35, NULL, NULL),
+('WEBSITE_BLOCK_FEATURES_BODY', 15, 30, 0, NULL, NULL),
+('WEBSITE_BLOCK_FEATURES_HEADER', 15, 10, 35, NULL, NULL),
+('WEBSITE_BLOCK_PRESS_BODY', 16, 20, 0, NULL, NULL),
+('WEBSITE_BLOCK_PRESS_HEADER', 16, 35, 35, NULL, NULL),
+('WEBSITE_BOTTOM_MENU_START', 8, 10, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_ACTIVATION_REASON', 19, 220, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_BUG_REASON', 19, 230, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_BUSINESS_REASON', 19, 280, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_CONTRIBUTE_REASON', 19, 250, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_EMAIL_LABEL', 19, 50, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_EXPLANATION_REASON', 19, 290, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_GENERAL_REASON', 19, 310, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_HEADER', 19, 10, 35, NULL, NULL),
+('WEBSITE_CONTACT_US_INTRO', 19, 20, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_LANGUAGE_LABEL', 19, 30, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_MESSAGE_LABEL', 19, 70, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_NAME_LABEL', 19, 40, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_NEWFEATURE_REASON', 19, 240, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_PRESS_REASON', 19, 300, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_PROBLEM_REASON', 19, 210, 0, 'you can find the following strings in the dropdown menu', NULL),
+('WEBSITE_CONTACT_US_REGARDING_LABEL', 19, 60, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_REQUIRED_FIELD_MSG', 19, 80, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_SUPPORT_REASON', 19, 270, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_THANK_YOU_MSG', 19, 90, 0, NULL, NULL),
+('WEBSITE_CONTACT_US_WORKWITHYOU_REASON', 19, 260, 0, NULL, NULL),
+('WEBSITE_FOOTER_CONTACT_US_LINK', 9, 60, 20, NULL, NULL),
+('WEBSITE_FOOTER_MEET_THE_TEAM_LINK', 9, 20, 25, 'Please translate this as ''Meet the team''', NULL),
+('WEBSITE_FOOTER_PRESS_LINK', 9, 40, 25, NULL, NULL),
+('WEBSITE_GENERAL_SIGN_UP_BTN', 2, 30, 18, 'it is important to say it is free', NULL),
+('WEBSITE_GENERAL_VISION_BODY', 2, 101, 0, 'this vision text can be found at the Services homepage', '2011-03-06 12:18:35'),
+('WEBSITE_GENERAL_VISION_HEADER', 2, 100, 40, 'this vision text can be found at the Services homepage', '2011-03-06 12:14:58'),
+('WEBSITE_HEADER_BLOG_LINK', 7, 40, 8, NULL, NULL),
+('WEBSITE_HEADER_CONTACT_US_LINK', 7, 60, 15, NULL, NULL),
+('WEBSITE_HEADER_FORUM_LINK', 7, 50, 10, NULL, NULL),
+('WEBSITE_HEADER_HOME_LINK', 7, 20, 8, NULL, NULL),
+('WEBSITE_HEADER_SERVICES_LINK', 7, 30, 14, NULL, NULL),
+('WEBSITE_HEADER_SIGN_IN_WITH_GOOGLE', 7, 10, 30, 'Please don''t translate ''Google Account''', NULL),
+('WEBSITE_HOMEPAGE_FRESHNESS_DAYS_AGO', 1, 180, 30, NULL, NULL),
+('WEBSITE_HOMEPAGE_FRESHNESS_HOURS_AGO', 1, 160, 30, NULL, NULL),
+('WEBSITE_HOMEPAGE_FRESHNESS_MINUTES_AGO', 1, 150, 30, NULL, NULL),
+('WEBSITE_HOMEPAGE_MAIN_COPY', 1, 155, 0, 'it is important to keep the word ''personal'' to make it clear it is not for teams. Please translate this as close as possible', NULL),
+('WEBSITE_HOMEPAGE_META_OG_TITLE', 1, 5, 50, 'please translate as close to the original as possible', NULL),
+('WEBSITE_HOMEPAGE_MORE_REASONS_BUTTON', 1, 120, 50, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON1', 1, 60, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON2', 1, 70, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON3', 1, 80, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON4', 1, 90, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON5', 1, 100, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASON6', 1, 110, 200, NULL, NULL),
+('WEBSITE_HOMEPAGE_REASONS_TITLE', 1, 50, 50, NULL, NULL),
+('WEBSITE_HOMEPAGE_SECONDARY_COPY', 1, 20, 110, 'Please translate this as close as possible', NULL),
+('WEBSITE_MISC_FOLLOW_US', 22, 80, 15, 'this is the follow us label next to the facebook and twitter icons (see footer)', NULL),
+('WEBSITE_PRESS_FACTS_BODY', 10, 40, 0, NULL, NULL),
+('WEBSITE_PRESS_FACTS_TITLE', 10, 30, 0, NULL, NULL),
+('WEBSITE_PRESS_FOLLOW_US_BODY', 10, 80, 0, NULL, NULL),
+('WEBSITE_PRESS_FOLLOW_US_TITLE', 10, 70, 0, NULL, NULL),
+('WEBSITE_PRESS_GET_IN_TOUCH_BODY', 10, 100, 0, NULL, NULL),
+('WEBSITE_PRESS_GET_IN_TOUCH_TITLE', 10, 90, 0, NULL, NULL),
+('WEBSITE_PRESS_HEADER', 10, 10, 0, NULL, NULL),
+('WEBSITE_PRESS_IMAGES_BODY', 10, 60, 0, NULL, NULL),
+('WEBSITE_PRESS_IMAGES_TITLE', 10, 50, 0, NULL, NULL),
+('WEBSITE_PRESS_INTRO', 10, 20, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_DOWNLOAD_BODY', 4, 50, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_DOWNLOAD_TITLE', 4, 40, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_GO_BACK', 4, 300, 30, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_HEADER', 4, 10, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_INTRO1', 4, 20, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_INTRO2', 4, 30, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY1', 4, 70, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY2', 4, 80, 0, NULL, NULL),
+('WEBSITE_SERVICES_ANDROID_APP_VOICE_TITLE', 4, 60, 0, NULL, NULL),
+('WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE1', 5, 20, 0, NULL, NULL),
+('WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE2', 5, 30, 0, NULL, NULL),
+('WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE3', 5, 40, 0, NULL, NULL),
+('WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER', 5, 10, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_HEADER', 6, 10, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_INTRO', 6, 20, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_INTRO2', 6, 30, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_LIMIT_BODY', 6, 80, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_LIMIT_TITLE', 6, 70, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_USAGE_BODY1', 6, 50, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_USAGE_BODY2', 6, 60, 0, NULL, NULL),
+('WEBSITE_SERVICES_GOOGLE_CAL_USAGE_TITLE', 6, 40, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_ANDROID_APP_BODY', 3, 130, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_ANDROID_APP_TITLE', 3, 120, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_API_BODY', 3, 150, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_API_TITLE', 3, 140, 40, 'if possible, you should keep the English translation', NULL),
+('WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY', 3, 250, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_CHROME_EXTENSION_TITLE', 3, 240, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_COMING_SOON_MSG', 3, 58, 20, 'it is displayed next to the titles on upcoming services', NULL),
+('WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY', 3, 110, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE', 3, 100, 0, 'you should try to keep ''Email-to-Inbox''', NULL),
+('WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY', 3, 170, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_GOOGLE_CAL_TITLE', 3, 160, 40, 'maybe you can avoid translating ''Google Calendar''. Do you call it ''Google Calendar'' in your language?', NULL),
+('WEBSITE_SERVICES_HOME_GTD_BODY', 3, 90, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_INTRO', 3, 50, 0, NULL, '2011-03-06 12:28:03'),
+('WEBSITE_SERVICES_HOME_IPHONE_APP_BODY', 3, 290, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_IPHONE_APP_TITLE', 3, 280, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_MAIN_HEADER', 3, 30, 40, 'this must contain both ''Services'' and ''Vision''', '2011-03-06 12:14:58'),
+('WEBSITE_SERVICES_HOME_META_OG_TITLE', 3, 20, 40, NULL, '2011-03-06 12:07:06'),
+('WEBSITE_SERVICES_HOME_META_TITLE', 3, 10, 40, NULL, '2011-03-06 12:07:06'),
+('WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY', 3, 210, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE', 3, 200, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_MORE_INFO_BTN', 3, 55, 0, 'the label for the button to get more info for certain services', NULL),
+('WEBSITE_SERVICES_HOME_OTHER_APPS_BODY', 3, 330, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_OTHER_APPS_TITLE', 3, 320, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_OTHER_INTEGRATIONS_BODY', 3, 310, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_OTHER_INTEGRATIONS_TITLE', 3, 300, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY', 3, 80, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY', 3, 70, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_REMINDERS_BODY', 3, 190, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_REMINDERS_TITLE', 3, 180, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_SERVICES_SUBHEADER', 3, 40, 40, NULL, '2011-03-06 12:25:10'),
+('WEBSITE_SERVICES_HOME_TRANSLATIONS_BODY', 3, 230, 0, NULL, NULL),
+('WEBSITE_SERVICES_HOME_TRANSLATIONS_TITLE', 3, 220, 40, NULL, NULL),
+('WEBSITE_SERVICES_HOME_UPCOMING_MSG', 3, 60, 0, NULL, NULL),
+('WEBSITE_TEAM_ANDREA_INFO', 11, 80, 0, NULL, NULL),
+('WEBSITE_TEAM_ANDREA_POSITION', 11, 70, 0, NULL, NULL),
+('WEBSITE_TEAM_COLLABORATORS_HEADER', 11, 90, 0, NULL, NULL),
+('WEBSITE_TEAM_CORE_TEAM_HEADER', 11, 20, 0, NULL, NULL),
+('WEBSITE_TEAM_DAN_INFO', 11, 40, 0, NULL, NULL),
+('WEBSITE_TEAM_DAN_POSITION', 11, 30, 0, NULL, NULL),
+('WEBSITE_TEAM_HEADER', 11, 10, 0, 'you can translate it as ''Meet the team''', NULL),
+('WEBSITE_TEAM_RINEERS_INFO', 11, 110, 0, NULL, NULL),
+('WEBSITE_TEAM_RINEERS_POSITION', 11, 100, 0, NULL, NULL),
+('WEBSITE_TEAM_YUKI_INFO', 11, 60, 0, NULL, NULL),
+('WEBSITE_TEAM_YUKI_POSITION', 11, 50, 0, 'by ''feature oracle'' I mean the person who helps decide what should be done and how', NULL);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_string`
+--
+ALTER TABLE `pc_string`
+  ADD CONSTRAINT `pc_string_FK_1` FOREIGN KEY (`category_id`) REFERENCES `pc_string_category` (`id`) ON DELETE CASCADE;
+
+
+
+CREATE TABLE IF NOT EXISTS `pc_translation` (
+  `language_id` char(2) NOT NULL,
+  `string_id` varchar(64) NOT NULL,
+  `string` text NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`language_id`,`string_id`),
+  KEY `pc_translation_FI_2` (`string_id`)
+) ENGINE=InnoDB;
+
+
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES
+('en', 'GENERAL_SLOGAN', 'get organized & stay relaxed', NULL),
+('en', 'WEBSITE_BLOCK_FACEBOOK_FAN_HEADER', 'Become a fan!', NULL),
+('en', 'WEBSITE_BLOCK_FEATURES_BODY', '<ul class="noIndent">\r\n<li>dump everything in your mind and feel relaxed</li>\r\n<li>centralize all your stuff in one place</li>\r\n<li>access your stuff from anywhere in several ways</li>\r\n<li>you don''t lose your ideas if your computer gets broken or stolen</li>\r\n<li>hourly off-site backups</li>\r\n</ul>', NULL),
+('en', 'WEBSITE_BLOCK_FEATURES_HEADER', 'Plancake, the good parts', NULL),
+('en', 'WEBSITE_BLOCK_PRESS_BODY', '<ul>\r\n<li>...you''ll have access to all of the great tools in PlanCake.<span class="pc_testimonialAuthor">Lifehacker.com</span></li>\r\n<li>One key to effective task management is using a versatile todo list manager. PlanCake is a solid application...<span class="pc_testimonialAuthor">Ostatic.com</span></li>\r\n<li>PlanCake is great, works nice, has plenty of shortcuts and makes managing your work and tasks even easier.<span class="pc_testimonialAuthor">Makeuseof.com</span></li>\r\n</ul>', NULL),
+('en', 'WEBSITE_BLOCK_PRESS_HEADER', 'Plancake in the media', NULL),
+('en', 'WEBSITE_BOTTOM_MENU_START', 'Start getting organized:', NULL),
+('en', 'WEBSITE_CONTACT_US_ACTIVATION_REASON', '...have not received the activation email yet', NULL),
+('en', 'WEBSITE_CONTACT_US_BUG_REASON', '...am reporting a bug', NULL),
+('en', 'WEBSITE_CONTACT_US_BUSINESS_REASON', '...would like my Company to partner with you', NULL),
+('en', 'WEBSITE_CONTACT_US_CONTRIBUTE_REASON', '...would like to contribute to the project', NULL),
+('en', 'WEBSITE_CONTACT_US_EMAIL_LABEL', 'my email', NULL),
+('en', 'WEBSITE_CONTACT_US_EXPLANATION_REASON', '...need an explanation about your service', NULL),
+('en', 'WEBSITE_CONTACT_US_GENERAL_REASON', '...have a general enquiry', NULL),
+('en', 'WEBSITE_CONTACT_US_HEADER', 'Get in touch', NULL),
+('en', 'WEBSITE_CONTACT_US_INTRO', 'Contact a member of our team, whether it is about some issues, some ideas, or just to show your appreciation.', NULL),
+('en', 'WEBSITE_CONTACT_US_LANGUAGE_LABEL', 'language\r\n', NULL),
+('en', 'WEBSITE_CONTACT_US_MESSAGE_LABEL', 'my message', NULL),
+('en', 'WEBSITE_CONTACT_US_NAME_LABEL', 'my name', NULL),
+('en', 'WEBSITE_CONTACT_US_NEWFEATURE_REASON', '...am suggesting a new feature or a changee', NULL),
+('en', 'WEBSITE_CONTACT_US_PRESS_REASON', '...have a press enquiry', NULL),
+('en', 'WEBSITE_CONTACT_US_PROBLEM_REASON', '...have a problem with using Plancake', NULL),
+('en', 'WEBSITE_CONTACT_US_REGARDING_LABEL', 'I...', NULL),
+('en', 'WEBSITE_CONTACT_US_REQUIRED_FIELD_MSG', 'required field', NULL),
+('en', 'WEBSITE_CONTACT_US_SUPPORT_REASON', '...would like to support the project', NULL),
+('en', 'WEBSITE_CONTACT_US_THANK_YOU_MSG', 'Thank you for contacting us. A member of our team will get back to you as soon as possible.', NULL),
+('en', 'WEBSITE_CONTACT_US_WORKWITHYOU_REASON', '...would like to work with you', NULL),
+('en', 'WEBSITE_FOOTER_CONTACT_US_LINK', 'Contact us', NULL),
+('en', 'WEBSITE_FOOTER_MEET_THE_TEAM_LINK', 'Meet the bakers', NULL),
+('en', 'WEBSITE_FOOTER_PRESS_LINK', 'Press', NULL),
+('en', 'WEBSITE_GENERAL_SIGN_UP_BTN', 'Sign up free', NULL),
+('en', 'WEBSITE_GENERAL_VISION_BODY', 'We love Plancake because it is simple-to-use and effective. <br />\r\nWe think we have found quite a good balance between features and simplicity. <br />\r\nRather than adding new features, we want to focus on:\r\n<ul>\r\n<li>making the existing features even more useful and simple-to-use</li>   \r\n<li>making Plancake even more accessible (to more people, to more platforms)</li>    \r\n<li>finding new ways to help our users to make the most of their time and not to forget important things in life</li>\r\n</ul> ', '2011-03-06 12:21:17'),
+('en', 'WEBSITE_GENERAL_VISION_HEADER', 'Our vision', '2011-03-06 12:19:36'),
+('en', 'WEBSITE_HEADER_BLOG_LINK', 'Blog', NULL),
+('en', 'WEBSITE_HEADER_CONTACT_US_LINK', 'Contact us', NULL),
+('en', 'WEBSITE_HEADER_FORUM_LINK', 'Forum', NULL),
+('en', 'WEBSITE_HEADER_HOME_LINK', 'Home', NULL),
+('en', 'WEBSITE_HEADER_SERVICES_LINK', 'Services', NULL),
+('en', 'WEBSITE_HEADER_SIGN_IN_WITH_GOOGLE', 'Sign in with Google Account', NULL),
+('en', 'WEBSITE_HOMEPAGE_FRESHNESS_DAYS_AGO', 'about %s days ago', NULL),
+('en', 'WEBSITE_HOMEPAGE_FRESHNESS_HOURS_AGO', 'about %s hours ago', NULL),
+('en', 'WEBSITE_HOMEPAGE_FRESHNESS_MINUTES_AGO', 'about %s minutes ago', NULL),
+('en', 'WEBSITE_HOMEPAGE_MAIN_COPY', 'Capture your ideas, remember everything and plan in advance. Use your personal assistant from anywhere, even with no Internet connection (on Android).', NULL),
+('en', 'WEBSITE_HOMEPAGE_META_OG_TITLE', 'Plancake - Free Task and Todo List Manager', NULL),
+('en', 'WEBSITE_HOMEPAGE_MORE_REASONS_BUTTON', 'give me another reason', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON1', 'With an Inbox, a Calendar, tags available, you can implement\r\nthe GTD (Getting Things Done) methodology and feel in control\r\neven if you have tons of things to do.', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON2', 'Writing down all your ideas, projects, things to remember\r\nis a great way to clear you head, feel more relaxed and not to forget anything,\r\nlike an elephant.', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON3', 'Once all of your stuff are in one place, you are not in danger\r\nof losing bits and pieces.', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON4', 'You will not lose your ideas, projects and tasks if your computer\r\nor mobile is stolen or gets broken.', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON5', 'Many features are free and we offer advanced ones to Supporter\r\naccounts in order to thank them for making all of this happen.', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASON6', 'You haven''t signed up yet despite all of those features?! <br />\r\nIt seems we have to give up on you, then. <br />\r\nThat''s a shame! :-)', NULL),
+('en', 'WEBSITE_HOMEPAGE_REASONS_TITLE', 'Why using Plancake is a clever choice?', NULL),
+('en', 'WEBSITE_HOMEPAGE_SECONDARY_COPY', 'Plancake is a free and easy-to-use web-based application. Manage your tasks, todos, appointments and notes.', NULL),
+('en', 'WEBSITE_MISC_FOLLOW_US', 'Follow us', NULL),
+('en', 'WEBSITE_PRESS_FACTS_BODY', '<ul>\r\n<li>the project was started in September 2009 by <a href="%s" >Daniele Occhipinti</a></li>\r\n<li>Plancake uses the freemium model: revenues are generated by donations, advertisement and premium account subscriptions\r\n(we call them <em>Supporter</em> accounts)</li>\r\n<li>the Company is not backed up by any investors. We believe we don''t need that. We also believe we don''t need\r\na marketing and sales department. <br />We spend every penny to maintain and improve the product, pretty much\r\nas 37Signals and Fog Creek Software are doing with Basecamp and FogBugz (two companies we deeply respect).</li>\r\n<li>where does the name Plancake come from? We still don''t know: it was a random choice. We liked it...\r\nthat''s probably because we love cakes :-)</li>\r\n</ul>', NULL),
+('en', 'WEBSITE_PRESS_FACTS_TITLE', 'Some facts about Plancake', NULL),
+('en', 'WEBSITE_PRESS_FOLLOW_US_BODY', 'The Plancake blog includes the category <em>press</em> that filters all the entries about very important features\r\nand news. <br />\r\nYou can subscribe to that stream <a href="%s">here &nbsp;<img class="pc_noBorder" src="/images/feed_icon.gif" /></a>.', NULL),
+('en', 'WEBSITE_PRESS_FOLLOW_US_TITLE', 'Follow us', NULL),
+('en', 'WEBSITE_PRESS_GET_IN_TOUCH_BODY', 'We are always happy to conduct interviews, provide commentary to help write articles about Plancake.<br />\r\n\r\nWe can also provide you with articles and blog posts that have been written about us.\r\n\r\nPlease don''t hesitate to <a href="%s" >contact us</a>.', NULL),
+('en', 'WEBSITE_PRESS_GET_IN_TOUCH_TITLE', 'Get in touch', NULL),
+('en', 'WEBSITE_PRESS_HEADER', 'Press Room', NULL),
+('en', 'WEBSITE_PRESS_IMAGES_BODY', 'Feel free to take and use any screenshot of the application. However, the copyright of those will remain with Plancake.com. <br />\r\nImages should not be modified or used without reference to Plancake.com.', NULL),
+('en', 'WEBSITE_PRESS_IMAGES_TITLE', 'Images', NULL),
+('en', 'WEBSITE_PRESS_INTRO', 'Welcome to the Plancake press room. <br />\r\nWe have collected some information and links we hope you will find useful.', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_DOWNLOAD_BODY', '<p>\r\nTo download <em>Plancake For Android</em>, you can use one of the following methods:\r\n<ul>\r\n    <li>follow this link <a href="market://search?q=pname:com.plancake.android.app">market://search?q=pname:com.plancake.android.app</a> from your device (recommended)\r\n    <li>go to the <a href="http://www.android.com/market/">Android Market</a> and search for <em>Plancake</em></li>\r\n    <li>scan this QR code with a barcode reader: <br /><img src="/images/android_app_qrcode.png" />\r\n</ul>\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_DOWNLOAD_TITLE', 'Downloading the application', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_GO_BACK', 'Go back to services', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_HEADER', 'Android application', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_INTRO1', 'Use Plancake on the go on your Android device, even when there is no Internet connection.\r\n\r\n<p>\r\nThis application is intended to be used as a valid support for the web version. <br />\r\nWe believe all the reviews and the routing of the tasks in the Inbox should be done on a powerful\r\ndevice with a reasonably big screen.\r\n</p>\r\n\r\n<p>\r\nThe application allows you to:\r\n<ul>\r\n  <li>check all the task you have to do</li>\r\n  <li>filter them by lists and tags</li>\r\n  <li>check your calendar</li>\r\n  <li>mark tasks as done</li>\r\n  <li>add/edit tasks to your Inbox (you can edit only the tasks you have created locally)</li>\r\n  <li>synchronize the lists/tags/tags between your device and the web interface and viceversa</li>\r\n</ul>\r\nYou can perform all this operations by using the MENU button and long-pressing the tasks\r\n(as usual for an Android application).\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_INTRO2', '<p>\r\nSynchronization is not automatic. To trigger it, you have to use the ''Sync'' menu item.<br />\r\nNormal accounts can synchronize up to twice a day. Supporter accounts will be able to synchronize more often.\r\n</p>\r\n\r\n<p>\r\nThe synchronization is two-ways.\r\n</p>\r\n\r\n<p>\r\nAll the tasks you change locally will be given a yellow header.\r\n</p>\r\n\r\n<p>\r\nN.B.: the longest gap between two synchronizations can''t be longer than two months. If it is,\r\nyou need to reset the application data.\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY1', '<p>\r\nYou can use the Android built in voice recognition system to add tasks to your Plancake by voice. <br />\r\nBasically you can send an email to your Plancake email address by voice with Android and, then, the\r\n<a href="%s">Plancake Email-to-Inbox Service</a> will add a task based on your email.\r\n</p>\r\n\r\n<p>\r\nIn order to do that, you have to created a new contact using <em>Plan</em> as the first name and <em>Cake</em> as the last name.  <br />\r\nThen simply add your Plancake email address to the new contact. <br />\r\nOnce that is added you can use the microphone icon on the Google Search bar widget to speak a voice command.\r\n</p>\r\n\r\n<p>\r\nIf you don''t have the Google Search widget installed, you can long hold on a blank spot on the screen and choose <em>Widgets</em> then\r\n<em>Google Search</em> to add the search bar to the home screen.\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY2', '<p>\r\nTo send a task:\r\n<ol>\r\n<li>Press the microphone button on the Google Search bar.</li>\r\n<li>Speak the following commands (Steps 3-5)</li>\r\n<li>''Send'' ''email'' to ''plan'' ''cake''</li>\r\n<li>''Subject'' (speak the text for the new task)</li>\r\n<li>''Message'' (speak a note for the task, or the word ''delete'' if you don''t need any note)</li>\r\n<li>The newly formatted message will appear</li>\r\n<li>Press the send button</li>\r\n</ol>\r\n</p>\r\n\r\n<p>\r\nIt does require Android v2.2 or higher. Previous versions do not have the built in voice commands for sending email.\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_ANDROID_APP_VOICE_TITLE', 'Adding tasks via voice on Android 2.2 and higher', NULL),
+('en', 'WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE1', 'A Plancake email address is created for every user when they register.\r\n\r\n<p>\r\nAn example of Plancake email address is: <br />\r\ninbox_niki.jones_15c522@<b>%s</b>\r\n</p>\r\n\r\n<p>\r\nThat email address is not very easy to remember but you can simply save it in your email client.\r\n</p>\r\n<p>\r\nYou can send emails to your Plancake email address.\r\nThe <b>subject</b> of that email will be added to your Inbox as a task and the <b>body</b> of the email (if any) will be attached as a note for that task.\r\n</p>\r\n\r\n<p>\r\n<span class="pc_important">\r\nIt may take up to 2-3 minutes for Plancake to create the task.\r\n</span>\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE2', '<p>\r\nIf you are on the move or away from your Plancake, you can just send an email having the task you want to remember as subject.\r\nThen, when you log in into your Plancake account you will be able to organize that task. <br />\r\nAnd you can even use the shortcuts for due date and tags in the subject of the email!<br />\r\n</p>\r\n\r\n<p class="pc_hint">\r\n<span class="pc_important">\r\nIf your device supports voice commands you will be\r\nprobably able to add tasks using your voice via this service.\r\n</span>\r\n</p>\r\n\r\n<p class="pc_hint">\r\nIf your email automatically contains a signature, Plancake will probably consider that as part of the note for the task. <br />\r\nTo avoid this, simply include ''%%'' on a line by itself before your signature, and everything after this line will be ignored. See this example:\r\n<pre>\r\nThe map is located under Adam''s bed. The name of the hotel should be\r\nwritten on the envelope underneath the book.\r\n%%\r\nMr White Christmas\r\nManaging Director\r\n</pre>\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_EMAIL_2_INBOX_GUIDE3', '<p class="pc_hint">\r\nIf you don''t need any task note but your email client forces you to set an email body, \r\njust use one of these strings (they won''t be added as a note):\r\n<ul>\r\n<li>%%</li>\r\n<li>delete</li>\r\n</ul>\r\n</p>\r\n\r\n<p class="pc_hint">\r\nAnybody who knows your Plancake address can add tasks to your Inbox. That can be good if you want your wife/husband to do so.\r\nBut be careful not to publicly disclose your Plancake email address otherwise strangers could add tasks to your Inbox.\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER', 'Email-to-Inbox Service', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_HEADER', 'Google Calendar Integration', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_INTRO', 'Manage your Plancake scheduled tasks on Google Calendar, the best online calendar. <br />\r\nIt is also a great way to get reminders of upcoming events.', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_INTRO2', 'You can connect Plancake to your Google Calendar account from the Plancake Settings or from the <em>All scheduled</em> view.\r\n', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_LIMIT_BODY', '<ul>\r\n    <li>\r\n        The <em>end date</em> for a repetition is not supported on Plancake: Plancake would just ignore it\r\n    </li>\r\n\r\n    <li>\r\n        Editing only one occurrence in a series of repeating tasks is not supported on Plancake:\r\n        Plancake would create a brand new task\r\n    </li>\r\n\r\n    <li>\r\n        You can''t set events for the last or second last day of the month on Google Calendar.\r\n        Good news is you can do it on Plancake and that will be reflected back to Google Calendar.\r\n    </li>\r\n</ul>', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_LIMIT_TITLE', 'Limitations', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_USAGE_BODY1', '<p>\r\nUpon activation, a secondary calendar called <em>Plancake</em> is created on your Google Calendar account automatically. <br />\r\n<img style="display: block; border: 1px solid #ccc; padding: 1px; margin-top: 5px; margin-left: 20px" src="/images/gcal_plancake_calendar.png" />\r\n</p>\r\n\r\n<p>\r\nStraight after activation, <span class="pc_important">make sure the timezone and daylight saving settings are identical</span> in 3 places:\r\n<ul>\r\n    <li>the Plancake setting</li>\r\n    <li>the general settings for Google Calendar</li>\r\n    <li>the settings for the secondary calendar <em>Plancake</em> on Google Calendar</li>\r\n</ul>\r\n</p>\r\n', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_USAGE_BODY2', '<p>\r\nThis integration is a two-way integration: changes in one application are reflected back to the other\r\n<ul>\r\n    <li>when deleting a task on Google Calendar, that task gets deleted also on Plancake (and viceversa)</li>\r\n    <li>the same goes for adding/editing: once an event is added on Google Calendar, the same\r\n    event is added to the Plancake Inbox so that you can categorize it later</li>\r\n    <li>you can very conveniently drag and drop events on Google Calendar and have their due date changed\r\n    on Plancake automatically</li>\r\n    <li>tasks marked as done on Plancake are deleted on Google Calendar, unless they are repeating tasks</li>\r\n    <li>you may need to click the refresh button on both Google Calendar and Plancake for the changes\r\n    to be visible</li>\r\n</ul>\r\n</p>\r\n\r\n<p>\r\nIf you want to reset the Plancake/Google Calendar connection:\r\n<ul>\r\n  <li>de-activate the connection from the Plancake Settings</li>\r\n  <li>delete the <em>Plancake</em> secondary calendar on Google Calendar (be careful not to lose important data!)</li>\r\n  <li>re-activate the connection from the Plancake Settings</li>\r\n</ul>\r\n</p>', NULL),
+('en', 'WEBSITE_SERVICES_GOOGLE_CAL_USAGE_TITLE', 'Usage', NULL),
+('en', 'WEBSITE_SERVICES_HOME_ANDROID_APP_BODY', 'Use Plancake on the go on your Android device, even when there is no Internet connection! <br />\r\nCheck what you need to do and add tasks to your Plancake on the move.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_ANDROID_APP_TITLE', 'Android application', NULL),
+('en', 'WEBSITE_SERVICES_HOME_API_BODY', 'Plancake is an <b>open</b> platform: you may access your data using your own tools.<br />\r\nOur powerful API lets developers create new applications and new ways to interact with Plancake. <br />\r\nIf you are a developer, you can <a href="%s">start using it</a>.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_API_TITLE', 'Web API', NULL),
+('en', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY', 'Chrome is the best web browser by far nowadays. We want to let our users be able to use their Plancake account quickly without the need of bringing up the Plancake website.<br />\r\nDevelopers can collaborate using the <a href="%s">Plancake API</a>.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_TITLE', 'Google Chrome Extension', NULL),
+('en', 'WEBSITE_SERVICES_HOME_COMING_SOON_MSG', 'coming soon', NULL),
+('en', 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY', 'You can send an email having the task or idea you want to remember as subject to your Plancake email address. You can even use the body of the email as a note for the task. <br />\r\n<span class="pc_important">If your device supports voice commands you will be probably able to add tasks using your voice via this service. </span>', NULL),
+('en', 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE', 'Email-to-Inbox Service', NULL),
+('en', 'WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY', 'You will be able to update your schedule on Google Calendar via Plancake and vice versa (two-way integration).', NULL),
+('en', 'WEBSITE_SERVICES_HOME_GOOGLE_CAL_TITLE', 'Google Calendar Integration', NULL),
+('en', 'WEBSITE_SERVICES_HOME_GTD_BODY', 'You will be able to implement the well-known GTD methodology using Plancake in order to achieve stress-free productivity.<br />\r\nDump what is in your mind to your Inbox, filter lists by tags (contexts) and light up cute stars to flag up next actions.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_INTRO', 'Here is the list of the available services. <br />\r\nIn order to use some of them you need to pay a subscription.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_IPHONE_APP_BODY', 'This will let you use Plancake on the go on your iPhone, even when there is no Internet connection. <br />\r\nWhile waiting, you can just use our Mobile version.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_IPHONE_APP_TITLE', 'iPhone application', NULL),
+('en', 'WEBSITE_SERVICES_HOME_MAIN_HEADER', 'Services and Vision', '2011-03-06 12:19:36'),
+('en', 'WEBSITE_SERVICES_HOME_META_OG_TITLE', 'The Plancake services', '2011-03-06 12:09:28'),
+('en', 'WEBSITE_SERVICES_HOME_META_TITLE', 'Plancake.com - Services', '2011-03-06 12:09:28'),
+('en', 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY', 'Plancake detects if you are on a small screen device and, if so, it adjusts some element of the user interface to let you use your account comfortably, as long as an Internet connection is available. <br />\r\nYou don''t need to visit a different URL, just go to http://www.plancake.com', NULL),
+('en', 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE', 'Mobile version', NULL),
+('en', 'WEBSITE_SERVICES_HOME_MORE_INFO_BTN', 'More info', NULL),
+('en', 'WEBSITE_SERVICES_HOME_OTHER_APPS_BODY', 'We are very keen on creating specific Plancake applications for a variety of platforms such as Symbian OS and Blackberry <br />\r\nDevelopers can help with this using the <a href="%s">Plancake API</a>. ', NULL),
+('en', 'WEBSITE_SERVICES_HOME_OTHER_APPS_TITLE', 'Other applications', NULL),
+('en', 'WEBSITE_SERVICES_HOME_OTHER_INTEGRATIONS_BODY', 'We are looking forward to seeing Plancake working alongside of major applications, such as Gmail and Google Calendar. <br />\r\nDevelopers can help with this using the <a href="%s">Plancake API</a>.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_OTHER_INTEGRATIONS_TITLE', 'Other integrations', NULL),
+('en', 'WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY', 'Keep all your ideas and notes always at hand wherever you are. <br />\r\nYou will get a Word-like editor where you can add even images.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY', 'Organize all your projects, all the things you need to do in one place with the help of an Inbox, intuitive items reordering, lists, tags, repeating tasks, a calendar and a very easy-to-use interface. <br />\r\nHave fun with the date and keyboard shortcuts.<br /> \r\nYou will feel you have everything under control. <br /> \r\nSpeaking of recurring tasks, Plancake supports even ''the last day of the month'' and ''the second last day of the month''.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_REMINDERS_BODY', 'You will be able to set up reminder for your events and appointments thanks to the Google Calendar integration.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_REMINDERS_TITLE', 'Reminders via Google Calendar', NULL),
+('en', 'WEBSITE_SERVICES_HOME_SERVICES_SUBHEADER', 'Our services', '2011-03-06 12:26:50'),
+('en', 'WEBSITE_SERVICES_HOME_TRANSLATIONS_BODY', 'We are planning to build an advanced system thanks to which Supporter users can contribute translating as little as they want of the website.', NULL),
+('en', 'WEBSITE_SERVICES_HOME_TRANSLATIONS_TITLE', 'Translations', NULL),
+('en', 'WEBSITE_SERVICES_HOME_UPCOMING_MSG', 'Here is the list of <b>upcoming</b> services:', NULL),
+('en', 'WEBSITE_TEAM_ANDREA_INFO', 'I live in Italy where I''m getting a degree in Economics. <br />\r\nI love listening to music, having fun with friends and watching movies. <br />\r\nI am working to make Plancake successful also in Italy and I support our Italian users. <br />\r\nBeside that, I chase bugs and pick the <em>quotes of the day</em>.', NULL),
+('en', 'WEBSITE_TEAM_ANDREA_POSITION', 'Business Development Assistant for Italy (and more :-))', NULL),
+('en', 'WEBSITE_TEAM_COLLABORATORS_HEADER', 'Collaborators (and happy users)', NULL),
+('en', 'WEBSITE_TEAM_CORE_TEAM_HEADER', 'Core Team', NULL),
+('en', 'WEBSITE_TEAM_DAN_INFO', 'I was born in Italy where I grew up and got my degree in Electronic Engineering. After that, I moved to the UK.<br />\r\nBefore starting Plancake, I was the lead developer and system administrator in one of the most successful online marketing companies in the UK. <br />\r\nI love taking care of Plancake and all our users.', NULL),
+('en', 'WEBSITE_TEAM_DAN_POSITION', 'Director, Technical Head and User Support', NULL),
+('en', 'WEBSITE_TEAM_HEADER', 'Meet the bakers', NULL),
+('en', 'WEBSITE_TEAM_RINEERS_INFO', 'We are co-owners of Three TEN Seven Design, LLC. <br />\r\nThe company was named after our wedding-date and is currently based in\r\nthe Savannah, GA and Hilton Head Island, SC areas in the US. <br />\r\nWe proudly designed the Plancake logo.', NULL),
+('en', 'WEBSITE_TEAM_RINEERS_POSITION', 'Creators of the Plancake logo', NULL),
+('en', 'WEBSITE_TEAM_YUKI_INFO', 'I was born in Tokyo, Japan. I moved to the UK quite a long while ago. <br />\r\nI help Daniele decide which features will come next and how they should be implemented. <br />\r\nI also review pretty much all the new texts and messages before they go live.', NULL),
+('en', 'WEBSITE_TEAM_YUKI_POSITION', 'Feature Oracle', NULL),
+('it', 'WEBSITE_GENERAL_VISION_BODY', '', '2011-03-07 01:46:35'),
+('it', 'WEBSITE_GENERAL_VISION_HEADER', '', '2011-03-07 02:04:29'),
+('it', 'WEBSITE_SERVICES_HOME_MAIN_HEADER', '', '2011-03-07 02:03:07'),
+('it', 'WEBSITE_SERVICES_HOME_META_OG_TITLE', '', '2011-03-07 02:03:03'),
+('it', 'WEBSITE_SERVICES_HOME_META_TITLE', '', '2011-03-07 02:03:00');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_translation`
+--
+ALTER TABLE `pc_translation`
+  ADD CONSTRAINT `pc_translation_FK_1` FOREIGN KEY (`language_id`) REFERENCES `pc_language` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pc_translation_FK_2` FOREIGN KEY (`string_id`) REFERENCES `pc_string` (`id`) ON DELETE CASCADE;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_translator`;
+
+DROP TABLE `pc_language`;
+
+ALTER TABLE `pc_user` DROP `preferred_language`;
+
+SET FOREIGN_KEY_CHECKS=1;

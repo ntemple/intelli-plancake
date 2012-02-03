@@ -1,0 +1,16 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_quote_of_the_day` ADD `quote_author_in_italian` varchar(64) DEFAULT '' AFTER `quote_author`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

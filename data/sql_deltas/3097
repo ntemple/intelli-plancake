@@ -1,0 +1,26 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = '<a href="%s">Compare editions</a> or <a href="%s">Check out Plancake features</a> or <a href="%s">Start an easier life with Plancake today</a>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS';
+UPDATE `pc_translation` SET `string` = '<a href="%s">Confronta le edizioni</a> o <a href="%s">Scopri le funzionalità di Plancake</a> o <a href="%s">Inizia a semplificarti la vita con Plancake da oggi</a>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_PROMOTION_NEED_TO_SIGN_UP', '104', '1500', '0', NULL, '0', '2012-01-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_PROMOTION_NEED_TO_SIGN_UP', 'you need to sign up in order to activate your free or Premium account', '2012-01-30 00:00:00'), ('it', 'ACCOUNT_PROMOTION_NEED_TO_SIGN_UP', 'devi registrarti per attivate il tuo account free o Premium', '2012-01-30 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_HEADER3', '104', '25', '0', 'shown in the final step of the registration', '0', '2012-01-30 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_HEADER3', 'Choose your edition', '2012-01-30 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_HEADER3', 'Scegli la tua edizione', '2012-01-30 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'Last step - choose your edition' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_HEADER3';
+UPDATE  `pc_translation` SET  `string` =  'Ultimo passo - scegli la tua edizione' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_HEADER3';
+
+UPDATE `pc_translation` SET `string` = 'Plancake works on almost any tablet and smartphone. Just point its browser to www.plancake.com and enjoy Plancake even without an Internet connection.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_PLATFORM';
+UPDATE `pc_translation` SET `string` = 'Plancake funziona su quasi tutte le tablet e smartphone. Ti basta andare su www.plancake.com con il suo browser e potrai utilizzare Plancake, anche senza una connessione a Internet.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_REGISTRATION_PLATFORM';
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

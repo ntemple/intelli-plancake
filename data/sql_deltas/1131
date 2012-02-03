@@ -1,0 +1,21 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `time_format` tinyint(2) unsigned DEFAULT '0' COMMENT '0->5:00pm, 1->17:00' AFTER `date_format`;
+ALTER TABLE `pc_user` ADD `week_start` tinyint(2) unsigned DEFAULT '0' COMMENT '0->Sunday, 1->Monday' AFTER `timezone_id`;
+ALTER TABLE `pc_task` ADD `due_time` smallint(5) unsigned DEFAULT NULL AFTER `due_date`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP `time_format`;
+ALTER TABLE `pc_user` DROP `week_start`;
+ALTER TABLE `pc_task` DROP `due_time`;
+
+SET FOREIGN_KEY_CHECKS=1;

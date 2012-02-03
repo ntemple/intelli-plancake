@@ -1,0 +1,8 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+RENAME TABLE `pc_watchdog` TO `pc_watchdog2`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

@@ -1,0 +1,207 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_SERVICES_HOME_INTRO';
+
+UPDATE `pc_translation` SET `string` = 'User Experience Assistant and Business Development Assistant for Japan' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+UPDATE `pc_translation` SET `string` = 'Assistente per User Experience e Business Assistant per il mercato giapponese' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+
+UPDATE  `pc_translation` SET  `string` =  'Business Assistant per il mercato italiano (e altro :-))' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_TEAM_ANDREA_POSITION';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_INFO';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_INFO';
+
+UPDATE `pc_translation` SET `string` = 'I was born in Tokyo, Japan. I moved to the UK a fairly long time ago. <br />
+I help to decide which features will come next and how they should be implemented. <br />
+I also help to develop the business in Japan.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_INFO';
+UPDATE `pc_translation` SET `string` = 'Sono nata a Tokyo, in Giappone. Mi sono trasferita nel Regno Unito da molto tempo. <br />
+Aiuto nel decidere quali funzioni sviluppare e come poterle migliorare. <br />
+Aiuto anche a sviluppare il prodotto nel marcato Giapponese.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_INFO';
+
+UPDATE `pc_translation` SET `string` = 'Business Development Assistant for Italy (and more)' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+UPDATE `pc_translation` SET `string` = 'Asistente de Desarrollo de Negocios para Italia (y más)' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+UPDATE `pc_translation` SET `string` = 'Assistant Développement Business pour l''Italie (et plus)' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+UPDATE `pc_translation` SET `string` = 'Business Assistant per il mercato italiano (e altro)' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_POSITION';
+
+
+UPDATE `pc_translation` SET `string` = 'I live in Italy where I''m getting a degree in Economics. <br />
+I am working to make Plancake successful in Italy and I support our Italian users. <br />
+Beside that, I chase bugs and pick the <em>quotes of the day</em>.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_INFO';
+UPDATE `pc_translation` SET `string` = 'Yo vivo en Italia, donde estoy estudiando para un título en Economía. <br />
+Estoy trabajando para hacer Plancake un éxito en Italia y apoyar a nuestros usuarios italianos. <br />
+Además de eso, checo los errores de programación y escojo las <em> citas del día </em>.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_INFO';
+UPDATE `pc_translation` SET `string` = 'Je vis en Italie  où je passe un diplôme en économie. <br />
+Je travaille au succès de Plancake en Italie et aide tous les utilisateurs italiens. <br />
+A côté de cela, Je chasse les bugs et je choisis la <em>citation du jour</em>.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_INFO';
+UPDATE `pc_translation` SET `string` = 'Vivo in italia dove frequento la facoltà di Economia. <br />
+Sto lavorando per rendere Plancake popolare anche in Italia e faccio supporto per i nostri utenti italiani. <br />
+Oltre a ciò, revisiono il sistema e gestisco le <em>frasi del giorno</em>.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_INFO';
+
+UPDATE `pc_translation` SET `updated_at` = '2011-09-23 18:11:05' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_ANDREA_INFO';
+
+UPDATE `pc_translation` SET `string` = '' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACTS_BODY';
+UPDATE `pc_translation` SET `string` = '' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACTS_BODY';
+UPDATE `pc_translation` SET `string` = '' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACTS_BODY';
+UPDATE `pc_translation` SET `string` = '' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_FACTS_BODY';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_PRESS_FACTS_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_PRESS_FACT1', '10', '41', '0', NULL, '0', '2011-09-23 00:00:00'), ('WEBSITE_PRESS_FACT2', '10', '42', '0', NULL, '0', '2011-09-23 00:00:00'), ('WEBSITE_PRESS_FACT3', '10', '43', '0', NULL, '0', '2011-09-23 00:00:00'), ('WEBSITE_PRESS_FACT4', '10', '44', '0', NULL, '0', '2011-09-23 00:00:00'), ('WEBSITE_PRESS_FACT5', '10', '45', '0', NULL, '0', '2011-09-23 00:00:00'), ('WEBSITE_PRESS_FACT6', '10', '46', '0', NULL, '0', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_PRESS_FACT1', 'the project was started in September 2009 by <a href="%s" >Daniele Occhipinti</a>', '2011-09-23 00:00:00'), ('en', 'WEBSITE_PRESS_FACT2', 'Plancake uses the <b>freemium model</b>: revenues are generated by advertisement and premium account subscriptions
+(we call them <em>Supporter</em> accounts)', '2011-09-23 00:00:00'), ('en', 'WEBSITE_PRESS_FACT3', 'Plancake is run by Danyuki Software Limited, a <b>startup technology company</b> based in <b>London, UK</b>', '2011-09-23 00:00:00'), ('en', 'WEBSITE_PRESS_FACT4', 'Plancake is <b>Open Source</b>: please <a href="%s">read here</a> for more information', '2011-09-23 00:00:00'), ('en', 'WEBSITE_PRESS_FACT5', 'the Company is not backed up by investors', '2011-09-23 00:00:00'), ('en', 'WEBSITE_PRESS_FACT6', 'where does the name Plancake come from? We still don''t know: it was a random choice. We liked it...
+ probably because we love cakes :-)', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('es', 'WEBSITE_PRESS_FACT1', 'el proyecto se inició en septiembre de 2009 por <a href="%s">Daniele Occhipinti</a> ', '2011-09-23 00:00:00'), ('es', 'WEBSITE_PRESS_FACT2', 'Plancake utiliza el<b> modelo freemium </b>: los ingresos son generados por publicidad y suscripciones de cuentas premium
+(los llamamos <em> cuentas de Soporte</em>) ', '2011-09-23 00:00:00'), ('es', 'WEBSITE_PRESS_FACT3', 'Plancake está a cargo de Danyuki Software Limited, una <b>compañía de tecnología</b> con sede en <b>Londres, Reino Unido</b>', '2011-09-23 00:00:00'), ('es', 'WEBSITE_PRESS_FACT4', 'Plancake es <b> Open Source </b>: por favor, <a href="%s"> leer aquí </a> para más información', '2011-09-23 00:00:00'), ('es', 'WEBSITE_PRESS_FACT5', 'la Compañía no está respaldada por algun inversor', '2011-09-23 00:00:00'), ('es', 'WEBSITE_PRESS_FACT6', '¿De dónde viene el nombre Plancake? Todavía no lo sabemos: fue una elección al azar. Nos gustó ... probablemente porque amamos los pasteles :-)', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('fr', 'WEBSITE_PRESS_FACT1', '<a href="%s" >Daniele Occhipinti</a> a démarré le projet en septembre 2009', '2011-09-23 00:00:00'), ('fr', 'WEBSITE_PRESS_FACT2', 'Plancake est basé sur le <b>freemium model</b>: les revenus sont générés par les publicités et les souscriptions au compte premium
+(nous les appelons les <em>Supporter</em> accounts)', '2011-09-23 00:00:00'), ('fr', 'WEBSITE_PRESS_FACT3', 'Plancake est géré par Danyuki Software Limited, une <b>startup technology company</b> (Startup en technologie) basée à <b>Londres, UK</b>', '2011-09-23 00:00:00'), ('fr', 'WEBSITE_PRESS_FACT4', 'Plancake est  <b>Open Source</b> (libre): merci de <a href="%s">lire ceci</a> pour plus d''informations', '2011-09-23 00:00:00'), ('fr', 'WEBSITE_PRESS_FACT5', 'la société n''a pas d''investisseurs', '2011-09-23 00:00:00'), ('fr', 'WEBSITE_PRESS_FACT6', 'D''où vient le nom Plancake? Nous ne savons pas: c''était un choix aléatoire. Nous aimons ce nom... sans doute parce que nous aimons les cakes :-)', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_PRESS_FACT1', 'il progetto è nato nel Settembre 2009 da un''idea di <a href="%s" >Daniele Occhipinti</a>', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT2', 'Plancake utilizza il <b>modello "freemium"</b>: i guadagni derivano dai banner pubblicitari e dalle iscrizioni all''account premium
+(noi li chiamiamo account <em>Sostenitore</em>)', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT3', 'Plancake è sviluppato da Danyuki Software Limited, una <b>startup tecnologica</b> con sede a <b>Londra</b>', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT4', 'Plancake è <b>Open Source</b>: perpiacere leggi <a href="%s">questa pagina</a> per maggiori informazioni', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT5', 'l''azienda non è sostenuta da investitori', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT6', 'Da dove deriva il nome Plancake? Non lo sappiamo ancora: è stata una scelta casuale. Ci piaceva... probabilmente perchè ci piacciono le torte :-)', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_PRESS_FACT7', '10', '47', '0', NULL, '0', '2011-09-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_PRESS_FACT7', 'In July 2011 Plancake won the prestigious <b>Shell LiveWire Grand Ideas Award</b>. More details <a href="%s">here</a>', '2011-09-23 00:00:00'), ('it', 'WEBSITE_PRESS_FACT7', 'Nel Luglio 2011 Plancake ha vinto il prestigioso <b>Shell LiveWire Grand Ideas Award</b>. Maggiori dettagli <a href="%s">qui</a>', '2011-09-23 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'We are always happy to conduct interviews and provide commentary to help write articles about Plancake.<br />
+
+We can also provide you with articles and blog posts that have been written about us.<br />
+
+If you cover us, we will more than happy to provide you with an exclusive discount code for your audience. <br />
+
+Please don''t hesitate to <a href="%s" >get in touch</a>.', `updated_at` = '2011-09-23 18:11:05' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_GET_IN_TOUCH_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Siamo sempre disponibili a fare interviste e fornire commenti per aiutarvi a scrivere articoli riguardanti Plancake.<br />
+
+Possiamo anche fornirvi articoli di blog che sono stati scritti da noi. <br />
+
+Se scrivi o perli di noi, saremmo felici di fornirti un codice di sconto esclusivo per il tuo pubblico. <br />
+
+Per qualsiasi ragione, non esitare a <a href="%s" >contattarci</a>.', `updated_at` = '2011-09-24 18:11:05' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_GET_IN_TOUCH_BODY';
+
+UPDATE `pc_translation` SET `string` = 'User Experience Officer and Business Development Officer for Japan' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+UPDATE `pc_translation` SET `string` = 'User Experience Officer and Business Development Officer per il Giappone' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_YUKI_POSITION';
+
+UPDATE `pc_string` SET `note` = '' WHERE `pc_string`.`id` = 'WEBSITE_TEAM_YUKI_POSITION';
+
+UPDATE `pc_translation` SET `string` = 'Learn more' WHERE `language_id`='en' AND `string_id`='WEBSITE_SERVICES_HOME_MORE_INFO_BTN';
+
+UPDATE  `pc_string` SET  `note` =  'translate it as ''More info'' - the label for the button to get more info for certain services' WHERE  `pc_string`.`id` = 'WEBSITE_SERVICES_HOME_MORE_INFO_BTN';
+
+UPDATE `pc_translation` SET `string` = 'You can create an item by sending an email with the subject as a task or idea to your Plancake email address. You can even use the body of the email as a note for the task. <br />
+If your device supports voice commands you will probably be able to add tasks using your voice via this service.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Tu puedes crear un elemento al enviar un correo electrónico con el asunto como una tarea o una idea a tu dirección de correo electrónico Plancake. Tu puedes incluso utilizar el cuerpo del correo electrónico como una nota para la tarea. <br />
+Si tu dispositivo admite comandos de voz probablemente serás capaz de añadir tareas con tu voz a través de este servicio.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Vous pouvez créer un sujet en envoyant un email à votre adresse email Plancake avec comme objet une tâche ou une idée. Vous pouvez utiliser le corps de l''email comme note descriptive du sujet. <br />
+Si votre outil de saisie gère la commande vocale, vous aurez la possibilité de rajouter des tâches en utilisant cette commande vocale.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Puoi inviare una email contenente l''attività o l''idea che vuoi ricordare al tuo indirizzo email di Plancake. Puoi anche usare il testo dell''email come nota per l''attività. <br />
+Se il tuo dispositivo supporta i comandi vocali probabilmente potrai aggiungere attività usando la tua voce tramite questo servizio.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+UPDATE `pc_translation` SET `string` = 'With Plancake you don''t need to worry about privacy, sharing settings or people accidentally reading your data due to misconfiguration.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PERSONAL_BODY';
+UPDATE `pc_translation` SET `string` = 'Con Plancake no tienes que preocuparte por la configuración de privacidad, configuración para compartir o que extraños lean por accidente tus datos debido a una mala configuración.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PERSONAL_BODY';
+UPDATE `pc_translation` SET `string` = 'Plancake respecte votre vie privée en ne donnant accès à vos données et vos paramètres qu''à vous.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PERSONAL_BODY';
+UPDATE `pc_translation` SET `string` = 'Con Plancake non hai bisogno di preoccuparti di impostare condivisioni o limiti di privacy e non corri il rischio che qualcuno legga i tuoi dati perché hai sbagliato un settaggio.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PERSONAL_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'You don''t need to bring up the Plancake website everytime you want to add a task, thanks to this extension.
+<br />
+Without leaving the webpage you are on, you will still be able to jott down your ideas.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+UPDATE `pc_translation` SET `string` = 'No es necesario ir a la página web de Plancake cada vez que desees agregar una tarea, gracias a esta extensión.
+<br />
+Sin salir de la página web que te encuentras, todavía serás capaz de jott tus ideas.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Avec cette extension, il n''est plus nécessaire d''aller à chaque fois sur Plancake pour ajouter une tâche.
+<br />
+Sans quitter la page web actuelle, vous avez la possibilité de déposer vos idées.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Non avrai bisogno di andare sul sito di Plancake ogni volta che vuoi aggiungere una attività, grazie a questa estensione.
+<br />
+ Senza lasciare la pagina web che leggi, potrai comunque buttar giù le tue idee velocemente.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK', '3', '251', '0', NULL, '0', '2011-09-24 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK', 'You can install the extension on your Google Chrome from <a target="_blank" href="%s">here</a>.', '2011-09-24 00:00:00'), ('es', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK', 'Tu puedes instalar la extensión en Google Chrome desde <a target="_blank" href="%s">aquí</a>.', '2011-09-24 00:00:00'), ('fr', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK', 'Vous pouvez installer cette extension Google Chrome <a target="_blank" href="%s">ici</a>.', '2011-09-24 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_LINK', 'Puoi installare l''estensione sul tuo Google Chrome da <a target="_blank" href="%s">qui</a>.', '2011-09-24 00:00:00');
+
+
+UPDATE `pc_translation` SET `string` = 'Plancake is an open platform: you may access your data using your own tools.<br />
+Our powerful API lets developers create new applications and new ways to interact with Plancake.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_API_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Plancake es una plataforma abierta: tu puedes accesar a tu información con tus propias herramientas.<br />
+Nuestra poderosa API permite a los desarrolladores crear nuevas aplicaciones y nuevas formas de interactuar con Plancake.' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_API_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Plancake est une platforme libre: vous pouvez accéder à vos données avec vos propres outils.<br />
+Notre puissant API permet aux développeurs de créer de nouvelles applications et de nouveaux moyens d''interagir avec Plancake.' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_API_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Plancake è una piattaforma aperta: puoi accedere ai tuoi dati utilizzando i tuoi stessi strumenti.<br />
+La nostra potente API permette agli sviluppatori di creare nuove applicazioni e nuovi modi di interagire con Plancake.
+' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_API_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_API_LINK', '3', '151', '0', NULL, '0', '2011-09-24 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_API_LINK', 'If you are a developer, you can <a href="%s">start using it</a>.', '2011-09-24 00:00:00'), ('es', 'WEBSITE_SERVICES_HOME_API_LINK', 'Si eres un desarrollador, tu puedes <a href="%s">empezar a usarlo</a>.', '2011-09-24 00:00:00'), ('fr', 'WEBSITE_SERVICES_HOME_API_LINK', 'Si vous êtes développeur, vous pouvez <a href="%s">déjà l''utiliser</a>.', '2011-09-24 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_API_LINK', 'Se sei uno sviluppare, <a href="%s">puoi iniziare ad usarla</a>.', '2011-09-24 00:00:00');
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_SERVICES_HOME_UPCOMING_MSG';
+
+UPDATE `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_SERVICES_HOME_IPHONE_APP_TITLE';
+
+UPDATE `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_SERVICES_HOME_IPHONE_APP_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Reminders' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_TITLE';
+UPDATE `pc_translation` SET `string` = 'Recordatorios' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_TITLE';
+UPDATE `pc_translation` SET `string` = 'Rappels' WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_TITLE';
+UPDATE `pc_translation` SET `string` = 'Promemoria' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_TITLE';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Plancake can send you emails to make sure you don''t forget what you need to do even without checking your account.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY';
+UPDATE `pc_translation` SET `string` = 'Plancake è in grado di inviarti email per essere sicuro che non ti dimentichi cosa devi fare anche senza consultare il tuo account.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_REMINDERS_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+
+UPDATE `pc_translation` SET `string` = 'Smartphone application (Android, iPhone, Blackberry, Symbian, ...)' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+UPDATE `pc_translation` SET `string` = 'Applicazione per smartphone (Android, iPhone, Blackberry, Symbian, ...)' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+
+UPDATE  `pc_translation` SET  `string` = 'Plancake detects if you are on a small screen device and automatically switch to a version of the application optimized for smartphones which works offline and synchronizes with the online application.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+UPDATE  `pc_translation` SET  `string` = 'Plancake rileva se stai usando un dispositivo a schermo piccolo e in tal caso serve una applicazione specifica per smartphone che funziona anche senza connessione Internet e si sincronizza con l''applicazione online.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK', '3', '211', '0', NULL, '0', '2011-09-24 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK', 'You don''t need to visit a different URL, just go to http://www.plancake.com with your smartphone.', '2011-09-24 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK', 'Non è necessario che tu visiti un indirizzo differente, è sufficiente che tu vada su http://www.plancake.com dal tuo smartphone.', '2011-09-24 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_OFFLINE_TITLE', '3', '420', '0', NULL, '0', '2011-09-24 00:00:00'), ('WEBSITE_SERVICES_HOME_OFFLINE_BODY', '3', '430', '0', NULL, '0', '2011-09-24 00:00:00'), ('WEBSITE_SERVICES_HOME_SUPPORT_TITLE', '3', '440', '0', NULL, '0', '2011-09-24 00:00:00'), ('WEBSITE_SERVICES_HOME_SUPPORT_BODY', '3', '450', '0', NULL, '0', '2011-09-24 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_OFFLINE_TITLE', 'Offline use', '2011-09-25 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_OFFLINE_TITLE', 'Uso offline', '2011-09-25 00:00:00'), ('en', 'WEBSITE_SERVICES_HOME_OFFLINE_BODY', 'Plancake doesn''t always need an Internet connection in order to work! <br />
+That means you can use it even in the middle of the desert or
+when you are underground. Then, once the web application detects
+a connection is available, it sends your data to the Plancake servers.', '2011-09-25 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_OFFLINE_BODY', 'Plancake non necessita di una connessione Internet sempre disponibile! <br />
+Ciò significa che puoi utilizzarlo anche in mezzo al deserto o quando sei
+in metropolitana. Quindi, una volta che l''applicazione capta una connessione
+disponibile, essa manda i tuoi dati ai server di Plancake.', '2011-09-25 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_SUPPORT_TITLE', 'Caring staff', '2011-09-25 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_SUPPORT_TITLE', 'Team Premuroso', '2011-09-25 00:00:00'), ('en', 'WEBSITE_SERVICES_HOME_SUPPORT_BODY', 'Plancake is not only a piece of software - it is also a group
+of people passionate about making a difference in other people''s life. <br />
+That is why we personally reply to all enquiries normally within a few hours and
+we publish inspirational articles on our blog.', '2011-09-25 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_SUPPORT_BODY', 'Plancake non è soltanto un software - è anche un gruppo di persone con la passione di fare una differenza nella vita di altre persone.<br />
+Ecco perché rispondiamo personalmente alle richiesta che arrivano di norma entro poche ore e pubblichiamo articoli ispiratori sul nostro blog.', '2011-09-25 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

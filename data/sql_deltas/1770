@@ -1,0 +1,40 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DELETE FROM `pc_translation` where `string_id`='ACCOUNT_SETTINGS_EXPORT_COMING_SOON';
+
+DELETE FROM `pc_string` where `id`='ACCOUNT_SETTINGS_EXPORT_COMING_SOON';
+
+ALTER TABLE `pc_user` ADD `latest_backup_request` datetime DEFAULT NULL AFTER `latest_blog_access`;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EXPORT_INTRO', '115', '102', '0', NULL, NULL), ('ACCOUNT_SETTINGS_EXPORT_DOWNLOAD_BTN', '115', '104', '0', NULL, NULL);
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_EXPORT_QUOTA_MSG', '115', '106', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EXPORT_INTRO', 'By clicking the button below, you will download a ZIP archive containing an XML file with the data from your account. XML is an open format you can even read.', NULL), ('it', 'ACCOUNT_SETTINGS_EXPORT_INTRO', 'Cliccando il pulsante sotto, scaricherai un archivio ZIP contenente un file XML con i tuoi dati del tuo account. XML è un formato aperto che puoi addirittura leggere.', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EXPORT_DOWNLOAD_BTN', 'Download data', NULL), ('it', 'ACCOUNT_SETTINGS_EXPORT_DOWNLOAD_BTN', 'Scarica backup', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_EXPORT_QUOTA_MSG', 'Non-Supporter accounts can not download more than one backup every 24 hours. <br />
+<a href="%s">Upgrade</a> to overcome this limitation and get more benefits.', NULL), ('it', 'ACCOUNT_SETTINGS_EXPORT_QUOTA_MSG', 'Gli account non sostenitori non possono scaricate più di un backup ogni 24 ore. <br />
+<a href="%s">Passa alla versione premium</a> per eliminare questa limitazione e avere altri benefici.', NULL);
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_IMPORT', '115', '1100', '0', NULL, NULL), ('ACCOUNT_SETTINGS_IMPORT_INTRO', '115', '1110', '0', NULL, NULL);
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_IMPORT_SUCCESS', '115', '1120', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_IMPORT', 'Import data', NULL), ('it', 'ACCOUNT_SETTINGS_IMPORT', 'Importa dati', NULL), ('en', 'ACCOUNT_SETTINGS_IMPORT_INTRO', 'Please, upload an XML file of the same format as when you export account data. <br />Items having a valid <em>id</em> property will be updated, other items will be added.', NULL), ('it', 'ACCOUNT_SETTINGS_IMPORT_INTRO', 'Perpiacere carica un file nello stesso formato XML che ottieni quando esporti i tuoi dati. <br /> Gli oggetti aventi una proprietà <em>id</em> valida verranno aggiornati, gli altri aggiunti.', NULL), ('en', 'ACCOUNT_SETTINGS_IMPORT_SUCCESS', 'Data has been successfully imported.', NULL), ('it', 'ACCOUNT_SETTINGS_IMPORT_SUCCESS', 'Dati importati con successo', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_IMPORT_XML_ERROR', '115', '1130', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_IMPORT_XML_ERROR', 'An error occurred: probably the file you uploaded is not a valid XML file.', NULL), ('it', 'ACCOUNT_SETTINGS_IMPORT_XML_ERROR', 'Si è verificato un errore: probabilmente il file che hai caricato non è in formato XML valido.', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

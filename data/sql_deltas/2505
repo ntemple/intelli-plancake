@@ -1,0 +1,28 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET  `string` =  'type new task & hit Enter' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_HIT_ENTER';
+UPDATE `pc_translation` SET  `string` =  'scrivi attività & Invia' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_HIT_ENTER';
+
+UPDATE  `pc_translation` SET  `string` =  'new list' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_NEW_LIST';
+UPDATE  `pc_translation` SET  `string` =  'nuova lista' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_NEW_LIST';
+
+UPDATE  `pc_translation` SET  `string` =  'new tag' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_TAGS_NEW_TAG';
+UPDATE  `pc_translation` SET  `string` =  'nuova etichetta' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_TAGS_NEW_TAG';
+
+UPDATE `pc_translation` SET `string` = 'jump to date:' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_JUMP_TO_DATE';
+UPDATE `pc_translation` SET `string` = 'vai alla data:' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_JUMP_TO_DATE';
+UPDATE `pc_translation` SET `string` = 'next 7 days' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS';
+UPDATE `pc_translation` SET `string` = 'prossimi 7 giorni' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS';
+UPDATE `pc_translation` SET `string` = 'next month' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH';
+UPDATE `pc_translation` SET `string` = 'prossimo mese' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH';
+UPDATE `pc_translation` SET `string` = 'previous 7 days' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_PREV_7_DAYS';
+UPDATE `pc_translation` SET `string` = 'previous month' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

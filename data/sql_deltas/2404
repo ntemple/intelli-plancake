@@ -1,0 +1,12 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_archived_task` ADD `special_flag` tinyint(3) unsigned DEFAULT NULL AFTER `is_from_system`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

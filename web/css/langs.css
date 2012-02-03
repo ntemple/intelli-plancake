@@ -1,0 +1,179 @@
+/*!************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+body
+{
+  font-family: Arial,"Times New Roman",Georgia,Serif;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+ul#importantDirectives
+{
+    line-height: 150%;
+}
+
+ul#importantDirectives li
+{
+    margin-top: 5px;
+}
+
+div#pageContent
+{
+    padding: 20px;
+}
+
+h1
+{
+    padding: 20px;
+}
+
+h2
+{
+    margin-top: 200px;
+    margin-bottom: 0px;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+    background-color: #eee;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+h2 span.stringCategoryNote
+{
+    font-size: 60%;
+    font-weight: normal;
+    background-color: yellow;
+    padding: 2px;
+}
+
+h2 a.stringCategoryLink
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+ul.stringsList, ul.stringsList li
+{
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style: none;
+    clear: both;
+}
+
+ul.stringsList li
+{
+    border-bottom: 1px dotted black;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.stringId
+{
+    padding-bottom: 5px;
+}
+
+div.stringNote
+{
+    padding: 3px;
+    font-size: 90%;
+    background-color: yellow;
+}
+
+ul.stringsList li table, ul.stringsList li tr
+{
+    width: 100%;
+}
+
+div.stringTranslation textarea
+{
+    width: 98%;
+    padding: 5px;
+}
+
+div.stringEnglishTranslation
+{
+    width: 98%;
+    border: 1px solid #999;
+    padding: 5px;
+    background-color: #eee;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input.numberOfCharsLeft
+{
+    width: 30px;
+}
+
+form.translationForm
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+img.sendingTranslation
+{
+    display: none;
+}
+
+.feedbackForUser
+{
+    display: none;
+    position: fixed;
+    left: 20%;
+    top: 0px;
+    padding: 5px 10px 10px 10px;
+    color: white;
+}
+
+#successMessage
+{
+    background-color: green;
+}
+
+#errorMessage
+{
+    background-color: red;
+}
+
+.toBeTranslated
+{
+    background-color: #F5C9D4;
+}
+
+span.maxLength
+{
+    display: none;
+}
+
+div.translationActions
+{
+    width: 95%;
+    text-align: left;
+}
+
+span.stringSortOrder
+{
+    font-size: 10px;
+}

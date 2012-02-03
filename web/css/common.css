@@ -1,0 +1,689 @@
+/*!************************************************************************************
+* ===================================================================================*
+* Software by: Danyuki Software Limited                                              *
+* This file is part of Plancake.                                                     *
+*                                                                                    *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Support, News, Updates at:  http://www.plancake.com                                *
+* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
+**************************************************************************************
+* Plancake is distributed in the hope that it will be useful,                        *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                      *
+* GNU Affero General Public License for more details.                                *
+*                                                                                    *
+* You should have received a copy of the GNU Affero General Public License           *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.              *
+*                                                                                    *
+**************************************************************************************/
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+.pc_small
+{
+    font-size: 11px;
+}
+
+img.pc_noBorder
+{
+    border: 0px;
+}
+
+img.pc_noBorder:hover
+{
+    background-color: #fff;
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+#pc_footer
+{
+  background: url("/images/footer_background.png") repeat-x scroll 0 0 transparent;    
+  clear: both; /* Necessary for the forum integration */
+  margin-top: 25px;
+  padding: 10px 0px;
+  width: 100%;
+  background-color: #0994ff;
+  font-size: 12px;
+  text-align: center;
+  font-family: Verdana, Arial, "Times New Roman",Georgia,Serif; /* useful for integration */
+  float: left;
+  min-height: 380px;  
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#pc_footer .copyrightNote {
+    clear: both;
+    color: #fff;
+    font-size: 10px;
+}
+
+#pc_footerLinks
+{
+  width: 900px;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 0px;
+  line-height: 110%;
+}
+
+#pc_footerLinks > ul
+{
+  width: 100%;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#pc_footerLinks ul li ul
+{
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+#pc_footerLinks li
+{
+  float: left;
+  margin-right: 20px;
+  width: 160px;
+  display: block;
+  background-image: none;
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  text-align: left;
+  font-weight: bold;
+}
+
+#pc_footerLinks > ul > li > p
+{
+  margin-bottom: 15px;
+  color: #FECA59;
+}
+
+#pc_footerLinks li li
+{
+  float: none;
+  margin-right: 0px;
+  display: list-item;
+  font-weight: normal;
+}
+
+#pc_footerLinks a
+{
+  white-space: nowrap;
+  color: #fff;
+}
+
+#pc_footerLinks a:hover
+{
+  text-decoration: none;
+}
+
+#pc_footerLinks .socialMix img:hover {
+    background-color: transparent;
+}
+
+.pc_errorMessage
+{
+  padding: 5px;
+  border: 1px solid #ff0000;
+  background-color: #ffcccc;
+  margin-top: 5px;
+}
+
+.pc_warningMessage
+{
+  padding: 5px;
+  border: 1px solid #DEA300;
+  background-color: #F2BF30;
+  color: #000;
+  margin-top: 5px;
+}
+
+span.pc_important
+{
+  font-weight: bold;
+  color: #000;
+}
+
+span.pc_very_important
+{
+  font-weight: bold;
+  color: #ff0000;
+  font: 120%;
+}
+
+.pc_confirmationMessage
+{
+  padding: 5px;
+  border: 1px solid #00ff00;
+  background-color: #ccffcc;
+  margin-top: 5px;
+}
+
+.pc_code
+{
+    display: block;
+    font-family: monospace;
+    background-color: #eee;
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: auto;
+}
+
+.pc_symbol
+{
+    font-family: monospace;
+    font-style: italic;
+}
+
+.nowrap
+{
+  white-space:nowrap;
+}
+
+.nofloat
+{
+    float: none !important;
+}
+
+/*********** FORMS *****************/
+
+form th
+{
+  text-align: right;
+}
+
+form label
+{
+  padding-right: 0px;
+  margin-right: 25px;
+  text-align: right;
+  font-weight: normal;
+/*   width: 100px; */
+}
+
+form input[type=text]
+{
+  width: 330px;
+}
+
+form input[type=password]
+{
+  width: 330px;
+}
+
+form input[type=submit]
+{
+  width: 150px;
+}
+
+form select
+{
+  width: 330px;
+}
+
+form textarea
+{
+  width: 330px;
+  height: 100px;
+}
+
+form tr
+{
+  height: 35px;
+  padding: 10px;
+}
+
+form ul.error_list li
+{
+  list-style: none;
+  color: #ff6633;
+  font-weight: bold;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+form ul.error_list
+{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/*********** LANG SELECTION **********/
+ul.pc_langSelection
+{
+    list-style:none outside none;
+    text-align:left;
+    width: 110px !important;
+    padding: 0px;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    background-color: #eee;
+    margin-left: 0px;
+    z-index: 51;
+    margin-top: 30px;
+}
+
+ul#prefLang li
+{
+    background-image: url('/images/dropdown_arrow.png');
+    background-repeat: no-repeat;
+    background-position: 95px 7px;
+    width: 110px !important;
+    padding: 2px;    
+}
+
+ul#allLangs
+{
+    display: none;
+    width: 110px !important;   
+}
+
+ul#allLangs li
+{
+    padding: 2px;  
+}
+
+ul#allLangs li:hover
+{
+    background-color: #ccc;
+}
+
+ul.pc_langSelection:hover
+{
+    cursor: pointer;
+}
+
+ul.pc_langSelection li
+{
+    background-color: #eee;
+    margin: 0px;
+    font-size: 90%;
+    color: #666;
+    background-image: none;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
+    z-index: 50;
+    width: 110px !important;
+    padding: 2px;
+    padding-left: 5px;
+    padding-top: 1px;    
+}
+
+ul.pc_langSelection li.last
+{
+    border-bottom: 1px solid #666;
+}
+
+/*********** END LANG SELECTION **********/
+
+div.legal h2
+{
+    background-image: none;
+    background-color: #fff;
+    border: 0px;
+    color: #000;
+    font-size: 30px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+div.legal h4
+{
+    background-image: none;
+    background-color: #fff;
+    border: 0px;
+    color: #000;
+}
+
+div.legal h6
+{
+    font-size: 14px;
+}
+
+div.legal ul li
+{
+    list-style: square;
+    padding-left: 0px;
+    background-image: none;
+}
+
+.highlighedBackground
+{
+  background-color: yellow !important;
+}
+
+
+#selfHostedVersionNotice
+{
+    margin: 0px;
+    margin-top: 5px;
+    text-align: center;
+    padding: 5px;
+    background-color: green;
+    color: white;
+}
+
+#selfHostedVersionNotice a
+{
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/*********** BUTTONS *****************/
+.btn { display: block; position: relative; background: #aaa; padding: 5px; float: left; color: #fff; text-decoration: none; cursor: pointer; }
+.btn * { font-style: normal; background-image: url(/images/button_btn2.png); background-repeat: no-repeat; display: block; position: relative; }
+.btn i { background-position: top left; position: absolute; margin-bottom: -5px; top: 0; left: 0; width: 5px; height: 5px; }
+.btn span { background-position: bottom left; left: -5px; padding: 0 0 5px 10px; margin-bottom: -5px; }
+.btn span i { background-position: bottom right; margin-bottom: 0; position: absolute; left: 100%; width: 10px; height: 100%; top: 0; }
+.btn span span { background-position: top right; position: absolute; right: -10px; margin-left: 10px; top: -5px; height: 0; }
+* html .btn span, * html .btn i { float: left; width: auto; background-image: none; cursor: pointer; }
+/*.btn[class] { background-image: url(/images/button_shade.png); background-position: bottom; }*/
+
+.btn { background: #3E8AFD; }
+.btn:hover { background-color: #5397FC !important; color: #fff; text-decoration: none !important; }
+.btn:active { background-color: #444; color: #fff;}
+.btn:visited { color: #fff;}
+
+
+/************************************************/
+
+
+/************ S U B S C R I P T I O N   P A G E ****************/
+div#subscriptionPage table#supporterBenefits tr td p
+{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+div#subscriptionPage table#supporterBenefits span#freeAccountHeader
+{
+    color: #005CB8;
+    font-size: 16px;
+    font-weight: normal;    
+}
+
+div#subscriptionPage table#supporterBenefits span#premiumAccountHeader
+{
+    color: #fe9f1d;
+    font-size: 16px;    
+}
+
+div#subscriptionPage  .supporterBenefitHighlight
+{
+    background-color: #eeeeee;
+}
+
+div#subscriptionPage table
+{
+    border: 0px;
+    border-collapse:collapse;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+div#subscriptionPage table#supporterPrices
+{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 215px !important;
+}
+
+div#subscriptionPage table th
+{
+    padding: 5px;
+}
+
+div#subscriptionPage table td
+{
+    padding: 15px;
+    text-align: center;
+}
+
+div#subscriptionPage table td.nonCenteredContent
+{
+    text-align: left;
+}
+
+div#subscriptionPage table .supporter
+{
+    background: none repeat scroll 0 0 #E0F1FF;
+}
+
+div#subscriptionPage form#promoForm
+{
+    display:inline;
+    margin:0px;
+    padding:0px;
+}
+
+div#subscriptionPage form#promoForm input
+{
+    width: 120px;
+}
+
+div#subscriptionPage form#promoForm input.micro
+{
+    width: 30px;
+}
+
+div#subscriptionPage div#payWithConfodence
+{
+  margin-top: 35px;
+  background-image: url(/images/pay_with_confidence.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 170px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.1em;
+}
+
+div#subscriptionPage div#payWithConfodence ul
+{
+    font-size: 14px;
+}
+
+div#subscriptionPage div#payWithConfodence li
+{
+    margin-bottom: 20px;
+    background-position: left 2px;
+}
+    
+div#subscriptionPage .paymentInEUR, div#subscriptionPage .paymentInGBP, div#subscriptionPage .paymentInJPY {
+  display: none;
+}
+
+div#subscriptionPage #currencySelector {
+    float: right;
+    width: 245px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    background: url('/images/pointer.png') no-repeat;
+    background-position: 200px 30px;
+    overflow: visible;
+}
+div#subscriptionPage #currencySelector ul li {
+    float: left;
+    background-color: #FFCC33;
+    color: #FFFFFF;
+    display: block;
+    text-align: center;
+    width: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px 7px;
+    margin: 8px 30px 8px -15px;
+    border: solid 1px #fe9300;
+    text-align: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    -webkit-box-shadow: 1px 1px 0px #ffe2a4 inset;
+    -moz-box-shadow: 1px 1px 0px #ffe2a4 inset;
+    box-shadow: 1px 1px 0px #ffe2a4 inset;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFCC33), to(#ffab37));
+    background: -webkit-linear-gradient(#FFCC33, #ffab37);
+    background: -moz-linear-gradient(#FFCC33, #ffab37);
+    background: -ms-linear-gradient(#FFCC33, #ffab37);
+    background: -o-linear-gradient(#FFCC33, #ffab37);
+    background: linear-gradient(#FFCC33, #ffab37);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCC33', endColorstr='#ffab37'); /* for IE */     
+    text-decoration:none;
+    /* -pie-background: linear-gradient(#FFCC33, #ffab37);   // this seems to create problems in IE */
+    /* behavior: url(/css/PIE.htc);   // this seems to create problems in IE */ 
+}
+div#subscriptionPage #currencySelector ul li:hover {
+    background-color: #FFCC33;
+    color: #FFFFFF;
+    border: solid 1px #fe9300;
+    -webkit-box-shadow: 1px 1px 0px #ffe2a4 inset;
+    -moz-box-shadow: 1px 1px 0px #ffe2a4 inset;
+    box-shadow: 1px 1px 0px #ffe2a4 inset;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffab37), to(#FFCC33));
+    background: -webkit-linear-gradient(#ffab37, #FFCC33);
+    background: -moz-linear-gradient(#ffab37, #FFCC33);
+    background: -ms-linear-gradient(#ffab37, #FFCC33);
+    background: -o-linear-gradient(#ffab37, #FFCC33);
+    background: linear-gradient(#ffab37, #FFCC33);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab37', endColorstr='#FFCC33'); /* for IE */     
+    text-decoration:none;
+    cursor: pointer;
+    /* -pie-background: linear-gradient(#ffab37, #ffab37);   // this seems to create problems in IE */
+    /* behavior: url(/css/PIE.htc);       // this seems to create problems in IE */
+}
+div#subscriptionPage #currencySelector ul li.selected {
+    color: #FE9300;
+    background-color: #FFCC33;
+    border: solid 1px #fe9f1d;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFCC33), to(#ffe597));
+    background: -webkit-linear-gradient(#FFCC33, #ffe597);
+    background: -moz-linear-gradient(#FFCC33, #ffe597);
+    background: -ms-linear-gradient(#FFCC33, #ffe597);
+    background: -o-linear-gradient(#FFCC33, #ffe597);
+    background: linear-gradient(#FFCC33, #ffe597);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCC33', endColorstr='#ffe597'); /* for IE */     
+    text-decoration:none;
+    /* -pie-background: linear-gradient(#FFCC33, #ffe597);   // this seems to create problems in IE */
+    /* behavior: url(/css/PIE.htc);   // this seems to create problems in IE */
+}
+
+div#subscriptionPage #discountCode {
+    clear: right;
+    float: right;
+}
+
+div#subscriptionPage #codeForDiscount {
+    width: 150px;
+    border: 1px solid #ccc;
+}
+
+div#subscriptionPage #discountCode input {
+    padding: 3px;
+}
+
+div#subscriptionPage #moneyBackGuarantee {
+    text-align: right;
+    margin-right: 350px;
+    vertical-align: middle;
+}
+
+div#subscriptionPage .supporterBenefitHighlight {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e0f1ff), to(#ffffff));
+    background: -webkit-linear-gradient(#e0f1ff, #FFFFFF);
+    background: -moz-linear-gradient(#e0f1ff, #FFFFFF);
+    background: -ms-linear-gradient(#e0f1ff, #FFFFFF);
+    background: -o-linear-gradient(#e0f1ff, #FFFFFF);
+    background: linear-gradient(#e0f1ff, #FFFFFF);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0f1ff', endColorstr='#FFFFFF'); /* for IE */     
+    background-color: #e0f1ff;
+    /* -pie-background: linear-gradient(#e0f1ff, #FFFFFF);   // this seems to create problems in IE */
+    /* behavior: url(/css/PIE.htc);   // this seems to create problems in IE */
+}
+
+div#subscriptionPage .pc_subscriptionSaving {
+    font-weight: bold;
+    color: #FF8A0C;
+}
+
+div#subscriptionPage .pc_subscriptionPrice {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+div#subscriptionPage #discountCodeError {
+  padding: 10px;
+  border: 1px solid #ff0000;
+  background-color: #ffcccc;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 400px;
+  font-weight: bold;
+}
+
+div#subscriptionPage #discountForCharities {
+  background: url("/images/charity_icon.gif") no-repeat scroll 0 0 transparent;
+  padding-top: 5px;  
+  padding-left: 33px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+div#subscriptionPage #paymentViaBankTransfer {
+  background: url("/images/union_jack.png") no-repeat scroll 0 0 transparent;
+  padding-top: 5px;
+  padding-left: 33px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+div#subscriptionPage #marketingCopy {
+    position: relative;
+    float: left;
+    width: 390px;
+    height: 200px;
+    margin-top: -50px;
+    margin-left: -10px;
+    font-style: italic;
+    background: url("/images/marketing_copy_bg.png") no-repeat scroll 0 0 transparent;
+}
+
+div#subscriptionPage #marketingCopy > div {
+    position: absolute;
+    top: 45px;
+    left: 55px;
+    line-height: 1.3;
+    width: 240px;
+    padding: 0px;
+}

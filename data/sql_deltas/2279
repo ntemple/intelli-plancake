@@ -1,0 +1,134 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_TASKS_SEARCH', '112', '25', '0', NULL, '0', '2011-08-31 10:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_TASKS_SEARCH', 'Search results for:', '2011-08-31 08:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_TASKS_SEARCH', 'Risultati per:', '2011-08-31 08:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_SEARCH_YOUR_TASKS', '112', '80', '20', NULL, '0', '2011-08-31 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_SEARCH_YOUR_TASKS', 'search your tasks', '2011-08-31 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_SEARCH_YOUR_TASKS', 'cerca tra le attività', '2011-08-31 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_SEARCH_NOTE', '104', '630', '0', NULL, '0', '2011-09-01 00:00:00'), ('ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH', '104', '390', '0', NULL, '0', '2011-09-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_SEARCH_NOTE', 'You need to become Supporter in order to search your tasks and get other benefits.', '2011-09-01 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_SEARCH_NOTE', 'Diventa Sostenitore per poter effettuare una ricerca e ottenere altri vantaggi.', '2011-09-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH', '<td class="nonCenteredContent">Search</td>
+<td></td>
+<td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH', '<td class="nonCenteredContent">Ricerca le attività</td>
+<td></td>
+<td class="supporter"><img src="/images/tick.png" /></td>', NULL);
+
+UPDATE  `pc_translation` SET  `string` =  'Settings' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SETTINGS';
+UPDATE  `pc_translation` SET  `string` =  'Impostazioni' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SETTINGS';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_COLLAPSE_PANEL2_BTN', '114', '210', '0', NULL, '0', '2011-09-03 00:00:00'), ('ACCOUNT_HINT_EXPAND_PANEL2_BTN', '114', '220', '0', NULL, '0', '2011-09-03 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_COLLAPSE_PANEL2_BTN', 'hide this pane', '2011-09-03 00:00:00'), ('it', 'ACCOUNT_HINT_COLLAPSE_PANEL2_BTN', 'nascondi il pannello', '2011-09-03 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_EXPAND_PANEL2_BTN', 'show the pane back', '2011-09-03 00:00:00'), ('it', 'ACCOUNT_HINT_EXPAND_PANEL2_BTN', 'mostra il pannello', '2011-09-03 00:00:00');
+
+CREATE TABLE IF NOT EXISTS `pc_breaking_news` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `headline` varchar(128) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `pc_user` ADD `latest_breaking_news_closed` smallint(5) unsigned DEFAULT NULL AFTER `latest_import_request`;
+
+ALTER TABLE `pc_supporter` ADD `is_renewal_automatic` tinyint(1) DEFAULT '0' AFTER `expiry_date`;
+
+UPDATE `pc_quote_of_the_day` SET `shown_on` = NULL;
+
+UPDATE `pc_translation` SET `string` = '<h3>Your subscription is about to expire</h3>
+
+<p>
+Your subscription is expiring very soon.
+</p>
+
+<p>
+You may want to extend it in order not to lose the benefits reserved for Supporters.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ABOUT_TO_EXPIRE'; 
+
+UPDATE `pc_translation` SET `string` = '<h3>Il tuo abbonamento sta per terminare</h3>
+
+<p>
+Il tuo abbonamento terminerà tra poco.
+</p>
+
+<p>
+Potrai prolungarlo per continuare a usufruire dei vantaggi riservati ai Sostenitori.
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_ABOUT_TO_EXPIRE';
+
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_EXPIRED', '104', '193', '0', NULL, '0', '2011-09-05 00:00:00'), ('ACCOUNT_SUBSCRIPTION_EXTEND_IT_BUTTON', '104', '195', '0', NULL, '0', '2011-09-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_EXPIRED', '<h3>Your subscription expired</h3>
+
+<p>
+Your subscription has expired.
+</p>
+
+<p>
+You may want to extend it in order not to lose the benefits reserved for Supporters.
+</p>', '2011-09-05 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_EXPIRED', '<h3>Il tuo abbonamento è terminato</h3>
+
+<p>
+Il tuo abbonamento è terminato.
+</p>
+
+<p>
+Potrai prolungarlo per continuare a usufruire dei vantaggi riservati ai Sostenitori.
+</p>', '2011-09-05 00:00:00'), ('en', 'ACCOUNT_SUBSCRIPTION_EXTEND_IT_BUTTON', 'Go to your Subscription management page', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_EXTEND_IT_BUTTON', 'Vai alla gestione dell''abbonamento', '2011-09-05 00:00:00');
+
+
+CREATE TABLE IF NOT EXISTS `pc_hideable_hints_setting` (
+  `id` int(10) unsigned NOT NULL,
+  `inbox` tinyint(1) NOT NULL DEFAULT '0',
+  `todo` tinyint(1) NOT NULL DEFAULT '0',
+  `completed` tinyint(1) NOT NULL DEFAULT '0',
+  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `pc_hideable_hints_setting`
+  ADD CONSTRAINT `pc_hideable_hints_setting_FK_1` FOREIGN KEY (`id`) REFERENCES `pc_user` (`id`);
+
+UPDATE `pc_translation` SET `string` = '<a href="#">Click here</a> to see the scheduled tasks in this list.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING2'; 
+
+UPDATE `pc_translation` SET `string` = '<a href="#" >Clicca qui</a> per vedere le attività con data in questa lista.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING2';
+
+UPDATE `pc_translation` SET `string` = 'This deafult list is special in the sense it does NOT show scheduled tasks. <br />
+You can still see them by clicking the link below this box and, obviously, in the ''With date'' and ''Overdue & Today'' filters (see bottom of the page), as for any list.
+<br />
+This list is ideal for generic tasks that don''t belong to any of your other lists.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1'; 
+
+UPDATE `pc_translation` SET `string` = 'Questa lista di default è speciale nel senso che NON mostra le attività con data.<br />
+Puoi comunque vederle cliccando il link sotto questo riquadro o nei filtri ''Con data'' e ''Passate & Di Oggi'' (vedi fondo della pagina), come per ogni lista.
+<br />
+Questa lista è ideal per attività generiche che non appartengono a nessun altra delle altre liste.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_TODO_WARNING1';
+
+UPDATE `pc_translation` SET `string` = 'The Inbox should be used for temporary storage.<br />
+It gets populated by some Plancake services (Android app, Google Calendar, Email-to-Inbox) but you can also
+quickly jot down tasks or ideas in it (i.e.: during a phone call) and come back later to them to better organize them or get them done.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT'; 
+
+UPDATE `pc_translation` SET `string` = 'L''Inbox dovrebbe essere usata come lista di arrivo e smistamento. <br />
+E'' usata da alcuni servizi di Plancake per "recapitare" attività (applicazione Android, Google Calendar, Email-2-Inbox) ma puoi anche inserire in essa attività e idee in modo veloce (per esempio durante una telefonata) e riguardarle in seguito per organizzarle meglio e portarle a termine.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_EXTEND_COMPLETED';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MAIN_CONTENT_SEARCH_WARNING', '112', '70', '0', NULL, '0', '2011-09-07 00:00:00'), ('ACCOUNT_MAIN_CONTENT_COMPLETED_HINT', '112', '80', '0', NULL, '0', '2011-09-07 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_SEARCH_WARNING', 'N.B.: the search index gets rebuilt every %d minutes', '2011-09-07 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_SEARCH_WARNING', 'N.B.: l''indice di ricerca è ricreato ogni %d minuti', '2011-09-07 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MAIN_CONTENT_COMPLETED_HINT', 'Completed tasks are moved here until you refresh this list. <br />
+After that, you can find them using the ''Completed'' filter at the bottom of the screen. <br />
+Supporters accounts have a longer retention time for completed tasks.', '2011-09-07 00:00:00'), ('it', 'ACCOUNT_MAIN_CONTENT_COMPLETED_HINT', 'Le attività completate vengono spostare qui fino a che non ricarichi la lista <br />
+Dopodiché possono essere viste usando il filtro ''Completate'' in basso allo schermo. <br />
+Account Sostenitori hanno un periodo di archiviazione più lungo per le attività completate.', '2011-09-07 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'The Inbox should be used for temporary storage.<br />
+It is used by some Plancake services (Android app, Google Calendar, Email-to-Inbox) but you can also
+quickly jot down tasks or ideas in it (i.e.: during a phone call) and come back later to them to better organize them or get them done.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

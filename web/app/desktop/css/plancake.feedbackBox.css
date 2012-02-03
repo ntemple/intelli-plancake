@@ -1,0 +1,61 @@
+#feedbackBox {
+    position: fixed;
+    right: 7px;
+    bottom: 47px;
+    padding: 5px;
+    background-color: #eee;
+    border: 2px solid #8bb4f5;
+    z-index: 100;
+    width: 235px;
+}
+
+#feedbackBox img {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #8bb4f5;
+}
+
+#feedbackBox textarea#feedbackBoxMessage {
+    width: 230px;
+    height: 50px;
+    padding: 3px;
+    border: 1px solid #999;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+#feedbackBox a#sendFeedback {
+    font-size: 11px;
+    float: left;
+    margin-left: 5px;
+}
+
+#feedbackBox a#cancelFeedback {
+    display: none;
+    font-size: 12px;
+    float: left;
+    margin-left: 80px;
+}
+
+#feedbackBox a#closeFeedbackBox {
+    color: #8BB4F5;
+    float: right;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 0.5;
+    margin: 2px 3px 3px 0;
+    position: relative;    
+}
+
+.ui-effects-feedbackBox-transfer { border: 2px solid #8bb4f5; }
+
+#feedbackBox .lightColorText {
+    color: #777;    
+}
+
+#feedbackBox .darkColorText {
+    color: #000; 
+}

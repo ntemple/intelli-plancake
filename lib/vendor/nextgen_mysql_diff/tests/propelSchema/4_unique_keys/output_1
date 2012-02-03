@@ -1,0 +1,18 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP INDEX `pc_user_U_2`;
+
+ALTER TABLE `pc_user` DROP INDEX `pc_user_U_3`;
+
+ALTER TABLE `pc_list` ADD UNIQUE `pc_list_U_1` (`title`);
+
+ALTER TABLE `pc_list` ADD UNIQUE `pc_list_U_2` (`is_todo`);
+
+ALTER TABLE `pc_repetition` DROP INDEX `pc_repetition_U_1`;
+
+ALTER TABLE `pc_repetition` ADD UNIQUE `pc_repetition_U_1` (`computer_expression`);
+
+SET FOREIGN_KEY_CHECKS=1;
+

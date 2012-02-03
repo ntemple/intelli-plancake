@@ -1,0 +1,17 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar` DROP `list_id`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar` ADD `list_id` int(10) unsigned DEFAULT NULL AFTER `email_address`;
+
+SET FOREIGN_KEY_CHECKS=1;

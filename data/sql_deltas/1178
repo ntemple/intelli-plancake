@@ -1,0 +1,105 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_repetition` ADD `special` varchar(16) NOT NULL COMMENT 'whether it is a special case, as for many weekdays' AFTER `computer_expression`;
+
+INSERT INTO `pc_repetition` (`id`, `human_expression`, `computer_expression`, `special`, `needs_param`, `is_param_cardinal`, `min_param`, `max_param`, `sort_order`, `has_divider_below`, `updated_at`, `created_at`) VALUES
+(34, 'repeat weekly on some weekdays [select later]', '', 'selected_wkdays', 1, 1, 0, 127, 24, 1, '2011-01-25 12:22:01', '2011-01-25 12:22:01');
+
+UPDATE `pc_repetition` SET `sort_order`=3, `updated_at`='2011-01-25 12:22:01' WHERE `id`=1;
+UPDATE `pc_repetition` SET `sort_order`=6, `updated_at`='2011-01-25 12:22:01' WHERE `id`=2;
+UPDATE `pc_repetition` SET `sort_order`=9, `updated_at`='2011-01-25 12:22:01' WHERE `id`=3;
+UPDATE `pc_repetition` SET `sort_order`=12, `updated_at`='2011-01-25 12:22:01' WHERE `id`=4;
+UPDATE `pc_repetition` SET `sort_order`=15, `updated_at`='2011-01-25 12:22:01' WHERE `id`=5;
+UPDATE `pc_repetition` SET `sort_order`=18, `updated_at`='2011-01-25 12:22:01' WHERE `id`=6;
+UPDATE `pc_repetition` SET `sort_order`=21, `updated_at`='2011-01-25 12:22:01' WHERE `id`=7;
+UPDATE `pc_repetition` SET `sort_order`=27, `updated_at`='2011-01-25 12:22:01' WHERE `id`=8;
+UPDATE `pc_repetition` SET `sort_order`=30, `updated_at`='2011-01-25 12:22:01' WHERE `id`=9;
+UPDATE `pc_repetition` SET `sort_order`=33, `updated_at`='2011-01-25 12:22:01' WHERE `id`=10;
+UPDATE `pc_repetition` SET `sort_order`=36, `updated_at`='2011-01-25 12:22:01' WHERE `id`=11;
+UPDATE `pc_repetition` SET `sort_order`=39, `updated_at`='2011-01-25 12:22:01' WHERE `id`=12;
+UPDATE `pc_repetition` SET `sort_order`=42, `updated_at`='2011-01-25 12:22:01' WHERE `id`=13;
+UPDATE `pc_repetition` SET `sort_order`=45, `updated_at`='2011-01-25 12:22:01' WHERE `id`=14;
+UPDATE `pc_repetition` SET `sort_order`=48, `updated_at`='2011-01-25 12:22:01' WHERE `id`=15;
+UPDATE `pc_repetition` SET `sort_order`=51, `updated_at`='2011-01-25 12:22:01' WHERE `id`=16;
+UPDATE `pc_repetition` SET `sort_order`=54, `updated_at`='2011-01-25 12:22:01' WHERE `id`=17;
+UPDATE `pc_repetition` SET `sort_order`=57, `updated_at`='2011-01-25 12:22:01' WHERE `id`=18;
+UPDATE `pc_repetition` SET `sort_order`=60, `updated_at`='2011-01-25 12:22:01' WHERE `id`=19;
+UPDATE `pc_repetition` SET `sort_order`=63, `updated_at`='2011-01-25 12:22:01' WHERE `id`=20;
+UPDATE `pc_repetition` SET `sort_order`=66, `updated_at`='2011-01-25 12:22:01' WHERE `id`=21;
+UPDATE `pc_repetition` SET `sort_order`=69, `updated_at`='2011-01-25 12:22:01' WHERE `id`=22;
+UPDATE `pc_repetition` SET `sort_order`=72, `updated_at`='2011-01-25 12:22:01' WHERE `id`=23;
+UPDATE `pc_repetition` SET `sort_order`=75, `updated_at`='2011-01-25 12:22:01' WHERE `id`=24;
+UPDATE `pc_repetition` SET `sort_order`=78, `updated_at`='2011-01-25 12:22:01' WHERE `id`=25;
+UPDATE `pc_repetition` SET `sort_order`=81, `updated_at`='2011-01-25 12:22:01' WHERE `id`=26;
+UPDATE `pc_repetition` SET `sort_order`=84, `updated_at`='2011-01-25 12:22:01' WHERE `id`=27;
+UPDATE `pc_repetition` SET `sort_order`=87, `updated_at`='2011-01-25 12:22:01' WHERE `id`=28;
+UPDATE `pc_repetition` SET `sort_order`=90, `updated_at`='2011-01-25 12:22:01' WHERE `id`=29;
+UPDATE `pc_repetition` SET `sort_order`=93, `updated_at`='2011-01-25 12:22:01' WHERE `id`=30;
+UPDATE `pc_repetition` SET `sort_order`=96, `updated_at`='2011-01-25 12:22:01' WHERE `id`=31;
+UPDATE `pc_repetition` SET `sort_order`=99, `updated_at`='2011-01-25 12:22:01' WHERE `id`=32;
+UPDATE `pc_repetition` SET `sort_order`=102, `updated_at`='2011-01-25 12:22:01' WHERE `id`=33;
+
+UPDATE `pc_repetition` SET `has_divider_below`=0 WHERE `id`=7;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_repetition` (
+  `id` tinyint(3) unsigned NOT NULL,
+  `human_expression` varchar(63) NOT NULL,
+  `computer_expression` varchar(63) NOT NULL COMMENT 'a PHP strtostring compatible expression',
+  `needs_param` tinyint(1) DEFAULT '0' COMMENT 'whether the expression needs a numerical parameter',
+  `is_param_cardinal` tinyint(1) DEFAULT '0',
+  `min_param` tinyint(3) unsigned DEFAULT '0',
+  `max_param` tinyint(3) unsigned DEFAULT '0',
+  `sort_order` tinyint(3) unsigned DEFAULT '0',
+  `has_divider_below` tinyint(1) DEFAULT '0' COMMENT 'says whether to add a divider below in a combo box',
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pc_repetition_U_1` (`human_expression`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `pc_repetition` (`id`, `human_expression`, `computer_expression`, `needs_param`, `is_param_cardinal`, `min_param`, `max_param`, `sort_order`, `has_divider_below`, `updated_at`, `created_at`) VALUES
+(1, 'every Sunday', 'next Sunday', 0, 0, 0, 0, 1, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(2, 'every Monday', 'next Monday', 0, 0, 0, 0, 2, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(3, 'every Tuesday', 'next Tuesday', 0, 0, 0, 0, 3, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(4, 'every Wednesday', 'next Wednesday', 0, 0, 0, 0, 4, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(5, 'every Thursday', 'next Thursday', 0, 0, 0, 0, 5, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(6, 'every Friday', 'next Friday', 0, 0, 0, 0, 6, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(7, 'every Saturday', 'next Saturday', 0, 0, 0, 0, 7, 1, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(8, 'every day', 'tomorrow', 0, 0, 0, 0, 8, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(9, 'every weekday', 'next weekday', 0, 0, 0, 0, 9, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(10, 'every [select later] days', '+_X_ days', 1, 1, 1, 30, 10, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(11, 'every week', '+1 week', 0, 0, 0, 0, 11, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(12, 'every [select later] weeks', '+_X_ weeks', 1, 1, 1, 30, 12, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(13, 'every month', '+1 month', 0, 0, 0, 0, 13, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(14, 'every [select later] months', '+_X_ month', 1, 1, 1, 30, 14, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(15, 'every year', '+1 year', 0, 0, 0, 0, 15, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(16, 'every [select later] years', '+_X_ year', 1, 1, 1, 30, 16, 1, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(17, 'every month on the [select later] day', '_X_ _month_', 1, 0, 1, 28, 17, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(18, 'every month on the last day', '1st  _month+1_ -86400 seconds', 0, 0, 0, 0, 18, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(19, 'every month on the second last day', '1st  _month+1_ -172800 seconds', 0, 0, 0, 0, 19, 1, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(20, 'every month on the [select later] Sunday', '_Xlong_ Sunday _month_', 1, 0, 1, 4, 20, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(21, 'every month on the [select later] Monday', '_Xlong_ Monday _month_', 1, 0, 1, 4, 21, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(22, 'every month on the [select later] Tuesday', '_Xlong_ Tuesday _month_', 1, 0, 1, 4, 22, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(23, 'every month on the [select later] Wednesday', '_Xlong_ Wednesday _month_', 1, 0, 1, 4, 23, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(24, 'every month on the [select later] Thursday', '_Xlong_ Thursday _month_', 1, 0, 1, 4, 24, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(25, 'every month on the [select later] Friday', '_Xlong_ Friday _month_', 1, 0, 1, 4, 25, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(26, 'every month on the [select later] Saturday', '_Xlong_ Saturday _month_', 1, 0, 1, 4, 26, 1, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(27, 'every month on the last Sunday', 'last Sunday _month+1_', 0, 0, 0, 0, 27, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(28, 'every month on the last Monday', 'last Monday _month+1_', 0, 0, 0, 0, 28, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(29, 'every month on the last Tuesday', 'last Tuesday _month+1_', 0, 0, 0, 0, 29, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(30, 'every month on the last Wednesday', 'last Wednesday _month+1_', 0, 0, 0, 0, 30, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(31, 'every month on the last Thursday', 'last Thursday _month+1_', 0, 0, 0, 0, 31, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(32, 'every month on the last Friday', 'last Friday _month+1_', 0, 0, 0, 0, 32, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48'),
+(33, 'every month on the last Saturday', 'last Saturday _month+1_', 0, 0, 0, 0, 33, 0, '2011-01-22 09:55:48', '2011-01-22 09:55:48');
+
+SET FOREIGN_KEY_CHECKS=1;

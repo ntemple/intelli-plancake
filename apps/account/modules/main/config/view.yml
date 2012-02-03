@@ -1,0 +1,8 @@
+all:
+  stylesheets:    [-*]
+  javascripts:    [-*]
+
+default:
+  has_layout:    false 
+
+

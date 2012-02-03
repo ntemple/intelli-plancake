@@ -1,0 +1,233 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Plancake is not only a helpful tool, it is also an open source project. <br />
+  </p>
+
+  <p>
+  There are various components that make up the Plancake project. They are released under the AGPL license, which has been approved by the Open Source Initiative. <br />
+  That license gives you lots of lovely freedom, including contributing back to the project with bug fixes and improvements ;-)
+  </p>
+
+  <p style="clear: both">
+      Please <a href="%s">contact us</a> if you need any commercial support with
+      the installation of any component or if you would like bespoke customizations.
+  </p>
+
+  <br />
+
+  <h4>Plancake Android app - deprecated</h4>
+  <p>
+      This is the Android application as it used to be found on the Android Market. Now users on Android are using our HTML5 web app. <br />
+      You may want to study its code to learn how to synchronize a client application with the Plancake database.
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-android-app" target="_blank">GitHub repository for the Plancake Android app</a>
+  </p>
+
+  <br />
+
+  <h4>Plancake API kits</h4>
+
+  <p>
+  You may be interested in this library if you want to develop a client application that
+  will use your Plancake data stored in the Cloud.
+  </p>
+  
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-php" target="_blank">GitHub repository for the PHP API Kit</a>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-javascript" target="_blank">GitHub repository for the Javascript API Kit</a>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-java" target="_blank">GitHub repository for the Java API Kit</a>
+  </p>
+
+  <p>
+  Please read the <a href="%s">Plancake API documentation</a> for more details.
+  </p>
+  
+  <br />
+
+  <h4>Misc libraries</h4>
+  <p>
+     These are libraries we think may be useful to other developers in their own projects.
+  </p>
+  <p>
+      PHP Email Parser available on <a href="https://github.com/plancake/official-library-php-email-parser" target="_blank">GitHub</a>.
+  </p>
+
+  <br />
+
+  <h4>Plancake extension for Google Chrome</h4>
+  <p>
+      The extension is available on <a href="https://github.com/plancake/official-google-chrome-extension" target="_blank">GitHub</a>.
+  </p>
+
+  <br />
+
+  <h4>Plancake Web app</h4>
+
+  <p>
+  You can download Plancake and install it on your own <b>web server</b> but don''t forget you can simply <a href="%s">create an account</a> and start using Plancake for free without having to install, update or backup anything.
+  </p>
+
+  <p>
+  Plancake is a PHP5/MySQL web application built on <a rel="nofollow" href="http://www.symfony-project.org/">Symfony</a>, the enterprise-level Object Oriented PHP Framework.
+  </p>
+
+  <p>
+  To install Plancake on your server, there are some pre-requisites that are unfortunately <b>quite demanding</b> (please help us make the installation process easier):
+  <ul>
+  <li>the server has to run Linux</li>
+  <li>MySQL database 4.0 or later</li>
+  <li>Apache Web Server with mod_rewrite enabled</li>
+  <li>PHP 5.2.4 or later</li>
+  <li>you have to be able to set Apache Virtual hosts on the server</li>
+  <li>you have to have SSH access to the server (if you don''t know what that means, I am afraid you will not be able to install Plancake)</li>
+  </ul>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-plancake" target="_blank">GitHub repository for the Plancake web application</a>
+  </p>
+
+  <p>
+      <a href="http://www.plancake.com/plancake.zip" target="_blank">Download the web application</a>
+  </p>
+
+  <h4>Plancake API</h4>
+  <p>
+	We have decided to keep the code that powers our API closed for now because that is one of the most important assets of the Company.
+  </p>
+
+  <p>
+	However we will be happy to provide the code to those developers who intend to contribute to the project and we feel we can trust.
+  </p>
+' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'OPEN_SOURCE_HOMEPAGE';
+
+
+
+
+
+
+
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Plancake is not only a helpful tool, it is also an open source project. <br />
+  </p>
+
+  <p>
+  There are various components that make up the Plancake project. They are released under the AGPL license, which has been approved by the Open Source Initiative. <br />
+  That license gives you lots of lovely freedom, including contributing back to the project with bug fixes and improvements ;-)
+  </p>
+
+  <p style="clear: both">
+      Please <a href="%s">contact us</a> if you need any commercial support with
+      the installation of any component or if you would like bespoke customizations.
+  </p>
+
+  <br />
+
+  <h4>Plancake Android app - deprecated</h4>
+  <p>
+      This is the Android application as it used to be found on the Android Market. Now users on Android are using our HTML5 web app. <br />
+      You may want to study its code to learn how to synchronize a client application with the Plancake database.
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-android-app" target="_blank">GitHub repository for the Plancake Android app</a>
+  </p>
+
+  <br />
+
+  <h4>Plancake API kits</h4>
+
+  <p>
+  You may be interested in this library if you want to develop a client application that
+  will use your Plancake data stored in the Cloud.
+  </p>
+  
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-php" target="_blank">GitHub repository for the PHP API Kit</a>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-javascript" target="_blank">GitHub repository for the Javascript API Kit</a>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-java" target="_blank">GitHub repository for the Java API Kit</a>
+  </p>
+
+  <p>
+  Please read the <a href="%s">Plancake API documentation</a> for more details.
+  </p>
+  
+  <br />
+
+  <h4>Misc libraries</h4>
+  <p>
+     These are libraries we think may be useful to other developers in their own projects.
+  </p>
+  <p>
+      PHP Email Parser available on <a href="https://github.com/plancake/official-library-php-email-parser" target="_blank">GitHub</a>.
+  </p>
+
+  <br />
+
+  <h4>Plancake extension for Google Chrome</h4>
+  <p>
+      The extension is available on <a href="https://github.com/plancake/official-google-chrome-extension" target="_blank">GitHub</a>.
+  </p>
+
+  <br />
+
+  <h4>Plancake Web app</h4>
+
+  <p>
+  You can download Plancake and install it on your own <b>web server</b> but don''t forget you can simply <a href="%s">create an account</a> and start using Plancake for free without having to install, update or backup anything.
+  </p>
+
+  <p>
+  Plancake is a PHP5/MySQL web application built on <a rel="nofollow" href="http://www.symfony-project.org/">Symfony</a>, the enterprise-level Object Oriented PHP Framework.
+  </p>
+
+  <p>
+  To install Plancake on your server, there are some pre-requisites that are unfortunately <b>quite demanding</b> (please help us make the installation process easier):
+  <ul>
+  <li>the server has to run Linux</li>
+  <li>MySQL database 4.0 or later</li>
+  <li>Apache Web Server with mod_rewrite enabled</li>
+  <li>PHP 5.2.4 or later</li>
+  <li>you have to be able to set Apache Virtual hosts on the server</li>
+  <li>you have to have SSH access to the server (if you don''t know what that means, I am afraid you will not be able to install Plancake)</li>
+  </ul>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-plancake" target="_blank">GitHub repository for the Plancake web application</a>
+  </p>
+
+  <p>
+      <a href="http://www.plancake.com/plancake.zip" target="_blank">Download the web application</a>
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'OPEN_SOURCE_HOMEPAGE';
+
+
+
+
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

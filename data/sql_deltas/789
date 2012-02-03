@@ -1,0 +1,30 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_api_token` CHANGE  `token`  `token` VARCHAR( 41 ) NOT NULL;
+
+CREATE TABLE IF NOT EXISTS `pc_supporter` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `expiry_date` date DEFAULT NULL COMMENT 'in the form 20100919 to intend 19 Sep 2010',
+  PRIMARY KEY (`id`),
+  KEY `pc_supporter_FI_1` (`user_id`)
+) ENGINE=InnoDB;
+
+ALTER TABLE `pc_supporter`
+  ADD CONSTRAINT `pc_supporter_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_api_token` CHANGE  `token`  `token` VARCHAR( 40 ) NOT NULL;
+
+DROP TABLE `pc_supporter`;
+
+SET FOREIGN_KEY_CHECKS=1;

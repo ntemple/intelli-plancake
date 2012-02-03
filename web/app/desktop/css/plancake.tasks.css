@@ -1,0 +1,285 @@
+ul.tasks li.task {
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    margin-bottom: 10px;
+    clear: both;
+    width: 97%;
+}
+
+.addTask {
+    background-color: #F8D76E;
+    padding: 5px;
+    margin: 10px 5px 15px 5px;
+}
+
+.addTaskLighterBackground {
+    background-color: #feeebe;
+}
+
+.addTask .taskDescription, .addTaskDescriptionBottom {
+    padding: 5px;
+    border: 0 none; 
+    outline: medium none;
+}
+
+.taskDescriptionBlock {
+    background-color: #fff; 
+    border: 1px solid #fc9a30; 
+    padding: 2px;
+    height: 32px;
+}
+
+.taskDescriptionBlock div {
+    float: right; 
+    white-space: nowrap; 
+    color: #999; 
+    font-size: 90%;
+    margin-right: 4px;
+}
+
+.submitTaskButtonWrapper {
+    display: block;
+    width: 1px;
+    height: 1px;
+    text-indent: -99999px;
+    overflow: hidden;
+}
+
+a.taskOptionsLink {
+    float: right;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #1c94c4;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+a.taskOptionsLink:hover {
+    text-decoration: underline;
+}
+
+.showTaskOptionsLink {
+    display: block;    
+}
+
+.addTaskOptions {
+    display: none;
+}
+
+.taskDescrShortcutsHelp {
+    float: none !important;
+    margin-left: 23px;
+    width: 35px;
+}
+
+.noTasks {
+    padding: 20px;
+    color: #666;
+}
+
+.addTaskBottom {
+    display: none;
+}
+
+.addTaskDescriptionBottom {
+    border: 0px !important;
+}
+
+.taskAction {
+    width: 22px;
+    height: 22px;
+    display: none;
+    z-index: 5;
+}
+
+.editTask {
+    position: absolute;
+    top: 2px;
+    right: 3px;    
+}
+
+
+.addBelowTask {
+    position: absolute;    
+    top: 2px;
+    right: 30px;
+}
+
+.extraPaddingForTaskScheduleDetails {
+    padding-right: 30px;
+}
+
+ul.tasks li.task.hover {
+    background-color: #ffee99;
+    cursor: pointer;
+}
+
+ul.tasks li.task.markAsDone {
+    z-index: 5;
+}
+
+ul.tasks li.task.header .description {
+    color: #ff9922;
+    font-weight: bold;
+}
+
+img.star {
+    z-index: 5;
+}
+
+ul.completedTasks {
+    margin: 10px;
+}
+
+ul.completedTasks li {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+ul.completedTasks li .taskAction {
+    top: -99999px; /* to make them disappear */
+}
+
+ul.completedTasks li img.star {
+    display: none;
+}
+
+ul.completedTasks li span {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.taskOptions {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.taskOptions table td {
+    padding-bottom: 10px;
+}
+
+.taskOptions .header {
+    background-color: #ff6633;
+}
+
+.taskOptions .taskOptionName {
+    width: 115px;
+}
+
+.taskOptions .taskOptionDueDate {
+    width: 115px;
+}
+
+.taskOptions .taskOptionNote {
+    width: 400px;
+    height: 80px;
+    padding: 2px;
+}
+
+.taskOptions .submitTask {
+    font-size: 12px;
+}
+
+.taskDueDate { 
+    color: green;
+    font-size: 13px;
+    white-space: nowrap;
+    height: 25px;
+    margin-right: 5px;    
+}
+
+.taskDueTime {
+    color: #3333ff;
+    font-size: 13px;
+    white-space: nowrap;
+    height: 25px;
+    margin-right: 5px;
+    margin-left: 5px;    
+}
+
+.taskRepetition {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.taskRepetitionString {
+    display: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dialogForm .taskOptions .ui-dialog input {
+    display: inline !important;
+}
+
+.showScheduledTasksInTodo {
+    padding: 15px;
+}
+
+.leftIndent {
+    margin-left: 38px;
+}
+
+.tasksSortingInfo {
+    text-align: right;
+    padding: 5px 10px;
+    font-style: italic;
+    color: #666;
+}
+
+.taskFilters {
+    margin-bottom: 15px;
+}
+
+.hideScheduledTasks {
+    display: block;    
+    text-align: right;
+    padding-top: 3px;
+}
+
+.sortTasks {
+    display: block;
+    float: right;
+    margin-right: 20px;
+
+}
+
+.doneWrapper {
+    position: absolute; 
+    left: 2px;
+    top: 4px;
+}
+
+.starWrapper {
+    position: absolute; 
+    left: 20px;
+    top: 4px;
+}
+
+.tasksLoader {
+    display: none;
+    background-image: url('/app/desktop/img/ajax_loader_big_orange.gif');
+    background-position: center center;
+    width: 66px;
+    height: 66px;
+    margin: 20px auto;
+}
+
+.listLinkInList:hover {
+    text-decoration: underline;
+}
+
+.taskScheduleDetails {
+    float: right !important;
+}
+
+div.newTaskInCalButton {
+    display: inline !important;
+    font-weight: normal;
+}
+
+div.newTaskInCalButton .ui-button-text {
+    font-size: 80% !important;
+}

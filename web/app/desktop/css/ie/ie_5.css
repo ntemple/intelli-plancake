@@ -1,0 +1,38 @@
+#newListButton {
+    top: -10px;
+    right: 10px;    
+}
+
+#newTagButton {
+    top: -10px;
+    right: 10px;    
+}
+
+#secondaryNav {
+    bottom: 40px;
+}
+
+#bottomPanel, #feedbackBox, #secondaryNav, #feedback, #ajaxLoading {
+    position: absolute; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+}
+
+.hideableHintClose {
+    right: 0px;
+}
+
+.submitTaskButtonWrapper {
+    display: block;
+    width: auto;
+    height: auto;
+    text-indent: 0px;
+    overflow: visible;
+}
+
+#listsActions, #tagsActions {
+    top: 0px;
+}
+
+.collapseListsBtn {
+    top: -9px;
+    right: 11px;
+}

@@ -1,0 +1,68 @@
+/* TEMP */
+.doneWrapper {
+    display: none !important;
+}
+
+.taskAction {
+    display: none !important;
+}
+
+ul.tasks li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+ul.tasks li span.description {
+    white-space: normal !important;
+}
+
+ul.tasks li div.taskScheduleDetails span {
+    padding-right: 10px;
+}
+
+ul.tasks li div.descriptionAnchor {
+    text-align: right;
+    padding-right: 10px;
+}
+
+ul.tasks li div.repetitionInfoForMobile {
+    text-align: right;
+    padding-right: 10px;
+    color: #000;
+}
+
+
+ul.tasks li .ui-icon-arrow-r {
+    display: none;
+}
+
+ul.tasks li span.description {
+    color: #000;
+}
+
+ul.tasks li div.taskScheduleDetails {
+    color: #000;
+}
+
+div.starWrapper {
+    float: left;
+    margin-right: 10px;
+}
+
+#calendarControls .calendarNext, #calendarControls .calendarPrev {
+    width: 60px !important;    
+}
+
+#calendarControls .calendarJump {
+    width: 150px !important;
+}
+
+ul.tasks li.completed div, ul.tasks li.completed span {
+    text-decoration: line-through;
+}
+
+ul.tasks li.hasLocalModifications, ul.tasks li.isLocal {
+    border: 3px solid yellow;
+}

@@ -1,0 +1,37 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_SUBMIT', '118', '70', '0', NULL, '0', '2011-11-29 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_SUBMIT', 'submit', '2011-11-29 00:00:00'), ('it', 'ACCOUNT_MISC_SUBMIT', 'invia', '2011-11-29 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_ADD_TASK_TO_INBOX', '205', '60', '0', NULL, '0', '2011-11-29 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_ADD_TASK_TO_INBOX', 'add a task to your Inbox', '2011-11-29 00:00:00'), ('it', 'ACCOUNT_MOBILE_ADD_TASK_TO_INBOX', 'aggiungi attività alla tua Inbox', '2011-11-29 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_MARK_AS_DONE_BTN', '205', '100', '0', NULL, '0', '2011-12-01 00:00:00'), ('ACCOUNT_MOBILE_MARK_TO_DO_BTN', '205', '110', '0', NULL, '0', '2011-12-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_MARK_AS_DONE_BTN', 'mark as done', '2011-12-01 00:00:00'), ('it', 'ACCOUNT_MOBILE_MARK_AS_DONE_BTN', 'segna come fatto', '2011-12-01 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_MARK_TO_DO_BTN', 'mark to be done', '2011-12-01 00:00:00'), ('it', 'ACCOUNT_MOBILE_MARK_TO_DO_BTN', 'segna come da fare', '2011-12-01 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_VIEW_NOTE_BTN', '205', '120', '0', NULL, '0', '2011-12-06 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_VIEW_NOTE_BTN', 'view note', '2011-12-06 00:00:00'), ('it', 'ACCOUNT_MOBILE_VIEW_NOTE_BTN', 'leggi nota', '2011-12-06 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'Because you have lots of things to do.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE `pc_translation` SET `string` = 'Perché hai un sacco di cose da fare.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+ALTER TABLE `pc_note` CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ADD_TASK', '107', '17', '0', NULL, '0', '2011-12-08 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ADD_TASK', 'add task', '2011-12-08 00:00:00'), ('it', 'ACCOUNT_ADD_TASK', 'aggiungi attività', '2011-12-08 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'more details' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_OPTIONS_LINK';
+UPDATE `pc_translation` SET `string` = 'più dettagli' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_OPTIONS_LINK';
+
+UPDATE `pc_translation` SET `string` = 'less details' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_HIDE_TASK_OPTIONS_LINK';
+UPDATE `pc_translation` SET `string` = 'meno dettagli' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_HIDE_TASK_OPTIONS_LINK';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,15 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'A sense of control over all the things you need to do empowers you - make time to focus on what you love.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Raggiungi un senso di controllo sopra tutte le cose che hai da fare - trova tempo per dedicarti a ciò che ami.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+
+UPDATE  `pc_translation` SET  `string` =  'scrivi attività & invia' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_ADD_TASK_HIT_ENTER';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

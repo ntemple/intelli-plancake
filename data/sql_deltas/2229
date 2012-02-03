@@ -1,0 +1,16 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_AD_NOTE', '104', '610', '0', NULL, '0', '2011-08-09 13:35:42'), ('ACCOUNT_SUBSCRIPTION_PRINT_NOTE', '104', '620', '0', NULL, '0', '2011-08-09 13:35:45');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_AD_NOTE', 'You need to become Supporter in order to get rid of adverts and get other benefits.', '2011-08-09 13:39:58'), ('en', 'ACCOUNT_SUBSCRIPTION_PRINT_NOTE', 'You need to become Supporter in order to print the list of tasks and get other benefits.', '2011-08-09 13:40:02'), ('it', 'ACCOUNT_SUBSCRIPTION_AD_NOTE', 'Diventa Sostenitore per rimuovere la pubblicità e ottenere altri vantaggi.', '2011-08-09 13:40:06'), ('it', 'ACCOUNT_SUBSCRIPTION_PRINT_NOTE', 'Diventa Sostenitore per poter stampare la lista e ottenere altri vantaggi.', '2011-08-09 13:40:09');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT', '104', '380', '0', NULL, '0', '2011-08-12 12:07:45');
+INSERT INTO  `pc_translation` (`language_id` ,`string_id` ,`string` ,`updated_at`)VALUES ('en',  'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT',  '<td class="nonCenteredContent">Printer-friendly version</td><td></td><td class="supporter"><img src="/images/tick.png" /></td>',  '2011-08-12 12:08:53'), ('it',  'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT',  '<td class="nonCenteredContent">Versione per la stampa</td><td></td><td class="supporter"><img src="/images/tick.png" /></td>',  '2011-08-12 12:08:56');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

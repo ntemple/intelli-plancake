@@ -1,0 +1,45 @@
+PcBlogCategory:
+  PcBlogCategory1:
+    id: 1
+    name: 'New Features & Updates'
+    slug: 'new-features-updates'
+  PcBlogCategory2:
+    id: 2
+    name: 'Magazine'
+    slug: 'magazine'
+  PcBlogCategory3:
+    id: 3
+    name: 'Tips & Tricks'
+    slug: 'tips-and-tricks'
+  PcBlogCategory4:
+    id: 4
+    name: 'Videos'
+    slug: 'videos'
+  PcBlogCategory5:
+    id: 5
+    name: 'Press Releases'
+    slug: 'press'
+  PcBlogCategory6:
+    id: 6
+    name: 'Company Milestones'
+    slug: 'company-milestones'
+    
+PcBlogPost:
+  PcBlogPost1:
+    user_id: PcUser1
+    title: 'IMPORTANT: Change to your Plancake email address'
+    slug: 'important-change-to-your-plancake-email-address'
+    is_reviewed: 1
+    is_published: 1
+    published_at: '2011-05-13'
+    content: '<p>\r\nUnfortunately we need to change the domain for your Plancake email address.\r\n</p>\r\n\r\n<p>\r\nIt will become plancakebox.com\r\n</p>\r\n\r\n<p>\r\nThat means if your current Plancake email address is: <br />\r\ninbox_niki.jones_15c522@plancake.com <br />\r\nthat will change to <br />\r\ninbox_niki.jones_15c522@plancakebox.com\r\n</p>\r\n\r\n<p>\r\nSorry for the inconvenience caused by that operation but we will try\r\nand manage the change in the best possible way for our users.\r\n</p>\r\n\r\n<p>\r\nThe change is going to happen on the: <br />\r\n22nd of January 2011, at 11am GMT\r\n</p>\r\n\r\n<p>\r\nFor those who are not familiar with GMT (Greenwich Mean Time), that\r\nis the time currently observed in the UK.\r\n</p>\r\n\r\n<p>\r\nThis is the time of the change in different cities worldwide: <br />\r\nLos Angeles:  22nd of January 2011, at 3am GMT <br />\r\nNew York: 22nd of January 2011, at 6am GMT <br />\r\nTokyo: 22nd of January 2011, at 8pm GMT <br />\r\nSydney: 22nd of January 2011, at 10pm GMT\r\n</p>\r\n\r\n<p>\r\nPlease, remember to update the address in your email clients.\r\n</p>\r\n\r\n<p>\r\nShould you have any problem, please don''t hesitate to contact us.\r\n</p>\r\n\r\n<p>\r\nKind regards, <br />\r\nthe Plancake bakers\r\n</p>'
+
+  PcBlogPost2:
+    user_id: PcUser1
+    title: 'IMPORTANT: Change to your Plancake email address2'
+    slug: 'important-change-to-your-plancake-email-address2'
+    is_reviewed: 1
+    is_published: 1
+    published_at: '2011-05-13'    
+    content: '<p>\r\nUnfortunately we need to change the domain for your Plancake email address.\r\n</p>\r\n\r\n<p>\r\nIt will become plancakebox.com\r\n</p>\r\n\r\n<p>\r\nThat means if your current Plancake email address is: <br />\r\ninbox_niki.jones_15c522@plancake.com <br />\r\nthat will change to <br />\r\ninbox_niki.jones_15c522@plancakebox.com\r\n</p>\r\n\r\n<p>\r\nSorry for the inconvenience caused by that operation but we will try\r\nand manage the change in the best possible way for our users.\r\n</p>\r\n\r\n<p>\r\nThe change is going to happen on the: <br />\r\n22nd of January 2011, at 11am GMT\r\n</p>\r\n\r\n<p>\r\nFor those who are not familiar with GMT (Greenwich Mean Time), that\r\nis the time currently observed in the UK.\r\n</p>\r\n\r\n<p>\r\nThis is the time of the change in different cities worldwide: <br />\r\nLos Angeles:  22nd of January 2011, at 3am GMT <br />\r\nNew York: 22nd of January 2011, at 6am GMT <br />\r\nTokyo: 22nd of January 2011, at 8pm GMT <br />\r\nSydney: 22nd of January 2011, at 10pm GMT\r\n</p>\r\n\r\n<p>\r\nPlease, remember to update the address in your email clients.\r\n</p>\r\n\r\n<p>\r\nShould you have any problem, please don''t hesitate to contact us.\r\n</p>\r\n\r\n<p>\r\nKind regards, <br />\r\nthe Plancake bakers\r\n</p>2'
+

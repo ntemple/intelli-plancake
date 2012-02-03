@@ -1,0 +1,21 @@
+ul#lists li.header {
+    background-color: blue !important;
+    /* background: -moz-linear-gradient(center top , #ff0000, #fc0000) repeat scroll 0 0 #F0F0F0 !important; */
+
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff9922), to(#FF8707));
+    background: -webkit-linear-gradient(#ff9922, #FF8707);
+    background: -moz-linear-gradient(#ff9922, #FF8707);
+    background: -ms-linear-gradient(#ff9922, #FF8707);
+    background: -o-linear-gradient(#ff9922, #FF8707);
+    background: linear-gradient(#ff9922, #FF8707);
+    background-color: #ff9922;
+}
+
+.ui-li-count {
+    display: none;
+}
+
+select#addTaskListsSelect option.header {
+    color: #ff9922;
+    font-weight: bold;
+}

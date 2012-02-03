@@ -1,0 +1,46 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_TITLE', '3', '65', '0', NULL, '0', '2011-10-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_TITLE', 'Task Management', '2011-10-17 00:00:00'), ('it', 'WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_TITLE', 'Gestore di attività', '2011-10-17 00:00:00');
+
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_LATEST_DEVELOPMENT';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_LATEST_COMMUNITY_ACTIVITY';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_FRESHNESS_MINUTES_AGO';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_FRESHNESS_HOURS_AGO';
+UPDATE `pc_string` SET `is_archived` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_FRESHNESS_DAYS_AGO';
+UPDATE  `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_HOMEPAGE_SIGN_UP_EMAIL';
+UPDATE  `pc_string` SET  `is_archived` =  '1' WHERE  `pc_string`.`id` =  'WEBSITE_HOMEPAGE_SIGN_UP_PASSWORD';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_STEP1_TITLE', '1', '600', '20', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_STEP1_BODY', '1', '610', '115', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_STEP2_TITLE', '1', '620', '20', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_STEP2_BODY', '1', '630', '115', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_STEP3_TITLE', '1', '640', '20', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_STEP3_BODY', '1', '650', '115', NULL, '0', '2011-10-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_STEP1_TITLE', 'Capture and Organise', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_STEP1_BODY', 'Clear your mind into your account - manage all your todos, ideas and appointments in a simple and fun way.', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_STEP2_TITLE', '<!-- Access anywhere -->[coming soon]', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_STEP2_BODY', 'Check and update your account from nearly any device - even when an Internet connection is not available!', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_STEP3_TITLE', 'Relax and Smile!', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_STEP3_BODY', 'A sense of control over all the things you need to do will empower you - make time to focus on what you love.', '2011-10-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_HOMEPAGE_STEP1_TITLE', 'Butta giù e organizza', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_STEP1_BODY', 'Svuota la tua mente nel tuo account - gestisci tutte le idee, appuntamenti e cose da fare in modo semplice.', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_STEP2_TITLE', '<!-- Accedi dovunque -->[presto in arrivo]', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_STEP2_BODY', 'Controlla e aggiorna il tuo account da quasi ogni dispositivo - anche senza connessione a Internet!', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_STEP3_TITLE', 'Rilassati e Sorridi!', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_STEP3_BODY', 'Raggiungerai un senso di controllo sopra tutte le cose che hai da fare - trova tempo per dedicarti a ciò che ami.', '2011-10-17 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER', '3', '700', '0', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS', '3', '710', '0', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_TESTIMONIAL1', '3', '800', '0', NULL, '0', '2011-10-17 00:00:00'), ('WEBSITE_HOMEPAGE_TESTIMONIAL1_AUTHOR_INFO', '3', '810', '0', NULL, '0', '2011-10-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER', 'What''s Plancake?', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS', '<a href="%s">Check out Plancake features</a> or <a href="%s">Start getting organised with Plancake today</a>', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL1', 'I''ve been extremely impressed with all aspects of Plancake. I''ve tried other similar programs, but none have met my requirements like Plancake. <br />
+The customer service has been amazing - any time I''ve had an issue, I''ve gotten a response almost immediately.', '2011-10-17 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL1_AUTHOR_INFO', 'Medical practitioner, Canada', '2011-10-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER', 'Cos''è Plancake?', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS', '<a href="%s">Scopri le funzionalità di Plancake</a> o <a href="%s">Inizia a essere più organizzato con Plancake da oggi</a>', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL1', 'Sono estremamente soddisfatto di ogni aspetto di Plancake. Ho provato altri prodotti analoghi, ma nessuno era quello che cercavo. <br />
+L''assistenza è eccezionale - ogni volta che avevo un problema, ho ricevuto una risposta quasi immediatamente.', '2011-10-17 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL1_AUTHOR_INFO', 'Medico specialista, Canada', '2011-10-17 00:00:00');
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Discover Plancake Features' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'Scopri le Funzionalità di Plancake' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_ITS_FREE', '3', '500', '0', 'Cehck Sign up button at the bottom of the page', '0', '2011-10-18 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_ITS_FREE', 'it''s free', '2011-10-18 00:00:00'), ('it', 'WEBSITE_SERVICES_ITS_FREE', 'è gratis', '2011-10-18 00:00:00');
+
+UPDATE `pc_string` SET `category_id` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS';
+UPDATE `pc_string` SET `category_id` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_TESTIMONIAL1';
+UPDATE `pc_string` SET `category_id` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_TESTIMONIAL1_AUTHOR_INFO';
+UPDATE `pc_string` SET `category_id` = '1' WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

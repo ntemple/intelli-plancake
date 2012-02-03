@@ -1,0 +1,41 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_task` ADD `is_starred` TINYINT(1) default 0 AFTER `repetition_param`;
+
+ALTER TABLE `pc_task` MODIFY `is_header` TINYINT(1) default 0 NOT NULL;
+ALTER TABLE `pc_task` MODIFY `is_from_system` TINYINT(1) default 0 NOT NULL;
+ALTER TABLE `pc_task` MODIFY `updated_at` DATETIME  NOT NULL;
+ALTER TABLE `pc_task` MODIFY `created_at` DATETIME  NOT NULL;
+
+ALTER TABLE `pc_list` MODIFY `is_header` TINYINT(1) default 0 NOT NULL;
+ALTER TABLE `pc_list` MODIFY `updated_at` DATETIME  NOT NULL;
+ALTER TABLE `pc_list` MODIFY `created_at` DATETIME  NOT NULL;
+
+ALTER TABLE `pc_users_contexts` MODIFY `updated_at` DATETIME  NOT NULL;
+ALTER TABLE `pc_users_contexts` MODIFY `created_at` DATETIME  NOT NULL;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_task` DROP `is_starred`;
+
+ALTER TABLE `pc_task` MODIFY `is_header` TINYINT(1) default 0;
+ALTER TABLE `pc_task` MODIFY `is_from_system` TINYINT(1) default 0;
+ALTER TABLE `pc_task` MODIFY `updated_at` DATETIME;
+ALTER TABLE `pc_task` MODIFY `created_at` DATETIME;
+
+ALTER TABLE `pc_list` MODIFY `is_header` TINYINT(1) default 0;
+ALTER TABLE `pc_list` MODIFY `updated_at` DATETIME;
+ALTER TABLE `pc_list` MODIFY `created_at` DATETIME;
+
+ALTER TABLE `pc_users_contexts` MODIFY `updated_at` DATETIME;
+ALTER TABLE `pc_users_contexts` MODIFY `created_at` DATETIME;
+
+SET FOREIGN_KEY_CHECKS=1;

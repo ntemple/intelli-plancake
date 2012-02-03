@@ -1,0 +1,12 @@
+index:
+  url:   /
+  param: { module: endPoint, action: index }
+
+method_call:
+  url:   /:method_name/
+  param: { module: endPoint, action: index }
+
+method_call_2:
+  url:   /:method_name
+  param: { module: endPoint, action: index }
+

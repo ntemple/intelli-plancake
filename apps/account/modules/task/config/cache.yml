@@ -1,0 +1,9 @@
+_incompletedTask:
+  enabled:    true
+
+_completedTask:
+  enabled:    true
+
+all:
+  with_layout: false   # Default value
+  lifetime:    86400   # Default value

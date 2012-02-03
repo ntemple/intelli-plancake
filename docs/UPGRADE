@@ -1,0 +1,68 @@
+Plancake Upgrade from the package
+=================================
+
+If you want to know the version you are on, please check this file (located in the root of the project):
+version
+or check the version number at the bottom of your account page
+
+We will assume you installed Plancake in the directory /var/www/myplancake and
+set up this domain for it: http://plancake.mywebsite.com
+
+1 - Download the new package from http://www.plancake.com/open-source
+
+2 - Backup your database and your files, just in case
+
+3 - Take a note of the version number you are on (see the file 'version' in the root of your Plancake installation)
+
+4 - Copy all the files and directories inside the 'plancake' directory you have just extracted to /var/www/myplancake (basically replace all
+the old files with the new ones)
+
+5 - Make sure you have ownership on the directories and files in /var/www/myplancake
+
+6 - Make sure the file /var/www/myplancake/symfony is executable
+
+7 - Delete all the files and directories inside /var/www/myplancake/cache
+
+8 - From the directory /var/www/myplancake, run:
+./symfony configure
+That will ask you some questions in order to setup Plancake correctly
+
+9 - From the directory /var/www/myplancake, run:
+./symfony fix-perms
+
+10 - You may need to upgrade your database. Check the file docs/DATABASE_CHANGELOG
+and apply manually all the changes from the version you were on before this upgrade onwards.
+
+
+-----------------------------------------
+
+We love to hear from you ♥. Please, send us any feedback.
+Even if you don't speak English, don't worry, use your native language (we have great confidence in Google Translate :-))
+http://www.plancake.com/contact
+
+Please contact us if you need any commercial support with the installation of any component or if you would like any customization:
+http://www.plancake.com/contact
+
+Please consider contributing with bug fixes or improvements:
+dan@plancake.com
+
+Plancake homepage: http://www.plancake.com
+Support: http://www.plancake.com/forums/forum/13/support-for-developers/
+Subscribe to our blog: http://www.plancake.com/blog
+Follow us on Twitter: http://twitter.com/plancakebakers
+Follow us on Facebook: http://www.facebook.com/plancake
+Donations ♥ : http://www.plancake.com/donate
+
+"Plancake" and "Plancake Team" are trademarks of Daniele Occhipinti.
+(by the way, what about using Plancake Team for team collaboration? team.plancake.com)
+
+Brought to you by Danyuki Software Limited, a startup tech company based in London, UK.
+
+
+
+Happy plancaking!
+
+Daniele Occhipinti
+Director and Founder of Plancake
+email: dan@plancake.com
+skype: dan_plan (I can speak English and Italian)

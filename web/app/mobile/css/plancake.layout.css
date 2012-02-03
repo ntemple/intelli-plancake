@@ -1,0 +1,68 @@
+h1 {
+    background: transparent url('/app/mobile/img/logo2.png') no-repeat scroll center top;
+    text-indent: -9999px;
+    height: 43px;
+    overflow: visible !important;
+}
+ 
+h1.ui-title {
+    margin: 2px auto !important;
+}
+
+h3 {
+    display: block;
+    margin-bottom: 25px;
+    color: #1C94C4;
+    font-weight: bold;
+    font-size: 120%;
+    margin-left: 10px;
+}
+
+.allowanceAlert {
+    font-weight: normal;
+    font-size: 100%;    
+}
+
+.allowanceAlert a {
+    color: #fff !important;    
+}
+
+.ui-icon-sync {
+	background-image: url("/app/mobile/img/sync_icon.png");
+}
+
+a.helpButton { }
+
+#simpleDialogClose {
+    width: 100px;
+    margin: auto;
+}
+
+form#quickAddToInbox {
+    margin-top: 30px;
+}
+
+form#quickAddToInbox input.saveBtn {
+    width: 100px;
+}
+
+#quickAddToInboxText {
+    width: 90% !important;
+    background-color: #fff !important;
+}
+
+#quickAddToInboxWrapper {
+    width: 100px !important;
+}
+
+#quickAddToInboxWrapper .ui-btn-inner {
+    padding: 0px !important;
+}
+
+.greyedText {
+    color: #666;
+}
+
+.toast-item a {
+    color: #fff !important;
+}

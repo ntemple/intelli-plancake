@@ -1,0 +1,43 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'diventa premium!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+UPDATE  `pc_translation` SET  `string` =  'Secure Login' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_LOGIN_SUBMIT';
+
+UPDATE `pc_translation` SET `string` = 'Plancake works on any modern smartphone without the need of installing anything from the app store. <br />
+Obviously our smartphone application works offline, as for a native app. <br />
+Just go to www.plancake.com with your smartphone. Easy!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+UPDATE `pc_translation` SET `string` = 'Plancake funziona su ogni moderno smartphone senza che tu debba installare sulla dall''app store. <br />
+Ovviamente la nostra applicazione smartphone funziona anche senza connessione a Internet, come se fosse un''applicazione nativa. <br />
+Ti serve solo andare su www.plancake.com col tuo smartphone. Semplice!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK';
+DELETE FROM `pc_string` WHERE `pc_string`.`id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_LINK';
+
+UPDATE  `pc_string` SET  `max_length` =  '25' WHERE  `pc_string`.`id` =  'ACCOUNT_HEADER_SERVICES';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HEADER_SMARTPHONE_APP_GUIDE', '103', '140', '30', 'shown in the navigation at the botton, when you click the button with your email address', '0', '2011-11-12 00:00:00'), ('ACCOUNT_HEADER_OFFLINE_USE_GUIDE', '103', '150', '30', 'shown in the navigation at the botton, when you click the button with your email address', '0', '2011-11-12 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_SMARTPHONE_APP_GUIDE', 'Smartphone app guide', '2011-11-12 00:00:00'), ('it', 'ACCOUNT_HEADER_SMARTPHONE_APP_GUIDE', 'Guida alla Smartphone app', '2011-11-12 00:00:00'), ('en', 'ACCOUNT_HEADER_OFFLINE_USE_GUIDE', 'Offline use guide', '2011-11-12 00:00:00'), ('it', 'ACCOUNT_HEADER_OFFLINE_USE_GUIDE', 'Guida all''uso offline', '2011-11-12 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'Mobile app guide' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SMARTPHONE_APP_GUIDE';
+UPDATE  `pc_translation` SET  `string` =  'Guida alla Mobile app' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SMARTPHONE_APP_GUIDE';
+
+UPDATE  `pc_translation` SET  `string` =  'Mobile application - for Android, iPhone, Blackberry, Symbian, ...' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+UPDATE  `pc_translation` SET  `string` =  'Applicazione Mobile - per Android, iPhone, Blackberry, Symbian, ...' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+
+UPDATE `pc_translation` SET `string` = 'Plancake Mobile works on any modern smartphone without the need of installing anything from the app store. <br />
+Obviously it also works offline, as for a native app. <br />
+Just go to www.plancake.com with your smartphone. Easy!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+UPDATE `pc_translation` SET `string` = 'Plancake Mobile funziona su ogni moderno smartphone senza che tu debba installare sulla dall''app store. <br />
+Ovviamente funziona anche senza connessione a Internet, come se fosse un''applicazione nativa. <br />
+Ti serve solo andare su www.plancake.com col tuo smartphone. Semplice!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,18 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `just_activated` tinyint(1) DEFAULT '1' AFTER `max_lists_sort_order`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` DROP `just_activated`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

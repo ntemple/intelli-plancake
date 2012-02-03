@@ -1,0 +1,20 @@
+rendering: ~
+security:  ~
+
+sfSslRequirement:
+  class: sfSslRequirementFilter
+
+# insert your own filters here
+sf_custom_auth_rememberme:
+  class: CustomAuthRemembermeFilter
+
+sf_user_culture:
+  class: sfUserCultureFilter
+  
+sf_capture_referral_and_entry_point:
+  class: PcCaptureReferralAndEntryPoint
+
+cache:     ~
+common:
+  class: sfCommonFilter
+execution: ~

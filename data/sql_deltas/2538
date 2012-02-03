@@ -1,0 +1,93 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Maximum number of lists</td><td>%d</td><td class="supporter">unlimited</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Maximum number of tags</td><td>%d</td><td class="supporter">unlimited</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Maximum number of documents in your Notebook</td>
+<td>%d</td>
+<td class="supporter">unlimited</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+UPDATE  `pc_translation` SET  `string` =  'Free account' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_FREE_ACCOUNT';
+UPDATE  `pc_translation` SET  `string` =  'Account gratuito' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_FREE_ACCOUNT';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Standard security (your password is encrypted)</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Sicurezza standard (la tua password è criptata)</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Enhanced security
+<p>(your account data - lists, tasks, notes - is encrypted with SSL)</p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Sicurezza superiore
+<p>(i dati del tuo account - liste, attività, note - nell'' applicazione online sono criptati con SSL)</p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Maximum number of lists' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS';
+UPDATE  `pc_translation` SET  `string` =  'Numero massimo di liste' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS';
+
+UPDATE  `pc_translation` SET  `string` =  'Maximum number of tags' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS';
+UPDATE  `pc_translation` SET  `string` =  'Numero massimo di etichette' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS';
+
+UPDATE  `pc_translation` SET  `string` =  'Maximum number of documents in your Notebook' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+UPDATE  `pc_translation` SET  `string` =  'Numero massimo di documenti nel tuo Quaderno' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+UPDATE  `pc_translation` SET  `string` =  'History of completed tasks (in months)' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+UPDATE  `pc_translation` SET  `string` =  'Archivio delle attività completate (in mesi)' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+
+UPDATE  `pc_translation` SET  `string` =  'Lots of useful functionalities' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES';
+UPDATE  `pc_translation` SET  `string` =  'Tante funzionalità utili' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES';
+
+UPDATE  `pc_translation` SET  `string` =  'Standard security (your password is encrypted)' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+UPDATE  `pc_translation` SET  `string` =  'Sicurezza standard (la tua password è criptata)' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Enhanced security
+<p>(your account data - lists, tasks, notes - is encrypted with SSL)</p>' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+UPDATE  `pc_translation` SET  `string` =  'Sicurezza superiore
+<p>(i dati del tuo account - liste, attività, note - nell'' applicazione online sono criptati con SSL)</p>' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Printer-friendly version' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT';
+UPDATE  `pc_translation` SET  `string` =  'Versione per la stampa' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT';
+
+UPDATE  `pc_translation` SET  `string` =  'Search' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH';
+UPDATE  `pc_translation` SET  `string` =  'Ricerca le attività' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH';
+
+UPDATE  `pc_translation` SET  `string` =  'Ad-free' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS';
+UPDATE  `pc_translation` SET  `string` =  'Senza pubblicità' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS';
+
+UPDATE  `pc_translation` SET  `string` =  'risparmia' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_SAVE';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_UNLIMITED', '104', '800', '0', 'this word is used for saying Premium has got UNLIMITED tasks', '0', '2011-10-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_UNLIMITED', 'unlimited', '2011-10-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_UNLIMITED', 'illimitati', '2011-10-19 00:00:00');
+
+UPDATE `pc_translation` SET  `string` =  'Account Premium' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_SUPPORTER_ACCOUNT';
+
+
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium One-Year Subscription (USD)' WHERE `pc_paypal_product`.`id` = 1;
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium 3-Month Subscription (USD)' WHERE `pc_paypal_product`.`id` = 2;
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium One-Year Subscription (GBP)' WHERE `pc_paypal_product`.`id` = 3;
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium 3-Month Subscription (GBP)' WHERE `pc_paypal_product`.`id` = 4;
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium One-Year Subscription (EUR)' WHERE `pc_paypal_product`.`id` = 5;
+UPDATE `pc_paypal_product` SET `item_name` = 'Plancake Premium 3-Month Subscription (EUR)' WHERE `pc_paypal_product`.`id` = 6;
+UPDATE `pc_paypal_product` SET `item_name` = 'Test Premium Supporter Subscription' WHERE `pc_paypal_product`.`id` = 7;
+
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'JW8B4PHY654FQ' WHERE  `pc_paypal_product`.`id` =1;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'XJ8RHFBUJVJ56' WHERE  `pc_paypal_product`.`id` =2;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'JDMDMKB63BG7N' WHERE  `pc_paypal_product`.`id` =3;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'F9LAEDXF8C38W' WHERE  `pc_paypal_product`.`id` =4;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'DVQEWQUZZ6H2A' WHERE  `pc_paypal_product`.`id` =5;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'RM7ABHXNUJKUL' WHERE  `pc_paypal_product`.`id` =6;
+UPDATE  `pc_paypal_product` SET  `paypal_button_code` =  'LK7MJNM78YBJC' WHERE  `pc_paypal_product`.`id` =7;
+
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `subscription_type_id`, `paypal_button_code`) VALUES ('9', '409', 'Plancake Supporter 3-Month Subscription (JPY)', '900.00', 'JPY', '2', 'EZ6WQ6865TMG4');
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `subscription_type_id`, `paypal_button_code`) VALUES ('8', '427', 'Plancake Premium One-Year Subscription (JPY)', '2700.00', 'JPY', '3', 'QGR45L9SJAYEG');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,333 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_task` ADD `special_flag` tinyint(3) unsigned DEFAULT NULL AFTER `is_from_system`;
+
+ALTER TABLE `pc_string` ADD `is_archived` tinyint(1) NOT NULL DEFAULT '0' AFTER `note`;
+
+ALTER TABLE `pc_user` ADD `latest_import_request` datetime DEFAULT NULL AFTER `latest_backup_request`;
+
+UPDATE `pc_string` SET `is_archived`=1 WHERE `id` LIKE 'WEBSITE_HOMEPAGE_REASON%';
+UPDATE `pc_string` SET `is_archived`=1 WHERE `id` LIKE 'WEBSITE_HOMEPAGE_MORE_REASONS_BUTTON';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_IMPORT_QUOTA_MSG', '115', '108', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_IMPORT_QUOTA_MSG', 'You are allowed to import data only once every 24 hours.', NULL), ('it', 'ACCOUNT_SETTINGS_IMPORT_QUOTA_MSG', 'Puoi importare dati non più di una volta al giorno.', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_FOOTER_PLANS_LINK', '8', '350', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_FOOTER_PLANS_LINK', 'Plans and prices', NULL), ('it', 'WEBSITE_FOOTER_PLANS_LINK', 'Piani di abbonamento', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES
+('ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', 104, 270, 0, NULL, 0, NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES
+('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', '<td class="nonCenteredContent">Google Calendar Integration (Beta)</td>\r\n<td><img src="/images/tick.png" /></td>\r\n<td class="supporter"><img src="/images/tick.png" /></td>', NULL),
+('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', '<td class="nonCenteredContent">Integrazione con Google Calendar (Beta)</td>\r\n<td><img src="/images/tick.png" />e</td>\r\n<td class="supporter"><img src="/images/tick.png" /></td>', NULL);
+
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Ad-free</td>
+<td>several banners</td>
+<td class="supporter">no banners</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Senza pubblicità</td>
+<td>diversi banner</td>
+<td class="supporter">nessun banner</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Android application</td>
+<td>max 2 syncs/day</td>
+<td class="supporter">up to 30 syncs/day</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Applicazione Android</td>
+<td>massimo 2 sincronizzazioni giornaliere</td>
+<td class="supporter">fino a 30 sincronizzazioni giornaliere</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Retention time for completed tasks</td>
+<td>only the last %s months are kept</td>
+<td class="supporter">no limit, all are kept</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Accesso alle attività completate</td>
+<td>solo gli ultimi %s mesi sono accessibili</td>
+<td class="supporter">nessun limite di tempo</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Google Calendar Integration (Beta)</td>
+<td>not available</td>
+<td class="supporter">available</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Integrazione con Google Calendar (Beta)</td>
+<td>non disponibile</td>
+<td class="supporter">disponibile</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Plancake Notes</td>
+<td>max 3 notes</td>
+<td class="supporter">max 1000 notes</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Plancake Notes</td>
+<td>massimo 3 note</td>
+<td class="supporter">massimo 1000 note</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Security</td>
+<td>Standard: <br />only your password is encrypted</td>
+<td class="supporter">Enhanced: <p>your account data (lists, tasks, notes) on the web application and password is encrypted</p></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY'; UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Sicurezza</td>
+<td>Standard: <br />solo la tua password è criptata</td>
+<td class="supporter">Avanzata: <p>i dati del tuo account (liste, attività, note) sull''applicazione web e la password sono criptati</p></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Google Calendar Integration (Beta)</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Integrazione con Google Calendar (Beta)</td>
+<td><img src="/images/tick.png" />e</td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Ad-free</td>
+<td>&nbsp;</td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Senza pubblicità</td>
+<td>&nbsp;</td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS';
+
+
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Standard Security (your password is encrypted)</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">SicurezzaStandard (la tua password è criptata)</td>
+<td><img src="/images/tick.png" /></td>
+<td class="supporter"><img src="/images/tick.png" /></td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Notes (Word-like app to create notes)</td>
+<td><img src="/images/tick.png" /> <p>(up to 3 notes)</p></td>
+<td class="supporter"><img src="/images/tick.png" /> <p>(up to 500 notes)</p></td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Note (applicazione simile a Word per creare note)</td>
+<td><img src="/images/tick.png" /> <br />(fino a 3 note)</td>
+<td class="supporter"><img src="/images/tick.png" /> <br />(fino a 500 note)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES';
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">History of completed tasks</td>
+<td><img src="/images/tick.png" /><br />(only the last %s months are kept)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(no limit, all are kept)</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED'; 
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Archivio delle attività completate</td>
+<td><img src="/images/tick.png" /><br />(solo gli ultimi %s mesi sono accessibili)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(nessun limite di tempo)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED';
+
+
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Android application</td>
+<td><img src="/images/tick.png" /><br />(up to 2 syncs/day)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(up to 30 syncs/day)</td>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID';
+UPDATE `pc_translation` SET `string` = '<td class="nonCenteredContent">Applicazione Android</td>
+<td><img src="/images/tick.png" /><br />(massimo 2 sincronizzazioni giornaliere)</td>
+<td class="supporter"><img src="/images/tick.png" /><br />(fino a 30 sincronizzazioni giornaliere)</td>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID';
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS', '104', '300', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_LISTS_TAGS', '104', '310', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT', '104', '320', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_GTD_READY', '104', '330', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX', '104', '340', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT', '104', '350', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY', '104', '360', '0', NULL, '0', NULL), ('ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE', '104', '370', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS', '<td class="nonCenteredContent">Repeating Tasks</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_LISTS_TAGS', '<td class="nonCenteredContent">Lists & Tags</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT', '<td class="nonCenteredContent">Google Account & Apps Login</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GTD_READY', '<td class="nonCenteredContent">GTD-ready</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX', '<td class="nonCenteredContent">Email-2-Inbox <p>(send tasks via email)</p></td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT', '<td class="nonCenteredContent">Export/Backup</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY', '<td class="nonCenteredContent">Enhanced Security
+<p>(your account data - lists, tasks, notes - on the web application are encrypted)</p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE', '<td class="nonCenteredContent">Price</td><td>free</td><td class="supporter">see below</td>', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS', '<td class="nonCenteredContent">Attività ripetitive</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_LISTS_TAGS', '<td class="nonCenteredContent">Liste & Tag</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT', '<td class="nonCenteredContent">Google Account & Apps Login</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GTD_READY', '<td class="nonCenteredContent">pronto per GTD</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX', '<td class="nonCenteredContent">Email-2-Inbox <p>(aggiungi attività via email)</p></td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT', '<td class="nonCenteredContent">Esporta/Backup</td><td><img src="/images/tick.png" /></td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY', '<td class="nonCenteredContent">Sicurezza Superiore
+<p>(i dati del tuo account - liste, attività, note - nell'' applicazione online sono criptati)</p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE', '<td class="nonCenteredContent">Prezzo</td><td>gratis</td><td class="supporter">vedi sotto</td>', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_GET_IT_FOR_FREE', '104', '400', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_GET_IT_FOR_FREE', 'Get it for free!', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_GET_IT_FOR_FREE', 'Lo vuoi gratis?', NULL);
+
+
+INSERT INTO `pc_string_category` (
+`id` ,
+`name` ,
+`note` ,
+`link` ,
+`in_account` ,
+`in_misc` ,
+`sort_order` ,
+`created_at`
+)
+VALUES (
+25,  'Contribute', NULL ,  'http://www.plancake.com/contribute',  '0',  '0',  '170', NULL
+);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('CONTRIBUTE_HEADER', '25', '10', '0', NULL, '0', NULL), ('CONTRIBUTE_BODY', '25', '20', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'CONTRIBUTE_HEADER', 'Contribute', NULL), ('it', 'CONTRIBUTE_HEADER', 'Contribuisci', NULL);
+
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'CONTRIBUTE_BODY', '<p>
+We want Plancake to become the most widely used organization tool in the world. <br />
+In order to achieve such an ambitious goal, we definitely need your help.
+</p>
+
+<p>
+We are going to reward top contributors with free Supporter accounts and mentions on our <a href="%s">Meet the team</a> page.
+</p>
+
+<p>
+So, how can you help Plancake grow?
+<ul>
+<li>you can translate Plancake (the public area and the account) into your native language</li>
+<li>
+you can write a guest article for our blog (more details <a href="%s">here</a>)
+
+</li>
+<li>you can get one of the biggest technological blogs in your country to talk about Plancake</li>
+<li>you can write an application using our <a href="%s">API</a>, if you are a software developer</li>
+<li>you can work on some of our open tickets, if you are a software developer</li>
+</ul>
+</p>
+
+<p>
+If you would like to do any of those tasks or have other ideas to make Plancake grow, please <a href="%s">get in touch</a>. That would be a great help!
+</p>', NULL), ('it', 'CONTRIBUTE_BODY', '<p>
+Vogliamo che Plancake diventi lo strumento per l''organizzazione personale più usato al mondo. <br />
+Per poter raggiungere uno scopo così ambizioso, abbiamo sicuramente bisogno del tuo aiuto.
+</p>
+
+<p>
+Abbiamo intenzione di premiare i migliori collaboratori volontari con un account Sostenitore gratuito e con l''inclusione nella pagina del <a href="%s">team</a>.
+</p>
+
+<p>
+Quindi, come è che puoi aiutare Plancake a crescre?
+<ul>
+<li>puoi scrivere un articolo che andrà sul nostro blog (<a href="%s">qui</a> trovi maggiori dettagli)
+</li>
+<li>puoi ottenere che uno dei maggiori blog di tecnologia in Italia scriva di Plancake</li>
+<li>puoi scrivere una applicazione utilizzando l''<a href="%s">API</a>, se sei uno sviluppatore software</li>
+<li>puoi lavorare su alcuni dei nostri ticket ancora aperti, se sei uno sviluppatore software</li>
+</ul>
+</p>
+
+<p>
+Se ti piacerebbe svolgere una delle mansioni sopracitate o hai altre idee per far crescere Plancake, perpiacere <a href="%s">contattaci</a>. Quello sarebbe senza dubbio di grande aiuto!
+</p>', NULL);
+
+
+INSERT INTO `pc_string_category` (`id`, `name`, `note`, `link`, `in_account`, `in_misc`, `sort_order`, `created_at`) VALUES ('250', 'English-only strings', NULL, NULL, '0', '1', 50, NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('OPEN_SOURCE_HOMEPAGE', '250', '10', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'OPEN_SOURCE_HOMEPAGE', '
+  <p>
+  Plancake is not only an helpful tool, it is also an open source project. <br />
+  </p>
+
+  <p>
+  There are various components that make up the Plancake project. They are released under the AGPL license, a license that has been approved by the Open Source Initiative. <br />
+  That license gives you a lot of lovely freedom, including contributing back to the project with bug fixes and improvements ;-)
+  </p>
+
+  <p style="clear: both">
+      Please <a href="<?php echo url_for(''@contact'') ?>">contact us</a> if you need any commercial support with
+      the installation of any component or if you would like any customization.
+  </p>
+
+  <br />
+
+  <h4>Plancake Android app</h4>
+  <p>
+      This is the Android application as can be found on the Android Market. <br />
+      You may also want to study its code to learn how to synchronize a client application with the Plancake database.
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-android-app" target="_blank">GitHub repository for the Plancake Android app</a>
+  </p>
+
+  <br />
+
+  <h4>Plancake API kits</h4>
+
+  <p>
+  You may be interested in this library if you want to develop a client application that
+  will use your Plancake data stored in the Cloud.
+  </p>
+  
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-php" target="_blank">GitHub repository for the PHP API Kit</a>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-api-kit-java" target="_blank">GitHub repository for the Java API Kit</a>
+  </p>
+
+  <p>
+  Please read the <a href="<?php echo url_for(''@api_documentation'') ?>">Plancake API documentation</a> for more details.
+  </p>
+  
+  <br />
+
+  <h4>Misc libraries</h4>
+  <p>
+     These are libraries we think they may be useful to other developers in their own projects.
+  </p>
+  <p>
+      PHP Email Parser available on <a href="https://github.com/plancake/official-library-php-email-parser" target="_blank">GitHub</a>.
+  </p>
+
+  <br />
+
+  <h4>Plancake Web app</h4>
+
+  <p>
+  You can download Plancake and install it on your own <b>web server</b> but don''t forget you can simply <a href="<?php echo url_for(''@registration'') ?>">create an account</a> and start using Plancake for free without having to install, update or backup anything.
+  </p>
+
+  <p>
+  Plancake is a PHP5/MySQL web application built on <a rel="nofollow" href="http://www.symfony-project.org/">Symfony</a>, the enterprise-level Object Oriented PHP Framework.
+  </p>
+
+  <p>
+  To install Plancake on your server, there are some pre-requisites that are unfortunately <b>quite demanding</b> (please help us make the installation process easier):
+  <ul>
+  <li>the server has to run Linux</li>
+  <li>MySQL database 4.0 or later has to be available</li>
+  <li>Apache Web Server with mod_rewrite enabled has to be available</li>
+  <li>PHP 5.2.4 or later has to be available</li>
+  <li>you have to be able to set Apache Virtual hosts on the server</li>
+  <li>you have to have SSH access to the server (if you don''t know what that means, I am afraid you will not be able to install Plancake)</li>
+  </ul>
+  </p>
+
+  <p>
+      <a href="https://github.com/plancake/official-plancake" target="_blank">GitHub repository for the Plancake web application</a>
+  </p>
+
+  <p>
+      <a href="http://www.plancake.com/plancake.zip" target="_blank">Download the web application</a>
+  </p>
+
+  <h4>Plancake API</h4>
+  <p>
+	We have decided to keep the code that powers our API closed for now because that is one of the most important assets of the Company.
+  </p>
+
+  <p>
+	However we will be happy to provide the code to those developers who will help us grow the project and we feel we can trust.
+  </p>
+', NULL);
+
+INSERT INTO `pc_string_category` (`id`, `name`, `note`, `link`, `in_account`, `in_misc`, `sort_order`, `created_at`) VALUES ('30', 'Website Donate', NULL, 'http://www.plancake.com/donate', '0', '0', '165', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_DONATE_HEADER', '30', '10', '0', NULL, '0', NULL), ('WEBSITE_DONATE_BODY', '30', '20', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_DONATE_DONATE', '30', '30', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_DONATE_HEADER', 'Donate via Paypal', NULL), ('en', 'WEBSITE_DONATE_BODY', '  <p>
+  Our goal is to make Plancake the best piece of software in its category. <br />
+  Along with that, we also want to build a community of happy users: we don''t want users, we want fans :-)
+  </p>
+
+  <p>
+  By donating, you will give <b>great help</b> to improve Plancake.
+  </p>
+
+  <p>
+  We use <b>Paypal</b> for our donation system. That means we don''t store any financial information
+  of yours.
+  </p>
+', NULL), ('en', 'WEBSITE_DONATE_DONATE', 'Donate', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_DONATE_HEADER', 'Dona via Paypal', NULL), ('it', 'WEBSITE_DONATE_BODY', '  <p>
+  Il nostro obiettivo è di rendere Plancake il migliore programma nella tua categoria. <br />
+  Insieme a quello, vogliamo anche create una comunità di utenti felici: non vogliamo utenti, vogliamo fan :-)
+  </p>
+
+  <p>
+  Attraverso una donazione, darai un <b>grande aiuto</b> al miglioramento di Plancake.
+  </p>
+
+  <p>
+  Usiamo <b>Paypal</b> come sistema per le donazioni. Questo significa che non teniamo traccia di nessuna delle tue informazioni finanziarie.
+  </p>
+', NULL), ('it', 'WEBSITE_DONATE_DONATE', 'Dona', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

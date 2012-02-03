@@ -1,0 +1,17 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_contact` ADD `position` varchar(32) DEFAULT NULL AFTER `description`;
+ALTER TABLE `pc_contact` ADD `phone` varchar(32) DEFAULT NULL AFTER `email`;
+ALTER TABLE `pc_contact` ADD `twitter` varchar(64) DEFAULT NULL AFTER `link`;
+
+ALTER TABLE `pc_task` ADD `contact_id` int(10) unsigned DEFAULT NULL AFTER `contexts`;
+ALTER TABLE `pc_trashbin_task` ADD `contact_id` int(10) unsigned DEFAULT NULL AFTER `contexts`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,55 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_review` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contact_id` int(10) unsigned NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `html` text NOT NULL,
+  `language` varchar(2) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_review_FI_1` (`contact_id`)
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_tweet`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_tweet` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `content` varchar(256) NOT NULL,
+  `author` varchar(128) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `language` varchar(2) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_review`
+--
+ALTER TABLE `pc_review`
+  ADD CONSTRAINT `pc_review_FK_1` FOREIGN KEY (`contact_id`) REFERENCES `pc_contact` (`id`);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('GENERAL_TWITTER_COPY', '2', '13', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'GENERAL_TWITTER_COPY', 'Plancake is the best way to get organized and stay relaxed. Go sign up now, seriously.', NULL), ('it', 'GENERAL_TWITTER_COPY', 'Plancake e'' il modo migliore per organizzarti in tutto relax. Lo dovresti provare!', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,37 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'Plancake is for entrepreneurs, freelancers, managers, employees, mums and dads - whoever feels they are very busy and would like to find focus, better results, relax and more time for themselves.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY';
+UPDATE `pc_translation` SET `string` = 'Plancake è per imprenditori, liberi professionisti, manager, impiegati, mamme e papà - chiunque senta di essere molto impegnato e vorrebbe trovare focus, migliori risultati, relax e più tempo da dedicare a se stesso.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY';
+
+UPDATE  `pc_translation` SET  `string` =  'Upgrade now!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+UPDATE  `pc_translation` SET  `string` =  'Diventa premium!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_UPGRADE';
+
+UPDATE  `pc_translation` SET  `string` =  'News' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+UPDATE  `pc_translation` SET  `string` =  'News' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_MISC_NEWS_LINK';
+
+UPDATE  `pc_string` SET  `max_length` =  '24' WHERE  `pc_string`.`id` =  'GENERAL_MY_ACCOUNT';
+
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `discount_percentage`, `subscription_type_id`, `paypal_button_code`) VALUES ('24', '710', 'Plancake Premium One-Year Subscription (EUR) - 10% discount', '21.51', 'EUR', '10', '3', 'ADHJMJ5XNPQNW'), ('25', '810', 'Plancake Premium One-Year Subscription (JPY) - 10% discount', '2421.00', 'JPY', '10', '3', '76HM8MKKDYQUJ');
+INSERT INTO `pc_paypal_product` (`id`, `item_number`, `item_name`, `item_price`, `item_price_currency`, `discount_percentage`, `subscription_type_id`, `paypal_button_code`) VALUES ('26', '510', 'Plancake Premium One-Year Subscription (USD) - 10% discount', '26.91', 'USD', '10', '3', 'ZKS2FEDPDS9E6'), ('27', '610', 'Plancake Premium One-Year Subscription (GBP) - 10% discount', '17.91', 'GBP', '10', '3', 'YF6YBYBCHVNSQ');
+
+INSERT INTO `pc_promotion_code` (`id`, `code`, `discount_percentage`, `expiry_date`, `only_for_new_customers`, `uses_count`, `max_uses`, `note`, `created_at`) VALUES (NULL, 'PCAKE10', '10', '2013-01-03', '0', '0', '100', 'general code', '2012-01-28 00:00:00');
+
+UPDATE  `pc_string` SET  `max_length` =  '105' WHERE  `pc_string`.`id` =  'GENERAL_TWITTER_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake: Online Task Manager and GTD software - Makes your life and your work easier and better.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Plancake: personal organizer online e software per GTD - Rende la tua vita e lavoro più facile e migliore.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_COLLABORATORS_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_TEAM_COLLABORATORS_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Top contributors' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_TEAM_COLLABORATORS_HEADER';
+UPDATE  `pc_translation` SET  `string` =  'Collaboratori principali' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_TEAM_COLLABORATORS_HEADER';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

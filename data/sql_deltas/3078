@@ -1,0 +1,142 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake: a new Online Task Manager and GTD software - I really like it!.' WHERE  `pc_translation`.`language_id` = 'en' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Plancake: un novo personal organizer online e software per GTD - Mi piace proprio!' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_TESTIMONIAL3', '1', '840', '0', NULL, '0', '2012-01-28 00:00:00'), ('WEBSITE_HOMEPAGE_TESTIMONIAL3_AUTHOR_INFO', '1', '850', '0', NULL, '0', '2012-01-28 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL3_AUTHOR_INFO', 'Entrepreneur, UK', '2012-01-28 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL3_AUTHOR_INFO', 'Imprenditore, Regno Unito', '2012-01-28 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL3', 'Getting things done is a top priority for me. Plancake helps me achieve just this and serves as a good reminder for even the little tasks. The platform is simple, mobile and very easy to use. ', '2012-01-28 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL3', 'Essere efficace per me è fondamentale. Plancake mi aiuta in questo oltre a ricordarmi anche delle piccole cose. La piattaforma è semplice, mobile e molto facile da utilizzare.', '2012-01-28 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'You can
+quickly jot down tasks or ideas in your Inbox (e.g.: during a phone call or before leaving your house in a rush) and come back later to them to better organize them into your other lists or get them done straightaway. <br />
+Your Inbox is also used by some Plancake services to send you new tasks.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+UPDATE `pc_translation` SET `string` = 'Puoi inserire attività o idee velocemente nella tua Inbox (per esempio durante una telefonata o prima di uscire di case di fretta) e riguardarle in seguito per organizzarle meglio nelle altre liste o portarle a termine immediatamente. <br />
+La lista Inbox è usata anche da alcuni servizi di Plancake per "recapitare" nuove attività.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'ACCOUNT_MAIN_CONTENT_INBOX_HINT';
+
+
+UPDATE `pc_translation` SET `string` = '<p>
+You can use the Android built in voice recognition system to add tasks to your Plancake by voice. <br />
+Basically you can send an email to your Plancake email address by voice with Android and then Plancake will add the task to your Inbox list.
+</p>
+
+<p>
+In order to do that, you have to create a new contact using <em>Plan</em> as the first name and <em>Cake</em> as the last name.  <br />
+Then simply add your Plancake email address to the new contact. <br />
+Once that is added you can use the microphone icon on the Google Search bar widget to turn on voice commands.
+</p>
+
+<p>
+If you don''t have the Google Search widget installed, you can long hold on a blank spot on the screen and choose <em>Widgets</em> then
+<em>Google Search</em> to add the search bar to the home screen.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY1';
+
+UPDATE `pc_translation` SET `string` = '<p>
+Puoi usare il sistema di riconoscimento vocale di Android per aggiungere attività a Plancake vocalmente. <br />
+In poche parole, puoi mandare un''email al tuo indirizzo email di Plancake con la voce e, in seguito, Plancake aggiungerà l''attività alla tua lista Inbox.
+</p>
+
+<p>
+Per farlo, devi creare un nuovo contatto usando <em>Plan</em> come nome e <em>Cake</em> come cognome.  <br />
+Dopodichè aggiungi il tuo indirizzo email di Plancake al nuovo contatto. <br />
+Una volta che è stato aggiunto puoi usare l''icona del microfono sul widget della barra di Google Search per usare il comando vocale.
+</p>
+
+<p>
+Se non hai il widget di Google Search installato, puoi premere a lungo su una parte vuota dello schermo e scegliere <em>Widgets</em> e poi
+<em>Google Search</em> per aggiungere la barra di ricerca alla schermata iniziale.
+</p>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_ANDROID_APP_VOICE_BODY1';
+
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Send emails to Plancake' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Manda email a Plancake' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER';
+
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE';
+
+
+UPDATE  `pc_translation` SET  `string` =  'Send emails to Plancake' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE';
+
+UPDATE  `pc_translation` SET  `string` =  'Manda email a Plancake' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE';
+
+UPDATE `pc_translation` SET  `string` =  'Plancake Mobile works on any modern smartphone without the need to install anything from the app store. <br />
+It also works offline - all the benefits of an app without the space requirements!<br />
+Just go to www.plancake.com with your smartphone web browser. Easy!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MOBILE_VERSION_BODY';
+
+UPDATE  `pc_translation` SET  `string` = 'We have an advanced system where users can contribute to translating the website. Thanks to this we have numerous translations!' WHERE  `pc_translation`.`language_id` = 'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_TRANSLATIONS_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'Do you remember all those times when you sent yourself an email to remember something? Plancake makes things easier: you can send the email directly to your Plancake account so that you can complete or organise the task once you log in.<br />
+On smartphones you can even send an email via voice command (e.g.: Siri)!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+UPDATE `pc_translation` SET `string` = 'Ti ricordi quelle volte quando ti sei inviato una email per non dimenticarti di qualcosa? Plancake ti facilita: puoi inviare l''email al tuo account Plancake così che puoi completare o organizzare l''attività una volta loggato. <br />
+Sugli smartphone puoi mandare email addirittura solo a voce (es. Siri)!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY';
+
+
+UPDATE  `pc_translation` SET  `string` =  'Online GTD Software and Task Manager<br />Makes your life and your work easier and better' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Software GTD e Personal Organizer Online <br />Rende la tua vita e il tuo lavoro più semplice e migliore' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Get more organised - manage all your todos, ideas and appointments with lists in a quick and easy way.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP1_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Diventa più organizzato - gestisci i tuoi impegni, idee e appuntamenti con liste in modo veloce e semplice.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP1_BODY';
+
+UPDATE  `pc_translation` SET  `string` = 'Have all your lists with you on the go and when you don''t have Internet access - no need to install any extra software.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP2_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Accedi alle tue liste in giro o quando non c''è Internet - non hai bisogno di installare alcun software aggiuntivo.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP2_BODY';
+
+UPDATE  `pc_translation` SET  `string` = 'Be more successful by having everything under control, make better choices, focus your energy and have more time for Life!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+UPDATE  `pc_translation` SET  `string` = 'Ottieni migliori risultati con l''avere tutto sotto controllo, fai scelte migliori, focalizza le energie e crea più tempo per te!' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+
+
+UPDATE `pc_translation` SET `string` = 'If you wish, you can use Plancake as a GTD software in order to achieve a stress-free productive life.<br />
+Dump what is on your mind to your Inbox, filter lists by tags (contexts), light up stars to mark next actions and get stuff done!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+
+UPDATE `pc_translation` SET `string` = 'Se vuoi, puoi utilizzare Plancake come software GTD per raggiungere una vita più rilassata e produttiva.
+<br />
+Butta giù le tue idee nella Inbox e organizzale in seguito, filtra le liste con le etichette (tag), evidenzia con stelline le prossime attività e completale!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+
+
+UPDATE `pc_translation` SET `string` = '<li>our users are extremely happy with our customer service</li>
+<li>Plancake is Open Source - therefore you are not locked-in</li>
+<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>
+<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>
+<li>you can''t easily find some of our recurrent task options anywhere else</li>
+<li>we are very passionate about time management and personal development: which is why we publish inspirational articles on our blog and we are writing a book on those topics</li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+
+UPDATE `pc_translation` SET `string` = '<li>i nostri utenti sono estremamente soddisfatti del supporto clienti</li>
+<li>Plancake è Open Source - quindi non sarai "ingabbiato"</li>        
+<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>
+<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>
+<li>non riuscirai a trovare alcune delle opzioni per attività ricorrenti da altre parti</li>
+<li>siamo veramente appassionati di gestione del tempo e sviluppo personale: ecco perché pubblichiamo articoli di ispirazione nel nostro blog e stiamo scrivendo un libro su quegli argomenti</li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+UPDATE `pc_translation` SET  `string` =  'GTD Software Online, Task Manager, Todo and Calendar' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+UPDATE `pc_translation` SET  `string` =  'GTD software online, personal organizer e Calendario' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+UPDATE `pc_string` SET  `note` =  'Very important for Google. Important conceptsç GTD, online, task manager and calendar' WHERE  `pc_string`.`id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+UPDATE  `pc_translation` SET  `string` = 'GTD and Todo List for your ideas, appointments and commitments. Syncs on PC, Mac, Linux, iPad, iPhone, Android, Blackberry, Symbian and more.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+
+UPDATE `pc_translation` SET  `string` = 'GTD e Personal Organiser per le tue idee, appuntamenti e cose da fare. Si sincronizza su PC, Mac, Linux, iPad, iPhone, Android, Blackberry e altri.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+
+UPDATE `pc_translation` SET  `string` =  'the basic edition is free!' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_ITS_FREE';
+UPDATE `pc_translation` SET  `string` =  'l''edizione basic è gratuita!' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_ITS_FREE';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

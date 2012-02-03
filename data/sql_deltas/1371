@@ -1,0 +1,32 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_google_calendar_session_token`;
+
+CREATE TABLE IF NOT EXISTS `pc_google_calendar` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `calendar_id` varchar(255) DEFAULT '',
+  `session_token` varchar(64) NOT NULL DEFAULT '',
+  `is_active` tinyint(1) DEFAULT '0',
+  `last_sync` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_google_calendar_integration_FI_1` (`user_id`)
+) ENGINE=InnoDB;
+
+ALTER TABLE `pc_google_calendar_integration`
+  ADD CONSTRAINT `pc_google_calendar_integration_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

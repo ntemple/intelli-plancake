@@ -1,0 +1,30 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_SECONDARY_COPY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_SECONDARY_COPY';
+
+UPDATE `pc_translation` SET `string` = 'Free | Online | Calendar | Todo List | Supports GTD | For iPhone, iPad, Android, Blackberry, Symbian and Windows Mobile' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_SECONDARY_COPY';
+UPDATE `pc_translation` SET `string` = 'Gratis | Online | Calendario | Gestore attività | Supporta GTD | Per iPhone, iPad Android, Blackberry, Symbian' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_SECONDARY_COPY';
+
+UPDATE `pc_string` SET `max_length` = '55', `note` = 'This will be used as title of the page. Very important for Google. Don''t forget to mention ''free''' WHERE `pc_string`.`id` = 'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+UPDATE  `pc_translation` SET  `string` =  'Free Online To-do list, Organiser, Calendar and GTD' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+UPDATE  `pc_translation` SET  `string` =  'Calendario, Organiser, Agenda e GTD - Online e Gratis' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_GENERAL_PRODUCT_SHORT_DESCRIPTION';
+
+UPDATE `pc_string` SET  `max_length` =  '160', `note` =  'This is used in many places including the results on Google. Very important for Google. Don''t forget to mention ''free''' WHERE  `pc_string`.`id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+
+UPDATE `pc_string` SET `note` = 'This is used in many places including the results on Google. Very important for Google. If not enough space, forget Symbian.' WHERE `pc_string`.`id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+UPDATE `pc_translation` SET `string` = 'Manage your ideas, appointments, todos, commitments even without Internet connection. Syncs on PC, iPad, iPhone, Android, Blackberry, Symbian and more.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+UPDATE `pc_translation` SET `string` = 'Gestisci le tue idee, appuntamenti e cose da fare anche senza connessione Internet. Si sincronizza su PC, iPad, iPhone, Android, Blackberry e altri.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_GENERAL_PRODUCT_LONG_DESCRIPTION';
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

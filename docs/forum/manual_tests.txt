@@ -1,0 +1,17 @@
+=Forum Integration=
+130) Sign up on Plancake. After the activation you should be redirected to your account
+131) You are logged in on PlanCake and you haven't got a username set yet.
+     Trying to browse the forum, you should be redirected on the ChooseUsername form.
+     Once you choose your username, you will be redirected to the correct page on the forum.
+     _ check on the forum you are logged with the correct username
+     _ try to post something
+     _ when you see the page of your post, you should appear online
+132) You are logged out. You try to post on the forum. You will be redirected to the Plancake login form.
+     Once logged in you should be redirected back to the post page 
+135) Check you can't use a duplicate username
+136) Check the integration of the login with rememberme enable
+137) Check the integration of the login with rememberme disable
+138) Check the integration of the logout
+139) Check the integration of resetting the password (password forgotten, too)
+140) Account -> settings -> change email
+141) Account -> settings -> change password

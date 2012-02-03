@@ -1,0 +1,17 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_google_calendar_event` ADD `updated_at` datetime DEFAULT NULL AFTER `event_id`;
+ALTER TABLE `pc_google_calendar_event` ADD `created_at` datetime DEFAULT NULL AFTER `updated_at`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

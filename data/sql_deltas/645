@@ -1,0 +1,194 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP INDEX `pc_user_U_2` ON `pc_user`;
+ALTER TABLE `pc_user` DROP `api_key`;
+
+ALTER TABLE `pc_list` ADD `updated_at` DATETIME AFTER `max_tasks_sort_order`;
+
+ALTER TABLE `pc_task` ADD `updated_at` DATETIME AFTER `completed_at`;
+
+ALTER TABLE `pc_users_contexts` ADD `updated_at` DATETIME AFTER `context`;
+ALTER TABLE `pc_users_contexts` ADD `created_at` DATETIME AFTER `updated_at`;
+
+ALTER TABLE `pc_repetition` ADD `updated_at` DATETIME AFTER `has_divider_below`;
+ALTER TABLE `pc_repetition` ADD `created_at` DATETIME AFTER `updated_at`;
+
+#-----------------------------------------------------------------------------
+#-- pc_api_app
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_api_app`;
+
+
+CREATE TABLE `pc_api_app`
+(
+	`id` SMALLINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(64)  NOT NULL,
+	`api_key` VARCHAR(40)  NOT NULL,
+	`api_secret` VARCHAR(16)  NOT NULL,
+	`user_id` INTEGER UNSIGNED,
+	`is_limited` TINYINT(1) default 0,
+	`description` TEXT  NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_api_app_U_1` (`api_key`),
+	KEY `pc_api_app_I_1`(`api_key`),
+	INDEX `pc_api_app_FI_1` (`user_id`),
+	CONSTRAINT `pc_api_app_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_api_app_stats
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_api_app_stats`;
+
+
+CREATE TABLE `pc_api_app_stats`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`api_app_id` SMALLINT UNSIGNED,
+	`number_of_requests` INTEGER UNSIGNED default 0,
+	`bandwidth` INTEGER UNSIGNED default 0 COMMENT 'download bw, in bytes',
+	`today` VARCHAR(10),
+	`number_of_requests_today` MEDIUMINT UNSIGNED default 0,
+	`bandwidth_today` MEDIUMINT UNSIGNED default 0 COMMENT 'download bw, in bytes',
+	`last_hour` INTEGER(2),
+	`number_of_requests_last_hour` SMALLINT UNSIGNED default 0,
+	`bandwidth_last_hour` MEDIUMINT UNSIGNED default 0 COMMENT 'download bw, in bytes',
+	PRIMARY KEY (`id`),
+	KEY `pc_api_app_stats_I_1`(`api_app_id`),
+	CONSTRAINT `pc_api_app_stats_FK_1`
+		FOREIGN KEY (`api_app_id`)
+		REFERENCES `pc_api_app` (`id`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_api_token
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_api_token`;
+
+
+CREATE TABLE `pc_api_token`
+(
+	`token` VARCHAR(40)  NOT NULL,
+	`api_app_id` SMALLINT UNSIGNED  NOT NULL,
+	`user_id` INTEGER UNSIGNED,
+	`expiry_timestamp` INTEGER(11),
+	PRIMARY KEY (`token`),
+	INDEX `pc_api_token_FI_1` (`api_app_id`),
+	CONSTRAINT `pc_api_token_FK_1`
+		FOREIGN KEY (`api_app_id`)
+		REFERENCES `pc_api_app` (`id`),
+	INDEX `pc_api_token_FI_2` (`user_id`),
+	CONSTRAINT `pc_api_token_FK_2`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_trashbin_users_contexts
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_trashbin_users_contexts`;
+
+
+CREATE TABLE `pc_trashbin_users_contexts`
+(
+	`id` INTEGER UNSIGNED  NOT NULL,
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`context` VARCHAR(31)  NOT NULL,
+	`updated_at` DATETIME,
+	`created_at` DATETIME,
+	`deleted_at` INTEGER(11),
+	PRIMARY KEY (`id`),
+	KEY `pc_trashbin_users_contexts_I_1`(`deleted_at`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_trashbin_list
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_trashbin_list`;
+
+
+CREATE TABLE `pc_trashbin_list`
+(
+	`id` INTEGER UNSIGNED  NOT NULL,
+	`creator_id` INTEGER UNSIGNED  NOT NULL,
+	`title` VARCHAR(255)  NOT NULL,
+	`sort_order` SMALLINT UNSIGNED default 0,
+	`is_header` TINYINT(1) default 0,
+	`is_inbox` TINYINT(1) default 0 NOT NULL,
+	`is_todo` TINYINT(1) default 0 NOT NULL,
+	`max_tasks_sort_order` SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all its tasks',
+	`updated_at` DATETIME,
+	`created_at` DATETIME,
+	`deleted_at` INTEGER(11),
+	PRIMARY KEY (`id`),
+	KEY `pc_trashbin_list_I_1`(`deleted_at`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_trashbin_task
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_trashbin_task`;
+
+
+CREATE TABLE `pc_trashbin_task`
+(
+	`id` INTEGER UNSIGNED  NOT NULL,
+	`list_id` INTEGER UNSIGNED  NOT NULL,
+	`description` VARCHAR(255)  NOT NULL,
+	`sort_order` SMALLINT UNSIGNED default 0,
+	`due_date` DATE,
+	`repetition_id` TINYINT UNSIGNED,
+	`repetition_param` TINYINT UNSIGNED default 0,
+	`is_completed` TINYINT(1) default 0 NOT NULL,
+	`is_header` TINYINT(1) default 0,
+	`is_from_system` TINYINT(1) default 0,
+	`note` TEXT default '',
+	`contexts` VARCHAR(31) default '' COMMENT 'it is a comma separated list',
+	`completed_at` DATETIME,
+	`updated_at` DATETIME,
+	`created_at` DATETIME,
+	`deleted_at` INTEGER(11),
+	PRIMARY KEY (`id`),
+	KEY `pc_trashbin_task_I_1`(`deleted_at`)
+)Engine=InnoDB;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `api_key` varchar(32) AFTER `dst_active`;
+ALTER TABLE `pc_user` ADD INDEX `pc_user_U_2` (api_key);
+
+ALTER TABLE `pc_list` DROP `updated_at`;
+
+ALTER TABLE `pc_task` DROP `updated_at`;
+
+ALTER TABLE `pc_users_contexts` DROP `updated_at`;
+ALTER TABLE `pc_users_contexts` DROP `created_at`;
+
+ALTER TABLE `pc_repetition` DROP `updated_at`;
+ALTER TABLE `pc_repetition` DROP `created_at`;
+
+DROP TABLE IF EXISTS `pc_api_app`;
+DROP TABLE IF EXISTS `pc_api_app_stats`;
+DROP TABLE IF EXISTS `pc_api_token`;
+
+DROP TABLE IF EXISTS `pc_trashbin_users_contexts`;
+DROP TABLE IF EXISTS `pc_trashbin_list`;
+DROP TABLE IF EXISTS `pc_trashbin_task`;
+
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,91 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Hi. Questions? Feedback? Tell Dan - We would love to hear from you.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_FEEDBACK_BOX_MSG';
+
+UPDATE  `pc_translation` SET  `string` =  'Domande o idee? Parlane con Andrea - Ci farebbe piacere se ci dici la tua.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_FEEDBACK_BOX_MSG';
+
+UPDATE  `pc_string` SET  `note` =  'Please don''t translate ''we would love'' literally. If you don''t have space, you can take out ''Hi''' WHERE  `pc_string`.`id` = 'ACCOUNT_FEEDBACK_BOX_MSG';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_FEEDBACK_BOX_ERROR_MSG', '105', '40', '0', NULL, '0', '2011-09-26 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_FEEDBACK_BOX_ERROR_MSG', 'Please, type a message before sending.', '2011-09-26 00:00:00'), ('it', 'ACCOUNT_FEEDBACK_BOX_ERROR_MSG', 'Perpiacere scrivi un messaggio prima di inviare.', '2011-09-26 00:00:00');
+
+UPDATE `pc_translation` SET  `string` =  'Welcome to Plancake! Check the box on the left to mark me as done.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_WELCOME_TASK';
+
+UPDATE `pc_translation` SET  `string` =  'Benvenuto su Plancake! Marcami come attività completata cliccando sulla casella a sinistra.' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_WELCOME_TASK';
+
+UPDATE  `pc_translation` SET  `string` =  'Features & Services' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SERVICES';
+
+UPDATE  `pc_translation` SET  `string` =  'Funzionalità e Servizi' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_HEADER_SERVICES';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'jp' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+
+UPDATE `pc_translation` SET  `string` =  'Features & Services' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+
+UPDATE `pc_translation` SET  `string` =  'Funzionalità e Servizi' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_MAIN_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'You don''t have any notes yet. <a href="%s">Create your first one</a>.' WHERE  `pc_translation`.`language_id` = 'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_NOTES_NO_NOTES_YET';
+
+UPDATE  `pc_translation` SET  `string` =  'Non hai ancora nessuna nota. <a href="%s">Crea la tua prima nota</a>.' WHERE  `pc_translation`.`language_id` = 'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_NOTES_NO_NOTES_YET';
+
+UPDATE  `pc_translation` SET  `string` =  'Date format' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_DATE_FORMAT';
+UPDATE  `pc_translation` SET  `string` =  'Formato della data' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_DATE_FORMAT';
+
+UPDATE  `pc_translation` SET  `string` =  'Time format' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_TIME_FORMAT';
+UPDATE  `pc_translation` SET  `string` =  'Formato dell''ora' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_TIME_FORMAT';
+
+UPDATE  `pc_translation` SET  `string` =  'Timezone' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_TIMEZONE';
+UPDATE  `pc_translation` SET  `string` =  'Fuso orario' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_TIMEZONE';
+
+UPDATE  `pc_translation` SET  `string` =  'First day of the week' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHOOSE_FIRST_DOW';
+UPDATE  `pc_translation` SET  `string` =  'Primo giorno della settimana' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHOOSE_FIRST_DOW';
+
+UPDATE  `pc_translation` SET  `string` =  'Language' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_LANG';
+UPDATE  `pc_translation` SET  `string` =  'Lingua' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_LANG';
+
+UPDATE  `pc_translation` SET  `string` =  'Avatar' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SETTINGS_MANAGE_AVATAR';
+UPDATE  `pc_translation` SET  `string` =  'Avatar' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_MANAGE_AVATAR';
+
+UPDATE  `pc_translation` SET  `string` =  'Password' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_PASSWORD';
+UPDATE  `pc_translation` SET  `string` =  'Password' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_PASSWORD';
+
+UPDATE  `pc_translation` SET  `string` =  'Email address' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_EMAIL';
+UPDATE  `pc_translation` SET  `string` =  'Email di registrazione' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_CHANGE_EMAIL';
+
+UPDATE  `pc_translation` SET  `string` =  'Google Calendar Integration' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_MANAGE_GCAL';
+UPDATE  `pc_translation` SET  `string` =  'Integrazione con Google Calendar' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SETTINGS_MANAGE_GCAL';
+
+UPDATE  `pc_translation` SET  `string` =  'The image will be resized to %sx%s  pixels, it would be better if you can upload a square image.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_SETTINGS_AVATAR_INSTRUCTIONS';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HEADER_CONTACT_US', '103', '130', '0', NULL, '0', '2011-09-27 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HEADER_CONTACT_US', 'Contact us', '2011-09-27 00:00:00'), ('it', 'ACCOUNT_HEADER_CONTACT_US', 'Contattaci', '2011-09-27 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'You can''t edit the Inbox list.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_EDIT_SYSTEM_LIST';
+UPDATE  `pc_translation` SET  `string` =  'Non puoi modificare la lista Inbox.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_EDIT_SYSTEM_LIST';
+
+UPDATE  `pc_translation` SET  `string` =  'read more',
+`updated_at` =  '2011-09-27 00:00:00' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG';
+
+UPDATE  `pc_translation` SET  `string` =  'continua a leggere',
+`updated_at` =  '2011-09-27 00:00:00' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG';
+
+ALTER TABLE `pc_hideable_hints_setting` ADD `quote` tinyint(1) NOT NULL DEFAULT '0' AFTER `completed`;
+
+ALTER TABLE `pc_breaking_news` ADD `link` varchar(256) DEFAULT NULL AFTER `headline`;
+
+ALTER TABLE `pc_breaking_news` CHANGE `headline` `headline` varchar(256) NOT NULL;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_HIDE_QUOTE', '118', '530', '0', NULL, '0', '2011-09-27 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_HIDE_QUOTE', 'stop showing the quote of the day', '2011-09-27 00:00:00'), ('it', 'ACCOUNT_MISC_HIDE_QUOTE', 'non mostrare più la citazione del giorno', '2011-09-27 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

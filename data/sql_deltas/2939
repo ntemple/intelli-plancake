@@ -1,0 +1,212 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET  `string` =  'Mobile application - for Android, iPhone, Blackberry, Symbian and other platforms' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+UPDATE `pc_translation` SET  `string` =  'Applicazione Mobile - per Android, iPhone, Blackberry, Symbian e altre piattaforme' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_MOBILE_VERSION_TITLE';
+
+INSERT INTO `pc_string_category` (`id`, `name`, `note`, `link`, `in_account`, `in_misc`, `sort_order`, `created_at`) VALUES (122, 'Website Services - Smartphone app', NULL, 'http://www.plancake.com/services/smartphone-application', '0', '0', '100', '2012-01-03 00:00:00'), (123, 'Website Services - Offline use', NULL, 'http://www.plancake.com/services/offline-use', '0', '0', '110', '2012-01-03 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_SMARTPHONE_APP_HEADER1', '122', '10', '0', NULL, '0', '2012-01-03 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_BODY1', '122', '20', '0', NULL, '0', '2012-01-03 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_HEADER2', '122', '30', '0', NULL, '0', '2012-01-03 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_BODY2', '122', '40', '0', NULL, '0', '2012-01-03 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_HEADER3', '122', '50', '0', NULL, '0', '2012-01-03 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_BODY3', '122', '60', '0', NULL, '0', '2012-01-03 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_HEADER1', 'Background', '2012-01-03 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY1', '  <p>
+      With Plancake Mobile we decided to go for an innovative route (by using HTML5) rather than building a native application for each smartphone operative system. <br />
+      That way we can make improvements more quickly as we need to maintain only one codebase, as opposed to 4 or 5 of them.
+  </p>
+  
+  <p>
+      What does that mean to you?
+      <ul>
+          <li>you can use Plancake Mobile whatever smartphone you decide to buy</li>
+          <li>you can use Plancake Mobile even without an Internet connection and have a nice shortcut on your home screen, as with any native app</li>
+          <li>you don''t need to install anything from the app store - you just need to visit www.plancake.com with your smartphone</li>
+          <li>your Plancake Mobile receives updates and bug fixes automatically</li>
+      </ul>
+  </p>', '2012-01-03 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_HEADER2', 'Supported devices', '2012-01-03 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2', '  <p>
+      Plancake Mobile works on any smartphone with a web browser supporting basic functionalities of HTML5 - nowadays all smartphones should do. <br />
+      When you login to Plancake Mobile the first time, the app will tell you whether there are some features missing - you don''t need to check yourself.
+  </p>
+  
+  <p>
+      iPhone users and Android users (from 2.0 upwards) should be supported straightaway.
+  </p>
+  <p>
+      Older versions of Android and maybe also users of Symbyan, Blackberry and other platforms may need to install Opera Mobile (great mobile browser!) 
+      on their smartphone and access Plancake from there. Installing Opera Mobile is very easy - just check your app store.
+  </p>', '2012-01-03 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_HEADER3', 'How to use Plancake Mobile', '2012-01-03 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3', '  <p>
+  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!
+  </p>
+  
+  <p>
+      Once you are logged in, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+      Please, check the browser menu to see how to create such a shortcut (probably you will need to create a Bookmark first).
+  </p>
+  
+  <p>
+      The first time you log in, all the data of your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
+      without an Internet connection available. <br />
+      Every time you make a change, the modification will not be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />
+  </p>
+
+  <p>
+      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at
+      the bottom of the screen (you need an Internet connection only to do that).
+  </p>', '2012-01-03 00:00:00');
+
+
+UPDATE `pc_translation` SET `string` = '  <p>
+      With Plancake Mobile we decided to go for an innovative route (by using HTML5) rather than building a native application for each smartphone operative system. <br />
+      That way we can make improvements more quickly as we need to maintain only one codebase, as opposed to 4 or 5 of them.
+  </p>
+  
+  <p>
+      What does that mean to you?
+      <ul>
+          <li>you can use Plancake Mobile even without an Internet connection and have a nice shortcut on your home screen, as with any native app (on many smartphones)</li>
+          <li>you don''t need to install anything from the app store - you just need to visit www.plancake.com with your smartphone</li>
+          <li>your Plancake Mobile receives updates and bug fixes automatically</li>
+      </ul>
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY1';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+      Plancake Mobile works on any smartphone with a web browser supporting basic functionalities of HTML5 - nowadays most smartphones should do. <br />
+      When you login to Plancake Mobile the first time, the app will tell you whether there are some features missing - you don''t need to check yourself.
+  </p>
+  
+  <p>
+      iPhone users and Android users (from 2.0 upwards) should be supported straightaway.
+  </p>
+  <p>
+      Older versions of Android and maybe also users of Symbyan, Blackberry and other platforms may need to install Opera Mobile (great mobile browser!) 
+      on their smartphone and access Plancake from there. Installing Opera Mobile is very easy - just check your app store.
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!
+  </p>
+  
+  <p>
+      Once you are logged in, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+      Please, check the browser menu to see how to create such a shortcut (probably you will need to create a Bookmark first).
+  </p>
+  
+  <p>
+      The first time you log in, all the data of your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
+      without an Internet connection available.
+</p>
+
+<p>
+      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />
+  </p>
+
+  <p>
+      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at
+      the bottom of the screen (you need an Internet connection only to do that).
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!
+  </p>
+  
+  <p>
+      Once you are logged in, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+      Please, check the browser menu to see how to create such a shortcut (probably you will need to create a Bookmark first).
+  </p>
+  
+  <p>
+      The first time you log in, all the data of your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
+      without an Internet connection available.
+</p>
+
+<p>
+      Every time you make a change, the modification will <b>NOT</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />
+  </p>
+
+  <p>
+      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at
+      the bottom of the screen (you need an Internet connection only to do that).
+  </p>
+
+<p><b>If you experience strange problems, clearing the cache of your browser may solve the issue.</b></p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!
+  </p>
+  
+  <p>
+      Once you are logged in, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+      Please, check the browser menu to see how to create such a shortcut (probably you will need to create a Bookmark first).
+  </p>
+  
+  <p>
+      The first time you log in, all the data of your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
+      without an Internet connection available.
+</p>
+
+<p>
+      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />
+  </p>
+
+  <p>
+      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at
+      the bottom of the screen (you need an Internet connection only to do that).
+  </p>
+
+<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_OFFLINE_USE_BODY1', '123', '10', '0', NULL, '0', '2012-01-05 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_OFFLINE_USE_BODY1', '<p>
+    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />
+    That''s simply because you can use the mobile/smartphone application also with your desktop/laptop.
+</p>
+
+<p>
+    Please bear in mind we have tested the offline application successfully on Google Chrome - some other browsers may not be supporting
+    the new technologies we are leveraging yet.
+</p>
+
+<p>
+    To use the offline application you just need to append <em>/mobile</em> to the address of your account.
+</p>
+
+<p>
+    Your account URL: <br>
+    <em>http://www.plancake,com/account.php</em>
+</p>
+
+<p>
+    Offline application URL:<br />
+    <em>http://www.plancake,com/account.php<b>/mobile</b></em>    
+</p>
+
+<p>
+    The first time you reach the offline application (and after every time you clear your browser cache), your data
+    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />
+    <b>If you''re using a public or shared computer, don''t allow offline use.</b>    
+</p>  
+
+<p>
+Every time you make a change, the modification will <b>NOT</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. 
+</p>
+    
+<p>
+Once you are ready to synchronise the data between your computer and the Plancake servers (and the other way around, too), click the ''Sync'' button at the bottom of the screen (you need an Internet connection only to do that).
+</p>
+
+<p>
+    If you are a Plancake user and you are logged in, you can activate it now from here: <br />
+    <a href="%s">%s</a>
+</p>
+
+<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>
+', '2012-01-05 00:00:00');
+
+UPDATE `pc_user` SET `just_activated`=1;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,238 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: homepage, action: index }
+
+login:
+  url:   /login
+  param: { module: customAuth, action: login }
+
+openIdWrongLogin:
+  url:   /openIdWrongLogin
+  param: { module: customAuth, action: openIdWrongLogin }
+
+openIdAccountAlreadyExists:
+  url:   /openIdAccountAlreadyExists
+  param: { module: registration, action: openIdAccountAlreadyExists }
+
+logout:
+  url:   /logout
+  param: { module: customAuth, action: logout }
+
+forgotten-password:
+  url:   /forgotten-password
+  param: { module: customAuth, action: forgottenPassword }
+
+password-reset:
+  url:   /password-reset/:t
+  param: { module: customAuth, action: passwordReset }
+
+chooseUsername:
+  url:   /chooseUsername
+  param: { module: chooseUsername, action: index }
+
+registration:
+  url:   /registration
+  param: { module: registration, action: register }
+
+activation:
+  url:   /activation/:t
+  param: { module: registration, action: activation }
+
+services:
+  url:   /services
+  param: { module: about, action: index }
+
+services_android_app:
+  url:   /services/android-application
+  param: { module: about, action: androidApp }
+
+services_smartphone_app:
+  url:   /services/smartphone-application
+  param: { module: about, action: smartphoneApp }
+
+services_offline_use:
+  url:   /services/offline-use
+  param: { module: about, action: offlineUse }
+
+services_email_to_inbox:
+  url:   /services/email-to-inbox
+  param: { module: about, action: emailToInbox }
+
+services_google_calendar_integration:
+  url:   /services/google-calendar-integration
+  param: { module: about, action: googleCalendarIntegration }
+
+api_documentation:
+  url:   /api-documentation
+  param: { module: apiDocumentation, action: index }
+
+contact:
+  url:   /contact
+  param: { module: contact, action: index }
+
+contact_re:
+  url:   /contact/:re
+  param: { module: contact, action: index }
+
+learn:
+  url:   /learn
+  param: { module: learn, action: index }
+
+roadmap:
+  url:   /roadmap
+  param: { module: roadmap, action: index }
+
+contribute:
+  url:   /contribute
+  param: { module: contribute, action: index }
+
+updates:
+  url: /updates
+  param: { module: updates, action: index }
+  
+developers:
+  url: /developers
+  param: { module: development, action: index }  
+
+press:
+  url: /press
+  param: { module: press, action: index }
+
+team:
+  url: /team
+  param: { module: team, action: index }
+
+jobs:
+  url: /jobs
+  param: { module: jobs, action: index }
+
+job1:
+  url: /jobs/marketing-and-business-assistant
+  param: { module: jobs, action: position1 }
+
+job2:
+  url: /jobs/web-developer-and-system-administrator
+  param: { module: jobs, action: position2 }
+
+job3:
+  url: /jobs/mobile-developer
+  param: { module: jobs, action: position3 }
+
+job4:
+  url: /jobs/graphic-designer
+  param: { module: jobs, action: position4 }
+  
+updates_version:
+  url: /updates/:version
+  param: { module: updates, action: index }
+
+blog_index:
+  url: /blog
+  param: { module: blog, action: index }
+
+# this rule is for backwards compatibility
+blog_post:
+  url: /blog/:slug
+  class:   sfPropelRoute
+  options: { model: PcBlogPost, type: object }
+  param: { module: blog, action: showPost }
+
+blog_post_with_timestamp:
+  url: /blog/:year/:month/:day/:slug
+  class:   sfPropelRoute
+  options: { model: PcBlogPost, type: object }
+  param: { module: blog, action: showPost }
+  requirements: { year: \d\d\d\d }
+
+blog_category:
+  url: /blog/category/:slug
+  class:   sfPropelRoute
+  options: { model: PcBlogCategory, type: object }
+  param: { module: blog, action: category }
+
+blog_rss:
+  url: /blog/feed/rss
+  param: { module: blog, action: rss }
+
+blog_rss_category:
+  url: /blog/feed/rss/category/:slug
+  class:   sfPropelRoute
+  options: { model: PcBlogCategory, type: object }
+  param: { module: blog, action: rssCategory }
+
+open_source:
+  url:   /open-source
+  param: { module: openSource, action: index }
+
+plans_and_prices:
+  url:   /plans
+  param: { module: plans, action: index }
+
+###### localized routes ######
+localized_services:
+  url:   /:sf_culture/services
+  param: { module: about, action: index }
+
+localized_services_android_app:
+  url:   /:sf_culture/services/android-application
+  param: { module: about, action: androidApp }
+
+localized_services_smartphone_app:
+  url:   /:sf_culture/services/smartphone-application
+  param: { module: about, action: smartphoneApp }
+
+localized_services_offline_use:
+  url:   /:sf_culture/services/offline-use
+  param: { module: about, action: offlineUse }
+
+localized_services_email_to_inbox:
+  url:   /:sf_culture/services/email-to-inbox
+  param: { module: about, action: emailToInbox }
+
+localized_services_google_calendar_integration:
+  url:   /:sf_culture/services/google-calendar-integration
+  param: { module: about, action: googleCalendarIntegration }
+
+localized_press:
+  url: /:sf_culture/press
+  param: { module: press, action: index }
+
+localized_team:
+  url: /:sf_culture/team
+  param: { module: team, action: index }
+
+localized_homepage:
+  url:   /:sf_culture/
+  param: { module: homepage, action: index }
+
+localized_login:
+  url:   /:sf_culture/login
+  param: { module: customAuth, action: login }
+
+localized_registration:
+  url:   /:sf_culture/registration
+  param: { module: registration, action: register }
+
+localized_contact:
+  url:   /:sf_culture/contact
+  param: { module: contact, action: index }
+
+localized_open_source:
+  url:   /:sf_culture/open-source
+  param: { module: openSource, action: index }
+
+localized_plans_and_prices:
+  url:   /:sf_culture/plans
+  param: { module: plans, action: index }
+
+localized_contribute:
+  url:   /:sf_culture/contribute
+  param: { module: contribute, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

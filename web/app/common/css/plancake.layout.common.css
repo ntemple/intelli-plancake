@@ -1,0 +1,19 @@
+.allowanceAlert {
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f00;
+    color: #fff;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.allowanceAlert a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.allowanceAlert a:hover {
+    color: #ccc;
+}

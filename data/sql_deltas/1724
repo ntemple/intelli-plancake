@@ -1,0 +1,40 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE  `pc_blog_post` DROP  `forumUrl`;
+
+CREATE TABLE IF NOT EXISTS `pc_blog_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `content` text,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pc_blog_comment_FI_1` (`post_id`),
+  KEY `pc_blog_comment_FI_2` (`user_id`)
+) ENGINE=InnoDB;
+
+ALTER TABLE `pc_blog_comment`
+  ADD CONSTRAINT `pc_blog_comment_FK_1` FOREIGN KEY (`post_id`) REFERENCES `pc_blog_post` (`id`),
+  ADD CONSTRAINT `pc_blog_comment_FK_2` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('GENERAL_MY_ACCOUNT', '2', '1100', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'GENERAL_MY_ACCOUNT', 'My account', NULL), ('it', 'GENERAL_MY_ACCOUNT', 'Il mio account', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('GENERAL_SEND', '2', '1110', '12', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'GENERAL_SEND', 'Send', NULL), ('it', 'GENERAL_SEND', 'Invia', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

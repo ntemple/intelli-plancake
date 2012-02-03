@@ -1,0 +1,588 @@
+
+Starting parsing input 1
+
+
+Creating table --pc_user--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --username-- (--VARCHAR(25)  NOT NULL--)
+Adding field --email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --encrypted_password-- (--VARCHAR(40)  NOT NULL--)
+Adding field --salt-- (--VARCHAR(12)  NOT NULL COMMENT 'for strengthening of password'--)
+Adding field --date_format-- (--TINYINT(2) UNSIGNED default 0 COMMENT '0->Y-m-d, 3->d-m-Y, 4->m-d-Y'--)
+Adding field --timezone_id-- (--TINYINT UNSIGNED--)
+Adding field --dst_active-- (--TINYINT(1) default 0--)
+Adding field --api_key-- (--VARCHAR(32)--)
+Adding field --rememberme_key-- (--VARCHAR(32)--)
+Adding field --awaiting_activation-- (--TINYINT(1) default 1--)
+Adding field --newsletter-- (--TINYINT(1) default 0--)
+Adding field --forum_id-- (--INTEGER UNSIGNED COMMENT 'it\'s the corresponding id in the forum_users table'--)
+Adding field --last_login-- (--DATETIME--)
+Adding field --language-- (--VARCHAR(8) default '' COMMENT 'comes from the user agent accept language'--)
+Adding field --ip_address-- (--VARCHAR(15) default ''--)
+Adding field --max_lists_sort_order-- (--SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all his/her lists'--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding unique key --pc_user_U_1-- whose content is --`email`--
+Adding unique key --pc_user_U_2-- whose content is --`API_key`--
+Adding unique key --pc_user_U_3-- whose content is --`rememberme_key`--
+Adding key --pc_user_I_1-- whose content is --`forum_id`--
+Adding index --pc_user_FI_1-- whose content is --`timezone_id`--
+Adding constraint --pc_user_FK_1-- whose foreign key is --timezone_id--
+                  and referenced table is --pc_timezone--
+                  and referenced field is --id--
+                  and content is --`pc_user_FK_1` FOREIGN KEY (`timezone_id`) REFERENCES `pc_timezone` (`id`) ON UPDATE CASCADE ON DELETE CASCADE--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_failed_logins--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --times-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --updated_at-- (--DATETIME--)
+Adding primary key --`user_id`--
+Adding constraint --pc_failed_logins_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_failed_logins_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_activation_token--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --token-- (--VARCHAR(16)  NOT NULL--)
+Adding primary key --`user_id`--
+Adding unique key --pc_activation_token_U_1-- whose content is --`token`--
+Adding constraint --pc_activation_token_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_activation_token_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_counter--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --name-- (--VARCHAR(31)--)
+Adding field --value-- (--INTEGER UNSIGNED--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_password_reset_token--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --token-- (--VARCHAR(16)  NOT NULL--)
+Adding primary key --`user_id`--
+Adding unique key --pc_password_reset_token_U_1-- whose content is --`token`--
+Adding constraint --pc_password_reset_token_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_password_reset_token_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_plancake_email_address--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --email-- (--VARCHAR(63)  NOT NULL COMMENT 'the domain @plancake.com is omitted'--)
+Adding primary key --`user_id`--
+Adding unique key --pc_plancake_email_address_U_1-- whose content is --`email`--
+Adding key --pc_plancake_email_address_I_1-- whose content is --`email`--
+Adding constraint --pc_plancake_email_address_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_plancake_email_address_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_list--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --creator_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --title-- (--VARCHAR(255)  NOT NULL--)
+Adding field --sort_order-- (--SMALLINT UNSIGNED default 0--)
+Adding field --is_header-- (--TINYINT(1) default 0--)
+Adding field --is_inbox-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --is_todo-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --max_tasks_sort_order-- (--SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all its tasks'--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding key --pc_list_I_1-- whose content is --`creator_id`, `sort_order`--
+Adding constraint --pc_list_FK_1-- whose foreign key is --creator_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_list_FK_1` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_task--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --list_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --description-- (--VARCHAR(255)  NOT NULL--)
+Adding field --sort_order-- (--SMALLINT UNSIGNED default 0--)
+Adding field --due_date-- (--DATE--)
+Adding field --repetition_id-- (--TINYINT UNSIGNED--)
+Adding field --repetition_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --is_completed-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --is_header-- (--TINYINT(1) default 0--)
+Adding field --note-- (--TEXT default ''--)
+Adding field --contexts-- (--VARCHAR(31) default '' COMMENT 'it is a comma separated list'--)
+Adding field --completed_at-- (--DATETIME--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding key --pc_task_I_1-- whose content is --`list_id`, `is_completed`, `due_date`, `sort_order`--
+Adding constraint --pc_task_FK_1-- whose foreign key is --list_id--
+                  and referenced table is --pc_list--
+                  and referenced field is --id--
+                  and content is --`pc_task_FK_1` FOREIGN KEY (`list_id`) REFERENCES `pc_list` (`id`)--
+Adding index --pc_task_FI_2-- whose content is --`repetition_id`--
+Adding constraint --pc_task_FK_2-- whose foreign key is --repetition_id--
+                  and referenced table is --pc_repetition--
+                  and referenced field is --id--
+                  and content is --`pc_task_FK_2` FOREIGN KEY (`repetition_id`) REFERENCES `pc_repetition` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_timezone--
+Adding field --id-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --label-- (--VARCHAR(8)  NOT NULL COMMENT 'the second part of the label says whether those countries observe DST at all'--)
+Adding field --description-- (--VARCHAR(127)  NOT NULL--)
+Adding field --offset-- (--SMALLINT SIGNED default 0 COMMENT 'in minutes from UTC'--)
+Adding primary key --`id`--
+Adding unique key --pc_timezone_U_1-- whose content is --`label`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_users_lists--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --list_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding primary key --`user_id`,`list_id`--
+Adding constraint --pc_users_lists_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_users_lists_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Adding index --pc_users_lists_FI_2-- whose content is --`list_id`--
+Adding constraint --pc_users_lists_FK_2-- whose foreign key is --list_id--
+                  and referenced table is --pc_list--
+                  and referenced field is --id--
+                  and content is --`pc_users_lists_FK_2` FOREIGN KEY (`list_id`) REFERENCES `pc_list` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_session--
+Adding field --id-- (--VARCHAR(64)  NOT NULL--)
+Adding field --data-- (--TEXT--)
+Adding field --time-- (--INTEGER UNSIGNED--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_watchdog--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --type-- (--VARCHAR(16)  NOT NULL--)
+Adding field --description-- (--TEXT--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_email_change_history--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --old_email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --new_email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`,`user_id`--
+Adding index --pc_email_change_history_FI_1-- whose content is --`user_id`--
+Adding constraint --pc_email_change_history_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_email_change_history_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_users_contexts--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --context-- (--VARCHAR(31)  NOT NULL--)
+Adding primary key --`id`--
+Adding index --pc_users_contexts_FI_1-- whose content is --`user_id`--
+Adding constraint --pc_users_contexts_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_users_contexts_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_repetition--
+Adding field --id-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --human_expression-- (--VARCHAR(63)  NOT NULL--)
+Adding field --computer_expression-- (--VARCHAR(63)  NOT NULL COMMENT 'a PHP strtostring compatible expression'--)
+Adding field --needs_param-- (--TINYINT(1) default 0 COMMENT 'whether the expression needs a numerical parameter'--)
+Adding field --is_param_cardinal-- (--TINYINT(1) default 0--)
+Adding field --min_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --max_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --sort_order-- (--TINYINT UNSIGNED default 0--)
+Adding field --has_divider_below-- (--TINYINT(1) default 0 COMMENT 'says whether to add a divider below in a combo box'--)
+Adding primary key --`id`--
+Adding unique key --pc_repetition_U_1-- whose content is --`human_expression`--
+Setting engine --InnoDB--
+Closing table
+
+Starting parsing input 2
+
+
+Creating table --pc_user--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --username-- (--VARCHAR(25)  NOT NULL--)
+Adding field --email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --encrypted_password-- (--VARCHAR(40)  NOT NULL--)
+Adding field --salt-- (--VARCHAR(12)  NOT NULL COMMENT 'for strengthening of password'--)
+Adding field --date_format-- (--TINYINT(2) UNSIGNED default 0 COMMENT '0->Y-m-d, 3->d-m-Y, 4->m-d-Y'--)
+Adding field --timezone_id-- (--TINYINT UNSIGNED--)
+Adding field --dst_active-- (--TINYINT(1) default 0--)
+Adding field --api_key-- (--VARCHAR(32)--)
+Adding field --rememberme_key-- (--VARCHAR(32)--)
+Adding field --awaiting_activation-- (--TINYINT(1) default 1--)
+Adding field --newsletter-- (--TINYINT(1) default 0--)
+Adding field --forum_id-- (--INTEGER UNSIGNED COMMENT 'it\'s the corresponding id in the forum_users table'--)
+Adding field --last_login-- (--DATETIME--)
+Adding field --language-- (--VARCHAR(8) default '' COMMENT 'comes from the user agent accept language'--)
+Adding field --ip_address-- (--VARCHAR(15) default ''--)
+Adding field --max_lists_sort_order-- (--SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all his/her lists'--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding unique key --pc_user_U_1-- whose content is --`email`--
+Adding unique key --pc_user_U_2-- whose content is --`API_key`--
+Adding unique key --pc_user_U_3-- whose content is --`rememberme_key`--
+Adding index --pc_user_FI_1-- whose content is --`timezone_id`--
+Adding constraint --pc_user_FK_1-- whose foreign key is --timezone_id--
+                  and referenced table is --pc_timezone--
+                  and referenced field is --id--
+                  and content is --`pc_user_FK_1` FOREIGN KEY (`timezone_id`) REFERENCES `pc_timezone` (`id`) ON UPDATE CASCADE ON DELETE CASCADE--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_failed_logins--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --times-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --updated_at-- (--DATETIME--)
+Adding primary key --`user_id`--
+Adding constraint --pc_failed_logins_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_failed_logins_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_activation_token--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --token-- (--VARCHAR(16)  NOT NULL--)
+Adding primary key --`user_id`--
+Adding unique key --pc_activation_token_U_1-- whose content is --`token`--
+Adding constraint --pc_activation_token_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_activation_token_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_counter--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --name-- (--VARCHAR(31)--)
+Adding field --value-- (--INTEGER UNSIGNED--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_password_reset_token--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --token-- (--VARCHAR(16)  NOT NULL--)
+Adding primary key --`user_id`--
+Adding unique key --pc_password_reset_token_U_1-- whose content is --`token`--
+Adding constraint --pc_password_reset_token_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_password_reset_token_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_plancake_email_address--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --email-- (--VARCHAR(63)  NOT NULL COMMENT 'the domain @plancake.com is omitted'--)
+Adding primary key --`user_id`--
+Adding unique key --pc_plancake_email_address_U_1-- whose content is --`email`--
+Adding key --pc_plancake_email_address_I_1-- whose content is --`user_id`--
+Adding constraint --pc_plancake_email_address_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_plancake_email_address_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_list--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --creator_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --title-- (--VARCHAR(255)  NOT NULL--)
+Adding field --sort_order-- (--SMALLINT UNSIGNED default 0--)
+Adding field --is_header-- (--TINYINT(1) default 0--)
+Adding field --is_inbox-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --is_todo-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --max_tasks_sort_order-- (--SMALLINT UNSIGNED default 0 COMMENT 'the max sort order of all its tasks'--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding key --pc_list_I_1-- whose content is --`creator_id`, `sort_order`--
+Adding constraint --pc_list_FK_1-- whose foreign key is --creator_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_list_FK_1` FOREIGN KEY (`creator_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_task--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --list_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --description-- (--VARCHAR(255)  NOT NULL--)
+Adding field --sort_order-- (--SMALLINT UNSIGNED default 0--)
+Adding field --due_date-- (--DATE--)
+Adding field --repetition_id-- (--TINYINT UNSIGNED--)
+Adding field --repetition_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --is_completed-- (--TINYINT(1) default 0 NOT NULL--)
+Adding field --is_header-- (--TINYINT(1) default 0--)
+Adding field --note-- (--TEXT default ''--)
+Adding field --contexts-- (--VARCHAR(31) default '' COMMENT 'it is a comma separated list'--)
+Adding field --completed_at-- (--DATETIME--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Adding key --pc_task_I_1-- whose content is --`list_id`, `is_completed`, `due_date`, `sort_order`--
+Adding constraint --pc_task_FK_1-- whose foreign key is --list_id--
+                  and referenced table is --pc_list--
+                  and referenced field is --id--
+                  and content is --`pc_task_FK_1` FOREIGN KEY (`list_id`) REFERENCES `pc_list` (`id`)--
+Adding index --pc_task_FI_2-- whose content is --`repetition_id`--
+Adding constraint --pc_task_FK_2-- whose foreign key is --repetition_id--
+                  and referenced table is --pc_repetition--
+                  and referenced field is --id--
+                  and content is --`pc_task_FK_2` FOREIGN KEY (`repetition_id`) REFERENCES `pc_repetition` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_timezone--
+Adding field --id-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --label-- (--VARCHAR(8)  NOT NULL COMMENT 'the second part of the label says whether those countries observe DST at all'--)
+Adding field --description-- (--VARCHAR(127)  NOT NULL--)
+Adding field --offset-- (--SMALLINT SIGNED default 0 COMMENT 'in minutes from UTC'--)
+Adding primary key --`id`--
+Adding unique key --pc_timezone_U_1-- whose content is --`label`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_users_lists--
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --list_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding primary key --`user_id`,`list_id`--
+Adding constraint --pc_users_lists_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_users_lists_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Adding index --pc_users_lists_FI_2-- whose content is --`list_id`--
+Adding key --pc_users_lists_I_1-- whose content is --`list_id`--
+Adding constraint --pc_users_lists_FK_2-- whose foreign key is --list_id--
+                  and referenced table is --pc_list--
+                  and referenced field is --id--
+                  and content is --`pc_users_lists_FK_2` FOREIGN KEY (`list_id`) REFERENCES `pc_list` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_session--
+Adding field --id-- (--VARCHAR(64)  NOT NULL--)
+Adding field --data-- (--TEXT--)
+Adding field --time-- (--INTEGER UNSIGNED--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_watchdog--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --type-- (--VARCHAR(16)  NOT NULL--)
+Adding field --description-- (--TEXT--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_email_change_history--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --old_email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --new_email-- (--VARCHAR(80)  NOT NULL--)
+Adding field --created_at-- (--DATETIME--)
+Adding primary key --`id`,`user_id`--
+Adding index --pc_email_change_history_FI_1-- whose content is --`user_id`--
+Adding constraint --pc_email_change_history_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_email_change_history_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_users_contexts--
+Adding field --id-- (--INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT--)
+Adding field --user_id-- (--INTEGER UNSIGNED  NOT NULL--)
+Adding field --context-- (--VARCHAR(31)  NOT NULL--)
+Adding primary key --`id`--
+Adding index --pc_users_contexts_FI_1-- whose content is --`user_id`--
+Adding constraint --pc_users_contexts_FK_1-- whose foreign key is --user_id--
+                  and referenced table is --pc_user--
+                  and referenced field is --id--
+                  and content is --`pc_users_contexts_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`)--
+Setting engine --InnoDB--
+Closing table
+
+Creating table --pc_repetition--
+Adding field --id-- (--TINYINT UNSIGNED  NOT NULL--)
+Adding field --human_expression-- (--VARCHAR(63)  NOT NULL--)
+Adding field --computer_expression-- (--VARCHAR(63)  NOT NULL COMMENT 'a PHP strtostring compatible expression'--)
+Adding field --needs_param-- (--TINYINT(1) default 0 COMMENT 'whether the expression needs a numerical parameter'--)
+Adding field --is_param_cardinal-- (--TINYINT(1) default 0--)
+Adding field --min_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --max_param-- (--TINYINT UNSIGNED default 0--)
+Adding field --sort_order-- (--TINYINT UNSIGNED default 0--)
+Adding field --has_divider_below-- (--TINYINT(1) default 0 COMMENT 'says whether to add a divider below in a combo box'--)
+Adding primary key --`id`--
+Adding unique key --pc_repetition_U_1-- whose content is --`human_expression`--
+Setting engine --InnoDB--
+Closing table
+
+Potential new tables
+Array
+(
+)
+
+
+Potential deleted tables
+Array
+(
+)
+
+
+Renamed tables mapping
+Array
+(
+)
+
+
+New tables
+Array
+(
+)
+
+
+Deleted tables
+Array
+(
+)
+
+
+Table pc_user
+
+Potential new fields
+Array
+(
+)
+
+
+Potential deleted fields
+Array
+(
+)
+
+
+Renamed fields mapping
+Array
+(
+)
+
+
+New fields
+Array
+(
+)
+
+
+Deleted fields
+Array
+(
+)
+
+
+Modified fields
+
+Change of the order
+
+Table pc_plancake_email_address
+
+Potential new fields
+Array
+(
+)
+
+
+Potential deleted fields
+Array
+(
+)
+
+
+Renamed fields mapping
+Array
+(
+)
+
+
+New fields
+Array
+(
+)
+
+
+Deleted fields
+Array
+(
+)
+
+
+Modified fields
+
+Change of the order
+
+Table pc_users_lists
+
+Potential new fields
+Array
+(
+)
+
+
+Potential deleted fields
+Array
+(
+)
+
+
+Renamed fields mapping
+Array
+(
+)
+
+
+New fields
+Array
+(
+)
+
+
+Deleted fields
+Array
+(
+)
+
+
+Modified fields
+
+Change of the order

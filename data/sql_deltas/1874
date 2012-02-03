@@ -1,0 +1,28 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SETTINGS_GCAL_INTEGRATION_BETA_MSG', '119', '200', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES
+('en', 'ACCOUNT_SETTINGS_GCAL_INTEGRATION_BETA_MSG', 'Please note this feature is in a Beta stage. <br />\r\n            After some use, Google Calendar may be not totally accurate (we hope Google will provide some improvements on that issue).\r\n            At that stage, we suggest you just disable and activate the integration back again.', NULL),
+('it', 'ACCOUNT_SETTINGS_GCAL_INTEGRATION_BETA_MSG', 'Questa funzionalità è in beta. <br />\r\nDopo un certo utilizzo, Google Calendar potrebbe iniziare a non comportarsi in maniera totalmente accurata (speriamo che Google migliori da quel punto di vista). A quel punto di consigliamo di disattivare e riattivare l''integrazione.', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', '104', '270', '0', NULL, NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', '<td>Google Calendar Integration (Beta)</td>
+<td>not available</td>
+<td class="supporter">available</td>', NULL), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION', '<td>Integrazione con Google Calendar (Beta)</td>
+<td>non disponibile</td>
+<td class="supporter">disponibile</td>', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

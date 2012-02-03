@@ -1,0 +1,163 @@
+PcPaypalProduct:
+  PcPaypalProduct1:
+    id: 1
+    item_number: '130'
+    item_name: 'Plancake Premium One-Year Subscription (USD)'
+    item_price: '29.90'
+    item_price_currency: 'USD'
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'JW8B4PHY654FQ'
+
+  PcPaypalProduct2:
+    id: 2
+    item_number: '110'
+    item_name: 'Plancake Premium 3-Month Subscription (USD)'
+    item_price: '10.00'
+    item_price_currency: 'USD'
+    subscription_type_id: PcSubscriptionType2
+    paypal_button_code: 'XJ8RHFBUJVJ56'
+
+  PcPaypalProduct3:
+    id: 3
+    item_number: '220'
+    item_name: 'Plancake Premium One-Year Subscription (GBP)'
+    item_price: '19.90'
+    item_price_currency: 'GBP'
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'JDMDMKB63BG7N'
+
+  PcPaypalProduct4:
+    id: 4
+    item_number: '207'
+    item_name: 'Plancake Premium 3-Month Subscription (GBP)'
+    item_price: '7.00'
+    item_price_currency: 'GBP'
+    subscription_type_id: PcSubscriptionType2
+    paypal_button_code: 'F9LAEDXF8C38W'
+
+  PcPaypalProduct5:
+    id: 5
+    item_number: '324'
+    item_name: 'Plancake Premium One-Year Subscription (EUR)'
+    item_price: '23.90'
+    item_price_currency: 'EUR'
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'DVQEWQUZZ6H2A'
+
+  PcPaypalProduct6:
+    id: 6
+    item_number: '308'
+    item_name: 'Plancake Premium 3-Month Subscription (EUR)'
+    item_price: '8.00'
+    item_price_currency: 'EUR'
+    subscription_type_id: PcSubscriptionType2
+    paypal_button_code: 'RM7ABHXNUJKUL'
+
+  PcPaypalProduct7:
+    id: 7
+    item_number: '300'
+    item_name: 'Test Plancake Premium Subscription'
+    item_price: '0.01'
+    item_price_currency: 'GBP'
+    subscription_type_id: PcSubscriptionType2
+    paypal_button_code: 'LK7MJNM78YBJC'
+
+  PcPaypalProduct8:
+    id: 8
+    item_number: '427'
+    item_name: 'Plancake Premium One-Year Subscription (JPY)'
+    item_price: '2690.00'
+    item_price_currency: 'JPY'
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'QGR45L9SJAYEG'
+
+  PcPaypalProduct9:
+    id: 9
+    item_number: '409'
+    item_name: 'Plancake Supporter 3-Month Subscription (JPY)'
+    item_price: '900.00'
+    item_price_currency: 'JPY'
+    subscription_type_id: PcSubscriptionType2
+    paypal_button_code: 'EZ6WQ6865TMG4'
+    
+    
+  PcPaypalProduct20:
+    id: 20
+    item_number: '720'
+    item_name: 'Plancake Premium One-Year Subscription (EUR) - 20% discount'
+    item_price: '19.12'
+    item_price_currency: 'EUR'
+    discount_percentage: 20
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'ESGH72YVQY8QG'
+
+  PcPaypalProduct21:
+    id: 21
+    item_number: '820'
+    item_name: 'Plancake Premium One-Year Subscription (JPY) - 20% discount'
+    item_price: '2152.00'
+    item_price_currency: 'JPY'
+    discount_percentage: 20    
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'E9L49BKPYXX8S'
+
+  PcPaypalProduct22:
+    id: 22
+    item_number: '520'
+    item_name: 'Plancake Premium One-Year Subscription (USD) - 20% discount'
+    item_price: '23.92'
+    item_price_currency: 'USD'
+    discount_percentage: 20    
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: '5HG4LLGRLRA5A'
+
+  PcPaypalProduct23:
+    id: 23
+    item_number: '620'
+    item_name: 'Plancake Premium One-Year Subscription (GBP) - 20% discount'
+    item_price: '15.92'
+    item_price_currency: 'GBP'
+    discount_percentage: 20    
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'VP6DX88VKVTHJ'
+    
+    
+  PcPaypalProduct24:
+    id: 24
+    item_number: '710'
+    item_name: 'Plancake Premium One-Year Subscription (EUR) - 10% discount'
+    item_price: '21.51'
+    item_price_currency: 'EUR'
+    discount_percentage: 10
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'ADHJMJ5XNPQNW'
+
+  PcPaypalProduct25:
+    id: 25
+    item_number: '810'
+    item_name: 'Plancake Premium One-Year Subscription (JPY) - 10% discount'
+    item_price: '2421.00'
+    item_price_currency: 'JPY'
+    discount_percentage: 10
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: '76HM8MKKDYQUJ'
+
+  PcPaypalProduct26:
+    id: 26
+    item_number: '510'
+    item_name: 'Plancake Premium One-Year Subscription (USD) - 10% discount'
+    item_price: '26.91'
+    item_price_currency: 'USD'
+    discount_percentage: 10
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'ZKS2FEDPDS9E6'
+
+  PcPaypalProduct27:
+    id: 27
+    item_number: '610'
+    item_name: 'Plancake Premium One-Year Subscription (GBP) - 10% discount'
+    item_price: '17.91'
+    item_price_currency: 'GBP'
+    discount_percentage: 10
+    subscription_type_id: PcSubscriptionType3
+    paypal_button_code: 'YF6YBYBCHVNSQ'     

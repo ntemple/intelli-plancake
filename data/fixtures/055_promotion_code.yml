@@ -1,0 +1,18 @@
+PcPromotionCode:
+  PcPromotionCode1:
+    code: XMAS2011
+    discount_percentage: 20
+    expiry_date: '2012-01-03'
+    only_for_new_customers: 0
+    uses_count: 0
+    max_uses: 100
+    
+    
+PcPromotionCode:
+  PcPromotionCode2:
+    code: PCAKE10
+    discount_percentage: 10
+    expiry_date: '2013-01-03'
+    only_for_new_customers: 0
+    uses_count: 0
+    max_uses: 100    

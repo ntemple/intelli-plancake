@@ -1,0 +1,108 @@
+.taskNote {
+    border: 1px solid #999;
+    background-color: #eee;
+    margin: 5px;
+    padding: 5px;
+    display: none;
+}
+
+.taskTags {
+    font-size: 70%;
+}
+
+ul.tasks .inList {
+    font-size: 70%;
+    font-style: italic;
+}
+
+.overdue
+{
+  background-color: #FFB0A4;
+  background: repeat scroll 0 0 #FFB0A4; /* this is useful for mobile app */
+}
+
+.dueToday
+{
+  background-color: #B1E88F;
+  background: repeat scroll 0 0 #B1E88F; /* this is useful for mobile app */
+}
+
+.dueTomorrow
+{
+  background-color: #B4CFF8;
+  background: repeat scroll 0 0 #B4CFF8; /* this is useful for mobile app */  
+}
+
+
+#calendarControls {
+   width: 95%;
+   margin: auto;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   background-color: #d2e0e6;
+   padding: 10px;
+   display: none;
+}
+
+#calendarControls .calendarControl {
+    margin-bottom: 5px;
+    white-space: nowrap;
+    clear: both;
+}
+
+#calendarControls .calendarControl .calendarControlArrowsPrev {
+    display: block;
+    float: left;
+    width: 30px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+#calendarControls .calendarControl .calendarControlArrowsNext {
+    display: block;
+    float: right;
+    width: 30px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+#calendarControls .calendarControl a:hover {
+    text-decoration: underline !important;
+}
+
+#calendarControls .calendarPrev {
+    float: left;
+    width: 165px;
+    text-align: left;
+    overflow: hidden;
+}
+
+#calendarControls .calendarNext {
+    float: right;
+    width: 165px;
+    text-align: right;
+    overflow: hidden;
+}
+
+#calendarControls .calendarJump {
+    width: 150px;
+    margin: auto;
+}
+
+#calendarControls .calendarJumpDate {
+    border: 1px solid #666;
+    padding: 2px;
+    width: 100px !important;
+}
+
+.calendarDate {
+    padding-left: 5px;
+    padding-top: 10px;
+    color: #ff6633;
+    font-weight: bold;
+}
+
+.calendarDateNoTasks {
+    padding-left: 5px;
+    padding-top: 3px;    
+}

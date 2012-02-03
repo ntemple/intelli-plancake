@@ -1,0 +1,237 @@
+This document describes all the changes to make to a fresh installation of PunBB in order
+to allow the integration with PlanCake.
+
+_ Configuration
+Update the file app.yml with the correct value from the forum configuration file
+
+_ General
+Make sure there are these files in the directory include/user:
+plancake_css.php
+plancake_header.php
+plancake_footer.php
+plancake_checkUsername.php
+plancake_checkLogin.php
+
+_ Disabling the account settings (that breaks also the profile pages)
+File profile.php (we don't want users to change their Forum details), on top add:
+// added by plancake
+die();
+
+Now we have to remove the link corresponding to the usernames
+In viewtopic.php search for
+profile
+(there should be 2 occurences)
+and comment out the anchor tag
+
+_ Disabling the visit timeout:
+Add at the beginning of forum_setcookie (in include/functins.php):
+global $forum_config;
+// if ($expire == time() + $forum_config['o_timeout_visit']) // this is the condition in theory...
+// ...but the value returned by time() may change in different points of the code. Then:
+$time_threshold = time() + $forum_config['o_timeout_visit'];
+if ( ($expire >=  $time_threshold-3) && $expire <=  $time_threshold+3 ) // 3 secs of safety net
+  $expire = 0;
+
+_ Redirect Registration to Plancake
+File register.php.
+Add at the beginning:
+// added by plancake
+header("location: http://www.plancake.com/registration");
+exit();
+
+_ Include the Plancake CSS
+Copy the file plancake_css.php to /include/user
+
+File include/template/main.tpl:
+Add this
+<!-- forum_include "plancake_css.php" -->
+just before
+<!-- forum_head -->
+
+_ Integration of the header
+Copy the file plancake_header.php to /include/user
+
+File style/Oxygen.css:
+In the class brd, edit the padding-top to 0em and width: 954px;
+
+Add this on top:
+/* fixing conflicts with Plancake
+-------------------------------------------------------------*/
+h2
+{
+  background-color: #1F537B;
+  border: 0px;
+}
+
+div.main-subhead h2
+{
+  background-color: #FBFBFB;
+}
+
+ul
+{
+  list-style-image: none
+}
+
+ul li
+{
+  background-image: none;
+}
+
+File include/template/main.tpl:
+Add this
+<!-- forum_include "plancake_header.php" -->
+straight after the <body> tag
+
+Remove this
+<div id="brd-head" class="gen-content">
+       <!-- forum_skip -->
+       <!-- forum_title -->
+       <!-- forum_desc -->
+</div>
+
+Remove this
+       <!-- forum_navlinks -->
+
+Remove this
+<div id="brd-navlinks" class="gen-content">
+	<!-- forum_admod -->
+</div>
+
+_ Integration of the footer
+Copy the file plancake_footer.php to /include/user
+
+File include/template/main.tpl:
+Add this
+<!-- forum_include "plancake_footer.php" -->
+straight before the </body> tag
+
+_ Insert a 'Search' link at the top of the forum
+File header.php, around line 204, 
+just before this:
+	$visit_links['recent'] = '<span id="visit-recent"'.(empty($visit_links) ? ' class="first-item"' : '').'><a href="'.forum_link($forum_url['search_recent']).'" title="'.$lang_common['Active topics title'].'">'.$lang_common['Active topics'].'</a></span>';
+add:
+	$visit_links['search'] = '<span id="visit-recent"'.(empty($visit_links) ? ' class="first-item"' : '').'><a href="'.forum_link($forum_url['search']).'" title="'.$lang_common['Search'].'">'.$lang_common['Search'].'</a></span>'; // added by plancake
+
+
+_ Check of the username
+File include/common.php.
+Add at the beginning:
+// Added by plancake
+include_once(dirname(__FILE__) . '/user/plancake_checkUsername.php');
+
+
+_ Check the user is still logged in
+In common.php, just after the previous include:
+include_once(dirname(__FILE__) . '/user/plancake_checkLogin.php'); // defines the global var $isAuthenticatedOnPlancake
+
+In common.php, just after:
+cookie_login($forum_user);
+include:
+// This 'if' is added by Plancake
+if(!$isAuthenticatedOnPlancake) // set in plancake_checkLogin.php (see include on top)
+{
+      $query = array(
+	      'DELETE'	=> 'online',
+	      'WHERE'		=> 'user_id='.$forum_user['id']
+      );
+      $forum_db->query_build($query) or error(__FILE__, __LINE__);
+      setcookie($cookie_name, '', time()-5, '/');
+      $forum_user = array();
+      set_default_user();
+} 
+
+
+_ Misc - Remove some extra information
+File main.tpl:
+remove <!-- forum_info -->
+
+
+_ Nice URL's
+Choose 'Folder base(fancy)' as URL schema in the admin
+Create this .htaccess:
+# BEGIN PunBB
+<IfModule mod_rewrite.c>
+# MultiViews interfers with proper rewriting
+Options -MultiViews
+RewriteEngine On
+# Uncomment and properly set the RewriteBase if the rewrite rules are not working properly
+#RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . rewrite.php [L]
+</IfModule>
+# END PunBB
+
+
+_ Karma
+Install the extension 'Post karma' on the backend
+
+_ Redirect Login to Plancake
+File login.php.
+Add at the beginning:
+// added by plancake
+header("location: http://www.plancake.com/login?return-url=" . urlencode($_SERVER['HTTP_REFERER']));
+exit();
+
+_ Google Analytics
+Add the traking code in main.tlp
+
+_ To prevent from displaying error messages:
+--- web/forums/include/functions.php    (revision 205)
++++ web/forums/include/functions.php    (working copy)
+@@ -3036,13 +3036,15 @@
+ <hr />
+ <?php
+
+-       if (isset($message))
+-               echo '<p>'.$message.'</p>'."\n";
+
+        if ($num_args > 1)
+        {
+                if (defined('FORUM_DEBUG'))
+                {
++                       if (isset($message))
++                               echo '<p>'.$message.'</p>'."\n";   
+
+_ Changed the generate_avatar_markup() function to fix a problem: everything you
+changed your avatar, you needed to clear the cache of your browser to see the change.
+ 	foreach ($filetypes as $cur_type)
+ 	{
+-		$path = $forum_config['o_avatars_dir'].'/'.$user_id.'.'.$cur_type;
++		$pathPattern = $forum_config['o_avatars_dir'].'/'.$user_id.'_*.'.$cur_type;
+
+-		if (file_exists(FORUM_ROOT.$path) && $img_size = @getimagesize(FORUM_ROOT.$path))
++		if (count($paths = glob(FORUM_ROOT.$pathPattern)))
+ 		{
+-			$avatar_markup = '<img src="'.$base_url.'/'.$path.'" '.$img_size[3].' alt="" />';
+-			break;
++                        $path = $paths[0];
++                        if ($img_size = @getimagesize(FORUM_ROOT.$path))
++                        {
++                            $avatar_markup = '<img src="'.$base_url.'/'.$path.'" '.$img_size[3].' alt="" />';
++                            break;
++                        }
+ 		}
+ 	}
+
+_ applied this patch to avoid to be flooded by this error message "mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given":
+--- web/forums/include/dblayer/mysqli.php	(revision 1724)
++++ web/forums/include/dblayer/mysqli.php	(working copy)
+@@ -242,9 +242,13 @@
+ 	{
+ 		if ($this->link_id)
+ 		{
+-			if ($this->query_result)
+-				@mysqli_free_result($this->query_result);
+-
++                        // hack added by dan  20110401
++                        if ($this->query_result !== FALSE)
++                        {
++                            if ($this->query_result)
++                                    @mysqli_free_result($this->query_result);
++                        }
++
+ 			return @mysqli_close($this->link_id);
+ 		}
+ 		else

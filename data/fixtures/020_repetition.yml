@@ -1,0 +1,811 @@
+PcRepetition:
+  PcRepetition1:
+    id: 1
+    human_expression: every Sunday
+    computer_expression: next Sunday
+    initial_computer_expression: sunday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 3
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition2:
+    id: 2
+    human_expression: every Monday
+    computer_expression: next Monday
+    initial_computer_expression: monday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 6
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition3:
+    id: 3
+    human_expression: every Tuesday
+    computer_expression: next Tuesday
+    initial_computer_expression: tuesday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 9
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition4:
+    id: 4
+    human_expression: every Wednesday
+    computer_expression: next Wednesday
+    initial_computer_expression: wednesday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 12
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition5:
+    id: 5
+    human_expression: every Thursday
+    computer_expression: next Thursday
+    initial_computer_expression: thursday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 15
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition6:
+    id: 6
+    human_expression: every Friday
+    computer_expression: next Friday
+    initial_computer_expression: friday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 18
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition7:
+    id: 7
+    human_expression: every Saturday
+    computer_expression: next Saturday
+    initial_computer_expression: saturday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 21
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition8:
+    id: 8
+    human_expression: every day
+    computer_expression: tomorrow
+    initial_computer_expression: today
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 27
+    has_divider_below: 0
+    ical_rrule: FREQ=DAILY
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition9:
+    id: 9
+    human_expression: every weekday
+    computer_expression: next weekday
+    initial_computer_expression: this weekday
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 30
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition10:
+    id: 10
+    human_expression: every [select later] days
+    computer_expression: +_X_ days
+    initial_computer_expression: today
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 33
+    has_divider_below: 0
+    ical_rrule: FREQ=DAILY;INTERVAL=X
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition11:
+    id: 11
+    human_expression: every week
+    computer_expression: +1 week
+    initial_computer_expression: today
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 36
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;INTERVAL=1
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition12:
+    id: 12
+    human_expression: every [select later] weeks
+    computer_expression: +_X_ weeks
+    initial_computer_expression: today
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 39
+    has_divider_below: 0
+    ical_rrule: FREQ=WEEKLY;INTERVAL=X
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition13:
+    id: 13
+    human_expression: every month on the due date day
+    computer_expression: +1 month
+    initial_computer_expression: today
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 42
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=1
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition14:
+    id: 14
+    human_expression: every [select later] months on the due date day
+    computer_expression: +_X_ month
+    initial_computer_expression: today
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 45
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition15:
+    id: 15
+    human_expression: every year
+    computer_expression: +1 year
+    initial_computer_expression: today
+    special:
+    needs_param: 0
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 0
+    sort_order: 48
+    has_divider_below: 0
+    ical_rrule: FREQ=YEARLY
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition16:
+    id: 16
+    human_expression: every [select later] years
+    computer_expression: +_X_ year
+    initial_computer_expression: today
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 51
+    has_divider_below: 1
+    ical_rrule: FREQ=YEARLY;INTERVAL=X
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition18:
+    id: 18
+    human_expression: every [select later] month(s) on the last day
+    computer_expression: last day _month_
+    initial_computer_expression: last day _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 57
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYMONTHDAY=-1
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition19:
+    id: 19
+    human_expression: every [select later] month(s) on the second last day
+    computer_expression: last day -86400 seconds _month_
+    initial_computer_expression: last day -86400 seconds _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 60
+    has_divider_below: 1
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYMONTHDAY=-2
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition20:
+    id: 20
+    human_expression: every [select later] month(s) on the first Sunday
+    computer_expression: first Sunday of _month_
+    initial_computer_expression: first Sunday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 63
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition21:
+    id: 21
+    human_expression: every [select later] month(s) on the first Monday
+    computer_expression: first Monday of _month_
+    initial_computer_expression: first Monday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 66
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition22:
+    id: 22
+    human_expression: every [select later] month(s) on the first Tuesday
+    computer_expression: first Tuesday of _month_
+    initial_computer_expression: first Tuesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 69
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition23:
+    id: 23
+    human_expression: every [select later] month(s) on the first Wednesday
+    computer_expression: first Wednesday of _month_
+    initial_computer_expression: first Wednesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 72
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition24:
+    id: 24
+    human_expression: every [select later] month(s) on the first Thursday
+    computer_expression: first Thursday of _month_
+    initial_computer_expression: first Thursday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 75
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition25:
+    id: 25
+    human_expression: every [select later] month(s) on the first Friday
+    computer_expression: first Friday of _month_
+    initial_computer_expression: first Friday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 78
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition126:
+    id: 26
+    human_expression: every [select later] month(s) on the first Saturday
+    computer_expression: first Saturday of _month_
+    initial_computer_expression: first Saturday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 81
+    has_divider_below: 1
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition27:
+    id: 27
+    human_expression: every [select later] month(s) on the last Sunday
+    computer_expression: last Sunday of _month_
+    initial_computer_expression: last Sunday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 184
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition28:
+    id: 28
+    human_expression: every [select later] month(s) on the last Monday
+    computer_expression: last Monday of _month_
+    initial_computer_expression: last Monday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 187
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition29:
+    id: 29
+    human_expression: every [select later] month(s) on the last Tuesday
+    computer_expression: last Tuesday  of _month_
+    initial_computer_expression: last Tuesday  of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 190
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition30:
+    id: 30
+    human_expression: every [select later] month(s) on the last Wednesday
+    computer_expression: last Wednesday  of _month_
+    initial_computer_expression: last Wednesday  of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 193
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition31:
+    id: 31
+    human_expression: every [select later] month(s) on the last Thursday
+    computer_expression: last Thursday of _month_
+    initial_computer_expression: last Thursday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 196
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition32:
+    id: 32
+    human_expression: every [select later] month(s) on the last Friday
+    computer_expression: last Friday  of _month_
+    initial_computer_expression: last Friday  of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 199
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition33:
+    id: 33
+    human_expression: every [select later] month(s) on the last Saturday
+    computer_expression: last Saturday of _month_
+    initial_computer_expression: last Saturday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 202
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=-1SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition34:
+    id: 34
+    human_expression: repeat weekly on some weekdays [select later]
+    computer_expression:
+    initial_computer_expression:
+    special: selected_wkdays
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 0
+    max_param: 127
+    sort_order: 23
+    has_divider_below: 1
+    ical_rrule: FREQ=WEEKLY;BYDAY=X
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition40:
+    id: 40
+    human_expression: every [select later] month(s) on the second Sunday
+    computer_expression: second Sunday  of _month_
+    initial_computer_expression: second Sunday  of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 93
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition41:
+    id: 41
+    human_expression: every [select later] month(s) on the second Monday
+    computer_expression: second Monday of _month_
+    initial_computer_expression: second Monday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 96
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition42:
+    id: 42
+    human_expression: every [select later] month(s) on the second Tuesday
+    computer_expression: second Tuesday of _month_
+    initial_computer_expression: second Tuesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 99
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition43:
+    id: 43
+    human_expression: every [select later] month(s) on the second Wednesday
+    computer_expression: second Wednesday of _month_
+    initial_computer_expression: second Wednesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 102
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition44:
+    id: 44
+    human_expression: every [select later] month(s) on the second Thursday
+    computer_expression: second Thursday of _month_
+    initial_computer_expression: second Thursday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 105
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition45:
+    id: 45
+    human_expression: every [select later] month(s) on the second Friday
+    computer_expression: second Friday of _month_
+    initial_computer_expression: second Friday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 108
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition46:
+    id: 46
+    human_expression: every [select later] month(s) on the second Saturday
+    computer_expression: second Saturday of _month_
+    initial_computer_expression: second Saturday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 111
+    has_divider_below: 1
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=2SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition50:
+    id: 50
+    human_expression: every [select later] month(s) on the third Sunday
+    computer_expression: third Sunday of _month_
+    initial_computer_expression: third Sunday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 123
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition51:
+    id: 51
+    human_expression: every [select later] month(s) on the third Monday
+    computer_expression: third Monday of _month_
+    initial_computer_expression: third Monday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 126
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition52:
+    id: 52
+    human_expression: every [select later] month(s) on the third Tuesday
+    computer_expression: third Tuesday of _month_
+    initial_computer_expression: third Tuesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 129
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition53:
+    id: 53
+    human_expression: every [select later] month(s) on the third Wednesday
+    computer_expression: third Wednesday of _month_
+    initial_computer_expression: third Wednesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 132
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition54:
+    id: 54
+    human_expression: every [select later] month(s) on the third Thursday
+    computer_expression: third Thursday of _month_
+    initial_computer_expression: third Thursday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 135
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition55:
+    id: 55
+    human_expression: every [select later] month(s) on the third Friday
+    computer_expression: third Friday of _month_
+    initial_computer_expression: third Friday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 138
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition56:
+    id: 56
+    human_expression: every [select later] month(s) on the third Saturday
+    computer_expression: third Saturday of _month_
+    initial_computer_expression: third Saturday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 141
+    has_divider_below: 1
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=3SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition60:
+    id: 60
+    human_expression: every [select later] month(s) on the fourth Sunday
+    computer_expression: fourth Sunday of _month_
+    initial_computer_expression: fourth Sunday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 153
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4SU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition61:
+    id: 61
+    human_expression: every [select later] month(s) on the fourth Monday
+    computer_expression: fourth Monday of _month_
+    initial_computer_expression: fourth Monday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 156
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4MO
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition62:
+    id: 62
+    human_expression: every [select later] month(s) on the fourth Tuesday
+    computer_expression: fourth Tuesday of _month_
+    initial_computer_expression: fourth Tuesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 159
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4TU
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition63:
+    id: 63
+    human_expression: every [select later] month(s) on the fourth Wednesday
+    computer_expression: fourth Wednesday of _month_
+    initial_computer_expression: fourth Wednesday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 162
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4WE
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition64:
+    id: 64
+    human_expression: every [select later] month(s) on the fourth Thursday
+    computer_expression: fourth Thursday of _month_
+    initial_computer_expression: fourth Thursday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 165
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4TH
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition65:
+    id: 65
+    human_expression: every [select later] month(s) on the fourth Friday
+    computer_expression: fourth Friday of _month_
+    initial_computer_expression: fourth Friday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 168
+    has_divider_below: 0
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4FR
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03
+  PcRepetition66:
+    id: 66
+    human_expression: every [select later] month(s) on the fourth Saturday
+    computer_expression: fourth Saturday of _month_
+    initial_computer_expression: fourth Saturday of _month_
+    special:
+    needs_param: 1
+    is_param_cardinal: 1
+    min_param: 1
+    max_param: 30
+    sort_order: 171
+    has_divider_below: 1
+    ical_rrule: FREQ=MONTHLY;INTERVAL=X;BYDAY=4SA
+    updated_at: 2010-11-09 11:40:03
+    created_at: 2010-11-09 11:40:03

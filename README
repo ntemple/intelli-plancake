@@ -1,0 +1,90 @@
+PlanCake
+========
+
+Thank you for downloading PlanCake.
+We believe this is your first step to make your life easier.
+
+If you are already running Plancake on your server and 
+want to know the version you are on, please check this file (located in the root of the project):
+version
+
+
+Copyright and License
+---------------------
+You can read the full license in the files:
+LICENSE.txt
+or
+COPYING
+
+
+Installation
+------------
+For instructions about installation, please read the file docs/INSTALL
+
+
+Upgrading
+---------
+For instructions about upgrading, please read the file docs/UPGRADE
+
+
+Changelog
+---------
+Please read the file docs/CHANGELOG
+
+
+Third party applications 
+------------------------
+PlanCake contains code from the following projects:
+
+_ Symfony (c) 2004-2008 Fabien Potencier
+  All the Symfony code is located under the directory lib/symfony
+  license: MIT
+
+_ JQuery (jquery, jquery.ui.core, jquery.ui.datepicker, jquery.ui.draggable, jquery.ui.sortable)
+  All the JQuery files are in the web/js directory and have a filename starting
+  with jquery
+  Copyright 2010, John Resig
+  license: MIT
+
+_ Zend GData,  Copyright (c) 2005-2010, Zend Technologies USA, Inc.
+  All the files are in the lib/vendor/ZendGdata directory
+
+_ PHP OpenID library by JanRain, Inc
+  All the files are in the lib/vendor/openid directory
+
+_ Swift Mailer
+  All the files are in the lib/vendor/swift directory
+
+
+-----------------------------------------
+
+We love to hear from you ♥. Please, send us any feedback.
+Even if you don't speak English, don't worry, use your native language (we have great confidence in Google Translate :-))
+http://www.plancake.com/contact
+
+Please contact us if you need any commercial support with the installation of any component or if you would like any customization:
+http://www.plancake.com/contact
+
+Please consider contributing with bug fixes or improvements:
+dan@plancake.com
+
+Plancake homepage: http://www.plancake.com
+Support: http://www.plancake.com/forums/forum/13/support-for-developers/
+Subscribe to our blog: http://www.plancake.com/blog
+Follow us on Twitter: http://twitter.com/plancakebakers
+Follow us on Facebook: http://www.facebook.com/plancake
+Donations ♥ : http://www.plancake.com/donate
+
+"Plancake" and "Plancake Team" are trademarks of Daniele Occhipinti.
+(by the way, what about using Plancake Team for team collaboration? team.plancake.com)
+
+Brought to you by Danyuki Software Limited, a startup tech company based in London, UK.
+
+
+
+Happy plancaking!
+
+Daniele Occhipinti
+Director and Founder of Plancake
+email: dan@plancake.com
+skype: dan_plan (I can speak English and Italian)

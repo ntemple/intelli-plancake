@@ -1,0 +1,84 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+#-----------------------------------------------------------------------------
+#-- pc_blog_post
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_blog_post`;
+
+
+CREATE TABLE `pc_blog_post`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`title` VARCHAR(255)  NOT NULL,
+	`slug` VARCHAR(255)  NOT NULL,
+	`content` TEXT default '',
+	`forumUrl` VARCHAR(255)  NOT NULL,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`),
+	INDEX `pc_blog_post_FI_1` (`user_id`),
+	CONSTRAINT `pc_blog_post_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_blog_category
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_blog_category`;
+
+
+CREATE TABLE `pc_blog_category`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(64)  NOT NULL,
+	`slug` VARCHAR(255)  NOT NULL,
+	PRIMARY KEY (`id`)
+)Engine=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_blog_categories_posts
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_blog_categories_posts`;
+
+
+CREATE TABLE `pc_blog_categories_posts`
+(
+	`post_id` INTEGER UNSIGNED  NOT NULL,
+	`category_id` INTEGER UNSIGNED  NOT NULL,
+	PRIMARY KEY (`post_id`,`category_id`),
+	CONSTRAINT `pc_blog_categories_posts_FK_1`
+		FOREIGN KEY (`post_id`)
+		REFERENCES `pc_blog_post` (`id`),
+	INDEX `pc_blog_categories_posts_FI_2` (`category_id`),
+	CONSTRAINT `pc_blog_categories_posts_FK_2`
+		FOREIGN KEY (`category_id`)
+		REFERENCES `pc_blog_category` (`id`)
+)Engine=InnoDB;
+
+INSERT INTO `pc_blog_category` (`id`, `name`, `slug`) VALUES
+(1, 'New Features & Updates', 'new-features-updates'),
+(2, 'Press', 'press'),
+(3, 'Videos', 'videos'),
+(4, 'Status', 'status');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+

@@ -1,0 +1,17 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE `pc_watchdog2`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`type` VARCHAR(16)  NOT NULL,
+	`description` TEXT,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+DROP TABLE `pc_watchdog`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

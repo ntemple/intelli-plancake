@@ -1,0 +1,16 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_ERROR_NEED_RELOAD_AFTER_PRINT', '116', '800', '0', 'Displayed after you print on Google Chrome or Safari', '0', '2011-10-25 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_ERROR_NEED_RELOAD_AFTER_PRINT', 'Unfortunately we have a problem with Google Chrome and Safari: you need to <a href="%s">reload</a> the application after clicking on the print button.', '2011-10-25 00:00:00'), ('it', 'ACCOUNT_ERROR_NEED_RELOAD_AFTER_PRINT', 'Sfortunatamente abbiamo un problema con Google Chrome e Safari: devi <a href="%s">ricaricare</a> questa pagina dopo che clicchi sul pulsante di stampa.', '2011-10-25 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_TESTIMONIAL2', '1', '820', '0', NULL, '0', '2011-10-26 00:00:00'), ('WEBSITE_HOMEPAGE_TESTIMONIAL2_AUTHOR_INFO', '1', '830', '0', NULL, '0', '2011-10-26 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL2', 'I can tell the Plancake team is very passionate about their product: they improve it constantly by adding new features but keeping it very simple-to-use. One of my favourite features is the split view (never seen that anywhere else) - that lets me save time and stay focused.', '2011-10-26 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL2', 'E'' facile vedere come che il team di Plancake ci tiene molto al proprio prodotto: lo migliorano costantemente aggiungendo nuove funzioni ma lasciando l''interfaccia molto semplice. Una delle mie funzioni preferite è la ''split view'' (che non ho mai visto prima) - mi permette di risparmiare tempo e rimanere focalizzato.', '2011-10-26 00:00:00'), ('en', 'WEBSITE_HOMEPAGE_TESTIMONIAL2_AUTHOR_INFO', 'Historian, Poland', '2011-10-26 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_TESTIMONIAL2_AUTHOR_INFO', 'Storico, Polonia', '2011-10-26 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,42 @@
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE `pc_value`
+(
+	`name` VARCHAR(32)  NOT NULL,
+	`value` TEXT default '',
+	PRIMARY KEY (`name`)
+)Type=InnoDB;
+
+CREATE TABLE `pc_update`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`signature` VARCHAR(32)  NOT NULL COMMENT 'important to send the update to the Plancake installations',
+	`description` VARCHAR(512)  NOT NULL,
+	`url` VARCHAR(128)  NOT NULL,
+	`created_at` DATETIME,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_update_U_1` (`signature`)
+)Type=InnoDB;
+
+ALTER TABLE `pc_task` ADD `is_from_system` TINYINT(1) default 0 AFTER `is_header`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_value`;
+
+DROP TABLE `pc_update`;
+
+ALTER TABLE `pc_task` DROP `is_from_system`;
+
+SET FOREIGN_KEY_CHECKS=1;
+

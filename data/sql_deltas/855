@@ -1,0 +1,37 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_subscription_thankyou_page_impression` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `username` varchar(25) NOT NULL DEFAULT '',
+  `email` varchar(80) NOT NULL,
+  `viewed_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `pc_promotion_code` (
+  `id` varchar(10) NOT NULL,
+  `discount_percentage` int(2) NOT NULL,
+  `expiry_date` datetime NOT NULL,
+  `paypal_button_code` varchar(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+
+INSERT INTO `pc_promotion_code` (`id`, `discount_percentage`, `expiry_date`, `paypal_button_code`) VALUES ('0o2iTp20Sw', '10', '2010-12-08 22:18:44', 'WAVD6M6XU7YMJ'), ('9WE3k4end5', '20', '2011-01-08 22:19:24', 'DQWYS2A8YMJ3E');
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE `pc_subscription_thankyou_page_impression`;
+DROP TABLE `pc_promotion_code`;
+
+SET FOREIGN_KEY_CHECKS=1;

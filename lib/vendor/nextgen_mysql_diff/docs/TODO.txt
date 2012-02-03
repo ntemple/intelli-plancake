@@ -1,0 +1,8 @@
+_ discovery program for all the transformation supported by the current installation of Nextgen (all the transformation classes are in lib/Nextgen/Core/Transformations)
+
+
+Maybe:
+_ As an input, being able to specify a regexp for the tables to consider so we can ignore forum tables
+_ specify whether a transformation is applicable in pre-deploy
+_ create new tables in the right order (to satisfy all the constraints)
+_ delete tables in the right order (to satisfy all the constraints)

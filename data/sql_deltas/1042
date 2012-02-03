@@ -1,0 +1,17 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_users_contexts` ADD `sort_order` SMALLINT default 0 AFTER `context`;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_users_contexts` DROP `sort_order`;
+
+SET FOREIGN_KEY_CHECKS=1;

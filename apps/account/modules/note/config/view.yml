@@ -1,0 +1,9 @@
+all:
+  javascripts:    [ckeditor_3.5/ckeditor.js, ckeditor_3.5/adapters/jquery.js, note_3.js]
+
+default:
+  http_metas:
+    content-type: text/html
+
+  has_layout:     true
+  layout:         layout_for_note

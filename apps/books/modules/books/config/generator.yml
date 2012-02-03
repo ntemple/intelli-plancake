@@ -1,0 +1,22 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           PcBookkeepingEntry
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              PcBookkeepingEntry
+    plural:                PcBookkeepingEntrys
+    route_prefix:          pc_bookkeeping_entry
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [id, description, amount, date, needs_clarification]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

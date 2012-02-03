@@ -1,0 +1,22 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_GENERATE_USER_KEY', '115', '23', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_GENERATE_USER_KEY', 'generate your user key to access extra services', NULL), ('it', 'ACCOUNT_SETTINGS_GENERATE_USER_KEY', 'genera la tua user key per accedere a servizi extra', NULL);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SETTINGS_USER_KEY_SUCCESS', '115', '24', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SETTINGS_USER_KEY_SUCCESS', 'Your User Key has been successfully generated.', NULL), ('it', 'ACCOUNT_SETTINGS_USER_KEY_SUCCESS', 'La tua User Key è stata generata con successo.', NULL);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
+SET FOREIGN_KEY_CHECKS=1;

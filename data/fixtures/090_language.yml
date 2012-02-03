@@ -1,0 +1,21 @@
+PcLanguage:
+  PcLanguage_en:
+    id: en
+    name: English
+    sort_order: 1
+  PcLanguage_it:
+    id: it
+    name: Italiano
+    sort_order: 2
+  PcLanguage_es:
+    id: es
+    name: Español
+    sort_order: 3
+  PcLanguage_fr:
+    id: fr
+    name: Français
+    sort_order: 4
+  PcLanguage_jp:
+    id: jp
+    name: 日本語
+    sort_order: 5    
