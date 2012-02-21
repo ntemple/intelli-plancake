@@ -31,16 +31,18 @@
 
 <div id="whatsPlancakeColumn">
     <span id="homepageMarketingTitles" style="margin-top: 0px"><?php echo __('WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER') ?></span>
-    <span style="line-height: 140%"><?php echo __('WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY') ?></span>
+    <ul id="whyUs" style="line-height: 140%">
+        <?php echo __('WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY') ?>
+    </ul>
 
     <span id="homepageMarketingTitles"><?php echo __('WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER') ?></span>
 
     <ul style="line-height: 140%">
 
-      <li>
+      <li id="homepageGTDpar">
         <h2 style="margin-top: 0px; margin-bottom: 5px;">GTD (Getting Things Done)<sup class="pc_small">TM</sup></h2>
         <p>
-        <?php echo __('WEBSITE_SERVICES_HOME_GTD_BODY') ?>
+        <?php printf(__('WEBSITE_SERVICES_HOME_GTD_BODY'), 'http://www.davidco.com/about-gtd'); ?>
         </p>
       </li>          
         
@@ -51,17 +53,14 @@
             <a href="<?php echo 'http://' . $baseUrl . $cultureUrlPart . '/services' ?>"><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK') ?></a>.
         </p>
       </li>
-
-
-
-<!--      
+   
       <li>
         <h2><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_TITLE') ?></h2>
         <p>
         <?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY') ?>
         </p>
       </li>
--->
+      
     </ul>
     
     <span id="homepageMarketingTitles"><?php echo __('WEBSITE_HOMEPAGE_WHY_US_HEADER') ?></span>

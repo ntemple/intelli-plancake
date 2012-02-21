@@ -27,6 +27,7 @@
         <link href="/app/mobile/css/jquery.mobile-1.0.1.min.css" rel="stylesheet" type="text/css" /> <!-- we don't use CDN because it doesnt work with appcache -->
         <link href="/app/mobile/css/jquery.mobile.simpledialog.css" rel="stylesheet" type="text/css" />        
         <link href="/app/mobile/css/jquery.toastmessage.css" rel="stylesheet" type="text/css" />
+        <link href="/app/mobile/css/mobiscroll-1.5.3.css" rel="stylesheet" type="text/css" />        
         <link href="/app/common/css/plancake.common.css" rel="stylesheet" type="text/css" /> 
         <link href="/app/common/css/plancake.layout.common.css" rel="stylesheet" type="text/css" />        
         <link href="/app/mobile/css/plancake.layout.css" rel="stylesheet" type="text/css" />
@@ -35,7 +36,6 @@
         <link href="/app/mobile/css/plancake.tasks.css" rel="stylesheet" type="text/css" />          
         <link href="/app/mobile/css/plancake.layout.css" rel="stylesheet" type="text/css" />
         <link href="/app/mobile/css/plancake.counters.css" rel="stylesheet" type="text/css" />
-        <link href="/app/mobile/css/jquery.ui.datepicker.mobile.css" rel="stylesheet" type="text/css" />
         <link href="/app/mobile/css/jquery.mobile.performance.css" rel="stylesheet" type="text/css" />        
         <!-- END: CSS --> <!-- this comment is very important for minification of assets and dymanic generation of cache manifest -->
         
@@ -162,23 +162,25 @@
                     
                      <div id="calendarControls" class="calendarControls noPrint">                       
                          <div class="calendarPrev">
-                             <div class="calendarControl calPrevMonth">
-                                 <a href=".#" data-ajax="false"><span class="calendarControlArrowsPrev">&lt;&lt;&lt;</span> <span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH"></span></a>
-                             </div>
+                             <!-- Hidden to keep the interface a bit cleaner -->
+                             <!-- <div class="calendarControl calPrevMonth"> -->
+                                 <!-- <a href=".#" data-ajax="false"><span class="calendarControlArrowsPrev">&lt;&lt;&lt;</span> <span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_PREV_MONTH"></span></a> -->
+                             <!-- </div> -->
                              <div class="calendarControl calPrevWeek">
-                                 <a href=".#" data-ajax="false"><span class="calendarControlArrowsPrev">&lt;</span> <span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_PREV_7_DAYS"></span></a>
+                                 <a href=".#" data-ajax="false" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-theme="c"> </a>
                              </div>
                          </div>
                          <div class="calendarNext">
-                            <div class="calendarControl calNextMonth">
-                                <a href=".#" data-ajax="false"><span class="calendarControlArrowsNext">&gt;&gt;&gt;</span><span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH"></span></a>
-                            </div>
+                             <!-- Hidden to keep the interface a bit cleaner -->                             
+                            <!-- <div class="calendarControl calNextMonth"> -->
+                                <!-- <a href=".#" data-ajax="false"><span class="calendarControlArrowsNext">&gt;&gt;&gt;</span><span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_NEXT_MONTH"></span></a> -->
+                            <!-- </div> -->
                             <div class="calendarControl calNextWeek">
-                                <a href=".#" data-ajax="false"><span class="calendarControlArrowsNext">&gt;</span><span class="lang lang_ACCOUNT_MAIN_CONTENT_CAL_NEXT_7_DAYS"></span></a>
+                                <a href=".#" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="notext" data-theme="c"> </a>
                             </div>
                          </div> 
                          <div class="calendarJump">                           
-                             <form style="margin: 0px; padding: 0px; margin-top: 3px;"><input type="date" id="calendarJumpDate" class="calendarJumpDate" /></form>
+                             <form style="margin: 0px; padding: 0px; margin-top: 3px;"><input type="date" id="calendarJumpDate" class="calendarJumpDate mobiscroll" placeholder="set date" /></form>
                          </div>                            
                      </div>                     
                     
@@ -201,6 +203,9 @@
 </div><!-- /page -->
 
 <div data-role="page" id="task-menu-screen">
+        <div data-role="header" data-position="inline" class="ui-corner-top ui-header" role="banner">
+                <span class="ui-title"></span>
+       </div>    
         <div data-role="content">	
             <div data-role="controlgroup" style="position: relative" id="taskActions">
                 <a id="viewNoteAction" class="lang lang_ACCOUNT_MOBILE_VIEW_NOTE_BTN" href="#." data-role="button"></a>
@@ -208,26 +213,29 @@
                 <a id="markToDoTaskAction" class="lang lang_ACCOUNT_MOBILE_MARK_TO_DO_BTN" href="#." data-role="button"></a>
                 <!-- if we want to let user star/unstar, we have tp change the sync method -->
                 <!-- <a id="starTaskAction" class="lang lang_ACCOUNT_MOBILE_STAR_BTN" href="#." data-role="button"></a> -->
-                <!-- <a id="unstarTaskAction" class="lang lang_ACCOUNT_MOBILE_UNSTAR_BTN" href="#." data-role="button"></a> -->
-                <a id="goBackTaskAction" class="lang lang_ACCOUNT_HINT_GO_BACK_BTN" href="#." data-role="button"></a>                    
+                <!-- <a id="unstarTaskAction" class="lang lang_ACCOUNT_MOBILE_UNSTAR_BTN" href="#." data-role="button"></a> -->                  
             </div>
         </div><!-- /content -->        
 </div><!-- /page -->
 
 <div data-role="page" id="settings-menu-screen">
+        <div data-role="header" data-position="inline" class="ui-corner-top ui-header" role="banner">
+                <span class="ui-title lang lang_ACCOUNT_MOBILE_APP_SETTINGS_BUTTON"></span>
+       </div>
         <div data-role="content">	
             <div data-role="controlgroup" style="position: relative" id="settingsActions">
-                <a id="resetDataAction" class="lang lang_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN" href="#." data-role="button"></a>
-                <a id="goBackSettingsAction" class="lang lang_ACCOUNT_HINT_GO_BACK_BTN" href="#" data-rel="back" data-role="button"></a>                    
+                <a id="logoutAction" class="lang lang_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN" style="text-transform: lowercase" href="#." data-role="button"></a>                
+                <a id="resetDataAction" class="lang lang_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN" href="#." data-role="button"></a>                   
             </div>
         </div><!-- /content -->        
 </div><!-- /page -->
 
 
 <div data-role="page" id="add-task-screen">
+        <div data-role="header" data-position="inline" class="ui-corner-top ui-header" role="banner">
+                <span class="ui-title lang lang_ACCOUNT_ADD_TASK"></span>
+       </div>    
         <div data-role="content">
-            <br />
-            <h3 style="text-transform: capitalize"><span class="lang lang_ACCOUNT_ADD_TASK"></span></h3>
             
             <form name="addTaskForm" id="addTaskForm" style="padding-left: 20px; padding-right: 20px;">
                 <p>
@@ -262,6 +270,8 @@
     <script src="/app/common/js/string.js"></script>    
     <script src="/app/common/js/array.js"></script>
     <script src="/app/common/js/jlinq.js"></script>
+    <script src="/app/mobile/js/mobiscroll-1.5.3.js"></script>    
+    <script src="/app/common/js/stacktrace.js"></script>    
     <script src="/app/offline/js/jlinq.plancake.extensions.js"></script>
     <script src="/js/offline/localDatastore.detection.js"></script>    
     <script src="/app/offline/js/localStorage.js"></script>    
@@ -303,9 +313,6 @@
     <script src="/app/common/js/api-client/PlancakeTag.js"></script>      
     <script src="/app/common/js/api-client/PlancakeTask.js"></script>    
     <script src="/app/common/js/api-client/PlancakeApiClient.js"></script>
-
-    <script src="/app/mobile/js/jQuery.ui.datepicker.js"></script>    
-    <script src="/app/mobile/js/jquery.ui.datepicker.mobile.plancake.js"></script> 
     
     <!-- END: JS --> <!-- this comment is very important for minification of assets and dymanic generation of cache manifest -->
     

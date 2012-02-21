@@ -22,6 +22,6 @@
 ?>
     <div class="socialMix">
       <a href="http://www.facebook.com/pages/Plancake/100535076665570"><img alt="follow Plancake on Facebook" class="pc_noBorder" src="/images/facebook_icon.png" /></a>&nbsp;&nbsp;
-      <a href="http://twitter.com/plancakebakers"><img alt="follow Plancake on Twitter" class="pc_noBorder" src="/images/twitter_icon.png" /></a>&nbsp;&nbsp;
+      <a href="http://twitter.com/plancakeGTD"><img alt="follow Plancake on Twitter" class="pc_noBorder" src="/images/twitter_icon.png" /></a>&nbsp;&nbsp;
       <a href="http://www.plancake.com/blog/feed/rss"><img alt="subscribe to the Plancake blog" class="pc_noBorder" src="/images/feed_icon.png" /></a>
     </div>

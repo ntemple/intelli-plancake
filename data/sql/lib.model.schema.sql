@@ -22,7 +22,6 @@ CREATE TABLE `pc_user`
 	`timezone_id` TINYINT UNSIGNED,
 	`week_start` TINYINT(2) UNSIGNED default 0 COMMENT '0->Sunday, 1->Monday',
 	`dst_active` TINYINT(1) default 0,
-	`rememberme_key` VARCHAR(32),
 	`awaiting_activation` TINYINT(1) default 1,
 	`newsletter` TINYINT(1) default 0,
 	`forum_id` INTEGER UNSIGNED COMMENT 'it\'s the corresponding id in the forum_users table',
@@ -39,17 +38,38 @@ CREATE TABLE `pc_user`
 	`latest_import_request` DATETIME,
 	`latest_breaking_news_closed` SMALLINT UNSIGNED,
 	`last_promotional_code_inserted` VARCHAR(25) default '' NOT NULL COMMENT 'the user hasn\'t necessarily used it',
+	`blocked` TINYINT(1) default 0,
 	`session_entry_point` VARCHAR(128) default '',
 	`session_referral` VARCHAR(128) default '',
 	`created_at` DATETIME,
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `pc_user_U_1` (`email`),
-	UNIQUE KEY `pc_user_U_2` (`rememberme_key`),
 	KEY `pc_user_I_1`(`forum_id`),
 	INDEX `pc_user_FI_1` (`timezone_id`),
 	CONSTRAINT `pc_user_FK_1`
 		FOREIGN KEY (`timezone_id`)
 		REFERENCES `pc_timezone` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_rememberme_key
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_rememberme_key`;
+
+
+CREATE TABLE `pc_rememberme_key`
+(
+	`id` INTEGER UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`rememberme_key` VARCHAR(32),
+	`created_at` DATETIME  NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `pc_rememberme_key_U_1` (`rememberme_key`),
+	KEY `pc_rememberme_key_I_1`(`user_id`),
+	CONSTRAINT `pc_rememberme_key_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`)
 )Type=InnoDB;
 
 #-----------------------------------------------------------------------------
@@ -209,7 +229,7 @@ CREATE TABLE `pc_task`
 	`is_from_system` TINYINT(1) default 0 NOT NULL,
 	`special_flag` TINYINT UNSIGNED,
 	`note` TEXT,
-	`contexts` VARCHAR(31) default '' COMMENT 'it is a comma separated list',
+	`contexts` VARCHAR(127) default '' COMMENT 'it is a comma separated list',
 	`contact_id` INTEGER UNSIGNED,
 	`completed_at` DATETIME,
 	`updated_at` DATETIME  NOT NULL,

@@ -62,6 +62,7 @@ $pc_lang["ACCOUNT_HEADER_SUBSCRIBE_TO_OUR_BLOG"] = "Subscribe to our Blog";
 $pc_lang["ACCOUNT_HEADER_TASKS"] = "tasks";
 $pc_lang["ACCOUNT_HEADER_UPGRADE"] = "Upgrade now!";
 $pc_lang["ACCOUNT_HEADER_WRONG"] = "wrong?";
+$pc_lang["ACCOUNT_HINT_CLICK_TO_SEE_GMAIL"] = "click to see Gmail";
 $pc_lang["ACCOUNT_HINT_CLICK_TO_SEE_NOTE"] = "click to see note";
 $pc_lang["ACCOUNT_HINT_COLLAPSE_PANEL2_BTN"] = "hide this pane";
 $pc_lang["ACCOUNT_HINT_COMPLETED_TASKS_BTN"] = "view completed tasks for this list or filter";
@@ -216,6 +217,7 @@ $pc_lang["ACCOUNT_MISC_CANCEL"] = "cancel";
 $pc_lang["ACCOUNT_MISC_CLICK_TO_DO_MORE"] = "click here to do more";
 $pc_lang["ACCOUNT_MISC_CLOSE"] = "close";
 $pc_lang["ACCOUNT_MISC_CONFIRM_MSG"] = "Are you sure?";
+$pc_lang["ACCOUNT_MISC_DAY"] = "day";
 $pc_lang["ACCOUNT_MISC_DELETE"] = "delete";
 $pc_lang["ACCOUNT_MISC_DRAP_AND_DROP_EXPLANATION"] = "Drag and drop items. Once you are happy with the new order, you need to click the button below to save the changes.";
 $pc_lang["ACCOUNT_MISC_DRAP_AND_DROP_USE_THIS_ORDER"] = "Use this order";
@@ -226,6 +228,7 @@ $pc_lang["ACCOUNT_MISC_HIDE_QUOTE"] = "stop showing the quote of the day";
 $pc_lang["ACCOUNT_MISC_IN_LIST"] = "in";
 $pc_lang["ACCOUNT_MISC_IN_X_DAYS"] = "in %s days";
 $pc_lang["ACCOUNT_MISC_LOADING"] = "Loading...";
+$pc_lang["ACCOUNT_MISC_MONTH"] = "month";
 $pc_lang["ACCOUNT_MISC_NEWS_LINK"] = "News";
 $pc_lang["ACCOUNT_MISC_NEXT"] = "next";
 $pc_lang["ACCOUNT_MISC_NO"] = "no";
@@ -237,11 +240,13 @@ $pc_lang["ACCOUNT_MISC_READ_MORE_ON_OUR_BLOG"] = "read more";
 $pc_lang["ACCOUNT_MISC_REMOVE_THESE_ADS"] = "remove these adverts";
 $pc_lang["ACCOUNT_MISC_REMOVE_THIS_AD"] = "remove this ad";
 $pc_lang["ACCOUNT_MISC_SAVE"] = "save";
+$pc_lang["ACCOUNT_MISC_SET_DATE"] = "set date";
 $pc_lang["ACCOUNT_MISC_SUBMIT"] = "submit";
 $pc_lang["ACCOUNT_MISC_TASK_COMPLETED_ON"] = "completed on";
 $pc_lang["ACCOUNT_MISC_TODAY"] = "today";
 $pc_lang["ACCOUNT_MISC_TOMORROW"] = "tomorrow";
 $pc_lang["ACCOUNT_MISC_WELCOME_TASK"] = "Welcome to Plancake! Check the box on the left to mark me as done.";
+$pc_lang["ACCOUNT_MISC_YEAR"] = "year";
 $pc_lang["ACCOUNT_MISC_YES"] = "yes";
 $pc_lang["ACCOUNT_MISC_YESTERDAY"] = "yesterday";
 $pc_lang["ACCOUNT_MOBILE_ADD_TASK_TO_INBOX"] = "add a task to your Inbox";
@@ -252,8 +257,11 @@ Tap the 'sync' button at the bottom of the screen to send changes to the server 
 $pc_lang["ACCOUNT_MOBILE_APP_SETTINGS_BUTTON"] = "settings";
 $pc_lang["ACCOUNT_MOBILE_APP_SYNC_BUTTON"] = "sync";
 $pc_lang["ACCOUNT_MOBILE_APP_SYNC_OK"] = "The synchronisation has been completed successfully.";
+$pc_lang["ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN"] = "logout and reset local data";
 $pc_lang["ACCOUNT_MOBILE_MARK_AS_DONE_BTN"] = "mark as done";
 $pc_lang["ACCOUNT_MOBILE_MARK_TO_DO_BTN"] = "mark as to do";
+$pc_lang["ACCOUNT_MOBILE_NEED_TO_LOGIN"] = "Your login expired - you need to login again first
+(did you use 'remember me'?).";
 $pc_lang["ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN"] = "reset local data";
 $pc_lang["ACCOUNT_MOBILE_STAR_BTN"] = "star";
 $pc_lang["ACCOUNT_MOBILE_UNSTAR_BTN"] = "unstar";
@@ -507,35 +515,51 @@ $pc_lang["ACCOUNT_SUBSCRIPTION_BENEFIT6"] = "<b>No risk</b> - 30-day <b>money ba
 $pc_lang["ACCOUNT_SUBSCRIPTION_BENEFIT7"] = "Buy a professional product built over more than 2 years (and improved continuously) at a bargain price thanks to our economy of scales.";
 $pc_lang["ACCOUNT_SUBSCRIPTION_CHOOSE_CURRENCY"] = "select currency";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS"] = "Ad-free";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP"] = "we advertise selected products to our free users";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID"] = "<td class=\"nonCenteredContent\">Android application</td>
 <td><img src=\"/images/tick.png\" /><br />(up to 2 syncs/day)</td>
 <td class=\"supporter\"><img src=\"/images/tick.png\" /><br />(up to 30 syncs/day)</td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED"] = "History of completed tasks (in months)";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP"] = "once you complete a task, the system keeps it available for a while";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX"] = "<td class=\"nonCenteredContent\">Email-2-Inbox <p>(send tasks via email)</p></td><td><img src=\"/images/tick.png\" /></td><td class=\"supporter\"><img src=\"/images/tick.png\" /></td>";
-$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT"] = "Export/Backup - full control over your data";
-$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY"] = "Enhanced security
-<p>(your account data - lists, tasks, notes - are encrypted with SSL)</p>";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT"] = "Export/Backup";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP"] = "you have full control over your data - we also do backups for you";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY"] = "Enhanced security";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP"] = "your account data - lists, tasks, notes - are encrypted with SSL";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION"] = "<td class=\"nonCenteredContent\">Google Calendar Integration (Beta)</td>
 <td><img src=\"/images/tick.png\" /></td>
 <td class=\"supporter\"><img src=\"/images/tick.png\" /></td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES"] = "Lots of useful functionalities";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP"] = "such as Gmail integration, Google Calendar integration, sending emails to your account...";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT"] = "<td class=\"nonCenteredContent\">Google Account & Apps Login</td><td><img src=\"/images/tick.png\" /></td><td class=\"supporter\"><img src=\"/images/tick.png\" /></td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_GTD_READY"] = "<td class=\"nonCenteredContent\">GTD-ready</td><td><img src=\"/images/tick.png\" /></td><td class=\"supporter\"><img src=\"/images/tick.png\" /></td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_LISTS_TAGS"] = "<td class=\"nonCenteredContent\">Lists & Tags</td><td><img src=\"/images/tick.png\" /></td><td class=\"supporter\"><img src=\"/images/tick.png\" /></td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS"] = "Maximum number of lists";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP"] = "lists are used to organise your tasks - they are like projects or folders";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS"] = "Maximum number of tags";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP"] = "tags are another powerful tool to organise your tasks - check our guide on GTD";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS"] = "Maximum number of active tasks";
-$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP"] = "Mobile app - works on iPhone, Android, Blackberry, Symbian and other platforms";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP"] = "tasks are all your todos, appointments, commitments and ideas";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP"] = "Mobile app";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP"] = "It works on iPhone, Android, Blackberry, Symbian and other platforms";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT"] = "No contract or automatic renewals";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES"] = "Maximum number of documents in your Notebook";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP"] = "the notebook lets you easily create online documents";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE"] = "Offline use";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP"] = "you can use Plancake even when Internet is not on";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE"] = "<td class=\"nonCenteredContent\">Price</td><td>free</td><td class=\"supporter\">see below</td>";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT"] = "Printer friendly version";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP"] = "print easily the list of your tasks";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS"] = "Email reminders";
-$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS"] = "Repeating tasks (e.g.: \"Do bookkeeping on the second last day of each month\")";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP"] = "don't forget anything even when you don't access your account";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS"] = "Repeating tasks";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP"] = "for example, \"do bookkeeping on the second last day of each month\"";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH"] = "Search";
-$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY"] = "Standard security (your password is encrypted)";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP"] = "find tasks easily and quickly";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY"] = "Standard security";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP"] = "your password is encrypted";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT"] = "Priority support";
+$pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP"] = "get the reply to your enquiries prioritised";
 $pc_lang["ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY"] = "No risk - 30 day money back guarantee";
 $pc_lang["ACCOUNT_SUBSCRIPTION_DISCOUNT_CODE"] = "Voucher or discount code?";
 $pc_lang["ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES"] = "Are you a charity or social enterprise? If so, you can contact us to apply for discounted Premium accounts.";
@@ -770,7 +794,7 @@ $pc_lang["GENERAL_MY_ACCOUNT"] = "My account";
 $pc_lang["GENERAL_REQUIRED_FIELD_ERROR"] = "Required";
 $pc_lang["GENERAL_SEND"] = "Send";
 $pc_lang["GENERAL_SLOGAN"] = "get organized & stay relaxed";
-$pc_lang["GENERAL_TWITTER_COPY"] = "Plancake: a new Online Task Manager and GTD software - I really like it!.";
+$pc_lang["GENERAL_TWITTER_COPY"] = "Plancake: a new online software for making your life easier and better. Try it today!";
 $pc_lang["MISC_ANDROID_APP_MARKET_DESCRIPTION"] = "Plancake: get organized and stay relaxed.
 
 Plancake is a free online task and todo list manager with loads of great features. It is simple-to-use, even for new users.
@@ -898,12 +922,7 @@ $pc_lang["WEBSITE_CONTACT_US_ACTIVATION_REASON"] = "...have not received the act
 $pc_lang["WEBSITE_CONTACT_US_ARTICLE_REASON"] = "...would like to submit an article for the Plancake blog";
 $pc_lang["WEBSITE_CONTACT_US_BUG_REASON"] = "...am reporting a bug";
 $pc_lang["WEBSITE_CONTACT_US_BUSINESS_REASON"] = "...would like my Company to partner with you";
-$pc_lang["WEBSITE_CONTACT_US_COMPANY_INFO"] = "Plancake.com is operated by: <br />
-Danyuki Software Limited <br />
-6 Boundary Road <br />
-N22 6AD <br />
-London <br />
-UK";
+$pc_lang["WEBSITE_CONTACT_US_COMPANY_INFO"] = "Plancake.com is operated by:";
 $pc_lang["WEBSITE_CONTACT_US_CONTRIBUTE_REASON"] = "...would like to contribute to the project";
 $pc_lang["WEBSITE_CONTACT_US_EMAIL_LABEL"] = "my email";
 $pc_lang["WEBSITE_CONTACT_US_EXPLANATION_REASON"] = "...need an explanation about your service";
@@ -1052,7 +1071,8 @@ $pc_lang["WEBSITE_HOMEPAGE_FRESHNESS_MINUTES_AGO"] = "about %s minutes ago";
 $pc_lang["WEBSITE_HOMEPAGE_IMPORTANT_ACTION_LINKS"] = "<a href=\"%s\">Compare editions</a> or <a href=\"%s\">Check out Plancake features</a> or <a href=\"%s\">Start an easier life with Plancake today</a>";
 $pc_lang["WEBSITE_HOMEPAGE_LATEST_COMMUNITY_ACTIVITY"] = "Latest community activity:";
 $pc_lang["WEBSITE_HOMEPAGE_LATEST_DEVELOPMENT"] = "Latest development:";
-$pc_lang["WEBSITE_HOMEPAGE_MAIN_COPY"] = "Online GTD Software and Task Manager<br />Take control of your work life and personal life";
+$pc_lang["WEBSITE_HOMEPAGE_MAIN_COPY"] = "Online GTD Software and Task Manager<br />
+Make your life easier, at work and home";
 $pc_lang["WEBSITE_HOMEPAGE_META_OG_TITLE"] = "Plancake: helping you to become more organised and take control of everything you need to do.";
 $pc_lang["WEBSITE_HOMEPAGE_MORE_REASONS_BUTTON"] = "give me another reason";
 $pc_lang["WEBSITE_HOMEPAGE_PLAY_VIDEO"] = "Play video";
@@ -1074,7 +1094,7 @@ $pc_lang["WEBSITE_HOMEPAGE_REASONS_TITLE"] = "Why is using Plancake a clever cho
 $pc_lang["WEBSITE_HOMEPAGE_SECONDARY_COPY"] = "Free | Online | Calendar | Todo List | Supports GTD | For iPhone, iPad, Android, Blackberry, Symbian and Windows Mobile";
 $pc_lang["WEBSITE_HOMEPAGE_SIGN_UP_EMAIL"] = "email";
 $pc_lang["WEBSITE_HOMEPAGE_SIGN_UP_PASSWORD"] = "password";
-$pc_lang["WEBSITE_HOMEPAGE_STEP1_BODY"] = "Get more organised - manage all your todos, ideas and appointments with lists in a quick and easy way.";
+$pc_lang["WEBSITE_HOMEPAGE_STEP1_BODY"] = "Get more organised - manage all your todos, ideas and appointments in your browser the quick and easy way.";
 $pc_lang["WEBSITE_HOMEPAGE_STEP1_TITLE"] = "Capture and Organise";
 $pc_lang["WEBSITE_HOMEPAGE_STEP2_BODY"] = "Have all your lists with you on the go and when you don't have Internet access - no need to install any extra software.";
 $pc_lang["WEBSITE_HOMEPAGE_STEP2_TITLE"] = "Access anywhere";
@@ -1088,14 +1108,17 @@ $pc_lang["WEBSITE_HOMEPAGE_TESTIMONIAL2_AUTHOR_INFO"] = "Historian, Poland";
 $pc_lang["WEBSITE_HOMEPAGE_TESTIMONIAL3"] = "Getting things done is a top priority for me. Plancake helps me achieve just this and serves as a good reminder for even the little tasks. The platform is simple, mobile and very easy to use. ";
 $pc_lang["WEBSITE_HOMEPAGE_TESTIMONIAL3_AUTHOR_INFO"] = "Entrepreneur, UK";
 $pc_lang["WEBSITE_HOMEPAGE_WHATS_PLANCAKE_HEADER"] = "What's Plancake?";
-$pc_lang["WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY"] = "Plancake is for entrepreneurs, freelancers, managers, employees, mums and dads - whoever feels they are very busy and would like to find focus, better results, relax and more time for themselves.";
+$pc_lang["WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY"] = "<li>entrepreneurs: don't forget any of your great ideas and opportunities you find</li>
+<li>freelancers: manage your clients' projects without missing a deadline </li>
+<li>managers: do better choices by having everything written down in front of you  - success is a lot about this</li>
+<li>employees: impress your colleagues and bosses with your reliability - this could make your promotion faster</li>
+<li>mums and dads: manage all your recurrent activities and organise great things for your family</li>";
 $pc_lang["WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER"] = "Who's Plancake for?";
 $pc_lang["WEBSITE_HOMEPAGE_WHY_US_BODY"] = "<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>
 <li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>
 <li>our unique feature (we call it <em>%s</em>) is ideal for your GTD weekly review</li>
 <li>Plancake is Open Source - therefore you are not locked-in</li>
-<li>we made our Premium edition very affordable - check out our <a href=\"%s\">plans and prices</a></li>
-<li>we are very passionate about time management and personal development: which is why we publish inspirational articles on our blog and we are writing a book on those topics</li>";
+<li>we made our Premium edition very affordable - check out our <a href=\"%s\">plans and prices</a></li>";
 $pc_lang["WEBSITE_HOMEPAGE_WHY_US_HEADER"] = "Why us?";
 $pc_lang["WEBSITE_LOGIN_ACCOUNT_LOCKED_ERROR"] = "Your account is still locked because a malicious attack was detected. Maybe you failed to enter the correct details too many times? Please try again in few minutes.";
 $pc_lang["WEBSITE_LOGIN_AWAITING_ACTIVATION_ERROR"] = "You haven't activated your account yet. <br />
@@ -1348,6 +1371,13 @@ Anybody who knows your Plancake email address can add tasks to your Inbox. This 
 However, be careful not to publicly disclose your Plancake email address otherwise strangers could add tasks to your Inbox.
 </p>";
 $pc_lang["WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER"] = "Send emails to Plancake";
+$pc_lang["WEBSITE_SERVICES_GMAIL_BODY1"] = "Plancake adds an icon next to tasks that contain a link to a Gmail email in their description or note.<br />
+If you click the icon, a new tab will open on the email page.";
+$pc_lang["WEBSITE_SERVICES_GMAIL_BODY2"] = "That is very handy when used in combination with our <a target=\"_blank\" href=\"%s\">Google Chrome extension</a>.";
+$pc_lang["WEBSITE_SERVICES_GMAIL_BODY3"] = "Once you install the extension, you can use it when the email page is open in your browser. <br />
+Just click the link 'get page address' of the extension and type a description for the task (the email subject is often not the best description for the content of the email). <br />
+You will then have a reminder in your Plancake account (as shown in the image at the top of this page) so that you can organise the email the way you like it.";
+$pc_lang["WEBSITE_SERVICES_GMAIL_HEADER"] = "Gmail integration";
 $pc_lang["WEBSITE_SERVICES_GOOGLE_CAL_HEADER"] = "Google Calendar Integration (Beta)";
 $pc_lang["WEBSITE_SERVICES_GOOGLE_CAL_INTRO"] = "Manage your Plancake scheduled tasks on Google Calendar, one of the best online calendars.";
 $pc_lang["WEBSITE_SERVICES_GOOGLE_CAL_INTRO2"] = "You can connect Plancake to your Google Calendar account from the Plancake Settings or from the <em>All scheduled</em> view.
@@ -1431,10 +1461,14 @@ $pc_lang["WEBSITE_SERVICES_HOME_COMING_SOON_MSG"] = "coming soon";
 $pc_lang["WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_BODY"] = "Do you remember all those times when you sent yourself an email to remember something? Plancake makes things easier: you can send the email directly to your Plancake account so that you can complete or organise the task once you log in.<br />
 On smartphones you can even send an email via voice command (e.g.: Siri)!";
 $pc_lang["WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE"] = "Send emails to Plancake";
+$pc_lang["WEBSITE_SERVICES_HOME_GMAIL_BODY"] = "It can be very daunting to deal with your email Inbox. <br />
+Plancake can help you organise emails so that you don't worry if you can't reply to them straightaway or if you just want to keep a reference to them.";
+$pc_lang["WEBSITE_SERVICES_HOME_GMAIL_TITLE"] = "Gmail integration";
 $pc_lang["WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY"] = "You will be able to update your schedule on Google Calendar via Plancake and vice versa (two-way integration).";
 $pc_lang["WEBSITE_SERVICES_HOME_GOOGLE_CAL_TITLE"] = "Google Calendar Integration (Beta)";
-$pc_lang["WEBSITE_SERVICES_HOME_GTD_BODY"] = "If you wish, you can use Plancake as a GTD software in order to achieve a stress-free productive life.<br />
-Dump what is on your mind to your Inbox, filter lists by tags (contexts), light up stars to mark next actions and get stuff done!";
+$pc_lang["WEBSITE_SERVICES_HOME_GTD_BODY"] = "If you wish, you can use Plancake as a <b>GTD software</b> in order to achieve a stress-free productive life.<br />
+David Allen's <a title=\"GTD - Getting things done\" href=\"%s\">Getting Things Done</a> is a set of simple ideas that have revolutionised task management. <br />
+Buying his book would be a very good idea!";
 $pc_lang["WEBSITE_SERVICES_HOME_INTRO"] = "Here is the list of available services. <br />
 In order to use some of them you need to pay a subscription fee.";
 $pc_lang["WEBSITE_SERVICES_HOME_IPHONE_APP_BODY"] = "This will let you use Plancake on the go on your iPhone, even when there is no Internet connection. <br />
@@ -1486,10 +1520,12 @@ $pc_lang["WEBSITE_SERVICES_OFFLINE_USE_BODY1"] = "<p>
     <img src=\"/images/offline_use_guide1.png\" />
 </p>
 
+<p>Offline support works very well on <b>Google Chrome</b> - some other browsers may not be supporting the new technologies we are leveraging just yet.</p>
+
 <h3>Set up while still online</h3>
 <p>
     In order to activate the offline support, you need to go to the Mobile version from your laptop or desktop <b>while Internet is available</b>: <br />
-<a href=\"%s\">%s</a>    <b>[you need to be logged in]</b><br />
+<a target=\"_blank\" href=\"%s\">%s</a>    <b>[you need to be logged in]</b><br />
 After that first time, you can use the Mobile version (at that address) from your laptop or desktop even when the Internet is not available.
 </p>
 
@@ -1514,6 +1550,10 @@ Otherwise, if the Internet goes down while you are using the Plancake web applic
 Changes on the Web application or on the Mobile application are <b>not</b> synchronised automatically - just hit the 'Sync' button at the bottom of the screen when you are ready to transfer them.
 </p>
 
+<p>
+To mark a task as done, you just need to long click on it.
+</p>
+
 <h3>Roadmap</h3>
 <p>In the future, we would like to integrate the offline capability in the main web application itself, so that you don't need to change URL in order to use it.</p>
 
@@ -1531,7 +1571,11 @@ $pc_lang["WEBSITE_SERVICES_SMARTPHONE_APP_BODY1"] = "  <p>
           <li>you don't need to install anything from the app store - just need to visit www.plancake.com with your smartphone</li>
           <li>when Plancake receives updates and bug fixes, your smartphone will be able to use them immediately, no manual updating required! </li>
       </ul>
-  </p>";
+  </p>
+
+<p>
+Also, we wanted to keep Plancake Mobile quite simple because we believe a small smartphone screen is not the best option for organising your things as you would need a bigger picture and an easy drag and drop functionality to do so. What you would probably need is to jot down things as they come up to your mind, see what you need to buy at the grocery shop or check things off your lists.
+</p>";
 $pc_lang["WEBSITE_SERVICES_SMARTPHONE_APP_BODY2"] = "  <p>
       Plancake Mobile works on any smartphone with a web browser supporting the basic functionalities of HTML5 - nowadays most smartphones should do.
   </p>
@@ -1570,6 +1614,8 @@ On <b>Iphone</b> (if you use Safari), you need to:
       The first time you log in, all the data in your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
       without an Internet connection.
 </p>
+
+<p>To mark a task as done, you just need to long press it.</p>
 
 <p>
       Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />

@@ -21,6 +21,8 @@
 
 class RegistrationForm extends BaseForm
 {
+  const TIMEZONE_DEFAULT_VALUE = '+13:00,0';  
+    
   public function configure()
   {
     sfValidatorBase::setDefaultMessage('required', __('GENERAL_REQUIRED_FIELD_ERROR'));
@@ -39,7 +41,7 @@ class RegistrationForm extends BaseForm
       'password1'   => new sfWidgetFormInputPassword(),
       'password2'   => new sfWidgetFormInputPassword(),
       'lang'   => new sfWidgetFormInputHidden(),
-      'tz' => new sfWidgetFormInputHidden(array('default' => '00:00,0')),
+      'tz' => new sfWidgetFormInputHidden(array('default' => self::TIMEZONE_DEFAULT_VALUE)),
       'dst_on' => new sfWidgetFormInputHidden(array('default' => 0))
     ));
  
@@ -89,6 +91,14 @@ class RegistrationForm extends BaseForm
         array('invalid' => __('WEBSITE_REGISTRATION_PASSWORD_MISMATCH_ERROR') )
         )
     );
+    
+    $this->mergePostValidator(
+      new sfValidatorDetectingSpammersOnRegistration(
+        null,
+        array(),
+        array('invalid' => __('WEBSITE_REGISTRATION_PASSWORD_MISMATCH_ERROR') )
+        )
+    );    
 
     $this->widgetSchema->setLabels(array(
       'email'   => __('WEBSITE_REGISTRATION_EMAIL_ADDRESS_LABEL'),

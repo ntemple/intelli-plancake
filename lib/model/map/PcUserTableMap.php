@@ -46,7 +46,6 @@ class PcUserTableMap extends TableMap {
 		$this->addForeignKey('TIMEZONE_ID', 'TimezoneId', 'TINYINT', 'pc_timezone', 'ID', false, null, null);
 		$this->addColumn('WEEK_START', 'WeekStart', 'TINYINT', false, null, 0);
 		$this->addColumn('DST_ACTIVE', 'DstActive', 'BOOLEAN', false, null, false);
-		$this->addColumn('REMEMBERME_KEY', 'RemembermeKey', 'VARCHAR', false, 32, null);
 		$this->addColumn('AWAITING_ACTIVATION', 'AwaitingActivation', 'BOOLEAN', false, null, true);
 		$this->addColumn('NEWSLETTER', 'Newsletter', 'BOOLEAN', false, null, false);
 		$this->addColumn('FORUM_ID', 'ForumId', 'INTEGER', false, null, null);
@@ -63,6 +62,7 @@ class PcUserTableMap extends TableMap {
 		$this->addColumn('LATEST_IMPORT_REQUEST', 'LatestImportRequest', 'TIMESTAMP', false, null, null);
 		$this->addColumn('LATEST_BREAKING_NEWS_CLOSED', 'LatestBreakingNewsClosed', 'INTEGER', false, null, null);
 		$this->addColumn('LAST_PROMOTIONAL_CODE_INSERTED', 'LastPromotionalCodeInserted', 'VARCHAR', true, 25, '');
+		$this->addColumn('BLOCKED', 'Blocked', 'BOOLEAN', false, null, false);
 		$this->addColumn('SESSION_ENTRY_POINT', 'SessionEntryPoint', 'VARCHAR', false, 128, '');
 		$this->addColumn('SESSION_REFERRAL', 'SessionReferral', 'VARCHAR', false, 128, '');
 		$this->addColumn('CREATED_AT', 'CreatedAt', 'TIMESTAMP', false, null, null);
@@ -75,6 +75,7 @@ class PcUserTableMap extends TableMap {
 	public function buildRelations()
 	{
     $this->addRelation('PcTimezone', 'PcTimezone', RelationMap::MANY_TO_ONE, array('timezone_id' => 'id', ), null, null);
+    $this->addRelation('PcRemembermeKey', 'PcRemembermeKey', RelationMap::ONE_TO_MANY, array('id' => 'user_id', ), null, null);
     $this->addRelation('PcDirtyTask', 'PcDirtyTask', RelationMap::ONE_TO_MANY, array('id' => 'user_id', ), null, null);
     $this->addRelation('PcFailedLogins', 'PcFailedLogins', RelationMap::ONE_TO_ONE, array('id' => 'user_id', ), null, null);
     $this->addRelation('PcActivationToken', 'PcActivationToken', RelationMap::ONE_TO_ONE, array('id' => 'user_id', ), null, null);

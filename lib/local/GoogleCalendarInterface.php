@@ -357,17 +357,18 @@ class GoogleCalendarInterface
                     // Maybe we should also improve the code to detect whether the task has
                     // been deleted.
                     sleep(1);
-                }
 
-                foreach($updatedEvents as $updatedEvent)
-                {
-                    if (SfConfig::get('app_gcal_debug'))
+                    foreach($updatedEvents as $updatedEvent)
                     {
-                        error_log('Syncing eventId ' . $this->getEventId($updatedEvent));
-                    }
+                        if (SfConfig::get('app_gcal_debug'))
+                        {
+                            error_log('Syncing eventId ' . $this->getEventId($updatedEvent));
+                        }
 
-                    $this->updatePlancakeTask($updatedEvent);
+                        $this->updatePlancakeTask($updatedEvent);
+                    }
                 }
+
                 
                 $dbEntry->setPcUser($this->user)
                         ->setLatestSyncEndTimestamp(time())

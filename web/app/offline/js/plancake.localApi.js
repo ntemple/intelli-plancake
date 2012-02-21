@@ -151,7 +151,8 @@ PLANCAKE.localApi_addOrEditTask = function(task, tasksDatastore) {
 
 PLANCAKE.localApi_addTaskLocally = function (params) {
    task = PLANCAKE.localApi_getTaskFromUrlParams(params);
-   task.id = PLANCAKE.localApi_getNextTaskId();
+   var taskId = PLANCAKE.localApi_getNextTaskId();
+   task.id = taskId;
    task.isLocal = 1;
 
    PLANCAKE.localApi_setTasksDatastore(PLANCAKE.localApi_addOrEditTask(task));
@@ -255,7 +256,7 @@ PLANCAKE.localApi_getTasks = function(params) {
                 scheduledTasksCount = scheduledTasks.length;
                 
                 if (scheduledTasksCount > 0) {
-                    for(i = 0; i < 7; i++) {
+                    for(i = 0; i < PLANCAKE.numberOfDaysOnCalendar; i++) {
                         for(j = 0; j < scheduledTasksCount; j++)
                         {
                             scheduledTask = scheduledTasks[j];

@@ -154,6 +154,16 @@ The setting page is not served via AJAX because the submission of the form would
 The link we want to be the trigger for requesting a page via AJAX must have the 'loadViaAJAX' class and the href must have a leading # character. The served page is a normal Symfony action without any layout. The new content will be loaded inside the mainContent div.
 The dynamic content should have a h2 tag that will be used as title for the document.
 
+SSL
+---
+Login and registration pages are served on SSL.
+We wanted to give SSL on their accounts only to Premium users - we needed to change that a little bit in Feb 2012 to make the mobile application
+(https://www.plancake.com/account.php/mobile) work offline. We needed to add an entry on the cache manifest that would have been the same for each
+category of users. Based on that we made the desktop web app to work on SSL only for Premium users (as planned) and the mobile web app to work on 
+SSL for any user.
+But the mobile application sends AJAX queries to different modules so it wasn't easy for us anymore to force http rather than https outside the
+mobile module so we decided not to force that anymore.
+See /apps/account/lib/sfSecureFilter.class.php for more details.
 
 Email-to-inbox component
 ------------------------

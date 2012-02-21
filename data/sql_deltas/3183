@@ -1,0 +1,12 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_task` MODIFY `contexts` varchar(127) DEFAULT '' COMMENT 'it is a comma separated list';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

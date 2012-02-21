@@ -35,6 +35,20 @@ class PcBlogPost extends BasePcBlogPost
 
         return $categories;
     }
+    
+    public function getCategoriesIds()
+    {
+        $categories = $this->getCategories();
+
+        $categoriesIds = array();
+
+        foreach ($categories as $category)
+        {
+            $categoriesIds[] = $category->getId();
+        }
+
+        return $categoriesIds;
+    }    
 
     public function getYear()
     {

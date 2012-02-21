@@ -12,7 +12,6 @@
     <column name="timezone_id" type="tinyint" sqlType="TINYINT UNSIGNED" />
     <column name="week_start" type="tinyint" sqlType="TINYINT(2) UNSIGNED" default="0" description="0->Sunday, 1->Monday" />
     <column name="dst_active" type="boolean" sqlType="TINYINT(1)" default="0" />
-    <column name="rememberme_key" type="varchar" size="32" />
     <column name="awaiting_activation" type="boolean" sqlType="TINYINT(1)" default="1" />
     <column name="newsletter" type="boolean" sqlType="TINYINT(1)" default="0" />
     <column name="forum_id" type="integer" sqlType="INTEGER UNSIGNED" description="it's the corresponding id in the forum_users table" />
@@ -29,6 +28,7 @@
     <column name="latest_import_request" type="timestamp" />  
     <column name="latest_breaking_news_closed" type="integer" sqlType="SMALLINT UNSIGNED" required="false" />
     <column name="last_promotional_code_inserted" type="varchar" required="true" default="" size="25" description="the user hasn't necessarily used it" />
+    <column name="blocked" type="boolean" sqlType="TINYINT(1)" default="0" />
     <column name="session_entry_point" type="varchar" size="128" default="" />
     <column name="session_referral" type="varchar" size="128" default="" />
     <column name="created_at" type="timestamp" />
@@ -41,10 +41,23 @@
     <unique>
       <unique-column name="email"/>
     </unique>
+  </table>
+  
+  <table name="pc_rememberme_key">
+    <column name="id" type="integer" sqlType="INTEGER UNSIGNED" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="user_id" type="integer" sqlType="INTEGER UNSIGNED" required="true" />    
+    <column name="rememberme_key" type="varchar" size="32" />
+    <column name="created_at" type="timestamp" null="false" required="true" />    
+    <index>
+      <index-column name="user_id"/>
+    </index>
+    <foreign-key foreignTable="pc_user">
+      <reference local="user_id" foreign="id" />
+    </foreign-key>
     <unique>
       <unique-column name="rememberme_key"/>
-    </unique>
-  </table>
+    </unique>    
+  </table>  
 
   <table name="pc_dirty_task">
     <column name="user_id" type="integer" sqlType="INTEGER UNSIGNED" required="true" primaryKey="true" />
@@ -145,7 +158,7 @@
     <column name="is_from_system" type="boolean" sqlType="TINYINT(1)" default="0"  required="true" null="false" />
     <column name="special_flag" type="tinyint" sqlType="TINYINT UNSIGNED" required="false"/>
     <column name="note" type="varchar" sqlType="TEXT" />
-    <column name="contexts" type="varchar" size="31" default="" description="it is a comma separated list" />
+    <column name="contexts" type="varchar" size="127" default="" description="it is a comma separated list" />
     <column name="contact_id" type="integer" sqlType="INTEGER UNSIGNED" required="false" />    
     <column name="completed_at" type="timestamp" />
     <column name="updated_at" type="timestamp"  required="true" null="false" />

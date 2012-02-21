@@ -37,17 +37,16 @@ if (PLANCAKE.cache) {
          // Don't perform "swap" if this is the first cache
          if (PLANCAKE.cacheStatusValues[PLANCAKE.cache.status] != 'idle') {
             PLANCAKE.cache.swapCache();
-            // console.log("Updated cache is ready");
-            // Even after swapping the cache the currently loaded page won't use it
-            // until it is reloaded, so force a reload so it is current.
-            // window.location.reload(true);
-            // console.log("Window reloaded");
-            
             // The updateready trigger tells us an Internet connection is available and
             // and a new version of Plancake has been released - thus we delete the updatable
             // startup data (lang, config, ...) so that they can be updated later on in the startup
             // process (see plancake.init.js file)
-            PLANCAKE.deleteUpdatableStartupData();          
+            PLANCAKE.deleteUpdatableStartupData();
+            
+            // console.log("Updated cache is ready");
+            // Even after swapping the cache the currently loaded page won't use it
+            // until it is reloaded, so force a reload so it is current.
+            window.location.reload(true);           
          }
      }, false);
 };

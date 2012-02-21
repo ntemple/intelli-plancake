@@ -1,0 +1,53 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Get more organised - manage all your todos, ideas and appointments in your browser the quick and easy way.' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP1_BODY';
+UPDATE  `pc_translation` SET  `string` =  'Diventa organizzato - gestisci i tuoi impegni, idee e appuntamenti col tuo browser in modo veloce e semplice.' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_STEP1_BODY';
+
+UPDATE `pc_translation` SET `string` = 'If you wish, you can use Plancake as a <b>GTD software</b> in order to achieve a stress-free productive life.<br />
+David Allen''s <a title="GTD - Getting things done" href="%s">Getting Things Done</a> is a set of simple ideas that have revolutionised task management.' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY'; 
+
+UPDATE `pc_translation` SET `string` = 'Se vuoi, puoi utilizzare Plancake come <b>software GTD</b> per raggiungere una vita più rilassata e produttiva.
+<br />
+Di David Allen, <a title="GTD - Getting things done" href="%s">Getting Things Done</a> è un insieme di semplici idee che hanno rivoluzionato la gestione di attività.' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+
+UPDATE `pc_translation` SET `string` = 'If you wish, you can use Plancake as a <b>GTD software</b> in order to achieve a stress-free productive life.<br />
+David Allen''s <a title="GTD - Getting things done" href="%s">Getting Things Done</a> is a set of simple ideas that have revolutionised task management. <br />
+Buying his book would be a very good idea!' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY'; 
+
+UPDATE `pc_translation` SET `string` = 'Se vuoi, puoi utilizzare Plancake come <b>software GTD</b> per raggiungere una vita più rilassata e produttiva.
+<br />
+Di David Allen, <a title="GTD - Getting things done" href="%s">Getting Things Done</a> è un insieme di semplici idee che hanno rivoluzionato la gestione di attività.<br />
+Comprare il suo libro sarebbe un''ottima idea!' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_GTD_BODY';
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>
+<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>
+<li>our unique feature (we call it <em>%s</em>) is ideal for your GTD weekly review</li>
+<li>Plancake is Open Source - therefore you are not locked-in</li>
+<li>we made our Premium edition very affordable - check out our <a href="%s">plans and prices</a></li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY'; 
+
+UPDATE `pc_translation` SET `string` = '<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>
+<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>
+<li>la nostra feature esclusiva (l''abbiamo chiamata <em>%s</em>) è ideale per la tua revisione settimanale GTD</li>
+<li>Plancake è Open Source - quindi non sarai "ingabbiato"</li>        
+<li>abbiamo reso la nostra edizione Premium molto conveniente - dai un''occhiata ai nostri <a href="%s">piani e prezzi</a></li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHY_US_BODY';
+
+UPDATE `pc_translation` SET `string` = '<li>entrepreneurs: don''t forget any of your great ideas and opportunities you find</li>
+<li>freelancers: manage your clients'' projects without missing a deadline </li>
+<li>managers: do better choices by having everything written down in front of you  - success is a lot about this</li>
+<li>employees: impress your colleagues and bosses with your reliability - this could make your promotion faster</li>
+<li>mums and dads: manage all your recurrent activities and organise great things for your family</li>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY';
+
+UPDATE `pc_translation` SET `string` = '<li>imprenditori: non dimenticarti delle tue grande idee e delle opportunità che trovi</li>
+<li>liberi professionisti: gestisci i progetti dei tuoi clienti senza saltare scadenze</li>
+<li>manager: fai scelte migliori avendo tutto scritto davanti a te - il successo è anche per questo</li>
+<li>impiegati: stupisci i colleghi e i capi per la tua affidabilità - quella promozione potrebbe essere più vicina</li>
+<li>mamme e papà: gestisci attività ricorrenti e organizza grandi cose per la tua famiglia</li>' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

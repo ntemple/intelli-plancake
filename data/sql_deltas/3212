@@ -1,0 +1,19 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+ALTER TABLE `pc_user` ADD `blocked` tinyint(1) DEFAULT '0' AFTER `last_promotional_code_inserted`;
+
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%163.com';
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%sohu.com';
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%21cn.com';
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%qq.com';
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%tom.com';
+UPDATE `pc_user` SET `blocked`=1 WHERE `email` LIKE '%yeah.net';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -63,6 +63,10 @@ services_google_calendar_integration:
   url:   /services/google-calendar-integration
   param: { module: about, action: googleCalendarIntegration }
 
+services_gmail_integration:
+  url:   /services/gmail-integration
+  param: { module: about, action: gmailIntegration }
+
 api_documentation:
   url:   /api-documentation
   param: { module: apiDocumentation, action: index }
@@ -193,6 +197,10 @@ localized_services_email_to_inbox:
 localized_services_google_calendar_integration:
   url:   /:sf_culture/services/google-calendar-integration
   param: { module: about, action: googleCalendarIntegration }
+
+localized_services_gmail_integration:
+  url:   /:sf_culture/services/gmail-integration
+  param: { module: about, action: gmailIntegration }
 
 localized_press:
   url: /:sf_culture/press

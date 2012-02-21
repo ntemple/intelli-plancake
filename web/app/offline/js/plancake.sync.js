@@ -37,104 +37,187 @@ $(document).ready(function () {
 });
 
 PLANCAKE.sync = function () {
+    var errorOccurred = false;
     try {
         var ajaxParam = {
             'from_ts' : PLANCAKE.getLastSyncTimestamp(),
             'tasks' : PLANCAKE.localApi_getTasksFromLocalStorageToSync()['tasks']
         };
     } catch(e) {
-        PLANCAKE.showToastError(e.message);
+        errorOccurred = true;
+        var errorMessage = "An error occurred E2: " + e.message;
+
+        PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_LOG_ERROR, 
+                'error=' + PLANCAKE.prepareForAjaxTransmission(errorMessage + '\n\n' + printStackTrace().join('\n\n')));    
+        
+        PLANCAKE.showToastError(errorMessage);
     }
     
-    PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_SYNC, 
-         ajaxParam, '', function (dataFromServer) {
-             try {
-                 // local tasks have already been sent and added to the server so we can delete them locally...
-                 PLANCAKE.localApi_removeLocalTasks();
-                 // ...anyway they have been sent back from the server via AJAX with a valid Id and we are going to insert them
-                 // in the local datastore                 
+    if (!errorOccurred) {
+        PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_SYNC, 
+             ajaxParam, '', function (dataFromServer) {
+                 var syncErrorCode = 0;
+                 var serverTime = 0;
                  
-                 if ( (dataFromServer === null) || (dataFromServer === undefined) ) {
-                     throw "dataFromServer is null";
-                 }
-                 
-                 changes = dataFromServer['changes'];
+                 try {
+                     try {
+                         if ( (dataFromServer === null) || (dataFromServer === undefined) ) {
+                            throw { 
+                                name:        "Communication Error",
+                                message:     "dataFromServer is null"
+                            };                             
+                         }
 
-                 var serverTime = changes['serverTime'];
+                         changes = dataFromServer['changes'];
 
-                 // I'm NOT interested in this because at the end of this process I just overwrite the whole startupData,
-                 // which includes lists, tags and repetitionOptions
-                 /*
-                 var changedLists = changes['lists'];
-                 var deletedLists = changes['deletedLists'];
-                 var changedTags = changes['tags'];
-                 var deletedTags = changes['deletedTags'];             
-                 var changedRepetitions = changes['repetitions'];
-                 */
+                         var serverTime = changes['serverTime'];
+                     } catch (e) {
+                         syncErrorCode = 13;
+                         throw e;
+                     }
 
-                var changedTasks = changes['tasks'];
-                var deletedTasks = changes['deletedTasks'];
+                    try {
+                         // local tasks have already been sent and added to the server so we can delete them locally...
+                         PLANCAKE.localApi_removeLocalTasks();
+                         // ...anyway they have been sent back from the server via AJAX with a valid Id and we are going to insert them
+                         // in the local datastore
+                     } catch (e) {
+                         syncErrorCode = 14;
+                         throw e;
+                     }
 
-                var changedTasksCount = changedTasks.length,
-                    deletedTasksCount = deletedTasks.length,
-                    i = 0,
-                    changedTask = null,
-                    deletedTaskId = null;
+                     // I'm NOT interested in this because at the end of this process I just overwrite the whole startupData,
+                     // which includes lists, tags and repetitionOptions
+                     /*
+                     var changedLists = changes['lists'];
+                     var deletedLists = changes['deletedLists'];
+                     var changedTags = changes['tags'];
+                     var deletedTags = changes['deletedTags'];             
+                     var changedRepetitions = changes['repetitions'];
+                     */
 
-                var tasksDatastore = PLANCAKE.localApi_getTasksDatastore();
-                for(i = 0; i < changedTasksCount; i++) {
-                    changedTask = changedTasks[i];
-                    if (changedTask.isCompleted == 1) {
-                        // we store only non-completed tasks
-                        tasksDatastore = PLANCAKE.localApi_deleteTask(changedTask.id, tasksDatastore);
+                    try {
+                        var changedTasks = changes['tasks'];
+                        var deletedTasks = changes['deletedTasks'];
+
+                        var changedTasksCount = changedTasks.length,
+                            deletedTasksCount = deletedTasks.length,
+                            i = 0,
+                            changedTask = null,
+                            deletedTaskId = null;
+                     } catch (e) {
+                         syncErrorCode = 15;
+                         throw e;
+                     }
+
+
+                    try {
+                        var tasksDatastore = PLANCAKE.localApi_getTasksDatastore();
+                        for(i = 0; i < changedTasksCount; i++) {
+                            changedTask = changedTasks[i];
+                            if (changedTask.isCompleted == 1) {
+                                // we store only non-completed tasks
+                                tasksDatastore = PLANCAKE.localApi_deleteTask(changedTask.id, tasksDatastore);
+                            } else {
+                                tasksDatastore = PLANCAKE.localApi_addOrEditTask(changedTask, tasksDatastore);                    
+                            }
+                        }
+                     } catch (e) {
+                         syncErrorCode = 16;
+                         throw e;
+                     }                        
+
+                    try {
+                        for(i = 0; i < deletedTasksCount; i++) {
+                            deletedTaskId = deletedTasks[i];
+                            tasksDatastore = PLANCAKE.localApi_deleteTask(deletedTaskId, tasksDatastore);
+                        }
+                     } catch (e) {
+                         syncErrorCode = 17;
+                         throw e;
+                     }                         
+
+                    try {
+                        PLANCAKE.localApi_setTasksDatastore(tasksDatastore);
+                     } catch (e) {
+                         syncErrorCode = 18;
+                         throw e;
+                     }                         
+
+                   try {
+                       // We update the last sync timestamp as last step: if something goes wrong during the synchronisation,
+                       // next time we try to resubmit all the data again (because the timestamp hasn't changed) - thus we don't lose data
+                       localStorage.setItem(PLANCAKE.LOCAL_STORAGE_KEY_LAST_SYNC_TIMESTAMP, serverTime);
+                     } catch (e) {
+                         syncErrorCode = 19;
+                         throw e;
+                     }  
+                     
+                   try {
+                       // Now dealing with startup data (lists, tags, langs, ...) - this is not very critical as the sync is one way
+                       // only (from server to client) in fact we even overwrite data
+
+                       localStorage.removeItem(PLANCAKE.LOCAL_STORAGE_KEY_STARTUP_DATA); // we need to remove this item otherwise
+                                                                                          // the next call will be served from locally (using
+                                                                                          // localStorage) rather than downloading a fresh copy
+                                                                                          // from the server.
+                                                                                          // This is a shortcut to quickly sync lists and tags:
+                                                                                          // removing this key will force an update - anyway
+                                                                                          // after syncing we always redirect to the homepage of the
+                                                                                          // app forcing therefore a sync.
+                                                                                          // There can be a problem if next AJAX call doesn't work
+                                                                                          // but it would be apparent (as the user won't see any list
+                                                                                          // or tag) and the user would try to sync again
+                     } catch (e) {
+                         syncErrorCode = 20;
+                         throw e;
+                     }                                                                                           
+                                                                                      
+                   if (PLANCAKE.config.custom === 1) { // generating exception on purpose for testing
+                       // null.getId();
+                   }                                                                                      
+                                                                                      
+                                                                                      
+                } catch(e) {
+                    errorOccurred = true;
+                    if (syncErrorCode == 13) {
+                         // this happened most probably because the user hasn't got a valid session on the server anymore:
+                         // either they didn't do "rememberme", or they logged out from another window, or
+                         // their "rememberme" session has expired
+                         alert(PLANCAKE.lang.ACCOUNT_MOBILE_NEED_TO_LOGIN);
+                         window.location.href = 'http://www.plancake.com/login?ignorelocalstorage=1';                         
                     } else {
-                        tasksDatastore = PLANCAKE.localApi_addOrEditTask(changedTask, tasksDatastore);                    
+                        var errorMessage = "An error occurred E" + syncErrorCode + ": " + e.message;
+
+                        PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_LOG_ERROR, 
+                                'error=' + PLANCAKE.prepareForAjaxTransmission(errorMessage + '\n\n' + printStackTrace().join('\n\n')));    
+
+                        PLANCAKE.showToastError(errorMessage);
                     }
+                }                                                                                
+
+                if (! errorOccurred) {
+                    PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_INIT_DATA, 
+                           '', '', function (startupData) {
+                               try {
+                                   localStorage.setItem(PLANCAKE.LOCAL_STORAGE_KEY_STARTUP_DATA, JSON.stringify(startupData));
+
+                                   PLANCAKE.showToastSuccess(PLANCAKE.getOverlayContent_syncSuccess(), function () {
+                                        window.location.href = PLANCAKE.BASE_URL_MOBILE;    
+                                   });
+
+                                } catch(e) {
+                                    var errorMessage = "An error occurred E4: " + e.message;
+
+                                    PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_LOG_ERROR, 
+                                            'error=' + PLANCAKE.prepareForAjaxTransmission(errorMessage + '\n\n' + printStackTrace().join('\n\n')));    
+
+                                    PLANCAKE.showToastError(errorMessage);
+                                }                              
+                    });
                 }
-
-                for(i = 0; i < deletedTasksCount; i++) {
-                    deletedTaskId = deletedTasks[i];
-                    tasksDatastore = PLANCAKE.localApi_deleteTask(deletedTaskId, tasksDatastore);
-                }
-
-                PLANCAKE.localApi_setTasksDatastore(tasksDatastore);
-
-               // We update the last sync timestamp as last step: if something goes wrong during the synchronisation,
-               // next time we try to resubmit all the data again (because the timestamp hasn't changed) - thus we don't lose data
-               localStorage.setItem(PLANCAKE.LOCAL_STORAGE_KEY_LAST_SYNC_TIMESTAMP, serverTime);
-
-               // Now dealing with startup data (lists, tags, langs, ...) - this is not very critical as the sync is one way
-               // only (from server to client) in fact we even overwrite data
-
-               localStorage.removeItem(PLANCAKE.LOCAL_STORAGE_KEY_STARTUP_DATA); // we need to remove this item otherwise
-                                                                                  // the next call will be served from locally (using
-                                                                                  // localStorage) rather than downloading a fresh copy
-                                                                                  // from the server.
-                                                                                  // This is a shortcut to quickly sync lists and tags:
-                                                                                  // removing this key will force an update - anyway
-                                                                                  // after syncing we always redirect to the homepage of the
-                                                                                  // app forcing therefore a sync.
-                                                                                  // There can be a problem if next AJAX call doesn't work
-                                                                                  // but it would be apparent (as the user won't see any list
-                                                                                  // or tag) and the user would try to sync again
-            } catch(e) {
-                PLANCAKE.showToastError(e.message);
-            }                                                                                
-                                                                                  
-            PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_INIT_DATA, 
-                   '', '', function (startupData) {
-                       try {
-                           localStorage.setItem(PLANCAKE.LOCAL_STORAGE_KEY_STARTUP_DATA, JSON.stringify(startupData));
-
-                           PLANCAKE.showToastSuccess(PLANCAKE.getOverlayContent_syncSuccess(), function () {
-                                window.location.href = PLANCAKE.BASE_URL_MOBILE;    
-                           });
-                           
-                        } catch(e) {
-                            PLANCAKE.showToastError(e.message);
-                        }                              
-            });         
      });     
+    }
 };
 
 PLANCAKE.refreshLastSyncTimestamp = function () {

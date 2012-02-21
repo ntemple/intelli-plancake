@@ -168,7 +168,7 @@ class mainActions extends PlancakeActions
     $config = array('maxListsForFreeAccount' => sfConfig::get('app_site_maxListsForNonSupporter'),
                     'maxTagsForFreeAccount' => sfConfig::get('app_site_maxTagsForNonSupporter'),
                     'supportEmailAddress' => sfConfig::get('app_emailAddress_support'),
-                    'custom' => (($loggedInUser->getId() < 7500) ? 1 : 0) ); // this 'custom' key is a temporal thing
+                    'custom' => (($loggedInUser->getId() == 4) ? 1 : 0) ); // this 'custom' key is a temporal thing
     
     
     if ( stripos($request->getUri(), '/mobile') === FALSE ) { // the request doesn't come from the mobile app

@@ -58,8 +58,10 @@ $(document).ready(function() {
     if ($("#subscriptionPage").length) {
        $('table#supporterBenefits tr').not(':last').hover(function() {
                 $(this).children().addClass('supporterBenefitHighlight');
+                //$(this).find('td.nonCenteredContent span').show();
             }, function() {
                 $(this).children().removeClass('supporterBenefitHighlight');
+                // $(this).find('td.nonCenteredContent span').hide();                
        });
 
        // $('table#supporterPrices tr').hover(function() {
@@ -82,7 +84,7 @@ $(document).ready(function() {
     $('#twitterSocial').click(function() {
         window.open("http://twitter.com/share?text=" + 
             encodeURI(PLANCAKE.lang.GENERAL_TWITTER_COPY) + 
-            "&url=http%3A%2F%2Fwww.plancake.com&via=Plancakebakers",
+            "&url=http%3A%2F%2Fwww.plancake.com&via=plancakeGTD",
             "Share this on Twitter", 
             "menubar=no,width=550,height=450,toolbar=no");
         return false;

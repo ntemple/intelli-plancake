@@ -60,9 +60,6 @@ abstract class BasePcUserPeer {
 	/** the column name for the DST_ACTIVE field */
 	const DST_ACTIVE = 'pc_user.DST_ACTIVE';
 
-	/** the column name for the REMEMBERME_KEY field */
-	const REMEMBERME_KEY = 'pc_user.REMEMBERME_KEY';
-
 	/** the column name for the AWAITING_ACTIVATION field */
 	const AWAITING_ACTIVATION = 'pc_user.AWAITING_ACTIVATION';
 
@@ -111,6 +108,9 @@ abstract class BasePcUserPeer {
 	/** the column name for the LAST_PROMOTIONAL_CODE_INSERTED field */
 	const LAST_PROMOTIONAL_CODE_INSERTED = 'pc_user.LAST_PROMOTIONAL_CODE_INSERTED';
 
+	/** the column name for the BLOCKED field */
+	const BLOCKED = 'pc_user.BLOCKED';
+
 	/** the column name for the SESSION_ENTRY_POINT field */
 	const SESSION_ENTRY_POINT = 'pc_user.SESSION_ENTRY_POINT';
 
@@ -143,10 +143,10 @@ abstract class BasePcUserPeer {
 	 * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
 	 */
 	private static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('Id', 'Username', 'Email', 'EncryptedPassword', 'Salt', 'DateFormat', 'TimeFormat', 'TimezoneId', 'WeekStart', 'DstActive', 'RemembermeKey', 'AwaitingActivation', 'Newsletter', 'ForumId', 'LastLogin', 'Language', 'PreferredLanguage', 'IpAddress', 'HasDesktopAppBeenLoaded', 'HasRequestedFreeTrial', 'AvatarRandomSuffix', 'RemindersActive', 'LatestBlogAccess', 'LatestBackupRequest', 'LatestImportRequest', 'LatestBreakingNewsClosed', 'LastPromotionalCodeInserted', 'SessionEntryPoint', 'SessionReferral', 'CreatedAt', ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'username', 'email', 'encryptedPassword', 'salt', 'dateFormat', 'timeFormat', 'timezoneId', 'weekStart', 'dstActive', 'remembermeKey', 'awaitingActivation', 'newsletter', 'forumId', 'lastLogin', 'language', 'preferredLanguage', 'ipAddress', 'hasDesktopAppBeenLoaded', 'hasRequestedFreeTrial', 'avatarRandomSuffix', 'remindersActive', 'latestBlogAccess', 'latestBackupRequest', 'latestImportRequest', 'latestBreakingNewsClosed', 'lastPromotionalCodeInserted', 'sessionEntryPoint', 'sessionReferral', 'createdAt', ),
-		BasePeer::TYPE_COLNAME => array (self::ID, self::USERNAME, self::EMAIL, self::ENCRYPTED_PASSWORD, self::SALT, self::DATE_FORMAT, self::TIME_FORMAT, self::TIMEZONE_ID, self::WEEK_START, self::DST_ACTIVE, self::REMEMBERME_KEY, self::AWAITING_ACTIVATION, self::NEWSLETTER, self::FORUM_ID, self::LAST_LOGIN, self::LANGUAGE, self::PREFERRED_LANGUAGE, self::IP_ADDRESS, self::HAS_DESKTOP_APP_BEEN_LOADED, self::HAS_REQUESTED_FREE_TRIAL, self::AVATAR_RANDOM_SUFFIX, self::REMINDERS_ACTIVE, self::LATEST_BLOG_ACCESS, self::LATEST_BACKUP_REQUEST, self::LATEST_IMPORT_REQUEST, self::LATEST_BREAKING_NEWS_CLOSED, self::LAST_PROMOTIONAL_CODE_INSERTED, self::SESSION_ENTRY_POINT, self::SESSION_REFERRAL, self::CREATED_AT, ),
-		BasePeer::TYPE_FIELDNAME => array ('id', 'username', 'email', 'encrypted_password', 'salt', 'date_format', 'time_format', 'timezone_id', 'week_start', 'dst_active', 'rememberme_key', 'awaiting_activation', 'newsletter', 'forum_id', 'last_login', 'language', 'preferred_language', 'ip_address', 'has_desktop_app_been_loaded', 'has_requested_free_trial', 'avatar_random_suffix', 'reminders_active', 'latest_blog_access', 'latest_backup_request', 'latest_import_request', 'latest_breaking_news_closed', 'last_promotional_code_inserted', 'session_entry_point', 'session_referral', 'created_at', ),
+		BasePeer::TYPE_PHPNAME => array ('Id', 'Username', 'Email', 'EncryptedPassword', 'Salt', 'DateFormat', 'TimeFormat', 'TimezoneId', 'WeekStart', 'DstActive', 'AwaitingActivation', 'Newsletter', 'ForumId', 'LastLogin', 'Language', 'PreferredLanguage', 'IpAddress', 'HasDesktopAppBeenLoaded', 'HasRequestedFreeTrial', 'AvatarRandomSuffix', 'RemindersActive', 'LatestBlogAccess', 'LatestBackupRequest', 'LatestImportRequest', 'LatestBreakingNewsClosed', 'LastPromotionalCodeInserted', 'Blocked', 'SessionEntryPoint', 'SessionReferral', 'CreatedAt', ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'username', 'email', 'encryptedPassword', 'salt', 'dateFormat', 'timeFormat', 'timezoneId', 'weekStart', 'dstActive', 'awaitingActivation', 'newsletter', 'forumId', 'lastLogin', 'language', 'preferredLanguage', 'ipAddress', 'hasDesktopAppBeenLoaded', 'hasRequestedFreeTrial', 'avatarRandomSuffix', 'remindersActive', 'latestBlogAccess', 'latestBackupRequest', 'latestImportRequest', 'latestBreakingNewsClosed', 'lastPromotionalCodeInserted', 'blocked', 'sessionEntryPoint', 'sessionReferral', 'createdAt', ),
+		BasePeer::TYPE_COLNAME => array (self::ID, self::USERNAME, self::EMAIL, self::ENCRYPTED_PASSWORD, self::SALT, self::DATE_FORMAT, self::TIME_FORMAT, self::TIMEZONE_ID, self::WEEK_START, self::DST_ACTIVE, self::AWAITING_ACTIVATION, self::NEWSLETTER, self::FORUM_ID, self::LAST_LOGIN, self::LANGUAGE, self::PREFERRED_LANGUAGE, self::IP_ADDRESS, self::HAS_DESKTOP_APP_BEEN_LOADED, self::HAS_REQUESTED_FREE_TRIAL, self::AVATAR_RANDOM_SUFFIX, self::REMINDERS_ACTIVE, self::LATEST_BLOG_ACCESS, self::LATEST_BACKUP_REQUEST, self::LATEST_IMPORT_REQUEST, self::LATEST_BREAKING_NEWS_CLOSED, self::LAST_PROMOTIONAL_CODE_INSERTED, self::BLOCKED, self::SESSION_ENTRY_POINT, self::SESSION_REFERRAL, self::CREATED_AT, ),
+		BasePeer::TYPE_FIELDNAME => array ('id', 'username', 'email', 'encrypted_password', 'salt', 'date_format', 'time_format', 'timezone_id', 'week_start', 'dst_active', 'awaiting_activation', 'newsletter', 'forum_id', 'last_login', 'language', 'preferred_language', 'ip_address', 'has_desktop_app_been_loaded', 'has_requested_free_trial', 'avatar_random_suffix', 'reminders_active', 'latest_blog_access', 'latest_backup_request', 'latest_import_request', 'latest_breaking_news_closed', 'last_promotional_code_inserted', 'blocked', 'session_entry_point', 'session_referral', 'created_at', ),
 		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, )
 	);
 
@@ -157,10 +157,10 @@ abstract class BasePcUserPeer {
 	 * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
 	 */
 	private static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Username' => 1, 'Email' => 2, 'EncryptedPassword' => 3, 'Salt' => 4, 'DateFormat' => 5, 'TimeFormat' => 6, 'TimezoneId' => 7, 'WeekStart' => 8, 'DstActive' => 9, 'RemembermeKey' => 10, 'AwaitingActivation' => 11, 'Newsletter' => 12, 'ForumId' => 13, 'LastLogin' => 14, 'Language' => 15, 'PreferredLanguage' => 16, 'IpAddress' => 17, 'HasDesktopAppBeenLoaded' => 18, 'HasRequestedFreeTrial' => 19, 'AvatarRandomSuffix' => 20, 'RemindersActive' => 21, 'LatestBlogAccess' => 22, 'LatestBackupRequest' => 23, 'LatestImportRequest' => 24, 'LatestBreakingNewsClosed' => 25, 'LastPromotionalCodeInserted' => 26, 'SessionEntryPoint' => 27, 'SessionReferral' => 28, 'CreatedAt' => 29, ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'username' => 1, 'email' => 2, 'encryptedPassword' => 3, 'salt' => 4, 'dateFormat' => 5, 'timeFormat' => 6, 'timezoneId' => 7, 'weekStart' => 8, 'dstActive' => 9, 'remembermeKey' => 10, 'awaitingActivation' => 11, 'newsletter' => 12, 'forumId' => 13, 'lastLogin' => 14, 'language' => 15, 'preferredLanguage' => 16, 'ipAddress' => 17, 'hasDesktopAppBeenLoaded' => 18, 'hasRequestedFreeTrial' => 19, 'avatarRandomSuffix' => 20, 'remindersActive' => 21, 'latestBlogAccess' => 22, 'latestBackupRequest' => 23, 'latestImportRequest' => 24, 'latestBreakingNewsClosed' => 25, 'lastPromotionalCodeInserted' => 26, 'sessionEntryPoint' => 27, 'sessionReferral' => 28, 'createdAt' => 29, ),
-		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::USERNAME => 1, self::EMAIL => 2, self::ENCRYPTED_PASSWORD => 3, self::SALT => 4, self::DATE_FORMAT => 5, self::TIME_FORMAT => 6, self::TIMEZONE_ID => 7, self::WEEK_START => 8, self::DST_ACTIVE => 9, self::REMEMBERME_KEY => 10, self::AWAITING_ACTIVATION => 11, self::NEWSLETTER => 12, self::FORUM_ID => 13, self::LAST_LOGIN => 14, self::LANGUAGE => 15, self::PREFERRED_LANGUAGE => 16, self::IP_ADDRESS => 17, self::HAS_DESKTOP_APP_BEEN_LOADED => 18, self::HAS_REQUESTED_FREE_TRIAL => 19, self::AVATAR_RANDOM_SUFFIX => 20, self::REMINDERS_ACTIVE => 21, self::LATEST_BLOG_ACCESS => 22, self::LATEST_BACKUP_REQUEST => 23, self::LATEST_IMPORT_REQUEST => 24, self::LATEST_BREAKING_NEWS_CLOSED => 25, self::LAST_PROMOTIONAL_CODE_INSERTED => 26, self::SESSION_ENTRY_POINT => 27, self::SESSION_REFERRAL => 28, self::CREATED_AT => 29, ),
-		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'username' => 1, 'email' => 2, 'encrypted_password' => 3, 'salt' => 4, 'date_format' => 5, 'time_format' => 6, 'timezone_id' => 7, 'week_start' => 8, 'dst_active' => 9, 'rememberme_key' => 10, 'awaiting_activation' => 11, 'newsletter' => 12, 'forum_id' => 13, 'last_login' => 14, 'language' => 15, 'preferred_language' => 16, 'ip_address' => 17, 'has_desktop_app_been_loaded' => 18, 'has_requested_free_trial' => 19, 'avatar_random_suffix' => 20, 'reminders_active' => 21, 'latest_blog_access' => 22, 'latest_backup_request' => 23, 'latest_import_request' => 24, 'latest_breaking_news_closed' => 25, 'last_promotional_code_inserted' => 26, 'session_entry_point' => 27, 'session_referral' => 28, 'created_at' => 29, ),
+		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Username' => 1, 'Email' => 2, 'EncryptedPassword' => 3, 'Salt' => 4, 'DateFormat' => 5, 'TimeFormat' => 6, 'TimezoneId' => 7, 'WeekStart' => 8, 'DstActive' => 9, 'AwaitingActivation' => 10, 'Newsletter' => 11, 'ForumId' => 12, 'LastLogin' => 13, 'Language' => 14, 'PreferredLanguage' => 15, 'IpAddress' => 16, 'HasDesktopAppBeenLoaded' => 17, 'HasRequestedFreeTrial' => 18, 'AvatarRandomSuffix' => 19, 'RemindersActive' => 20, 'LatestBlogAccess' => 21, 'LatestBackupRequest' => 22, 'LatestImportRequest' => 23, 'LatestBreakingNewsClosed' => 24, 'LastPromotionalCodeInserted' => 25, 'Blocked' => 26, 'SessionEntryPoint' => 27, 'SessionReferral' => 28, 'CreatedAt' => 29, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'username' => 1, 'email' => 2, 'encryptedPassword' => 3, 'salt' => 4, 'dateFormat' => 5, 'timeFormat' => 6, 'timezoneId' => 7, 'weekStart' => 8, 'dstActive' => 9, 'awaitingActivation' => 10, 'newsletter' => 11, 'forumId' => 12, 'lastLogin' => 13, 'language' => 14, 'preferredLanguage' => 15, 'ipAddress' => 16, 'hasDesktopAppBeenLoaded' => 17, 'hasRequestedFreeTrial' => 18, 'avatarRandomSuffix' => 19, 'remindersActive' => 20, 'latestBlogAccess' => 21, 'latestBackupRequest' => 22, 'latestImportRequest' => 23, 'latestBreakingNewsClosed' => 24, 'lastPromotionalCodeInserted' => 25, 'blocked' => 26, 'sessionEntryPoint' => 27, 'sessionReferral' => 28, 'createdAt' => 29, ),
+		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::USERNAME => 1, self::EMAIL => 2, self::ENCRYPTED_PASSWORD => 3, self::SALT => 4, self::DATE_FORMAT => 5, self::TIME_FORMAT => 6, self::TIMEZONE_ID => 7, self::WEEK_START => 8, self::DST_ACTIVE => 9, self::AWAITING_ACTIVATION => 10, self::NEWSLETTER => 11, self::FORUM_ID => 12, self::LAST_LOGIN => 13, self::LANGUAGE => 14, self::PREFERRED_LANGUAGE => 15, self::IP_ADDRESS => 16, self::HAS_DESKTOP_APP_BEEN_LOADED => 17, self::HAS_REQUESTED_FREE_TRIAL => 18, self::AVATAR_RANDOM_SUFFIX => 19, self::REMINDERS_ACTIVE => 20, self::LATEST_BLOG_ACCESS => 21, self::LATEST_BACKUP_REQUEST => 22, self::LATEST_IMPORT_REQUEST => 23, self::LATEST_BREAKING_NEWS_CLOSED => 24, self::LAST_PROMOTIONAL_CODE_INSERTED => 25, self::BLOCKED => 26, self::SESSION_ENTRY_POINT => 27, self::SESSION_REFERRAL => 28, self::CREATED_AT => 29, ),
+		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'username' => 1, 'email' => 2, 'encrypted_password' => 3, 'salt' => 4, 'date_format' => 5, 'time_format' => 6, 'timezone_id' => 7, 'week_start' => 8, 'dst_active' => 9, 'awaiting_activation' => 10, 'newsletter' => 11, 'forum_id' => 12, 'last_login' => 13, 'language' => 14, 'preferred_language' => 15, 'ip_address' => 16, 'has_desktop_app_been_loaded' => 17, 'has_requested_free_trial' => 18, 'avatar_random_suffix' => 19, 'reminders_active' => 20, 'latest_blog_access' => 21, 'latest_backup_request' => 22, 'latest_import_request' => 23, 'latest_breaking_news_closed' => 24, 'last_promotional_code_inserted' => 25, 'blocked' => 26, 'session_entry_point' => 27, 'session_referral' => 28, 'created_at' => 29, ),
 		BasePeer::TYPE_NUM => array (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, )
 	);
 
@@ -241,7 +241,6 @@ abstract class BasePcUserPeer {
 		$criteria->addSelectColumn(PcUserPeer::TIMEZONE_ID);
 		$criteria->addSelectColumn(PcUserPeer::WEEK_START);
 		$criteria->addSelectColumn(PcUserPeer::DST_ACTIVE);
-		$criteria->addSelectColumn(PcUserPeer::REMEMBERME_KEY);
 		$criteria->addSelectColumn(PcUserPeer::AWAITING_ACTIVATION);
 		$criteria->addSelectColumn(PcUserPeer::NEWSLETTER);
 		$criteria->addSelectColumn(PcUserPeer::FORUM_ID);
@@ -258,6 +257,7 @@ abstract class BasePcUserPeer {
 		$criteria->addSelectColumn(PcUserPeer::LATEST_IMPORT_REQUEST);
 		$criteria->addSelectColumn(PcUserPeer::LATEST_BREAKING_NEWS_CLOSED);
 		$criteria->addSelectColumn(PcUserPeer::LAST_PROMOTIONAL_CODE_INSERTED);
+		$criteria->addSelectColumn(PcUserPeer::BLOCKED);
 		$criteria->addSelectColumn(PcUserPeer::SESSION_ENTRY_POINT);
 		$criteria->addSelectColumn(PcUserPeer::SESSION_REFERRAL);
 		$criteria->addSelectColumn(PcUserPeer::CREATED_AT);
@@ -1108,7 +1108,7 @@ abstract class BasePcUserPeer {
 	 */
 	static public function getUniqueColumnNames()
 	{
-	  return array(array('email'), array('rememberme_key'));
+	  return array(array('email'));
 	}
 
 	// symfony_behaviors behavior

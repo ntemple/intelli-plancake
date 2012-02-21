@@ -51,7 +51,7 @@ abstract class BasePcTaskForm extends BaseFormPropel
       'is_from_system'     => new sfValidatorBoolean(),
       'special_flag'       => new sfValidatorInteger(array('min' => -128, 'max' => 127, 'required' => false)),
       'note'               => new sfValidatorString(array('required' => false)),
-      'contexts'           => new sfValidatorString(array('max_length' => 31, 'required' => false)),
+      'contexts'           => new sfValidatorString(array('max_length' => 127, 'required' => false)),
       'contact_id'         => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'completed_at'       => new sfValidatorDateTime(array('required' => false)),
       'updated_at'         => new sfValidatorDateTime(),

@@ -1,4 +1,8 @@
 @media print {
+    #content {
+        overflow: visible !important;
+    }
+    
     .noPrint {
         display: none !important;
     }

@@ -25,6 +25,8 @@ PLANCAKE.activePanel = $('#panel1'); // for compatibility with the desktop app
 $(document).ready(function() {
     
     $('.homeButton').attr("href", PLANCAKE.BASE_URL_MOBILE);
+    
+    $('#calendarJumpDate').css('placeholder', PLANCAKE.lang.GENERAL_MISC_SET_DATE);
 
     // I use unbind to make sure the event is not triggered twice
     $('a.syncButton').unbind('tap').bind('tap', function (event) {
@@ -60,9 +62,15 @@ $(document).ready(function() {
             case 'resetDataAction':
                 if (confirm(PLANCAKE.lang['ACCOUNT_MISC_CONFIRM_MSG'])) {
                     PLANCAKE.resetData(); 
-                } 
-                window.location.href = PLANCAKE.BASE_URL_MOBILE;
-                break;   
+                    window.location.href = PLANCAKE.BASE_URL_MOBILE;
+                }
+                break;
+            case 'logoutAction':
+                if (confirm(PLANCAKE.lang['ACCOUNT_MISC_CONFIRM_MSG'])) {
+                    PLANCAKE.resetData(); 
+                    window.location.href = 'http://www.plancake.com/logout';
+                }
+                break;
             case 'goBackSettingsAction':
                 break;
         }

@@ -29,7 +29,7 @@
     <span class="st_email"></span><span class="st_gbuzz"></span><span class="st_sharethis"></span>
 
     <div style="position: absolute; display: block; top: 0px; left: 90px; width: 100px;">
-        <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="plancakebakers" url="http://www.plancake.com" text="Tweet this!">Tweet</a>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="plancakeGTD" url="http://www.plancake.com" text="Tweet this!">Tweet</a>
         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div>
 

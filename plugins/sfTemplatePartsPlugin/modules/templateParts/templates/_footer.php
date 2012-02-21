@@ -92,7 +92,7 @@
         <br /><br /><br />
 
         <div class="copyrightNote">
-          Plancake.com is operated by Danyuki Software Ltd. - registered in England and Wales with Company No. 07554549 <br />
+          Plancake.com is operated by <a class="companyFooterLink" target="_blank" rel="nofollow" href="http://www.danyukisoftware.com">Danyuki Software Ltd.</a> - registered in England and Wales with Company No. 07554549 <br />
           Registered Office: 6 Boundary Road, London, N22 6AD, UK. <br /><br />            
           Copyright &#169; 2009, 2010, 2011, 2012 Danyuki Software Limited. All right reserved.<br />
           &#34;Plancake&#34; and &#34;Plancake Team&#34; are trademarks of Daniele Occhipinti. <br />

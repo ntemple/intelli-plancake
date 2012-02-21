@@ -83,12 +83,6 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	protected $dst_active;
 
 	/**
-	 * The value for the rememberme_key field.
-	 * @var        string
-	 */
-	protected $rememberme_key;
-
-	/**
 	 * The value for the awaiting_activation field.
 	 * Note: this column has a database default value of: true
 	 * @var        boolean
@@ -195,6 +189,13 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	protected $last_promotional_code_inserted;
 
 	/**
+	 * The value for the blocked field.
+	 * Note: this column has a database default value of: false
+	 * @var        boolean
+	 */
+	protected $blocked;
+
+	/**
 	 * The value for the session_entry_point field.
 	 * Note: this column has a database default value of: ''
 	 * @var        string
@@ -218,6 +219,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	 * @var        PcTimezone
 	 */
 	protected $aPcTimezone;
+
+	/**
+	 * @var        array PcRemembermeKey[] Collection to store aggregation of PcRemembermeKey objects.
+	 */
+	protected $collPcRemembermeKeys;
+
+	/**
+	 * @var        Criteria The criteria used to select the current contents of collPcRemembermeKeys.
+	 */
+	private $lastPcRemembermeKeyCriteria = null;
 
 	/**
 	 * @var        array PcDirtyTask[] Collection to store aggregation of PcDirtyTask objects.
@@ -454,6 +465,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		$this->avatar_random_suffix = '';
 		$this->reminders_active = false;
 		$this->last_promotional_code_inserted = '';
+		$this->blocked = false;
 		$this->session_entry_point = '';
 		$this->session_referral = '';
 	}
@@ -566,16 +578,6 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	public function getDstActive()
 	{
 		return $this->dst_active;
-	}
-
-	/**
-	 * Get the [rememberme_key] column value.
-	 * 
-	 * @return     string
-	 */
-	public function getRemembermeKey()
-	{
-		return $this->rememberme_key;
 	}
 
 	/**
@@ -851,6 +853,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	}
 
 	/**
+	 * Get the [blocked] column value.
+	 * 
+	 * @return     boolean
+	 */
+	public function getBlocked()
+	{
+		return $this->blocked;
+	}
+
+	/**
 	 * Get the [session_entry_point] column value.
 	 * 
 	 * @return     string
@@ -1111,26 +1123,6 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 
 		return $this;
 	} // setDstActive()
-
-	/**
-	 * Set the value of [rememberme_key] column.
-	 * 
-	 * @param      string $v new value
-	 * @return     PcUser The current object (for fluent API support)
-	 */
-	public function setRemembermeKey($v)
-	{
-		if ($v !== null) {
-			$v = (string) $v;
-		}
-
-		if ($this->rememberme_key !== $v) {
-			$this->rememberme_key = $v;
-			$this->modifiedColumns[] = PcUserPeer::REMEMBERME_KEY;
-		}
-
-		return $this;
-	} // setRemembermeKey()
 
 	/**
 	 * Set the value of [awaiting_activation] column.
@@ -1569,6 +1561,26 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	} // setLastPromotionalCodeInserted()
 
 	/**
+	 * Set the value of [blocked] column.
+	 * 
+	 * @param      boolean $v new value
+	 * @return     PcUser The current object (for fluent API support)
+	 */
+	public function setBlocked($v)
+	{
+		if ($v !== null) {
+			$v = (boolean) $v;
+		}
+
+		if ($this->blocked !== $v || $this->isNew()) {
+			$this->blocked = $v;
+			$this->modifiedColumns[] = PcUserPeer::BLOCKED;
+		}
+
+		return $this;
+	} // setBlocked()
+
+	/**
 	 * Set the value of [session_entry_point] column.
 	 * 
 	 * @param      string $v new value
@@ -1723,6 +1735,10 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				return false;
 			}
 
+			if ($this->blocked !== false) {
+				return false;
+			}
+
 			if ($this->session_entry_point !== '') {
 				return false;
 			}
@@ -1763,23 +1779,23 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$this->timezone_id = ($row[$startcol + 7] !== null) ? (int) $row[$startcol + 7] : null;
 			$this->week_start = ($row[$startcol + 8] !== null) ? (int) $row[$startcol + 8] : null;
 			$this->dst_active = ($row[$startcol + 9] !== null) ? (boolean) $row[$startcol + 9] : null;
-			$this->rememberme_key = ($row[$startcol + 10] !== null) ? (string) $row[$startcol + 10] : null;
-			$this->awaiting_activation = ($row[$startcol + 11] !== null) ? (boolean) $row[$startcol + 11] : null;
-			$this->newsletter = ($row[$startcol + 12] !== null) ? (boolean) $row[$startcol + 12] : null;
-			$this->forum_id = ($row[$startcol + 13] !== null) ? (int) $row[$startcol + 13] : null;
-			$this->last_login = ($row[$startcol + 14] !== null) ? (string) $row[$startcol + 14] : null;
-			$this->language = ($row[$startcol + 15] !== null) ? (string) $row[$startcol + 15] : null;
-			$this->preferred_language = ($row[$startcol + 16] !== null) ? (string) $row[$startcol + 16] : null;
-			$this->ip_address = ($row[$startcol + 17] !== null) ? (string) $row[$startcol + 17] : null;
-			$this->has_desktop_app_been_loaded = ($row[$startcol + 18] !== null) ? (boolean) $row[$startcol + 18] : null;
-			$this->has_requested_free_trial = ($row[$startcol + 19] !== null) ? (boolean) $row[$startcol + 19] : null;
-			$this->avatar_random_suffix = ($row[$startcol + 20] !== null) ? (string) $row[$startcol + 20] : null;
-			$this->reminders_active = ($row[$startcol + 21] !== null) ? (boolean) $row[$startcol + 21] : null;
-			$this->latest_blog_access = ($row[$startcol + 22] !== null) ? (string) $row[$startcol + 22] : null;
-			$this->latest_backup_request = ($row[$startcol + 23] !== null) ? (string) $row[$startcol + 23] : null;
-			$this->latest_import_request = ($row[$startcol + 24] !== null) ? (string) $row[$startcol + 24] : null;
-			$this->latest_breaking_news_closed = ($row[$startcol + 25] !== null) ? (int) $row[$startcol + 25] : null;
-			$this->last_promotional_code_inserted = ($row[$startcol + 26] !== null) ? (string) $row[$startcol + 26] : null;
+			$this->awaiting_activation = ($row[$startcol + 10] !== null) ? (boolean) $row[$startcol + 10] : null;
+			$this->newsletter = ($row[$startcol + 11] !== null) ? (boolean) $row[$startcol + 11] : null;
+			$this->forum_id = ($row[$startcol + 12] !== null) ? (int) $row[$startcol + 12] : null;
+			$this->last_login = ($row[$startcol + 13] !== null) ? (string) $row[$startcol + 13] : null;
+			$this->language = ($row[$startcol + 14] !== null) ? (string) $row[$startcol + 14] : null;
+			$this->preferred_language = ($row[$startcol + 15] !== null) ? (string) $row[$startcol + 15] : null;
+			$this->ip_address = ($row[$startcol + 16] !== null) ? (string) $row[$startcol + 16] : null;
+			$this->has_desktop_app_been_loaded = ($row[$startcol + 17] !== null) ? (boolean) $row[$startcol + 17] : null;
+			$this->has_requested_free_trial = ($row[$startcol + 18] !== null) ? (boolean) $row[$startcol + 18] : null;
+			$this->avatar_random_suffix = ($row[$startcol + 19] !== null) ? (string) $row[$startcol + 19] : null;
+			$this->reminders_active = ($row[$startcol + 20] !== null) ? (boolean) $row[$startcol + 20] : null;
+			$this->latest_blog_access = ($row[$startcol + 21] !== null) ? (string) $row[$startcol + 21] : null;
+			$this->latest_backup_request = ($row[$startcol + 22] !== null) ? (string) $row[$startcol + 22] : null;
+			$this->latest_import_request = ($row[$startcol + 23] !== null) ? (string) $row[$startcol + 23] : null;
+			$this->latest_breaking_news_closed = ($row[$startcol + 24] !== null) ? (int) $row[$startcol + 24] : null;
+			$this->last_promotional_code_inserted = ($row[$startcol + 25] !== null) ? (string) $row[$startcol + 25] : null;
+			$this->blocked = ($row[$startcol + 26] !== null) ? (boolean) $row[$startcol + 26] : null;
 			$this->session_entry_point = ($row[$startcol + 27] !== null) ? (string) $row[$startcol + 27] : null;
 			$this->session_referral = ($row[$startcol + 28] !== null) ? (string) $row[$startcol + 28] : null;
 			$this->created_at = ($row[$startcol + 29] !== null) ? (string) $row[$startcol + 29] : null;
@@ -1858,6 +1874,9 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if ($deep) {  // also de-associate any related objects?
 
 			$this->aPcTimezone = null;
+			$this->collPcRemembermeKeys = null;
+			$this->lastPcRemembermeKeyCriteria = null;
+
 			$this->collPcDirtyTasks = null;
 			$this->lastPcDirtyTaskCriteria = null;
 
@@ -2102,6 +2121,14 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				}
 
 				$this->resetModified(); // [HL] After being saved an object is no longer 'modified'
+			}
+
+			if ($this->collPcRemembermeKeys !== null) {
+				foreach ($this->collPcRemembermeKeys as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
 			}
 
 			if ($this->collPcDirtyTasks !== null) {
@@ -2357,6 +2384,14 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			}
 
 
+				if ($this->collPcRemembermeKeys !== null) {
+					foreach ($this->collPcRemembermeKeys as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
 				if ($this->collPcDirtyTasks !== null) {
 					foreach ($this->collPcDirtyTasks as $referrerFK) {
 						if (!$referrerFK->validate($columns)) {
@@ -2591,55 +2626,55 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				return $this->getDstActive();
 				break;
 			case 10:
-				return $this->getRemembermeKey();
-				break;
-			case 11:
 				return $this->getAwaitingActivation();
 				break;
-			case 12:
+			case 11:
 				return $this->getNewsletter();
 				break;
-			case 13:
+			case 12:
 				return $this->getForumId();
 				break;
-			case 14:
+			case 13:
 				return $this->getLastLogin();
 				break;
-			case 15:
+			case 14:
 				return $this->getLanguage();
 				break;
-			case 16:
+			case 15:
 				return $this->getPreferredLanguage();
 				break;
-			case 17:
+			case 16:
 				return $this->getIpAddress();
 				break;
-			case 18:
+			case 17:
 				return $this->getHasDesktopAppBeenLoaded();
 				break;
-			case 19:
+			case 18:
 				return $this->getHasRequestedFreeTrial();
 				break;
-			case 20:
+			case 19:
 				return $this->getAvatarRandomSuffix();
 				break;
-			case 21:
+			case 20:
 				return $this->getRemindersActive();
 				break;
-			case 22:
+			case 21:
 				return $this->getLatestBlogAccess();
 				break;
-			case 23:
+			case 22:
 				return $this->getLatestBackupRequest();
 				break;
-			case 24:
+			case 23:
 				return $this->getLatestImportRequest();
 				break;
-			case 25:
+			case 24:
 				return $this->getLatestBreakingNewsClosed();
 				break;
-			case 26:
+			case 25:
 				return $this->getLastPromotionalCodeInserted();
+				break;
+			case 26:
+				return $this->getBlocked();
 				break;
 			case 27:
 				return $this->getSessionEntryPoint();
@@ -2681,23 +2716,23 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$keys[7] => $this->getTimezoneId(),
 			$keys[8] => $this->getWeekStart(),
 			$keys[9] => $this->getDstActive(),
-			$keys[10] => $this->getRemembermeKey(),
-			$keys[11] => $this->getAwaitingActivation(),
-			$keys[12] => $this->getNewsletter(),
-			$keys[13] => $this->getForumId(),
-			$keys[14] => $this->getLastLogin(),
-			$keys[15] => $this->getLanguage(),
-			$keys[16] => $this->getPreferredLanguage(),
-			$keys[17] => $this->getIpAddress(),
-			$keys[18] => $this->getHasDesktopAppBeenLoaded(),
-			$keys[19] => $this->getHasRequestedFreeTrial(),
-			$keys[20] => $this->getAvatarRandomSuffix(),
-			$keys[21] => $this->getRemindersActive(),
-			$keys[22] => $this->getLatestBlogAccess(),
-			$keys[23] => $this->getLatestBackupRequest(),
-			$keys[24] => $this->getLatestImportRequest(),
-			$keys[25] => $this->getLatestBreakingNewsClosed(),
-			$keys[26] => $this->getLastPromotionalCodeInserted(),
+			$keys[10] => $this->getAwaitingActivation(),
+			$keys[11] => $this->getNewsletter(),
+			$keys[12] => $this->getForumId(),
+			$keys[13] => $this->getLastLogin(),
+			$keys[14] => $this->getLanguage(),
+			$keys[15] => $this->getPreferredLanguage(),
+			$keys[16] => $this->getIpAddress(),
+			$keys[17] => $this->getHasDesktopAppBeenLoaded(),
+			$keys[18] => $this->getHasRequestedFreeTrial(),
+			$keys[19] => $this->getAvatarRandomSuffix(),
+			$keys[20] => $this->getRemindersActive(),
+			$keys[21] => $this->getLatestBlogAccess(),
+			$keys[22] => $this->getLatestBackupRequest(),
+			$keys[23] => $this->getLatestImportRequest(),
+			$keys[24] => $this->getLatestBreakingNewsClosed(),
+			$keys[25] => $this->getLastPromotionalCodeInserted(),
+			$keys[26] => $this->getBlocked(),
 			$keys[27] => $this->getSessionEntryPoint(),
 			$keys[28] => $this->getSessionReferral(),
 			$keys[29] => $this->getCreatedAt(),
@@ -2763,55 +2798,55 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				$this->setDstActive($value);
 				break;
 			case 10:
-				$this->setRemembermeKey($value);
-				break;
-			case 11:
 				$this->setAwaitingActivation($value);
 				break;
-			case 12:
+			case 11:
 				$this->setNewsletter($value);
 				break;
-			case 13:
+			case 12:
 				$this->setForumId($value);
 				break;
-			case 14:
+			case 13:
 				$this->setLastLogin($value);
 				break;
-			case 15:
+			case 14:
 				$this->setLanguage($value);
 				break;
-			case 16:
+			case 15:
 				$this->setPreferredLanguage($value);
 				break;
-			case 17:
+			case 16:
 				$this->setIpAddress($value);
 				break;
-			case 18:
+			case 17:
 				$this->setHasDesktopAppBeenLoaded($value);
 				break;
-			case 19:
+			case 18:
 				$this->setHasRequestedFreeTrial($value);
 				break;
-			case 20:
+			case 19:
 				$this->setAvatarRandomSuffix($value);
 				break;
-			case 21:
+			case 20:
 				$this->setRemindersActive($value);
 				break;
-			case 22:
+			case 21:
 				$this->setLatestBlogAccess($value);
 				break;
-			case 23:
+			case 22:
 				$this->setLatestBackupRequest($value);
 				break;
-			case 24:
+			case 23:
 				$this->setLatestImportRequest($value);
 				break;
-			case 25:
+			case 24:
 				$this->setLatestBreakingNewsClosed($value);
 				break;
-			case 26:
+			case 25:
 				$this->setLastPromotionalCodeInserted($value);
+				break;
+			case 26:
+				$this->setBlocked($value);
 				break;
 			case 27:
 				$this->setSessionEntryPoint($value);
@@ -2856,23 +2891,23 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if (array_key_exists($keys[7], $arr)) $this->setTimezoneId($arr[$keys[7]]);
 		if (array_key_exists($keys[8], $arr)) $this->setWeekStart($arr[$keys[8]]);
 		if (array_key_exists($keys[9], $arr)) $this->setDstActive($arr[$keys[9]]);
-		if (array_key_exists($keys[10], $arr)) $this->setRemembermeKey($arr[$keys[10]]);
-		if (array_key_exists($keys[11], $arr)) $this->setAwaitingActivation($arr[$keys[11]]);
-		if (array_key_exists($keys[12], $arr)) $this->setNewsletter($arr[$keys[12]]);
-		if (array_key_exists($keys[13], $arr)) $this->setForumId($arr[$keys[13]]);
-		if (array_key_exists($keys[14], $arr)) $this->setLastLogin($arr[$keys[14]]);
-		if (array_key_exists($keys[15], $arr)) $this->setLanguage($arr[$keys[15]]);
-		if (array_key_exists($keys[16], $arr)) $this->setPreferredLanguage($arr[$keys[16]]);
-		if (array_key_exists($keys[17], $arr)) $this->setIpAddress($arr[$keys[17]]);
-		if (array_key_exists($keys[18], $arr)) $this->setHasDesktopAppBeenLoaded($arr[$keys[18]]);
-		if (array_key_exists($keys[19], $arr)) $this->setHasRequestedFreeTrial($arr[$keys[19]]);
-		if (array_key_exists($keys[20], $arr)) $this->setAvatarRandomSuffix($arr[$keys[20]]);
-		if (array_key_exists($keys[21], $arr)) $this->setRemindersActive($arr[$keys[21]]);
-		if (array_key_exists($keys[22], $arr)) $this->setLatestBlogAccess($arr[$keys[22]]);
-		if (array_key_exists($keys[23], $arr)) $this->setLatestBackupRequest($arr[$keys[23]]);
-		if (array_key_exists($keys[24], $arr)) $this->setLatestImportRequest($arr[$keys[24]]);
-		if (array_key_exists($keys[25], $arr)) $this->setLatestBreakingNewsClosed($arr[$keys[25]]);
-		if (array_key_exists($keys[26], $arr)) $this->setLastPromotionalCodeInserted($arr[$keys[26]]);
+		if (array_key_exists($keys[10], $arr)) $this->setAwaitingActivation($arr[$keys[10]]);
+		if (array_key_exists($keys[11], $arr)) $this->setNewsletter($arr[$keys[11]]);
+		if (array_key_exists($keys[12], $arr)) $this->setForumId($arr[$keys[12]]);
+		if (array_key_exists($keys[13], $arr)) $this->setLastLogin($arr[$keys[13]]);
+		if (array_key_exists($keys[14], $arr)) $this->setLanguage($arr[$keys[14]]);
+		if (array_key_exists($keys[15], $arr)) $this->setPreferredLanguage($arr[$keys[15]]);
+		if (array_key_exists($keys[16], $arr)) $this->setIpAddress($arr[$keys[16]]);
+		if (array_key_exists($keys[17], $arr)) $this->setHasDesktopAppBeenLoaded($arr[$keys[17]]);
+		if (array_key_exists($keys[18], $arr)) $this->setHasRequestedFreeTrial($arr[$keys[18]]);
+		if (array_key_exists($keys[19], $arr)) $this->setAvatarRandomSuffix($arr[$keys[19]]);
+		if (array_key_exists($keys[20], $arr)) $this->setRemindersActive($arr[$keys[20]]);
+		if (array_key_exists($keys[21], $arr)) $this->setLatestBlogAccess($arr[$keys[21]]);
+		if (array_key_exists($keys[22], $arr)) $this->setLatestBackupRequest($arr[$keys[22]]);
+		if (array_key_exists($keys[23], $arr)) $this->setLatestImportRequest($arr[$keys[23]]);
+		if (array_key_exists($keys[24], $arr)) $this->setLatestBreakingNewsClosed($arr[$keys[24]]);
+		if (array_key_exists($keys[25], $arr)) $this->setLastPromotionalCodeInserted($arr[$keys[25]]);
+		if (array_key_exists($keys[26], $arr)) $this->setBlocked($arr[$keys[26]]);
 		if (array_key_exists($keys[27], $arr)) $this->setSessionEntryPoint($arr[$keys[27]]);
 		if (array_key_exists($keys[28], $arr)) $this->setSessionReferral($arr[$keys[28]]);
 		if (array_key_exists($keys[29], $arr)) $this->setCreatedAt($arr[$keys[29]]);
@@ -2897,7 +2932,6 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if ($this->isColumnModified(PcUserPeer::TIMEZONE_ID)) $criteria->add(PcUserPeer::TIMEZONE_ID, $this->timezone_id);
 		if ($this->isColumnModified(PcUserPeer::WEEK_START)) $criteria->add(PcUserPeer::WEEK_START, $this->week_start);
 		if ($this->isColumnModified(PcUserPeer::DST_ACTIVE)) $criteria->add(PcUserPeer::DST_ACTIVE, $this->dst_active);
-		if ($this->isColumnModified(PcUserPeer::REMEMBERME_KEY)) $criteria->add(PcUserPeer::REMEMBERME_KEY, $this->rememberme_key);
 		if ($this->isColumnModified(PcUserPeer::AWAITING_ACTIVATION)) $criteria->add(PcUserPeer::AWAITING_ACTIVATION, $this->awaiting_activation);
 		if ($this->isColumnModified(PcUserPeer::NEWSLETTER)) $criteria->add(PcUserPeer::NEWSLETTER, $this->newsletter);
 		if ($this->isColumnModified(PcUserPeer::FORUM_ID)) $criteria->add(PcUserPeer::FORUM_ID, $this->forum_id);
@@ -2914,6 +2948,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if ($this->isColumnModified(PcUserPeer::LATEST_IMPORT_REQUEST)) $criteria->add(PcUserPeer::LATEST_IMPORT_REQUEST, $this->latest_import_request);
 		if ($this->isColumnModified(PcUserPeer::LATEST_BREAKING_NEWS_CLOSED)) $criteria->add(PcUserPeer::LATEST_BREAKING_NEWS_CLOSED, $this->latest_breaking_news_closed);
 		if ($this->isColumnModified(PcUserPeer::LAST_PROMOTIONAL_CODE_INSERTED)) $criteria->add(PcUserPeer::LAST_PROMOTIONAL_CODE_INSERTED, $this->last_promotional_code_inserted);
+		if ($this->isColumnModified(PcUserPeer::BLOCKED)) $criteria->add(PcUserPeer::BLOCKED, $this->blocked);
 		if ($this->isColumnModified(PcUserPeer::SESSION_ENTRY_POINT)) $criteria->add(PcUserPeer::SESSION_ENTRY_POINT, $this->session_entry_point);
 		if ($this->isColumnModified(PcUserPeer::SESSION_REFERRAL)) $criteria->add(PcUserPeer::SESSION_REFERRAL, $this->session_referral);
 		if ($this->isColumnModified(PcUserPeer::CREATED_AT)) $criteria->add(PcUserPeer::CREATED_AT, $this->created_at);
@@ -2989,8 +3024,6 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 
 		$copyObj->setDstActive($this->dst_active);
 
-		$copyObj->setRemembermeKey($this->rememberme_key);
-
 		$copyObj->setAwaitingActivation($this->awaiting_activation);
 
 		$copyObj->setNewsletter($this->newsletter);
@@ -3023,6 +3056,8 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 
 		$copyObj->setLastPromotionalCodeInserted($this->last_promotional_code_inserted);
 
+		$copyObj->setBlocked($this->blocked);
+
 		$copyObj->setSessionEntryPoint($this->session_entry_point);
 
 		$copyObj->setSessionReferral($this->session_referral);
@@ -3034,6 +3069,12 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			// important: temporarily setNew(false) because this affects the behavior of
 			// the getter/setter methods for fkey referrer objects.
 			$copyObj->setNew(false);
+
+			foreach ($this->getPcRemembermeKeys() as $relObj) {
+				if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+					$copyObj->addPcRemembermeKey($relObj->copy($deepCopy));
+				}
+			}
 
 			foreach ($this->getPcDirtyTasks() as $relObj) {
 				if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
@@ -3260,6 +3301,160 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			 */
 		}
 		return $this->aPcTimezone;
+	}
+
+	/**
+	 * Clears out the collPcRemembermeKeys collection (array).
+	 *
+	 * This does not modify the database; however, it will remove any associated objects, causing
+	 * them to be refetched by subsequent calls to accessor method.
+	 *
+	 * @return     void
+	 * @see        addPcRemembermeKeys()
+	 */
+	public function clearPcRemembermeKeys()
+	{
+		$this->collPcRemembermeKeys = null; // important to set this to NULL since that means it is uninitialized
+	}
+
+	/**
+	 * Initializes the collPcRemembermeKeys collection (array).
+	 *
+	 * By default this just sets the collPcRemembermeKeys collection to an empty array (like clearcollPcRemembermeKeys());
+	 * however, you may wish to override this method in your stub class to provide setting appropriate
+	 * to your application -- for example, setting the initial array to the values stored in database.
+	 *
+	 * @return     void
+	 */
+	public function initPcRemembermeKeys()
+	{
+		$this->collPcRemembermeKeys = array();
+	}
+
+	/**
+	 * Gets an array of PcRemembermeKey objects which contain a foreign key that references this object.
+	 *
+	 * If this collection has already been initialized with an identical Criteria, it returns the collection.
+	 * Otherwise if this PcUser has previously been saved, it will retrieve
+	 * related PcRemembermeKeys from storage. If this PcUser is new, it will return
+	 * an empty collection or the current collection, the criteria is ignored on a new object.
+	 *
+	 * @param      PropelPDO $con
+	 * @param      Criteria $criteria
+	 * @return     array PcRemembermeKey[]
+	 * @throws     PropelException
+	 */
+	public function getPcRemembermeKeys($criteria = null, PropelPDO $con = null)
+	{
+		if ($criteria === null) {
+			$criteria = new Criteria(PcUserPeer::DATABASE_NAME);
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collPcRemembermeKeys === null) {
+			if ($this->isNew()) {
+			   $this->collPcRemembermeKeys = array();
+			} else {
+
+				$criteria->add(PcRemembermeKeyPeer::USER_ID, $this->id);
+
+				PcRemembermeKeyPeer::addSelectColumns($criteria);
+				$this->collPcRemembermeKeys = PcRemembermeKeyPeer::doSelect($criteria, $con);
+			}
+		} else {
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return the collection.
+
+
+				$criteria->add(PcRemembermeKeyPeer::USER_ID, $this->id);
+
+				PcRemembermeKeyPeer::addSelectColumns($criteria);
+				if (!isset($this->lastPcRemembermeKeyCriteria) || !$this->lastPcRemembermeKeyCriteria->equals($criteria)) {
+					$this->collPcRemembermeKeys = PcRemembermeKeyPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastPcRemembermeKeyCriteria = $criteria;
+		return $this->collPcRemembermeKeys;
+	}
+
+	/**
+	 * Returns the number of related PcRemembermeKey objects.
+	 *
+	 * @param      Criteria $criteria
+	 * @param      boolean $distinct
+	 * @param      PropelPDO $con
+	 * @return     int Count of related PcRemembermeKey objects.
+	 * @throws     PropelException
+	 */
+	public function countPcRemembermeKeys(Criteria $criteria = null, $distinct = false, PropelPDO $con = null)
+	{
+		if ($criteria === null) {
+			$criteria = new Criteria(PcUserPeer::DATABASE_NAME);
+		} else {
+			$criteria = clone $criteria;
+		}
+
+		if ($distinct) {
+			$criteria->setDistinct();
+		}
+
+		$count = null;
+
+		if ($this->collPcRemembermeKeys === null) {
+			if ($this->isNew()) {
+				$count = 0;
+			} else {
+
+				$criteria->add(PcRemembermeKeyPeer::USER_ID, $this->id);
+
+				$count = PcRemembermeKeyPeer::doCount($criteria, false, $con);
+			}
+		} else {
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return count of the collection.
+
+
+				$criteria->add(PcRemembermeKeyPeer::USER_ID, $this->id);
+
+				if (!isset($this->lastPcRemembermeKeyCriteria) || !$this->lastPcRemembermeKeyCriteria->equals($criteria)) {
+					$count = PcRemembermeKeyPeer::doCount($criteria, false, $con);
+				} else {
+					$count = count($this->collPcRemembermeKeys);
+				}
+			} else {
+				$count = count($this->collPcRemembermeKeys);
+			}
+		}
+		return $count;
+	}
+
+	/**
+	 * Method called to associate a PcRemembermeKey object to this object
+	 * through the PcRemembermeKey foreign key attribute.
+	 *
+	 * @param      PcRemembermeKey $l PcRemembermeKey
+	 * @return     void
+	 * @throws     PropelException
+	 */
+	public function addPcRemembermeKey(PcRemembermeKey $l)
+	{
+		if ($this->collPcRemembermeKeys === null) {
+			$this->initPcRemembermeKeys();
+		}
+		if (!in_array($l, $this->collPcRemembermeKeys, true)) { // only add it if the **same** object is not already associated
+			array_push($this->collPcRemembermeKeys, $l);
+			$l->setPcUser($this);
+		}
 	}
 
 	/**
@@ -6413,6 +6608,11 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	public function clearAllReferences($deep = false)
 	{
 		if ($deep) {
+			if ($this->collPcRemembermeKeys) {
+				foreach ((array) $this->collPcRemembermeKeys as $o) {
+					$o->clearAllReferences($deep);
+				}
+			}
 			if ($this->collPcDirtyTasks) {
 				foreach ((array) $this->collPcDirtyTasks as $o) {
 					$o->clearAllReferences($deep);
@@ -6516,6 +6716,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			}
 		} // if ($deep)
 
+		$this->collPcRemembermeKeys = null;
 		$this->collPcDirtyTasks = null;
 		$this->singlePcFailedLogins = null;
 		$this->singlePcActivationToken = null;

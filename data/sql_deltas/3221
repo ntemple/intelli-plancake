@@ -1,0 +1,15 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MISC_SET_DATE', '118', '1200', '0', NULL, '0', NULL), ('ACCOUNT_MISC_DAY', '118', '1210', '0', NULL, '0', NULL), ('ACCOUNT_MISC_MONTH', '118', '1220', '0', NULL, '0', NULL), ('ACCOUNT_MISC_YEAR', '118', '1230', '0', NULL, '0', NULL);
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MISC_SET_DATE', 'set date', '2012-02-15 00:00:00'), ('it', 'ACCOUNT_MISC_SET_DATE', 'imposta data', '2012-02-15 00:00:00'), ('en', 'ACCOUNT_MISC_MONTH', 'month', '2012-02-15 00:00:00'), ('it', 'ACCOUNT_MISC_MONTH', 'mese', '2012-02-15 00:00:00'), ('en', 'ACCOUNT_MISC_DAY', 'day', '2012-02-15 00:00:00'), ('it', 'ACCOUNT_MISC_DAY', 'giorno', '2012-02-15 00:00:00'), ('en', 'ACCOUNT_MISC_YEAR', 'year', '2012-02-15 00:00:00'), ('it', 'ACCOUNT_MISC_YEAR', 'anno', '2012-02-15 00:00:00');
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

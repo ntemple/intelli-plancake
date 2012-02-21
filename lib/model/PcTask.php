@@ -1369,4 +1369,38 @@ class PcTask extends BasePcTask
         
         return false;
     }
+    
+	/**
+	 * @Overriding
+         * 
+         * We have to trim nicely in the case the list of tagIds is longer than the db
+         * allows in order not to have truncated Ids.
+         * 
+	 * @param      string $v new value - comma separated list of Ids
+	 * @return     PcTask The current object (for fluent API support)
+	 */
+	public function setContexts($v)
+	{
+                // sorting
+                $vArray = explode(',', $v);
+                sort($vArray);
+                $v = implode(',', $vArray);
+                
+                // truncating if necessary to fit into the db
+		$contextsFieldLength = Propel::getDatabaseMap()->getColumn(PcTaskPeer::CONTEXTS)->getSize();
+                
+                if ($contextsFieldLength && (strlen($v) > $contextsFieldLength) ) {
+                    $v = substr($v, 0, $contextsFieldLength);          
+                    if (substr($v, -1) == ',') { // last character is a comma
+                        $v = substr($v, 0, $contextsFieldLength-1);
+                    } else { // removing all the last digit because they probably are a truncated id
+                        $v = explode(',', $v);
+                        array_pop($v);
+                        $v = implode(',', $v);                        
+                    }
+                }
+
+                parent::setContexts($v);
+		return $this;
+	} // setContexts()    
 }

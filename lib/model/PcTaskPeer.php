@@ -205,7 +205,10 @@ class PcTaskPeer extends BasePcTaskPeer
       $validatedContexts = array();
       foreach ($contextIdsFromInput as $cid)
       {
-        $validatedContexts[] = array_search(strtolower(PcUsersContextsPeer::retrieveByPK($cid)->getContext()), $userContexts);
+        $userContext = PcUsersContextsPeer::retrieveByPK($cid);
+        if ($userContext) {
+            $validatedContexts[] = array_search(strtolower($userContext->getContext()), $userContexts);
+        }
       }
       $task->setContexts(implode(',', $validatedContexts));
     }
@@ -300,19 +303,24 @@ class PcTaskPeer extends BasePcTaskPeer
 
     if ( $mode == 'add' )
     {
+          $list = $task->getPcList();
+          
+          if (! $list) { // this should not happen, but just in case...
+              $list = $loggedInUser->getInbox();
+          }
+          
           if( ! $taskAboveId)
           {
-            $maxTasksSortOrder = self::getMaxTasksSortOrder($task->getPcList());              
+            $maxTasksSortOrder = self::getMaxTasksSortOrder($list);              
             $task->setSortOrder($maxTasksSortOrder+1);
           } 
           else if ($taskAboveId == -100000) 
           {
-            $minTasksSortOrder = self::getMinTasksSortOrder($task->getPcList());              
+            $minTasksSortOrder = self::getMinTasksSortOrder($list);              
             $task->setSortOrder($minTasksSortOrder-1);              
           }
           else
           {
-            $list = $task->getPcList();
             $maxTasksSortOrder = self::getMaxTasksSortOrder($list);              
             // they are inserting the new task below an old one
             // I need to insert the new task after the task whose id is beforeListId

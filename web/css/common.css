@@ -76,6 +76,11 @@ html[xmlns] .clearfix {
   padding-bottom: 0px;
 }
 
+#pc_footer a.companyFooterLink {
+    color: #fff;
+    text-decoration: underline;
+}
+
 #pc_footer .copyrightNote {
     clear: both;
     color: #fff;
@@ -465,13 +470,29 @@ div#subscriptionPage table th
 
 div#subscriptionPage table td
 {
-    padding: 15px;
+    vertical-align: top;
+    padding: 10px 10px 0px 10px;
     text-align: center;
 }
 
 div#subscriptionPage table td.nonCenteredContent
 {
     text-align: left;
+}
+
+div#subscriptionPage table td.nonCenteredContent p
+{
+    display: block;
+    height: 32px;
+    overflow: hidden;    
+}
+
+div#subscriptionPage table td.nonCenteredContent p span
+{
+    font-size: 95% !important;
+    color: #666;
+    font-style: italic;
+    // display: none;
 }
 
 div#subscriptionPage table .supporter

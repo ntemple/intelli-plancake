@@ -37,8 +37,12 @@ if (PcUserPeer::emailExist($email))
 {
     $userToLogin = PcUserPeer::retrieveByEmailAddress($email);
     CustomAuth::login($context->getUser(), $userToLogin, false, false);
-
-    $redirectUrl = 'http://' . sfConfig::get('app_site_url') . "/account.php";
+    
+    if (PcUtils::isMobileBrowser()) {
+        $redirectUrl = 'https://' . sfConfig::get('app_site_url') . "/account.php/mobile";    
+    } else {
+        $redirectUrl = 'http://' . sfConfig::get('app_site_url') . "/account.php";            
+    }
 }
 else // email doesn't exist
 {

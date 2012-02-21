@@ -60,6 +60,12 @@ class sfSecureFilter extends sfFilter
         }
         else
         {
+            // 6 Feb 2012 - after launching mobile app we have commented out this block - Why?
+            // Mobile app needs to run on HTTPS for everybody (free and Premium) otherwise we don't know
+            // what to put in the cache manifest file and offline wouldn't work.
+            // So, well, we all the AJAX call from the mobile app must run on HTTPS, then.
+            // If you uncomment this back - mobile app may still work on some browsers, but not in others, e.g.: Firefox, Android
+            /*
             if ($request->isSecure())
             {
               $secureUrl = str_replace('https', 'http', $request->getUri());
@@ -67,6 +73,7 @@ class sfSecureFilter extends sfFilter
               return $context->getController()->redirect($secureUrl);
               // We don't continue the filter chain
             }
+            */
         }
     }
     $filterChain->execute();

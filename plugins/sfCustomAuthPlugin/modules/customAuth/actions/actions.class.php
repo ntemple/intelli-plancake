@@ -61,6 +61,12 @@ class customAuthActions extends sfActions
 	    PcWatchdog::alert('Still awaiting activation', 'For the user ' . $user->getId());
 	    $this->forward('customAuth', 'stillAwaitingActivation');
 	  }
+          
+          if ($user->getBlocked()) 
+          {
+              $this->forward('customAuth', 'accountBlocked');
+          }
+          
 	  $loginSuccess = CustomAuth::login($this->getUser(), $user, isset($fields['rememberme']));
 	  if ($loginSuccess)
 	  {
@@ -203,5 +209,10 @@ class customAuthActions extends sfActions
   public function executeOpenIdWrongLogin(sfWebRequest $request)
   {
       $this->inputEmail = $request->getParameter('input_email');
+  }
+  
+  public function executeAccountBlocked(sfWebRequest $request)
+  {
+      return $this->renderText('This account is blocked. Please <a href="/contact">contact us</a> to unblock it.');
   }
 }

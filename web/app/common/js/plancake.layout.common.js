@@ -101,7 +101,7 @@ PLANCAKE.loadCalendarElements = function () {
         calendarDateNoTasks = null,
         isCalendarEmpty = (activePanel.find('ul.tasks').children('li').length > 0) ? false : true ;
 
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < PLANCAKE.numberOfDaysOnCalendar; i++) {
         weekday = weekdays[currentWeekdayIndex];
         
         calendarDateTimestamp = strtotime("+" + i + " days", calendarStartDate);
@@ -152,7 +152,7 @@ PLANCAKE.loadCalendarElements = function () {
             }
         }
         
-        if (currentWeekdayIndex == 6) {
+        if (currentWeekdayIndex == (PLANCAKE.numberOfDaysOnCalendar -1)) {
             currentWeekdayIndex = 0;
         } else {
             currentWeekdayIndex++;

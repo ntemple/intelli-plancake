@@ -26,22 +26,22 @@
  */
 class PcCaptureReferralAndEntryPoint extends sfFilter
 {
+  const ENTRY_POINT_SESSION_KEY =  'session_entry_point';
+  const REFERRAL_SESSION_KEY = 'session_referral';
+    
   public function execute($filterChain)
   {
     $context = $this->getContext();
     $user = $context->getUser();
-
-    $entryPointSessionKey = 'session_entry_point';
-    $referralSessionKey = 'session_referral';
     
-    if (!$user->getAttribute($entryPointSessionKey)) {
-        $user->setAttribute($entryPointSessionKey, PcUtils::getCurrentURL());
+    if (!$user->getAttribute(self::ENTRY_POINT_SESSION_KEY)) {
+        $user->setAttribute(self::ENTRY_POINT_SESSION_KEY, PcUtils::getCurrentURL());
     }
     
-    if (!$user->getAttribute($referralSessionKey) && 
+    if (!$user->getAttribute(self::REFERRAL_SESSION_KEY) && 
             isset($_SERVER['HTTP_REFERER']) &&
             (strpos($_SERVER['HTTP_REFERER'], 'www.plancake.com/openIdWrongLogin') === FALSE) ) { // added to prevent a lot of meaningless entries
-        $user->setAttribute($referralSessionKey, $_SERVER['HTTP_REFERER']);
+        $user->setAttribute(self::REFERRAL_SESSION_KEY, $_SERVER['HTTP_REFERER']);
     }    
     
     $filterChain->execute();

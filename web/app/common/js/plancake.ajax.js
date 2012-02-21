@@ -21,6 +21,7 @@
 var PLANCAKE = PLANCAKE || {};
 
 PLANCAKE.sendingAJAXRequest = false;
+PLANCAKE.counterToAvoidInfiniteLoopInSendAjaxRequestMethod = 0;
 
 PLANCAKE.AJAX_MAINTENANCE_STRING = 'Sorry, Plancake is under maintenance.';
 
@@ -48,9 +49,10 @@ PLANCAKE.AJAX_URL_HIDE_HINT = '/user/hideHint';
 
 PLANCAKE.AJAX_URL_UPDATE_TASK_COUNTERS = '/lists/getTaskCounters';
 
-
 PLANCAKE.AJAX_URL_SYNC_GET_SERVER_TIME = '/sync/getServerTime';
 PLANCAKE.AJAX_URL_SYNC = '/sync/sync';
+
+PLANCAKE.AJAX_URL_LOG_ERROR = '/user/logError';
 
 /**
   * Sends an AJAX request (via the POST method) and
@@ -80,8 +82,16 @@ PLANCAKE.sendAjaxRequest = function(urlPath, data, successMessage, successCallba
       try {
         PLANCAKE.localApi(urlPath, data, successMessage, successCallback);
       } catch (e) {
-          alert("An error occurred: " + e.toString());
-          PLANCAKE.notifyAjaxError(e.message);
+          var errorMessage = "An error occurred E1: " + e.message;
+
+          PLANCAKE.counterToAvoidInfiniteLoopInSendAjaxRequestMethod ++;
+          
+          if (PLANCAKE.counterToAvoidInfiniteLoopInSendAjaxRequestMethod < 2) {
+              PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_LOG_ERROR, 
+                    'error=' + PLANCAKE.prepareForAjaxTransmission(errorMessage + '  --  ' + urlPath + '\n\n' + printStackTrace().join('\n\n')));
+          }
+
+          PLANCAKE.notifyAjaxError(errorMessage);
       }
       PLANCAKE._afterLocalStorageRetrieval();
   } else {
@@ -94,20 +104,24 @@ PLANCAKE.sendAjaxRequest = function(urlPath, data, successMessage, successCallba
         success: function(dataFromServer){
 
           if(dataFromServer === "") { // each AJAX request should return something - if not it means the user is logged out
-              if ($('a#logoutLink').length) {
+              if (!PLANCAKE.isMobile && $('a#logoutLink').length) { // in the mobile app, if is not likely to have different tabs, where
+                                                                    // you are logged out from one of them
                 window.location.replace($('a#logoutLink').attr('href'));
               }
           }
 
           if( (typeof(dataFromServer) == 'string') && 
               dataFromServer.indexOf(PLANCAKE.AJAX_MAINTENANCE_STRING) != -1) { // website under maintenance
-              if ($('a#logoutLink').length) {
+              if (!PLANCAKE.isMobile && $('a#logoutLink').length) { // in the mobile app, if is not likely to have different tabs, where
+                                                                    // you are logged out from one of them                  
                 window.location.replace($('a#logoutLink').attr('href'));
               }
           }
 
           if ( (typeof(dataFromServer) == 'string') && (dataFromServer.indexOf('ERROR:') == 0) ) {
-            PLANCAKE.notifyAjaxError(dataFromServer);
+            if (urlPath != PLANCAKE.AJAX_URL_UPDATE_TASK_COUNTERS) { // this is an automatic request and we don't need error message
+                PLANCAKE.notifyAjaxError(dataFromServer);
+            }
           } else {
             PLANCAKE.notifyAjaxSuccess(successMessage);
             
@@ -123,10 +137,12 @@ PLANCAKE.sendAjaxRequest = function(urlPath, data, successMessage, successCallba
           var errorMessage = null;
           
           if (PLANCAKE.isMobile === true) {
-              errorMessage = 'Error - are trying to sync without Internet connection?';
+              errorMessage = 'Error - are you trying to sync without Internet connection?';
           }
-            
-          PLANCAKE.notifyAjaxError(errorMessage);
+          
+          if (urlPath != PLANCAKE.AJAX_URL_UPDATE_TASK_COUNTERS) { // this is an automatic request and we don't need error message            
+            PLANCAKE.notifyAjaxError(errorMessage);
+          }
           PLANCAKE._afterAjaxRequest();
         }
       };
@@ -166,6 +182,7 @@ PLANCAKE.willServeAjaxRequestLocally = function(urlPath) {
       if ( ((urlPath === PLANCAKE.AJAX_URL_GET_TASKS) && !localStorage.getItem(PLANCAKE.LOCAL_STORAGE_KEY_TASKS)) ||
            (urlPath === PLANCAKE.AJAX_URL_SYNC_GET_SERVER_TIME) ||
            (urlPath === PLANCAKE.AJAX_URL_SYNC) ||
+           (urlPath === PLANCAKE.AJAX_URL_LOG_ERROR) ||           
            ((urlPath === PLANCAKE.AJAX_URL_INIT_DATA) && !localStorage.getItem(PLANCAKE.LOCAL_STORAGE_KEY_STARTUP_DATA))) {
           getDataLocally = false;
       }  

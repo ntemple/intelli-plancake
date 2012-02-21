@@ -24,7 +24,6 @@ abstract class BasePcUserForm extends BaseFormPropel
       'timezone_id'                    => new sfWidgetFormPropelChoice(array('model' => 'PcTimezone', 'add_empty' => true)),
       'week_start'                     => new sfWidgetFormInputText(),
       'dst_active'                     => new sfWidgetFormInputCheckbox(),
-      'rememberme_key'                 => new sfWidgetFormInputText(),
       'awaiting_activation'            => new sfWidgetFormInputCheckbox(),
       'newsletter'                     => new sfWidgetFormInputCheckbox(),
       'forum_id'                       => new sfWidgetFormInputText(),
@@ -41,6 +40,7 @@ abstract class BasePcUserForm extends BaseFormPropel
       'latest_import_request'          => new sfWidgetFormDateTime(),
       'latest_breaking_news_closed'    => new sfWidgetFormInputText(),
       'last_promotional_code_inserted' => new sfWidgetFormInputText(),
+      'blocked'                        => new sfWidgetFormInputCheckbox(),
       'session_entry_point'            => new sfWidgetFormInputText(),
       'session_referral'               => new sfWidgetFormInputText(),
       'created_at'                     => new sfWidgetFormDateTime(),
@@ -59,7 +59,6 @@ abstract class BasePcUserForm extends BaseFormPropel
       'timezone_id'                    => new sfValidatorPropelChoice(array('model' => 'PcTimezone', 'column' => 'id', 'required' => false)),
       'week_start'                     => new sfValidatorInteger(array('min' => -128, 'max' => 127, 'required' => false)),
       'dst_active'                     => new sfValidatorBoolean(array('required' => false)),
-      'rememberme_key'                 => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'awaiting_activation'            => new sfValidatorBoolean(array('required' => false)),
       'newsletter'                     => new sfValidatorBoolean(array('required' => false)),
       'forum_id'                       => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
@@ -76,6 +75,7 @@ abstract class BasePcUserForm extends BaseFormPropel
       'latest_import_request'          => new sfValidatorDateTime(array('required' => false)),
       'latest_breaking_news_closed'    => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'last_promotional_code_inserted' => new sfValidatorString(array('max_length' => 25)),
+      'blocked'                        => new sfValidatorBoolean(array('required' => false)),
       'session_entry_point'            => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'session_referral'               => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'created_at'                     => new sfValidatorDateTime(array('required' => false)),
@@ -84,10 +84,7 @@ abstract class BasePcUserForm extends BaseFormPropel
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorAnd(array(
-        new sfValidatorPropelUnique(array('model' => 'PcUser', 'column' => array('email'))),
-        new sfValidatorPropelUnique(array('model' => 'PcUser', 'column' => array('rememberme_key'))),
-      ))
+      new sfValidatorPropelUnique(array('model' => 'PcUser', 'column' => array('email')))
     );
 
     $this->widgetSchema->setNameFormat('pc_user[%s]');

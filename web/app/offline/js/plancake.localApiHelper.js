@@ -22,10 +22,22 @@ var PLANCAKE = PLANCAKE || {};
 
 
 PLANCAKE.localApi_getNextTaskId = function () {
+    // We tried to use the jLinq max method for this purpose, but
+    // that was causing problems on Blackberry
+    
     var maxTaskId = jlinq.from(PLANCAKE.localApi_getTasksDatastore())
-         .max('id').id;
-    maxTaskId = parseInt(maxTaskId);
-    return maxTaskId+1;
+         .max('id');
+         
+    if ( (maxTaskId === null) || (maxTaskId === undefined) ) { // there are no tasks yet
+        maxTaskId = 1;        
+    } else if (typeof maxTaskId == "object") { // needed for some JS engine - probably Blackberry.
+                                               // For other engine, maxTaskId is alread a number
+        maxTaskId = maxTaskId.id;
+    }      
+         
+    maxTaskId = parseInt(maxTaskId);         
+         
+    return (maxTaskId+1);
 }
 
 /**
@@ -85,8 +97,8 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     var taskRepetitionId = task.repetitionId;
     var taskRepetitionParam = task.repetitionParam;
 
-    var daysBetweenDayAndDueDate = (dayTimestamp - taskDueDateTimestamp) / 86400;
-    var weeksBetweenDayAndDueDate = daysBetweenDayAndDueDate / 7;
+    var daysBetweenDayAndDueDate = Math.round((dayTimestamp - taskDueDateTimestamp) / 86400); // you would think you don't need to round up
+    var weeksBetweenDayAndDueDate = Math.round(daysBetweenDayAndDueDate / 7); // you would think you don't need to round up
     var monthsBetweenDayAndDueDate = ((parseInt(date('Y', dayTimestamp)) - parseInt(date('Y', taskDueDateTimestamp))) * 12) + 
                     (parseInt(date('n', dayTimestamp)) - parseInt(date('n', taskDueDateTimestamp)));
 
@@ -122,7 +134,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId == 10) && taskRepetitionParam) { // every X days
-        if ( !(daysBetweenDayAndDueDate % taskRepetitionParam) )  
+        if ( !(Math.round(daysBetweenDayAndDueDate % taskRepetitionParam)) )  
         {
             return true;
         }
@@ -137,7 +149,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
 
     if ( taskRepetitionId == 12 ) { // every X weeks
         if ( (dayDowIndex === taskDueDateDowIndex) &&
-             !(weeksBetweenDayAndDueDate % taskRepetitionParam) )  
+             !(Math.round(weeksBetweenDayAndDueDate % taskRepetitionParam)) )  
         {
             return true;
         }
@@ -152,7 +164,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
 
     if ( taskRepetitionId == 14 ) { // every X months on the due date day
         if ( date('d', taskDueDateTimestamp) === date('d', dayTimestamp) &&
-             !(monthsBetweenDayAndDueDate % taskRepetitionParam) )  
+             !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) )  
         {
             return true;
         }
@@ -169,14 +181,14 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     if ( taskRepetitionId == 16 ) { // every X years
         if ( (date('d', taskDueDateTimestamp) === date('d', dayTimestamp)) &&
              (date('n', taskDueDateTimestamp) === date('n', dayTimestamp)) &&
-             !((date('Y', dayTimestamp) - date('Y', taskDueDateTimestamp)) % taskRepetitionParam) )  
+             !(Math.round((date('Y', dayTimestamp) - date('Y', taskDueDateTimestamp)) % taskRepetitionParam)) )  
         {
             return true;
         }
     }
 
     if ( taskRepetitionId == 18 ) { // every [select later] month(s) on the last day
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&
              (date('t', dayTimestamp) == date('d', dayTimestamp)) )  
         {
             return true;
@@ -184,7 +196,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( taskRepetitionId == 19 ) { // every [select later] month(s) on the second last day
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&
              ((date('t', dayTimestamp)-1) == date('d', dayTimestamp)) )  
         {
             return true;
@@ -192,7 +204,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId >= 20) && (taskRepetitionId <= 26) ) { // every X month(s) on the first Sun/Mon..../Sat
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&  // correct "every X months"
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&  // correct "every X months"
              (dayDowIndex ==  (taskRepetitionId - 20)) &&  // correct dow
              (date('j', dayTimestamp) <= 7) ) // first week
         {
@@ -201,7 +213,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId >= 27) && (taskRepetitionId <= 33) ) { // every X month(s) on the last Sun/Mon..../Sat
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&  // correct "every X months"
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&  // correct "every X months"
              (dayDowIndex ==  (taskRepetitionId - 27)) &&  // correct dow
              ( (date('j', dayTimestamp) > (date('t', dayTimestamp) -7)) ) ) // last week
         {
@@ -219,7 +231,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId >= 40) && (taskRepetitionId <= 46) ) { // every X month(s) on the second Sun/Mon..../Sat
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&  // correct "every X months"
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&  // correct "every X months"
              (dayDowIndex ==  (taskRepetitionId - 40)) &&  // correct dow
              ( (date('j', dayTimestamp) > 7) && (date('j', dayTimestamp) <= 14)  ) ) // second week
         {
@@ -228,7 +240,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId >= 50) && (taskRepetitionId <= 56) ) { // every X month(s) on the third Sun/Mon..../Sat
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&  // correct "every X months"
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&  // correct "every X months"
              (dayDowIndex ==  (taskRepetitionId - 50)) &&  // correct dow
              ( (date('j', dayTimestamp) > 14) && (date('j', dayTimestamp) <= 21)  ) ) // third week
         {
@@ -237,7 +249,7 @@ PLANCAKE.localAPi_isTaskOnThisDay = function(task, day) {
     }
 
     if ( (taskRepetitionId >= 60) && (taskRepetitionId <= 66) ) { // every X month(s) on the fourth Sun/Mon..../Sat
-        if ( !(monthsBetweenDayAndDueDate % taskRepetitionParam) &&  // correct "every X months"
+        if ( !(Math.round(monthsBetweenDayAndDueDate % taskRepetitionParam)) &&  // correct "every X months"
              (dayDowIndex ==  (taskRepetitionId - 60)) &&  // correct dow
              ( (date('j', dayTimestamp) > 21) && (date('j', dayTimestamp) <= 28)  ) ) // second week
         {

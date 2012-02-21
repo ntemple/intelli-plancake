@@ -844,7 +844,7 @@ a#pc_blog_filter_selected
   height: 250px;
   padding: 140px 59px 0 0;
   width: 27%;    
-  background-image: url('/images/features_sprite.png');
+  background-image: url('/images/features_sprite2.png');
 }
 
 #pc_services ul li p
@@ -866,6 +866,7 @@ a#pc_blog_filter_selected
 #pc_services ul li#s_integrations { background-position: -4450px 0px; }
 #pc_services ul li#s_applications { background-position: -4950px 0px; }
 #pc_services ul li#s_android { background-position: -5450px 0px; }
+#pc_services ul li#s_gmail { background-position: -5950px 0px; }
 
 
 
@@ -1164,6 +1165,12 @@ div#homepageActionLinks {
 div#homepageActionLinks a {
     text-decoration: underline;
     font-weight: bold;
+}
+
+li#homepageGTDpar {
+    background-image: url('/images/homepage_sprite2.png') !important;
+    background-position: -1925px 0px;
+    padding-right: 90px;
 }
 
 /****** END: homepage *********/

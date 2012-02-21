@@ -68,6 +68,29 @@ class userActions extends PlancakeActions
   }
   
   // From AJAX
+  public function executeLogError(sfWebRequest $request)
+  {
+    $user = PcUserPeer::getLoggedInUser();
+
+    $error = $request->getParameter('error');
+    $to = sfConfig::get('app_emailAddress_support');
+    $subject = "Javascript Remote Problem";
+
+    // we need to add a 'random' code otherwise GMail groups all of them together
+    $subject .= ' ' . date('YmdHis');
+
+    $error = $error . "\n\nUserId:" . PcUserPeer::getLoggedInUser()->getId() . "\n XX \n" . $_SERVER['HTTP_USER_AGENT'];
+    
+    PcUtils::sendEmail($to,
+                       $subject,
+                       $error,
+                       $to,
+                       PcUserPeer::getLoggedInUser()->getEmail());  
+    
+    return $this->renderDefault();
+  }  
+  
+  // From AJAX
   public function executeHideBreakingNews(sfWebRequest $request)
   {
     $user = PcUserPeer::getLoggedInUser();

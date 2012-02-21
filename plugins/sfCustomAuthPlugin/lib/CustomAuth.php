@@ -215,8 +215,12 @@ class CustomAuth
     $now = time();
 
     $cookieValue = md5($userApp->getId() . $secret . $now);
-    $userApp->setRemembermeKey($cookieValue);
-    $userApp->save();
+    
+    $rememberMeEntry = new PcRemembermeKey();
+    $rememberMeEntry->setUserId($userApp->getId())
+                    ->setRemembermeKey($cookieValue)
+                    ->save();
+    
     $sfContext = sfContext::getInstance();
     $sfContext->getResponse()->setCookie($cookieName, $cookieValue, $now+$timeout);
   }
@@ -250,12 +254,12 @@ class CustomAuth
     if ($cookieContent) // the cookie is set
     {
       $c = new Criteria();	
-      $c->add(PcUserPeer::REMEMBERME_KEY, $cookieContent, Criteria::EQUAL);
-      $user = PcUserPeer::doSelectOne($c);
+      $c->add(PcRemembermeKeyPeer::REMEMBERME_KEY, $cookieContent, Criteria::EQUAL);
+      $rememberMeEntry = PcRemembermeKeyPeer::doSelectOne($c);
 
-      if ( is_object($user) )
+      if ( is_object($rememberMeEntry) )
       {
-        return (int)$user->getId();
+        return (int)$rememberMeEntry->getUserId();
       }
       else
       {

@@ -1,0 +1,17 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN', '205', '140', '0', NULL, '0', '2012-02-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN', 'logout and reset local data', '2012-02-17 00:00:00'), ('it', 'ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN', 'esci e resetta i dati locali', '2012-02-17 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_MOBILE_NEED_TO_LOGIN', '205', '150', '0', NULL, '0', '2012-02-17 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_MOBILE_NEED_TO_LOGIN', 'Your login expired - you need to login again first
+(did you use ''remember me''?).', '2012-02-17 00:00:00'), ('it', 'ACCOUNT_MOBILE_NEED_TO_LOGIN', 'La tua sessione è scaduta: devi loggarti di nuovo prima (hai utilizzato il ''ricordami''?)', '2012-02-17 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

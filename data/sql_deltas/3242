@@ -1,0 +1,89 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake: a new online software for making your life easier and better. Try it today!' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+UPDATE  `pc_translation` SET  `string` =  'Plancake: un nuovo software online per renderti la vita più facile e migliore. Provalo oggi!' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Repeating tasks' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+UPDATE  `pc_translation` SET  `string` =  'Attività ricorrenti' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+
+UPDATE  `pc_translation` SET  `string` =  'Standard security' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+UPDATE  `pc_translation` SET  `string` =  'Sicurezza standard' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Enhanced security' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+UPDATE  `pc_translation` SET  `string` =  'Sicurezza superiore' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY';
+
+UPDATE  `pc_translation` SET  `string` =  'Export/Backup' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT';
+UPDATE  `pc_translation` SET  `string` =  'Esporta/Backup' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT';
+
+UPDATE  `pc_translation` SET  `string` =  'Mobile app' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP';
+UPDATE  `pc_translation` SET  `string` =  'Applicazione mobile' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP';
+
+UPDATE `pc_string` SET  `sort_order_in_category` =  '272' WHERE  `pc_string`.`id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION';
+UPDATE `pc_string` SET `sort_order_in_category` = '367' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE';
+UPDATE `pc_string` SET `sort_order_in_category` = '370' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT';
+UPDATE `pc_string` SET `sort_order_in_category` = '373' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH';
+UPDATE `pc_string` SET `sort_order_in_category` = '376' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS';
+UPDATE `pc_string` SET `sort_order_in_category` = '379' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS';
+UPDATE `pc_string` SET `sort_order_in_category` = '382' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS';
+UPDATE `pc_string` SET `sort_order_in_category` = '385' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS';
+UPDATE `pc_string` SET `sort_order_in_category` = '388' WHERE `pc_string`.`id` = 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP';
+
+UPDATE `pc_string` SET  `sort_order_in_category` =  '398' WHERE  `pc_string`.`id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE';
+UPDATE `pc_string` SET  `is_archived` =  '0' WHERE  `pc_string`.`id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS';
+UPDATE `pc_string` SET  `is_archived` =  '0' WHERE  `pc_string`.`id` =  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT';
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP', '104', '116', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP', '104', '221', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP', '104', '241', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP', '104', '251', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP', '104', '261', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP', '104', '271', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP', '104', '361', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP', '104', '371', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP', '104', '274', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP', '104', '277', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP', '104', '380', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP', '104', '383', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP', '104', '386', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP', '104', '389', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP', '104', '399', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP', '104', '301', '0', NULL, '0', '2012-02-19 00:00:00');
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP', '104', '351', '0', NULL, '0', '2012-02-19 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP', 'tasks are all your todos, appointments, commitments and ideas', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP', 'attività sono tutte le cose che hai da fare, gli appuntamenti e le idee', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP', 'lists are used to organise your tasks - they are like projects or folders', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP', 'le liste sono usate per organizzare le attività - sono come progetti o cartelle', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP', 'tags are another powerful tool to organise your tasks - check our guide on GTD', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP', 'le etichette sono un altro potente mezzo per organizzare attività - dai una occhiata alla nostra guida su GTD', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP', 'the notebook lets you easily create online documents', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP', 'il quaderno ti permette di creare documenti in modo semplice', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP', 'once you complete a task, the system keeps it available for a while', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP', 'quando completi una attività, questa rimane a disposizione per un certo periodo di tempo', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP', 'for example, "do bookkeeping on the second last day of each month"', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP', 'per esempio, "aggiornare i registri il penultimo giorno di ogni mese"', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en',  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP',  'you have full control over your data - we also do backups for you',  '2012-02-19 00:00:00'), ('it',  'ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP',  'hai pieno controllo dei tuoi dati - noi facciamo anche il backup per te',  '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP', 'It works on iPhone, Android, Blackberry, Symbian and other platforms', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP', 'Funziona su iPhone, Android, Blackberry, Symbian e altre piattaforme', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP', 'you can use Plancake even when Internet is not on', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP', 'puoi usare Plancake anche quando Internet non è disponibile', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP', 'such as Gmail integration, Google Calendar integration, sending emails to your account...', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP', 'come integrazione con Gmail, Google Calendar, mandare email al tuo account, ...', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP', 'your password is encrypted', '2012-02-19 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP', 'la tua password è criptata', '2012-02-19 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP', 'your account data - lists, tasks, notes - are encrypted with SSL', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP', 'i dati del tuo account - attività, list, note - sono criptati con SSL', '2012-02-20 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP', 'print easily the list of your tasks', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP', 'stampa in modo facile la lista delle tue attività', '2012-02-20 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP', 'find tasks easily and quickly', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP', 'trova attività in modo semplice e veloce', '2012-02-20 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP', 'don''t forget anything even when you don''t access your account', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP', 'not dimenticare nulla anche quando non accedi al tuo account', '2012-02-20 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP', 'we advertise selected products to our free users', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP', 'pubblicizziamo prodotti selezionati ai nostri utenti non paganti', '2012-02-20 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP', 'get the reply to your enquiries prioritised', '2012-02-20 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP', 'fai sì che la risposta alle tue domande abbia priorità', '2012-02-20 00:00:00');
+
+UPDATE `pc_translation` SET `string` = 'Plancake.com is operated by:' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_CONTACT_US_COMPANY_INFO';
+UPDATE `pc_translation` SET `string` = 'Plancake.com es administrado por:' WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_CONTACT_US_COMPANY_INFO';
+UPDATE `pc_translation` SET `string` = 'Plancake.com è gestito da:' WHERE `pc_translation`.`language_id` = 'it' AND `pc_translation`.`string_id` = 'WEBSITE_CONTACT_US_COMPANY_INFO';
+UPDATE `pc_translation` SET  `string` =  'Plancake.com est géré par:' WHERE  `pc_translation`.`language_id` =  'fr' AND  `pc_translation`.`string_id` = 'WEBSITE_CONTACT_US_COMPANY_INFO';
+
+UPDATE  `pc_translation` SET  `string` =  'Online GTD Software and Task Manager<br />
+Make your life easier, at work and home' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Software GTD e Personal Organizer Online <br />
+Semplificati la vita, in ufficio e a casa' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

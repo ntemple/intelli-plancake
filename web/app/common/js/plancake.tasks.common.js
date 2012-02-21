@@ -129,6 +129,21 @@ PLANCAKE.getHtmlTaskObj = function(task, _activePanel) {
         taskDescription.after('&nbsp;&nbsp;<img class="taskNoteIcon" title="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_NOTE + '" alt="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_NOTE + '" src="/app/common/img/note_icon.png" />');
     }
     
+    if (!PLANCAKE.isMobile) { // we don't do it on mobike in order not to increase loading time and also because it is not really needed
+        if((task.description + task.note).indexOf('mail.google.com/mail') >= 0) {
+            var gmailRegExp = /http(s)?:\/\/mail.google.com\/mail[^ ]+/;
+            try {
+                var gmailUrl = (task.description + ' ' + task.note).replace(/(\n|\t)/, ' ').match(gmailRegExp)[0];
+                taskDescription.after('&nbsp;&nbsp;<a target="_blank" href="' + gmailUrl + '"><img style="border: 0px" class="taskGmailIcon" title="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" alt="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" src="/app/common/img/gmail_icon.png" /></a>');
+                if (task.note.trim().length === gmailUrl.length) { // the note contains only the link to GMail that we show via the Gmail icon, therefore
+                    taskHtml.find('.taskNoteIcon').remove();       // no need to show note icon
+                }
+            } catch (e) {
+                // nothing serious - just the match() call failed - no valid gmail link
+            }
+        } 
+    }
+    
     if(task.tagIds) {
         tagIds = task.tagIds.split(',');
         tagsCounter = tagIds.length;
@@ -258,9 +273,19 @@ PLANCAKE.getCalendarCurrentDateTs = function(activePanel) {
 }
 
 PLANCAKE.sendCalendarJumpToDateValue = function(dateText, inst) {
-    var selectedDay = inst.selectedDay;
-    var selectedMonth = parseInt((inst.selectedMonth)) + 1;
-    var selectedYear = inst.selectedYear;
+    var selectedDay = null;
+    var selectedMonth = null;
+    var selectedYear = null;
+    
+    if (PLANCAKE.isMobile) { // we use another datepicker for mobile app - in a way compatible with JQUery UI one    
+        selectedDay = inst.values[1];
+        selectedMonth = parseInt(inst.values[0]) + 1;
+        selectedYear = inst.values[2];    
+    } else {
+        selectedDay = inst.selectedDay;
+        selectedMonth = parseInt((inst.selectedMonth)) + 1;
+        selectedYear = inst.selectedYear;        
+    }
 
     var valToSend = selectedYear.toString(10) + '-' + 
         str_pad(selectedMonth.toString(10), 2, '0', 'STR_PAD_LEFT') + '-' + 
@@ -288,7 +313,7 @@ PLANCAKE.getDatePickerConfig = function () {
         buttonImageOnly: true,
         changeMonth: true,
         changeYear: true,
-        dayNamesMin: [PLANCAKE.lang.ACCOUNT_DOW_SUN, PLANCAKE.lang.ACCOUNT_DOW_MON, PLANCAKE.lang.ACCOUNT_DOW_TUE, 
+        dayNamesShort: [PLANCAKE.lang.ACCOUNT_DOW_SUN, PLANCAKE.lang.ACCOUNT_DOW_MON, PLANCAKE.lang.ACCOUNT_DOW_TUE, 
             PLANCAKE.lang.ACCOUNT_DOW_WED, PLANCAKE.lang.ACCOUNT_DOW_THU, PLANCAKE.lang.ACCOUNT_DOW_FRI, 
             PLANCAKE.lang.ACCOUNT_DOW_SAT],
         monthNamesShort: [PLANCAKE.lang.ACCOUNT_MONTH_JAN, PLANCAKE.lang.ACCOUNT_MONTH_FEB, 
@@ -304,6 +329,24 @@ PLANCAKE.getDatePickerConfig = function () {
             PLANCAKE.sendCalendarJumpToDateValue(dateText, inst);
         }    
     };
+    
+    if (PLANCAKE.isMobile) { // we use another datepicker for mobile app - in a way compatible with JQUery UI one
+        delete o['constrainInput'];
+        delete o['showOn'];        
+        delete o['buttonImage'];
+        delete o['buttonImageOnly'];
+        delete o['changeMonth'];
+        delete o['changeYear'];
+        delete o['nextText']; 
+        delete o['prevText'];        
+        o['mode'] = 'clickpick';
+        o['dateFormat'] = o['dateFormat'].replace('mm', 'M');
+        o['cancelText'] = PLANCAKE.lang.ACCOUNT_MISC_CANCEL;
+        o['setText'] = PLANCAKE.lang.ACCOUNT_MISC_SUBMIT;
+        o['yearText'] = PLANCAKE.lang.ACCOUNT_MISC_YEAR;
+        o['monthText'] = PLANCAKE.lang.ACCOUNT_MISC_MONTH;
+        o['dayText'] = PLANCAKE.lang.ACCOUNT_MISC_DAY;
+    }
     
     return o;
 }
@@ -342,7 +385,7 @@ PLANCAKE.loadCalendarPrevWeek = function (link) {
         PLANCAKE.loadContent({
             done: false, 
             type: PLANCAKE.CONTENT_TYPE_CALENDAR,
-            extraParam: date('Y-m-d', strtotime("-7 days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
+            extraParam: date('Y-m-d', strtotime("-" + PLANCAKE.numberOfDaysOnCalendar + " days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
         }, calPanel);
         $('.calendarJumpDate').val('');        
 }
@@ -355,7 +398,7 @@ PLANCAKE.loadCalendarNextWeek = function (link) {
         PLANCAKE.loadContent({
             done: false, 
             type: PLANCAKE.CONTENT_TYPE_CALENDAR,
-            extraParam: date('Y-m-d', strtotime("+7 days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
+            extraParam: date('Y-m-d', strtotime("+" + PLANCAKE.numberOfDaysOnCalendar + " days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
         }, calPanel);
         $('.calendarJumpDate').val('');              
 }

@@ -50,7 +50,7 @@ class PcTaskTableMap extends TableMap {
 		$this->addColumn('IS_FROM_SYSTEM', 'IsFromSystem', 'BOOLEAN', true, null, false);
 		$this->addColumn('SPECIAL_FLAG', 'SpecialFlag', 'TINYINT', false, null, null);
 		$this->addColumn('NOTE', 'Note', 'VARCHAR', false, null, null);
-		$this->addColumn('CONTEXTS', 'Contexts', 'VARCHAR', false, 31, '');
+		$this->addColumn('CONTEXTS', 'Contexts', 'VARCHAR', false, 127, '');
 		$this->addColumn('CONTACT_ID', 'ContactId', 'INTEGER', false, null, null);
 		$this->addColumn('COMPLETED_AT', 'CompletedAt', 'TIMESTAMP', false, null, null);
 		$this->addColumn('UPDATED_AT', 'UpdatedAt', 'TIMESTAMP', true, null, null);

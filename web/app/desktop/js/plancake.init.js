@@ -49,6 +49,8 @@ PLANCAKE.taskDropped = false; // to tell the difference between when tasks are s
 PLANCAKE.listIdForTaskDropped = 0;
 PLANCAKE.tagIdForTaskDropped = 0;
 
+PLANCAKE.numberOfDaysOnCalendar = 7;
+
 PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_INIT_DATA, 
                          '', '', function (startupData) {
     PLANCAKE.initPopulateStartupVariables(startupData);

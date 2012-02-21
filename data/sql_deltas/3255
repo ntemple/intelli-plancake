@@ -1,0 +1,32 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+CREATE TABLE IF NOT EXISTS `pc_rememberme_key` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `rememberme_key` varchar(32) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pc_rememberme_key_U_1` (`rememberme_key`),
+  KEY `pc_rememberme_key_I_1` (`user_id`)
+);
+
+ALTER TABLE `pc_rememberme_key`
+  ADD CONSTRAINT `pc_rememberme_key_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`);
+
+INSERT INTO `pc_rememberme_key` (`user_id`, `rememberme_key`, `created_at`)
+SELECT `id`, `rememberme_key`, `created_at`
+FROM `pc_user`
+WHERE `rememberme_key` IS NOT NULL;
+
+
+ALTER TABLE `pc_user` drop `rememberme_key`;
+
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

@@ -1,0 +1,42 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_HINT_CLICK_TO_SEE_GMAIL', '114', '205', '0', NULL, '0', '2012-02-18 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_HINT_CLICK_TO_SEE_GMAIL', 'click to see Gmail', '2012-02-18 00:00:00'), ('it', 'ACCOUNT_HINT_CLICK_TO_SEE_GMAIL', 'clicca per vedere Gmail', '2012-02-18 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_HOME_GMAIL_TITLE', '3', '600', '0', NULL, '0', NULL), ('WEBSITE_SERVICES_HOME_GMAIL_BODY', '3', '610', '0', NULL, '0', NULL);
+
+INSERT INTO `pc_string_category` (
+`id` ,
+`name` ,
+`note` ,
+`link` ,
+`in_account` ,
+`in_misc` ,
+`sort_order` ,
+`created_at`
+)
+VALUES (
+'251',  'Website Services - GMail Integration', NULL ,  'http://www.plancake.com/services/gmail-integration',  '0',  '0',  '95', NULL
+);
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_GMAIL_HEADER', '251', '10', '0', NULL, '0', '2012-02-18 00:00:00'), ('WEBSITE_SERVICES_GMAIL_BODY1', '251', '20', '0', NULL, '0', '2012-02-18 00:00:00'), ('WEBSITE_SERVICES_GMAIL_BODY2', '251', '30', '0', NULL, '0', '2012-02-18 00:00:00'), ('WEBSITE_SERVICES_GMAIL_BODY3', '251', '40', '0', NULL, '0', '2012-02-18 00:00:00');
+
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_HOME_GMAIL_TITLE', 'Gmail integration', '2012-02-18 00:00:00'), ('en', 'WEBSITE_SERVICES_HOME_GMAIL_BODY', 'It can be very daunting to deal with your email Inbox. <br />
+Plancake can help you organise emails so that you don''t worry if you can''t reply to them straightaway or if you just want to keep a reference to them.', '2012-02-18 00:00:00'), ('en', 'WEBSITE_SERVICES_GMAIL_HEADER', 'Gmail integration', '2012-02-18 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_GMAIL_BODY1', 'Plancake adds an icon next to tasks that contain a link to a Gmail email in their description or note.<br />
+If you click the icon, a new tab will open on the email page.', '2012-02-18 00:00:00'), ('en', 'WEBSITE_SERVICES_GMAIL_BODY2', 'That is very handy when used in combination with our <a target="_blank" href="%s">Google Chrome extension</a>.', '2012-02-18 00:00:00'), ('en', 'WEBSITE_SERVICES_GMAIL_BODY3', 'Just click the link ''get page address'' of the extension and type a description for the task (the email subject is often not the best description for the content of the email).', '2012-02-18 00:00:00');
+
+UPDATE  `pc_translation` SET  `string` =  'Once you install the extension, you can use it when the email page is open in your browser. <br />
+Just click the link ''get page address'' of the extension and type a description for the task (the email subject is often not the best description for the content of the email). <br />
+You will then have a reminder in your Plancake account (as shown in the image at the top of this page) so that you can organise the email the way you like it.' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'WEBSITE_SERVICES_GMAIL_BODY3';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

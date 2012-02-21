@@ -406,6 +406,22 @@ PcStringCategory:
     in_misc: '1'
     sort_order: '50'
     created_at: '2011-12-22 23:48:37'
+  PcStringCategory_251:
+    id: '251'
+    name: 'Website Services - GMail Integration'
+    link: 'http://www.plancake.com/services/gmail-integration'
+    in_account: '0'
+    in_misc: '0'
+    sort_order: '95'
+    created_at: '2012-02-20 20:16:24'
+  PcStringCategory_255:
+    id: '255'
+    name: 'Website Services - GMail Integration'
+    link: 'http://www.plancake.com/services/gmail-integration'
+    in_account: '0'
+    in_misc: '0'
+    sort_order: '95'
+    created_at: '2012-02-20 20:16:24'
 PcString:
   PcString_ACCOUNT_ADD_TASK:
     id: ACCOUNT_ADD_TASK
@@ -855,6 +871,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_HINT_CLICK_TO_SEE_GMAIL:
+    id: ACCOUNT_HINT_CLICK_TO_SEE_GMAIL
+    category_id: PcStringCategory_114
+    sort_order_in_category: '205'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-18 00:00:00'
   PcString_ACCOUNT_HINT_CLICK_TO_SEE_NOTE:
     id: ACCOUNT_HINT_CLICK_TO_SEE_NOTE
     category_id: PcStringCategory_114
@@ -1525,6 +1548,13 @@ PcString:
     note: 'confirmation before deleting'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_MISC_DAY:
+    id: ACCOUNT_MISC_DAY
+    category_id: PcStringCategory_118
+    sort_order_in_category: '1210'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:24'
   PcString_ACCOUNT_MISC_DELETE:
     id: ACCOUNT_MISC_DELETE
     category_id: PcStringCategory_118
@@ -1598,6 +1628,13 @@ PcString:
     max_length: '20'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_MISC_MONTH:
+    id: ACCOUNT_MISC_MONTH
+    category_id: PcStringCategory_118
+    sort_order_in_category: '1220'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:24'
   PcString_ACCOUNT_MISC_NEWS_LINK:
     id: ACCOUNT_MISC_NEWS_LINK
     category_id: PcStringCategory_118
@@ -1680,6 +1717,13 @@ PcString:
     max_length: '8'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_MISC_SET_DATE:
+    id: ACCOUNT_MISC_SET_DATE
+    category_id: PcStringCategory_118
+    sort_order_in_category: '1200'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:25'
   PcString_ACCOUNT_MISC_SUBMIT:
     id: ACCOUNT_MISC_SUBMIT
     category_id: PcStringCategory_118
@@ -1717,6 +1761,13 @@ PcString:
     note: 'this is the task automatically added to the account of a newly registered user'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_MISC_YEAR:
+    id: ACCOUNT_MISC_YEAR
+    category_id: PcStringCategory_118
+    sort_order_in_category: '1230'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:25'
   PcString_ACCOUNT_MISC_YES:
     id: ACCOUNT_MISC_YES
     category_id: PcStringCategory_118
@@ -1781,6 +1832,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-11-27 00:00:00'
+  PcString_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN:
+    id: ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN
+    category_id: PcStringCategory_205
+    sort_order_in_category: '140'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-17 00:00:00'
   PcString_ACCOUNT_MOBILE_MARK_AS_DONE_BTN:
     id: ACCOUNT_MOBILE_MARK_AS_DONE_BTN
     category_id: PcStringCategory_205
@@ -1795,6 +1853,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-12-01 00:00:00'
+  PcString_ACCOUNT_MOBILE_NEED_TO_LOGIN:
+    id: ACCOUNT_MOBILE_NEED_TO_LOGIN
+    category_id: PcStringCategory_205
+    sort_order_in_category: '150'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-17 00:00:00'
   PcString_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN:
     id: ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN
     category_id: PcStringCategory_205
@@ -2990,6 +3055,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '221'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID
     category_id: PcStringCategory_104
@@ -3004,6 +3076,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '251'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX
     category_id: PcStringCategory_104
@@ -3016,8 +3095,15 @@ PcString:
     category_id: PcStringCategory_104
     sort_order_in_category: '350'
     max_length: '0'
-    is_archived: '1'
+    is_archived: '0'
     created_at: '2011-12-22 23:48:38'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '351'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY
     category_id: PcStringCategory_104
@@ -3025,10 +3111,17 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-12-22 23:48:38'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '361'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION
     category_id: PcStringCategory_104
-    sort_order_in_category: '270'
+    sort_order_in_category: '272'
     max_length: '0'
     is_archived: '1'
     created_at: '2011-12-22 23:48:38'
@@ -3039,6 +3132,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-09-14 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '116'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT
     category_id: PcStringCategory_104
@@ -3063,32 +3163,60 @@ PcString:
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS
     category_id: PcStringCategory_104
-    sort_order_in_category: '392'
+    sort_order_in_category: '379'
     max_length: '0'
     is_archived: '0'
     created_at: '2011-09-15 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '380'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS
     category_id: PcStringCategory_104
-    sort_order_in_category: '395'
+    sort_order_in_category: '382'
     max_length: '0'
     is_archived: '0'
     created_at: '2011-09-15 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '383'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS
     category_id: PcStringCategory_104
-    sort_order_in_category: '391'
+    sort_order_in_category: '376'
     max_length: '0'
     note: 'by active, I mean non-completed'
     is_archived: '0'
     created_at: '2012-01-10 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '277'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP
     category_id: PcStringCategory_104
-    sort_order_in_category: '398'
+    sort_order_in_category: '388'
     max_length: '0'
     is_archived: '0'
     created_at: '2012-01-06 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '389'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES
     category_id: PcStringCategory_104
@@ -3096,6 +3224,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '261'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT
     category_id: PcStringCategory_104
@@ -3106,45 +3241,80 @@ PcString:
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE
     category_id: PcStringCategory_104
-    sort_order_in_category: '399'
+    sort_order_in_category: '398'
     max_length: '0'
     is_archived: '0'
     created_at: '2012-01-06 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '399'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE
     category_id: PcStringCategory_104
-    sort_order_in_category: '370'
+    sort_order_in_category: '367'
     max_length: '0'
     is_archived: '1'
     created_at: '2011-12-22 23:48:38'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT
     category_id: PcStringCategory_104
-    sort_order_in_category: '380'
+    sort_order_in_category: '370'
     max_length: '0'
     is_archived: '0'
     created_at: '2011-08-12 12:07:45'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '371'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS
     category_id: PcStringCategory_104
-    sort_order_in_category: '397'
+    sort_order_in_category: '385'
     max_length: '0'
     is_archived: '0'
     created_at: '2012-01-01 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '386'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS
     category_id: PcStringCategory_104
     sort_order_in_category: '300'
     max_length: '0'
-    is_archived: '1'
+    is_archived: '0'
     created_at: '2011-12-22 23:48:38'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '301'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH
     category_id: PcStringCategory_104
-    sort_order_in_category: '390'
+    sort_order_in_category: '373'
     max_length: '0'
     is_archived: '0'
     created_at: '2011-09-01 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '274'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY
     category_id: PcStringCategory_104
@@ -3152,6 +3322,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-14 20:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '241'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT
     category_id: PcStringCategory_104
@@ -3159,6 +3336,13 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-12-22 00:00:00'
+  PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP:
+    id: ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP
+    category_id: PcStringCategory_104
+    sort_order_in_category: '271'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-19 00:00:00'
   PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY:
     id: ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY
     category_id: PcStringCategory_104
@@ -5512,6 +5696,34 @@ PcString:
     max_length: '0'
     is_archived: '0'
     created_at: '2011-03-06 00:09:13'
+  PcString_WEBSITE_SERVICES_GMAIL_BODY1:
+    id: WEBSITE_SERVICES_GMAIL_BODY1
+    category_id: PcStringCategory_251
+    sort_order_in_category: '20'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-18 00:00:00'
+  PcString_WEBSITE_SERVICES_GMAIL_BODY2:
+    id: WEBSITE_SERVICES_GMAIL_BODY2
+    category_id: PcStringCategory_251
+    sort_order_in_category: '30'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-18 00:00:00'
+  PcString_WEBSITE_SERVICES_GMAIL_BODY3:
+    id: WEBSITE_SERVICES_GMAIL_BODY3
+    category_id: PcStringCategory_251
+    sort_order_in_category: '40'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-18 00:00:00'
+  PcString_WEBSITE_SERVICES_GMAIL_HEADER:
+    id: WEBSITE_SERVICES_GMAIL_HEADER
+    category_id: PcStringCategory_251
+    sort_order_in_category: '10'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-18 00:00:00'
   PcString_WEBSITE_SERVICES_GOOGLE_CAL_HEADER:
     id: WEBSITE_SERVICES_GOOGLE_CAL_HEADER
     category_id: PcStringCategory_6
@@ -5648,6 +5860,20 @@ PcString:
     note: 'you should try to keep ''Email-to-Inbox'''
     is_archived: '0'
     created_at: '2011-03-06 00:09:13'
+  PcString_WEBSITE_SERVICES_HOME_GMAIL_BODY:
+    id: WEBSITE_SERVICES_HOME_GMAIL_BODY
+    category_id: PcStringCategory_3
+    sort_order_in_category: '610'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:27'
+  PcString_WEBSITE_SERVICES_HOME_GMAIL_TITLE:
+    id: WEBSITE_SERVICES_HOME_GMAIL_TITLE
+    category_id: PcStringCategory_3
+    sort_order_in_category: '600'
+    max_length: '0'
+    is_archived: '0'
+    created_at: '2012-02-20 20:16:27'
   PcString_WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY:
     id: WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY
     category_id: PcStringCategory_3
@@ -6343,6 +6569,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_HEADER_WRONG
     string: 'wrong?'
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_HINT_CLICK_TO_SEE_GMAIL:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_HINT_CLICK_TO_SEE_GMAIL
+    string: 'click to see Gmail'
+    updated_at: '2012-02-18 00:00:00'
   PcTranslation_en_ACCOUNT_HINT_CLICK_TO_SEE_NOTE:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_HINT_CLICK_TO_SEE_NOTE
@@ -6803,6 +7034,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_CONFIRM_MSG
     string: 'Are you sure?'
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_MISC_DAY:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MISC_DAY
+    string: day
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_en_ACCOUNT_MISC_DELETE:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MISC_DELETE
@@ -6853,6 +7089,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_LOADING
     string: Loading...
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_MISC_MONTH:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MISC_MONTH
+    string: month
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_en_ACCOUNT_MISC_NEWS_LINK:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MISC_NEWS_LINK
@@ -6908,6 +7149,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_SAVE
     string: save
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_MISC_SET_DATE:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MISC_SET_DATE
+    string: 'set date'
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_en_ACCOUNT_MISC_SUBMIT:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MISC_SUBMIT
@@ -6933,6 +7179,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_WELCOME_TASK
     string: 'Welcome to Plancake! Check the box on the left to mark me as done.'
     updated_at: '2011-03-17 18:11:05'
+  PcTranslation_en_ACCOUNT_MISC_YEAR:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MISC_YEAR
+    string: year
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_en_ACCOUNT_MISC_YES:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MISC_YES
@@ -6978,6 +7229,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MOBILE_APP_SYNC_OK
     string: 'The synchronisation has been completed successfully.'
     updated_at: '2011-11-27 00:00:00'
+  PcTranslation_en_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN
+    string: 'logout and reset local data'
+    updated_at: '2012-02-17 00:00:00'
   PcTranslation_en_ACCOUNT_MOBILE_MARK_AS_DONE_BTN:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MOBILE_MARK_AS_DONE_BTN
@@ -6988,6 +7244,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MOBILE_MARK_TO_DO_BTN
     string: 'mark as to do'
     updated_at: '2011-12-01 00:00:00'
+  PcTranslation_en_ACCOUNT_MOBILE_NEED_TO_LOGIN:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_MOBILE_NEED_TO_LOGIN
+    string: "Your login expired - you need to login again first\r\n(did you use 'remember me'?)."
+    updated_at: '2012-02-17 00:00:00'
   PcTranslation_en_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN
@@ -7833,6 +8094,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS
     string: Ad-free
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP
+    string: 'we advertise selected products to our free users'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID
@@ -7843,6 +8109,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED
     string: 'History of completed tasks (in months)'
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP
+    string: 'once you complete a task, the system keeps it available for a while'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX
@@ -7851,13 +8122,23 @@ PcTranslation:
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT
-    string: 'Export/Backup - full control over your data'
+    string: Export/Backup
     updated_at: '2011-12-22 23:48:40'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP
+    string: 'you have full control over your data - we also do backups for you'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY
-    string: "Enhanced security\n<p>(your account data - lists, tasks, notes - are encrypted with SSL)</p>"
+    string: 'Enhanced security'
     updated_at: '2011-12-22 23:48:40'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP
+    string: 'your account data - lists, tasks, notes - are encrypted with SSL'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION
@@ -7868,6 +8149,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES
     string: 'Lots of useful functionalities'
     updated_at: '2011-09-14 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP
+    string: 'such as Gmail integration, Google Calendar integration, sending emails to your account...'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT
@@ -7888,26 +8174,51 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS
     string: 'Maximum number of lists'
     updated_at: '2011-09-15 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP
+    string: 'lists are used to organise your tasks - they are like projects or folders'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS
     string: 'Maximum number of tags'
     updated_at: '2011-09-15 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP
+    string: 'tags are another powerful tool to organise your tasks - check our guide on GTD'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS
     string: 'Maximum number of active tasks'
     updated_at: '2012-01-10 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP
+    string: 'tasks are all your todos, appointments, commitments and ideas'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP
-    string: 'Mobile app - works on iPhone, Android, Blackberry, Symbian and other platforms'
+    string: 'Mobile app'
     updated_at: '2012-01-06 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP
+    string: 'It works on iPhone, Android, Blackberry, Symbian and other platforms'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES
     string: 'Maximum number of documents in your Notebook'
     updated_at: '2011-03-14 20:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP
+    string: 'the notebook lets you easily create online documents'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT
@@ -7918,6 +8229,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE
     string: 'Offline use'
     updated_at: '2012-01-06 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP
+    string: 'you can use Plancake even when Internet is not on'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE
@@ -7928,31 +8244,61 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT
     string: 'Printer friendly version'
     updated_at: '2011-08-12 12:08:53'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP
+    string: 'print easily the list of your tasks'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS
     string: 'Email reminders'
     updated_at: '2012-01-01 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP
+    string: 'don''t forget anything even when you don''t access your account'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS
-    string: 'Repeating Tasks (e.g.: "Do bookkeeping on the second last day of each month")'
+    string: 'Repeating tasks'
     updated_at: '2011-12-22 23:48:40'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP
+    string: 'for example, "do bookkeeping on the second last day of each month"'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH
     string: Search
     updated_at: '2011-12-22 23:48:40'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP
+    string: 'find tasks easily and quickly'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY
-    string: 'Standard security (your password is encrypted)'
+    string: 'Standard security'
     updated_at: '2011-03-17 18:11:05'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP
+    string: 'your password is encrypted'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT
     string: 'Priority support'
     updated_at: '2011-12-22 00:00:00'
+  PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP:
+    language_id: PcLanguage_en
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP
+    string: 'get the reply to your enquiries prioritised'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_en_ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY:
     language_id: PcLanguage_en
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY
@@ -8611,7 +8957,7 @@ PcTranslation:
   PcTranslation_en_GENERAL_TWITTER_COPY:
     language_id: PcLanguage_en
     string_id: PcString_GENERAL_TWITTER_COPY
-    string: 'Plancake: a new Online Task Manager and GTD software - I really like it!.'
+    string: 'Plancake: a new online software for making your life easier and better. Try it today!'
     updated_at: '2011-12-22 23:48:40'
   PcTranslation_en_MISC_ANDROID_APP_MARKET_DESCRIPTION:
     language_id: PcLanguage_en
@@ -8681,7 +9027,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_CONTACT_US_COMPANY_INFO:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_CONTACT_US_COMPANY_INFO
-    string: "Plancake.com is operated by: <br />\r\nDanyuki Software Limited <br />\r\n6 Boundary Road <br />\r\nN22 6AD <br />\r\nLondon <br />\r\nUK"
+    string: 'Plancake.com is operated by:'
     updated_at: '2011-12-22 23:48:41'
   PcTranslation_en_WEBSITE_CONTACT_US_CONTRIBUTE_REASON:
     language_id: PcLanguage_en
@@ -9061,7 +9407,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_HOMEPAGE_MAIN_COPY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_HOMEPAGE_MAIN_COPY
-    string: 'Online GTD Software and Task Manager<br />Take control of your work life and personal life'
+    string: "Online GTD Software and Task Manager<br />\r\nMake your life easier, at work and home"
     updated_at: '2011-03-06 00:09:13'
   PcTranslation_en_WEBSITE_HOMEPAGE_META_OG_TITLE:
     language_id: PcLanguage_en
@@ -9131,7 +9477,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_HOMEPAGE_STEP1_BODY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_HOMEPAGE_STEP1_BODY
-    string: 'Get more organised - manage all your todos, ideas and appointments with lists in a quick and easy way.'
+    string: 'Get more organised - manage all your todos, ideas and appointments in your browser the quick and easy way.'
     updated_at: '2011-12-31 10:14:32'
   PcTranslation_en_WEBSITE_HOMEPAGE_STEP1_TITLE:
     language_id: PcLanguage_en
@@ -9196,7 +9542,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY
-    string: 'Plancake is for entrepreneurs, freelancers, managers, employees, mums and dads - whoever feels they are very busy and would like to find focus, better results, relax and more time for themselves.'
+    string: "<li>entrepreneurs: don't forget any of your great ideas and opportunities you find</li>\r\n<li>freelancers: manage your clients' projects without missing a deadline </li>\r\n<li>managers: do better choices by having everything written down in front of you  - success is a lot about this</li>\r\n<li>employees: impress your colleagues and bosses with your reliability - this could make your promotion faster</li>\r\n<li>mums and dads: manage all your recurrent activities and organise great things for your family</li>"
     updated_at: '2012-01-17 00:00:00'
   PcTranslation_en_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER:
     language_id: PcLanguage_en
@@ -9206,7 +9552,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_HOMEPAGE_WHY_US_BODY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_HOMEPAGE_WHY_US_BODY
-    string: "<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>\r\n<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>\r\n<li>our unique feature (we call it <em>%s</em>) is ideal for your GTD weekly review</li>\r\n<li>Plancake is Open Source - therefore you are not locked-in</li>\r\n<li>we made our Premium edition very affordable - check out our <a href=\"%s\">plans and prices</a></li>\r\n<li>we are very passionate about time management and personal development: which is why we publish inspirational articles on our blog and we are writing a book on those topics</li>"
+    string: "<li>Plancake works on any computer, tablet and smartphone - even without an Internet connection!</li>\r\n<li>you can start using Plancake on your smartphone straightaway - just point its browser to www.plancake.com</li>\r\n<li>our unique feature (we call it <em>%s</em>) is ideal for your GTD weekly review</li>\r\n<li>Plancake is Open Source - therefore you are not locked-in</li>\r\n<li>we made our Premium edition very affordable - check out our <a href=\"%s\">plans and prices</a></li>"
     updated_at: '2012-01-17 00:00:00'
   PcTranslation_en_WEBSITE_HOMEPAGE_WHY_US_HEADER:
     language_id: PcLanguage_en
@@ -9588,6 +9934,26 @@ PcTranslation:
     string_id: PcString_WEBSITE_SERVICES_EMAIL_2_INBOX_HEADER
     string: 'Send emails to Plancake'
     updated_at: '2011-03-06 00:09:13'
+  PcTranslation_en_WEBSITE_SERVICES_GMAIL_BODY1:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_GMAIL_BODY1
+    string: "Plancake adds an icon next to tasks that contain a link to a Gmail email in their description or note.<br />\r\nIf you click the icon, a new tab will open on the email page."
+    updated_at: '2012-02-18 00:00:00'
+  PcTranslation_en_WEBSITE_SERVICES_GMAIL_BODY2:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_GMAIL_BODY2
+    string: 'That is very handy when used in combination with our <a target="_blank" href="%s">Google Chrome extension</a>.'
+    updated_at: '2012-02-18 00:00:00'
+  PcTranslation_en_WEBSITE_SERVICES_GMAIL_BODY3:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_GMAIL_BODY3
+    string: "Once you install the extension, you can use it when the email page is open in your browser. <br />\r\nJust click the link 'get page address' of the extension and type a description for the task (the email subject is often not the best description for the content of the email). <br />\r\nYou will then have a reminder in your Plancake account (as shown in the image at the top of this page) so that you can organise the email the way you like it."
+    updated_at: '2012-02-18 00:00:00'
+  PcTranslation_en_WEBSITE_SERVICES_GMAIL_HEADER:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_GMAIL_HEADER
+    string: 'Gmail integration'
+    updated_at: '2012-02-18 00:00:00'
   PcTranslation_en_WEBSITE_SERVICES_GOOGLE_CAL_HEADER:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_GOOGLE_CAL_HEADER
@@ -9683,6 +10049,16 @@ PcTranslation:
     string_id: PcString_WEBSITE_SERVICES_HOME_EMAIL_TO_INBOX_TITLE
     string: 'Send emails to Plancake'
     updated_at: '2011-03-06 00:09:13'
+  PcTranslation_en_WEBSITE_SERVICES_HOME_GMAIL_BODY:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_HOME_GMAIL_BODY
+    string: "It can be very daunting to deal with your email Inbox. <br />\r\nPlancake can help you organise emails so that you don't worry if you can't reply to them straightaway or if you just want to keep a reference to them."
+    updated_at: '2012-02-18 00:00:00'
+  PcTranslation_en_WEBSITE_SERVICES_HOME_GMAIL_TITLE:
+    language_id: PcLanguage_en
+    string_id: PcString_WEBSITE_SERVICES_HOME_GMAIL_TITLE
+    string: 'Gmail integration'
+    updated_at: '2012-02-18 00:00:00'
   PcTranslation_en_WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_HOME_GOOGLE_CAL_BODY
@@ -9696,7 +10072,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_SERVICES_HOME_GTD_BODY:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_HOME_GTD_BODY
-    string: "If you wish, you can use Plancake as a GTD software in order to achieve a stress-free productive life.<br />\r\nDump what is on your mind to your Inbox, filter lists by tags (contexts), light up stars to mark next actions and get stuff done!"
+    string: "If you wish, you can use Plancake as a <b>GTD software</b> in order to achieve a stress-free productive life.<br />\nDavid Allen's <a title=\"GTD - Getting things done\" href=\"%s\">Getting Things Done</a> is a set of simple ideas that have revolutionised task management. <br />\nBuying his book would be a very good idea!"
     updated_at: '2011-12-31 10:25:55'
   PcTranslation_en_WEBSITE_SERVICES_HOME_INTRO:
     language_id: PcLanguage_en
@@ -9856,12 +10232,12 @@ PcTranslation:
   PcTranslation_en_WEBSITE_SERVICES_OFFLINE_USE_BODY1:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_OFFLINE_USE_BODY1
-    string: "<p>\r\n    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />\r\n    That's simply because you can use the mobile/smartphone version also with your desktop/laptop.\r\n</p>\r\n\r\n<p>\r\n    <img src=\"/images/offline_use_guide1.png\" />\r\n</p>\r\n\r\n<h3>Set up while still online</h3>\r\n<p>\r\n    In order to activate the offline support, you need to go to the Mobile version from your laptop or desktop <b>while Internet is available</b>: <br />\r\n<a href=\"%s\">%s</a>    <b>[you need to be logged in]</b><br />\r\nAfter that first time, you can use the Mobile version (at that address) from your laptop or desktop even when the Internet is not available.\r\n</p>\r\n\r\n<p>\r\n    The first time you reach the Mobile application (and after every time you clear your browser cache), your data\r\n    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />\r\n    <b>If you're using a public or shared computer, don't allow offline use.</b>    \r\n</p>\r\n\r\n<h3>How to use the offline support when Internet is not available</h3>\r\n<p>\r\nIf you try to reach Plancake.com while you don't have an Internet access, the system will redirect you automatically to the Mobile version. <br />\r\nOtherwise, if the Internet goes down while you are using the Plancake web application, you can switch to the Mobile application by clicking the icon shown below (you need to open up your \"My account\" navigation first).\r\n</p>\r\n\r\n<p>\r\n<img src=\"/images/offline_use_guide2.png\" />\r\n</p>\r\n  \r\n<h3>Synchronizing changes</h3>\r\n<p>\r\nChanges on the Web application or on the Mobile application are <b>not</b> synchronised automatically - just hit the 'Sync' button at the bottom of the screen when you are ready to transfer them.\r\n</p>\r\n\r\n<h3>Roadmap</h3>\r\n<p>In the future, we would like to integrate the offline capability in the main web application itself, so that you don't need to change URL in order to use it.</p>\r\n\r\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>\r\n"
+    string: "<p>\r\n    Plancake can be used in your browser even when an Internet connection is not available (thanks to HTML5). <br />\r\n    That's simply because you can use the mobile/smartphone version also with your desktop/laptop.\r\n</p>\r\n\r\n<p>\r\n    <img src=\"/images/offline_use_guide1.png\" />\r\n</p>\r\n\r\n<p>Offline support works very well on <b>Google Chrome</b> - some other browsers may not be supporting the new technologies we are leveraging just yet.</p>\r\n\r\n<h3>Set up while still online</h3>\r\n<p>\r\n    In order to activate the offline support, you need to go to the Mobile version from your laptop or desktop <b>while Internet is available</b>: <br />\r\n<a target=\"_blank\" href=\"%s\">%s</a>    <b>[you need to be logged in]</b><br />\r\nAfter that first time, you can use the Mobile version (at that address) from your laptop or desktop even when the Internet is not available.\r\n</p>\r\n\r\n<p>\r\n    The first time you reach the Mobile application (and after every time you clear your browser cache), your data\r\n    will be synchronized and saved on your computer. From that moment on, your can use the mobile application even when offline. <br />\r\n    <b>If you're using a public or shared computer, don't allow offline use.</b>    \r\n</p>\r\n\r\n<h3>How to use the offline support when Internet is not available</h3>\r\n<p>\r\nIf you try to reach Plancake.com while you don't have an Internet access, the system will redirect you automatically to the Mobile version. <br />\r\nOtherwise, if the Internet goes down while you are using the Plancake web application, you can switch to the Mobile application by clicking the icon shown below (you need to open up your \"My account\" navigation first).\r\n</p>\r\n\r\n<p>\r\n<img src=\"/images/offline_use_guide2.png\" />\r\n</p>\r\n  \r\n<h3>Synchronizing changes</h3>\r\n<p>\r\nChanges on the Web application or on the Mobile application are <b>not</b> synchronised automatically - just hit the 'Sync' button at the bottom of the screen when you are ready to transfer them.\r\n</p>\r\n\r\n<p>\r\nTo mark a task as done, you just need to long click on it.\r\n</p>\r\n\r\n<h3>Roadmap</h3>\r\n<p>In the future, we would like to integrate the offline capability in the main web application itself, so that you don't need to change URL in order to use it.</p>\r\n\r\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>\r\n"
     updated_at: '2012-01-06 18:37:25'
   PcTranslation_en_WEBSITE_SERVICES_SMARTPHONE_APP_BODY1:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_SMARTPHONE_APP_BODY1
-    string: "  <p>\n      With Plancake Mobile we decided to go for an innovative route (by using HTML5) rather than building a native application for each smartphone operating system. <br />\n      This way we can make improvements quickly as we only need to maintain one codebase, as opposed to 4 or 5 of them.\n  </p>\n  \n  <p>\n      What does that mean to you?\n      <ul>\n          <li>you can use Plancake Mobile even without an Internet connection and have a nice shortcut on your home screen, as with most native apps.</li>\n          <li>you don't need to install anything from the app store - just need to visit www.plancake.com with your smartphone</li>\n          <li>when Plancake receives updates and bug fixes, your smartphone will be able to use them immediately, no manual updating required! </li>\n      </ul>\n  </p>"
+    string: "  <p>\r\n      With Plancake Mobile we decided to go for an innovative route (by using HTML5) rather than building a native application for each smartphone operating system. <br />\r\n      This way we can make improvements quickly as we only need to maintain one codebase, as opposed to 4 or 5 of them.\r\n  </p>\r\n  \r\n  <p>\r\n      What does that mean to you?\r\n      <ul>\r\n          <li>you can use Plancake Mobile even without an Internet connection and have a nice shortcut on your home screen, as with most native apps.</li>\r\n          <li>you don't need to install anything from the app store - just need to visit www.plancake.com with your smartphone</li>\r\n          <li>when Plancake receives updates and bug fixes, your smartphone will be able to use them immediately, no manual updating required! </li>\r\n      </ul>\r\n  </p>\r\n\r\n<p>\r\nAlso, we wanted to keep Plancake Mobile quite simple because we believe a small smartphone screen is not the best option for organising your things as you need a bigger picture and an easy drag and drop functionality to do so. What you would probably need is to jot down things as they come up to your mind, check what you need to buy at the grocery shop or check things off your lists.\r\n</p>"
     updated_at: '2012-01-06 18:23:14'
   PcTranslation_en_WEBSITE_SERVICES_SMARTPHONE_APP_BODY2:
     language_id: PcLanguage_en
@@ -9871,7 +10247,7 @@ PcTranslation:
   PcTranslation_en_WEBSITE_SERVICES_SMARTPHONE_APP_BODY3:
     language_id: PcLanguage_en
     string_id: PcString_WEBSITE_SERVICES_SMARTPHONE_APP_BODY3
-    string: "  <p>\r\n  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!\r\n  </p>\r\n  \r\n  <p>\r\n      <b>Once you are logged in</b>, we suggest you create a shortcut on your Home Screen (sometimes referred to as 'Home'), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />\r\n\r\nOn <b>Android</b> (if you use the default browser), you need to:\r\n<ol>\r\n<li>Open the browser \"Bookmarks\" screen</li>\r\n<li>Long-press the Plancake bookmark, probably the last item in the list</li>\r\n<li>Select \"Add shortcut to Home\"</li>\r\n</ol>\r\n\r\nOn <b>Iphone</b> (if you use Safari), you need to:\r\n<ol>\r\n<li>Tap the plus button at the bottom of the Safari window</li>\r\n<li>Tap \"Add to Home Screen\"</li>\r\n<li>Tap the \"Add\" button at the top of the screen</li>\r\n</ol>\r\n\r\n\r\n</p>\r\n  \r\n  <p>\r\n      The first time you log in, all the data in your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even\r\n      without an Internet connection.\r\n</p>\r\n\r\n<p>\r\n      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />\r\n  </p>\r\n\r\n  <p>\r\n      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the 'Sync' button at\r\n      the bottom of the screen (you need an Internet connection available to sync).\r\n  </p>\r\n\r\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>"
+    string: "  <p>\r\n  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!\r\n  </p>\r\n  \r\n  <p>\r\n      <b>Once you are logged in</b>, we suggest you create a shortcut on your Home Screen (sometimes referred to as 'Home'), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />\r\n\r\nOn <b>Android</b> (if you use the default browser), you need to:\r\n<ol>\r\n<li>Open the browser \"Bookmarks\" screen</li>\r\n<li>Long-press the Plancake bookmark, probably the last item in the list</li>\r\n<li>Select \"Add shortcut to Home\"</li>\r\n</ol>\r\n\r\nOn <b>Iphone</b> (if you use Safari), you need to:\r\n<ol>\r\n<li>Tap the plus button at the bottom of the Safari window</li>\r\n<li>Tap \"Add to Home Screen\"</li>\r\n<li>Tap the \"Add\" button at the top of the screen</li>\r\n</ol>\r\n\r\n\r\n</p>\r\n  \r\n  <p>\r\n      The first time you log in, all the data in your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even\r\n      without an Internet connection.\r\n</p>\r\n\r\n<p>To mark a task as done, you just need to long press it.</p>\r\n\r\n<p>\r\n      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />\r\n  </p>\r\n\r\n  <p>\r\n      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the 'Sync' button at\r\n      the bottom of the screen (you need an Internet connection available to sync).\r\n  </p>\r\n\r\n<p><b>If you experience unexpected problems, clearing the cache of your browser may solve the issue.</b></p>"
     updated_at: '2012-01-06 18:29:20'
   PcTranslation_en_WEBSITE_SERVICES_SMARTPHONE_APP_HEADER1:
     language_id: PcLanguage_en
@@ -10041,7 +10417,7 @@ PcTranslation:
   PcTranslation_es_WEBSITE_CONTACT_US_COMPANY_INFO:
     language_id: PcLanguage_es
     string_id: PcString_WEBSITE_CONTACT_US_COMPANY_INFO
-    string: "Plancake.com es administrado por: <br />\r\nDanyuki Software Limited <br />\r\n6 Boundary Road <br />\r\nN22 6AD <br />\r\nLondon <br />\r\nUK"
+    string: 'Plancake.com es administrado por:'
     updated_at: '2011-06-10 20:35:46'
   PcTranslation_es_WEBSITE_CONTACT_US_CONTRIBUTE_REASON:
     language_id: PcLanguage_es
@@ -10981,7 +11357,7 @@ PcTranslation:
   PcTranslation_fr_WEBSITE_CONTACT_US_COMPANY_INFO:
     language_id: PcLanguage_fr
     string_id: PcString_WEBSITE_CONTACT_US_COMPANY_INFO
-    string: "Plancake.com est géré par: <br />\r\nDanyuki Software Limited <br />\r\n6 Boundary Road <br />\r\nN22 6AD <br />\r\nLondon <br />\r\nUK"
+    string: 'Plancake.com est géré par:'
     updated_at: '2011-06-22 07:45:01'
   PcTranslation_fr_WEBSITE_CONTACT_US_CONTRIBUTE_REASON:
     language_id: PcLanguage_fr
@@ -12108,6 +12484,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_HEADER_WRONG
     string: 'sbagliato?'
     updated_at: '2011-03-19 00:32:28'
+  PcTranslation_it_ACCOUNT_HINT_CLICK_TO_SEE_GMAIL:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_HINT_CLICK_TO_SEE_GMAIL
+    string: 'clicca per vedere Gmail'
+    updated_at: '2012-02-18 00:00:00'
   PcTranslation_it_ACCOUNT_HINT_CLICK_TO_SEE_NOTE:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_HINT_CLICK_TO_SEE_NOTE
@@ -12568,6 +12949,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_CONFIRM_MSG
     string: 'Sei sicuro?'
     updated_at: '2011-03-19 13:37:04'
+  PcTranslation_it_ACCOUNT_MISC_DAY:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MISC_DAY
+    string: giorno
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_it_ACCOUNT_MISC_DELETE:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MISC_DELETE
@@ -12618,6 +13004,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_LOADING
     string: Caricamento...
     updated_at: '2011-03-19 13:37:14'
+  PcTranslation_it_ACCOUNT_MISC_MONTH:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MISC_MONTH
+    string: mese
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_it_ACCOUNT_MISC_NEWS_LINK:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MISC_NEWS_LINK
@@ -12673,6 +13064,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_SAVE
     string: salva
     updated_at: '2011-03-19 13:36:56'
+  PcTranslation_it_ACCOUNT_MISC_SET_DATE:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MISC_SET_DATE
+    string: 'imposta data'
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_it_ACCOUNT_MISC_SUBMIT:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MISC_SUBMIT
@@ -12698,6 +13094,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MISC_WELCOME_TASK
     string: 'Benvenuto su Plancake! Marcami come attività completata cliccando sulla casella a sinistra.'
     updated_at: '2011-03-26 18:02:25'
+  PcTranslation_it_ACCOUNT_MISC_YEAR:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MISC_YEAR
+    string: anno
+    updated_at: '2012-02-15 00:00:00'
   PcTranslation_it_ACCOUNT_MISC_YES:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MISC_YES
@@ -12743,6 +13144,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MOBILE_APP_SYNC_OK
     string: 'La sincronizzazione è stata ultimata con successo.'
     updated_at: '2011-11-27 00:00:00'
+  PcTranslation_it_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MOBILE_LOGOUT_AND_RESET_LOCAL_DATA_BTN
+    string: 'esci e resetta i dati locali'
+    updated_at: '2012-02-17 00:00:00'
   PcTranslation_it_ACCOUNT_MOBILE_MARK_AS_DONE_BTN:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MOBILE_MARK_AS_DONE_BTN
@@ -12753,6 +13159,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_MOBILE_MARK_TO_DO_BTN
     string: 'segna come da fare'
     updated_at: '2011-12-01 00:00:00'
+  PcTranslation_it_ACCOUNT_MOBILE_NEED_TO_LOGIN:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_MOBILE_NEED_TO_LOGIN
+    string: 'La tua sessione è scaduta: devi loggarti di nuovo prima (hai utilizzato il ''ricordami''?)'
+    updated_at: '2012-02-17 00:00:00'
   PcTranslation_it_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_MOBILE_RESET_LOCAL_DATA_BTN
@@ -13598,6 +14009,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS
     string: 'Senza pubblicità'
     updated_at: '2011-03-19 00:51:42'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ADVERTS_HELP
+    string: 'pubblicizziamo prodotti selezionati ai nostri utenti non paganti'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_ANDROID
@@ -13608,6 +14024,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED
     string: 'Archivio delle attività completate (in mesi)'
     updated_at: '2011-03-21 23:42:53'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_COMPLETED_HELP
+    string: 'quando completi una attività, questa rimane a disposizione per un certo periodo di tempo'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EMAIL_TO_INBOX
@@ -13616,13 +14037,23 @@ PcTranslation:
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT
-    string: 'Esporta/Backup - peino controllo dei tuoi dati'
+    string: Esporta/Backup
     updated_at: '2011-12-22 23:48:43'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXPORT_HELP
+    string: 'hai pieno controllo dei tuoi dati - noi facciamo anche il backup per te'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY
-    string: "Sicurezza superiore\n<p>(i dati del tuo account - liste, attività, note - nell' applicazione online sono criptati con SSL)</p>"
+    string: 'Sicurezza superiore'
     updated_at: '2011-12-22 23:48:43'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_EXTRA_SECURITY_HELP
+    string: 'i dati del tuo account - attività, list, note - sono criptati con SSL'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GCAL_INTEGRATION
@@ -13633,6 +14064,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES
     string: 'Tante funzionalità utili'
     updated_at: '2011-09-14 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GENERAL_FEATURES_HELP
+    string: 'come integrazione con Gmail, Google Calendar, mandare email al tuo account, ...'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_GOOGLE_ACCOUNT
@@ -13653,26 +14089,51 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS
     string: 'Numero massimo di liste'
     updated_at: '2011-09-15 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_LISTS_HELP
+    string: 'le liste sono usate per organizzare le attività - sono come progetti o cartelle'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS
     string: 'Numero massimo di etichette'
     updated_at: '2011-09-15 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TAGS_HELP
+    string: 'le etichette sono un altro potente mezzo per organizzare attività - dai una occhiata alla nostra guida su GTD'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS
     string: 'Numero massimo di attività da completare'
     updated_at: '2012-01-10 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MAX_TASKS_HELP
+    string: 'attività sono tutte le cose che hai da fare, gli appuntamenti e le idee'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP
-    string: 'Applicazione mobile - funziona su iPhone, Android, Blackberry, Symbian e altre piattaforme'
+    string: 'Applicazione mobile'
     updated_at: '2012-01-06 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_MOBILE_APP_HELP
+    string: 'Funziona su iPhone, Android, Blackberry, Symbian e altre piattaforme'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES
     string: 'Numero massimo di documenti nel tuo Quaderno'
     updated_at: '2011-03-19 00:56:21'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NOTES_HELP
+    string: 'il quaderno ti permette di creare documenti in modo semplice'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_NO_CONTRACT
@@ -13683,6 +14144,11 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE
     string: 'Uso offline'
     updated_at: '2012-01-06 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_OFFLINE_USE_HELP
+    string: 'puoi usare Plancake anche quando Internet non è disponibile'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRICE
@@ -13693,31 +14159,61 @@ PcTranslation:
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT
     string: 'Versione per la stampa'
     updated_at: '2011-08-12 12:08:56'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_PRINT_HELP
+    string: 'stampa in modo facile la lista delle tue attività'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS
     string: 'Promemoria via email'
     updated_at: '2012-01-01 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP
+    string: 'not dimenticare nulla anche quando non accedi al tuo account'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS
-    string: 'Attività ripetitive (e.g.: "Aggiornare i registri ogni mese al penultimo giorno")'
+    string: 'Attività ricorrenti'
     updated_at: '2011-12-22 23:48:43'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_REPEATING_TASKS_HELP
+    string: 'per esempio, "aggiornare i registri il penultimo giorno di ogni mese"'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH
     string: 'Ricerca le attività'
     updated_at: '2011-12-22 23:48:43'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SEARCH_HELP
+    string: 'trova attività in modo semplice e veloce'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY
-    string: 'Sicurezza standard (la tua password è criptata)'
+    string: 'Sicurezza standard'
     updated_at: '2011-03-19 00:53:45'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SECURITY_HELP
+    string: 'la tua password è criptata'
+    updated_at: '2012-02-19 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT
     string: 'Supporto con priorità'
     updated_at: '2011-12-22 00:00:00'
+  PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP:
+    language_id: PcLanguage_it
+    string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_SUPPORT_HELP
+    string: 'fai sì che la risposta alle tue domande abbia priorità'
+    updated_at: '2012-02-20 00:00:00'
   PcTranslation_it_ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY:
     language_id: PcLanguage_it
     string_id: PcString_ACCOUNT_SUBSCRIPTION_COMPARISON_WARRANTY
@@ -14371,7 +14867,7 @@ PcTranslation:
   PcTranslation_it_GENERAL_TWITTER_COPY:
     language_id: PcLanguage_it
     string_id: PcString_GENERAL_TWITTER_COPY
-    string: 'Plancake: un novo personal organizer online e software per GTD - Mi piace proprio!'
+    string: 'Plancake: un nuovo software online per renderti la vita più facile e migliore. Provalo oggi!'
     updated_at: '2011-12-22 23:48:43'
   PcTranslation_it_MISC_ANDROID_APP_MARKET_DESCRIPTION:
     language_id: PcLanguage_it
@@ -14436,7 +14932,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_CONTACT_US_COMPANY_INFO:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_CONTACT_US_COMPANY_INFO
-    string: "Plancake.com è gestito da: <br />\r\nDanyuki Software Limited <br />\r\n6 Boundary Road <br />\r\nN22 6AD <br />\r\nLondon <br />\r\nUK"
+    string: 'Plancake.com è gestito da:'
     updated_at: '2011-12-22 23:48:43'
   PcTranslation_it_WEBSITE_CONTACT_US_CONTRIBUTE_REASON:
     language_id: PcLanguage_it
@@ -14816,7 +15312,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_HOMEPAGE_MAIN_COPY:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_HOMEPAGE_MAIN_COPY
-    string: 'Software GTD e Personal Organizer Online <br />Prendi il controllo del tuo lavoro e vita personale'
+    string: "Software GTD e Personal Organizer Online <br />\r\nSemplificati la vita, in ufficio e a casa"
     updated_at: '2011-03-06 00:09:13'
   PcTranslation_it_WEBSITE_HOMEPAGE_META_OG_TITLE:
     language_id: PcLanguage_it
@@ -14886,7 +15382,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_HOMEPAGE_STEP1_BODY:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_HOMEPAGE_STEP1_BODY
-    string: 'Diventa organizzato - gestisci i tuoi impegni, idee e appuntamenti con liste in modo veloce e semplice.'
+    string: 'Diventa organizzato - gestisci i tuoi impegni, idee e appuntamenti col tuo browser in modo veloce e semplice.'
     updated_at: '2011-10-17 00:00:00'
   PcTranslation_it_WEBSITE_HOMEPAGE_STEP1_TITLE:
     language_id: PcLanguage_it
@@ -14951,7 +15447,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_BODY
-    string: 'Plancake è per imprenditori, liberi professionisti, manager, impiegati, mamme e papà - chiunque senta di essere molto impegnato e vorrebbe trovare focus, migliori risultati, relax e più tempo da dedicare a se stesso.'
+    string: "<li>imprenditori: non dimenticarti delle tue grande idee e delle opportunità che trovi</li>\r\n<li>liberi professionisti: gestisci i progetti dei tuoi clienti senza saltare scadenze</li>\r\n<li>manager: fai scelte migliori avendo tutto scritto davanti a te - il successo è anche per questo</li>\r\n<li>impiegati: stupisci i colleghi e i capi per la tua affidabilità - quella promozione potrebbe essere più vicina</li>\r\n<li>mamme e papà: gestisci attività ricorrenti e organizza grandi cose per la tua famiglia</li>"
     updated_at: '2012-01-17 00:00:00'
   PcTranslation_it_WEBSITE_HOMEPAGE_WHOS_PLANCAKE_FOR_HEADER:
     language_id: PcLanguage_it
@@ -14961,7 +15457,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_HOMEPAGE_WHY_US_BODY:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_HOMEPAGE_WHY_US_BODY
-    string: "<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>\r\n<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>\r\n<li>la nostra feature esclusiva (l'abbiamo chiamata <em>%s</em>) è ideale per la tua revisione settimanale GTD</li>\r\n<li>Plancake è Open Source - quindi non sarai \"ingabbiato\"</li>        \r\n<li>abbiamo reso la nostra edizione Premium molto conveniente - dai un'occhiata ai nostri <a href=\"%s\">piani e prezzi</a></li>\r\n<li>siamo veramente appassionati di gestione del tempo e sviluppo personale: ecco perché pubblichiamo articoli di ispirazione nel nostro blog e stiamo scrivendo un libro su quegli argomenti</li>"
+    string: "<li>Plancake funziona su ogni computer, tablet e smartphone - perfino quando Internet non è disponibile!</li>\r\n<li>puoi iniziare a usare Plancake sul tuo smartphone immediatamente - basta che punti il suo browser a www.plancake.com</li>\r\n<li>la nostra feature esclusiva (l'abbiamo chiamata <em>%s</em>) è ideale per la tua revisione settimanale GTD</li>\r\n<li>Plancake è Open Source - quindi non sarai \"ingabbiato\"</li>        \r\n<li>abbiamo reso la nostra edizione Premium molto conveniente - dai un'occhiata ai nostri <a href=\"%s\">piani e prezzi</a></li>"
     updated_at: '2012-01-17 00:00:00'
   PcTranslation_it_WEBSITE_HOMEPAGE_WHY_US_HEADER:
     language_id: PcLanguage_it
@@ -15451,7 +15947,7 @@ PcTranslation:
   PcTranslation_it_WEBSITE_SERVICES_HOME_GTD_BODY:
     language_id: PcLanguage_it
     string_id: PcString_WEBSITE_SERVICES_HOME_GTD_BODY
-    string: "Se vuoi, puoi utilizzare Plancake come software GTD per raggiungere una vita più rilassata e produttiva.\r\n<br />\r\nButta giù le tue idee nella Inbox e organizzale in seguito, filtra le liste con le etichette (tag), evidenzia con stelline le prossime attività e completale!"
+    string: "Se vuoi, puoi utilizzare Plancake come <b>software GTD</b> per raggiungere una vita più rilassata e produttiva.\n<br />\nDi David Allen, <a title=\"GTD - Getting things done\" href=\"%s\">Getting Things Done</a> è un insieme di semplici idee che hanno rivoluzionato la gestione di attività.<br />\nComprare il suo libro sarebbe un'ottima idea!"
     updated_at: '2011-03-13 19:16:05'
   PcTranslation_it_WEBSITE_SERVICES_HOME_INTRO:
     language_id: PcLanguage_it

@@ -26,7 +26,7 @@
 
 <div id="pc_loginBox">
     
-  <a id="homeLinkForLoginBox" href="/"><img src="/app/desktop/img/logo2.png" /></a>
+  <a id="homeLinkForLoginBox" href="http://www.plancake.com"><img src="/app/desktop/img/logo2.png" /></a>
     
   <div id="pc_googleAccountLinkLogin">
     <a href="/openIdEndpoints/googleSendLogin.php" class="googleAccountLink"><?php echo __('WEBSITE_LOGIN_WITH_GOOGLE_ACCOUNT') ?></a>

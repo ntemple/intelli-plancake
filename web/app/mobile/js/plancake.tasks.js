@@ -26,21 +26,22 @@ PLANCAKE.latestTaskScreenRelativeUrl = null;
 $(document).ready(function () {
     
     // I use unbind to make sure the event is not triggered twice
-    $('.calendarJumpDate').unbind('tap').bind('tap', function (e) {
-        $(this).parent().find('.ui-datepicker').show();
-    });
+    var datePickerConfig = PLANCAKE.getDatePickerConfig();
+    $('#calendarJumpDate').scroller(datePickerConfig);
     
+    // Link not used anymore
     // I use unbind to make sure the event is not triggered twice
-    $('.calPrevMonth').unbind('tap').bind('tap', function () {
-        PLANCAKE.loadCalendarPrevMonth($(this));
-        return false;
-    });
+    //$('.calPrevMonth').unbind('tap').bind('tap', function () {
+    //    PLANCAKE.loadCalendarPrevMonth($(this));
+    //    return false;
+    // });
     
+    // Link not used anymore    
     // I use unbind to make sure the event is not triggered twice
-    $('.calNextMonth').unbind('tap').bind('tap', function () {
-        PLANCAKE.loadCalendarNextMonth($(this));
-        return false;
-    }); 
+    // $('.calNextMonth').unbind('tap').bind('tap', function () {
+    //    PLANCAKE.loadCalendarNextMonth($(this));
+    //    return false;
+    // }); 
     
     // I use unbind to make sure the event is not triggered twice
     $('.calPrevWeek').unbind('tap').bind('tap', function () {
@@ -62,40 +63,6 @@ $(document).ready(function () {
             $(this).val('')
                    .removeClass('greyedText');
         }
-    });
-    
-    $('div#taskActions a').bind("tap taphold", function(e) {
-        var buttonId = $(this).attr('id');
-        
-        switch (buttonId) {
-            case 'markDoneTaskAction':
-                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;
-                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_COMPLETE_TASKS, 
-                                         ajaxParams, '', null);            
-                break;
-            case 'markToDoTaskAction':
-                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
-                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_UNCOMPLETE_TASKS, 
-                                         ajaxParams, '', null); 
-                break;
-            case 'starTaskAction':
-                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
-                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_STAR_TASKS, 
-                                         ajaxParams, '', null); 
-                break;
-            case 'unstarTaskAction':
-                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
-                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_STAR_TASKS, 
-                                         ajaxParams, '', null); 
-                break;                 
-            case 'viewNoteAction':
-                PLANCAKE.showToastNotice($().plancake().getTask(PLANCAKE.latestSelectedTaskId).plancake().getNote());
-                e.stopPropagation();
-                e.preventDefault();
-                break;      
-            case 'goBackTaskAction':
-                break;
-        };
     });
     
     $('form#quickAddToInbox').submit(function(e) {
@@ -128,7 +95,7 @@ $(document).ready(function () {
         return false;
     });
     
-    $('#addTaskSubmitBtn').bind('tap', function(e) {
+    submitAddTaskForm = function () {
         var taskContent = $('#addTaskDescription').val();
         var listId = $('select#addTaskListsSelect').val(),
             ajaxParams = null,
@@ -153,7 +120,56 @@ $(document).ready(function () {
                 PLANCAKE.showToastSuccess(sprintf(PLANCAKE.lang.ACCOUNT_SUCCESS_TASK_ADDED, 
                                                  $('ul#lists li#list_' + listId).plancake().getName()));
             });
+        }        
+    }
+    
+    $('#addTaskSubmitBtn').bind('tap', function(e) {
+        submitAddTaskForm();
+    });
+    
+    $('#addTaskDescription, #addTaskListsSelect').keypress(function(e){
+        if(e.which == 13){
+            submitAddTaskForm();
+            $('.ui-dialog').dialog ('close');
+            e.preventDefault();
+            return false;
         }
+    });    
+});
+
+$( '#task-menu-screen' ).live( 'pageinit', function (event) { 
+    $('div#taskActions a').bind("tap taphold", function(e) {
+        var buttonId = $(this).attr('id');
+        
+        switch (buttonId) {
+            case 'markDoneTaskAction':
+                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;
+                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_COMPLETE_TASKS, 
+                                         ajaxParams, '', null);            
+                break;
+            case 'markToDoTaskAction':
+                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
+                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_UNCOMPLETE_TASKS, 
+                                         ajaxParams, '', null); 
+                break;
+            case 'starTaskAction':
+                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
+                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_STAR_TASKS, 
+                                         ajaxParams, '', null); 
+                break;
+            case 'unstarTaskAction':
+                var ajaxParams = "taskId=" + PLANCAKE.latestSelectedTaskId;                
+                PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_STAR_TASKS, 
+                                         ajaxParams, '', null); 
+                break;                 
+            case 'viewNoteAction':
+                PLANCAKE.showToastNotice($().plancake().getTask(PLANCAKE.latestSelectedTaskId).plancake().getNote());
+                e.stopPropagation();
+                e.preventDefault();
+                break;      
+            case 'goBackTaskAction':
+                break;
+        };
     });    
 });
 
@@ -200,7 +216,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
                             $.mobile.changePage( page, data.options );
                             e.preventDefault();
                             
-                            $('ul.tasks li').unbind('tap taphold').not('.nonTask').bind('tap taphold', function(e){
+                            $('ul.tasks li').unbind('taphold').not('.nonTask').bind('taphold', function(e){
                                 PLANCAKE.latestSelectedTaskId = $(this).plancake().getId();
                                 $.mobile.changePage($('#task-menu-screen'), {transition: "pop", role: "dialog", reverse: false});
                                 e.preventDefault();

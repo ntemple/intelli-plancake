@@ -174,18 +174,8 @@
 
                 <?php if(! PcUserPeer::getLoggedInUser()->isSupporter()): ?>
                     <div id="mainAd">
-                        <a  class="inboundLink" href="/account.php/upgrade?feature=ad"><span class="lang lang_ACCOUNT_MISC_REMOVE_THIS_AD"></span></a>                
-                        <script type="text/javascript"><!--
-                        google_ad_client = "pub-1576907800060196";
-                        /* Plancake2, 180x150, created 05/07/11 */
-                        google_ad_slot = "1928876969";
-                        google_ad_width = 180;
-                        google_ad_height = 150;
-                        //-->
-                        </script>
-                        <script type="text/javascript"
-                        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                        </script>                              
+                        <!-- <a  class="inboundLink" href="/account.php/upgrade?feature=ad"><span class="lang lang_ACCOUNT_MISC_REMOVE_THIS_AD"></span></a> -->
+                        <!-- place ad here -->                              
                     </div>
                 <?php endif ?>
 
@@ -301,7 +291,7 @@
                     <li class="secondaryNavDivider"><div class="secondaryNavItemWrapper"></div></li>
                     <li><div class="secondaryNavItemWrapper"><?php echo __('WEBSITE_MISC_FOLLOW_US') ?>
                         <a class="followUsBottomPanel" target="_blank" href="https://www.facebook.com/plancake"><img src="/images/facebook_icon.png" /></a>
-                        <a class="followUsBottomPanel" target="_blank" href="https://twitter.com/#!/plancakebakers"><img src="/images/twitter_icon.png" /></a>                        
+                        <a class="followUsBottomPanel" target="_blank" href="https://twitter.com/#!/plancakeGTD"><img src="/images/twitter_icon.png" /></a>                        
                         <a class="followUsBottomPanel" target="_blank" href="/blog" class="inboundLink"><img src="/images/feed_icon.png" /></a>
                     </div></li>
                     <li><div class="secondaryNavItemWrapper">
