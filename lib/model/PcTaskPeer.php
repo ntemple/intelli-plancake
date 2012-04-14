@@ -193,25 +193,25 @@ class PcTaskPeer extends BasePcTaskPeer
 
     $listId = ($listIdFromShortcut > 0) ? $listIdFromShortcut : $listId;
 
-    // if we are here all the contexts (if any) are valid
+    // NLT Manage tags, taking input both from the user input and the shortcuts
+    $userContexts = $loggedInUser->getContextsArray(true);
+    $contextIdsFromInput = PcUtils::explodeWithEmptyInputDetection(',', $contexts);
+    $validatedContexts = array();
+    foreach ($contextIdsFromInput as $cid)
+    {
+      $userContext = PcUsersContextsPeer::retrieveByPK($cid);
+      if ($userContext) {
+          $validatedContexts[] = array_search(strtolower($userContext->getContext()), $userContexts);
+      }
+    }
+
     if (count($contextIdsFromShortcut))
     {
-      $task->setContexts(implode(',', $contextIdsFromShortcut));
+      $validatedContexts = array_unique(array_merge($validatedContexts, $contextIdsFromShortcut));
     }
-    else
-    {
-      $userContexts = $loggedInUser->getContextsArray(true);
-      $contextIdsFromInput = PcUtils::explodeWithEmptyInputDetection(',', $contexts);
-      $validatedContexts = array();
-      foreach ($contextIdsFromInput as $cid)
-      {
-        $userContext = PcUsersContextsPeer::retrieveByPK($cid);
-        if ($userContext) {
-            $validatedContexts[] = array_search(strtolower($userContext->getContext()), $userContexts);
-        }
-      }
-      $task->setContexts(implode(',', $validatedContexts));
-    }
+    $task->setContexts(implode(',', $validatedContexts));
+  
+
 
     // {{{ START: looking for a contact
     $contactPrefix = 'cid';
