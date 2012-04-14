@@ -187,8 +187,41 @@ class PcTask extends BasePcTask
             $potentialDueDates[] = strtolower($info);
         }
     }
+
+    // NLT we also want to match #hashtags, and create them if they don't exist.
+    // @bug - if a new tag is created, it isn't seen until the tag list
+    // is updated with a refresh
+
+    preg_match_all("/\#(\\w+)/", $taskDescription, $matches);
+    $create = sfConfig::get('experimental');   
+ 
+    foreach ($matches[1] as $tag) {
+      $id = array_search(strtolower($tag), $existingContextsLowercase);
+      if (! $id && $experimental) {
+        // We need to create a new tag
+        // getting max sortOrder
+        $c = new Criteria();
+        $c->addDescendingOrderByColumn(PcUsersContextsPeer::SORT_ORDER);
+        $maxSortOrder = PcUsersContextsPeer::doSelectOne($c)->getSortOrder();
+
+        $context = new PcUsersContexts();
+        $context->setContext($tag)
+              ->setPcUser(PcUserPeer::getLoggedInUser())
+              ->setSortOrder($maxSortOrder+1)
+              ->save();
+
+        $id = $context->getId();
+      }
+
+      if ($id) {
+        $taskDescription = str_replace('#' . $tag, '', $taskDescription);
+        $contextIds[] = $id;
+      }
+
+    }
+
     
-    return array($listId, $contextIds, $potentialDueDates, $potentialDueTime);
+    return array($listId, array_unique($contextIds), $potentialDueDates, $potentialDueTime);
   }
 
   /**
