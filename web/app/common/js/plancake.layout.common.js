@@ -359,10 +359,14 @@ PLANCAKE.loadContent = function (contentConfig, _activePanel, resetTaskFilters, 
         
         tasksFromServer = tasksFromServer['tasks'];
         var tasks = activePanel.find('ul.tasks');
-
+        
         var numberOfTasks = tasksFromServer.length,
             task = null,
-            i = 0;
+            i = 0;     
+
+        if (! PLANCAKE.isMobile && (contentConfig.type === PLANCAKE.CONTENT_TYPE_TODAY) ) {
+            tasksFromServer = PLANCAKE.repositionTodayTasksAccordingToTodayOrder(tasksFromServer);
+        }
         
         tasks.html(''); // resetting task list
         for (i = 0; i < numberOfTasks; i++) {

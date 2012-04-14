@@ -136,7 +136,7 @@
 
 
   <div id="payWithConfodence">
-      <ul class="tickList" style="width: 650px;">
+      <ul class="tickList" style="width: 615px;">
           <li><?php echo __('ACCOUNT_SUBSCRIPTION_BENEFIT1') ?></li>
           <li><?php echo __('ACCOUNT_SUBSCRIPTION_BENEFIT6') ?></li>
           <li><?php echo __('ACCOUNT_SUBSCRIPTION_BENEFIT7') ?></li>          
@@ -152,6 +152,9 @@
   </div>
   <div id="discountForCharities">
     <?php echo __('ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_CHARITIES') ?> 
+  </div>
+  <div id="discountForStudents">
+    <?php printf(__('ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_STUDENTS'), '/contact?re=general') ?>     
   </div>
   
 <?php if(PcUserPeer::getLoggedInUser() && (PcUserPeer::getLoggedInUser()->isAdmin())): ?>

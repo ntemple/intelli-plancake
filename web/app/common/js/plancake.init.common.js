@@ -33,6 +33,8 @@ PLANCAKE.tags = null; // this is going to be deleted after use
 
 PLANCAKE.hideableHintsSetting = null; // this is going to be deleted after use
 
+PLANCAKE.ignoreLocalStorage = false;
+
 PLANCAKE.lang = {};
 
 PLANCAKE.initPopulateStartupVariables = function (startupData) {

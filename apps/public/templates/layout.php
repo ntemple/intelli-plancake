@@ -62,7 +62,7 @@
     <?php include_component('templateParts', 'header'); ?>
       
     <?php if( ($sf_params->get('module') == 'homepage' && $sf_params->get('action') == 'index') ): ?>
-        <?php include_partial('homepage/homepageSplash'); ?>
+        <?php include_component('homepage', 'homepageSplash'); ?>
     <?php else: ?>
       <div id="subHeader">&nbsp;</div>
     <?php endif ?>  

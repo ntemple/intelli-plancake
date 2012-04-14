@@ -100,6 +100,10 @@ $(document).ready(function () {
         var listId = $('select#addTaskListsSelect').val(),
             ajaxParams = null,
             task = null;
+            
+        if ( !(parseInt(listId) > 0) ) {
+            listId = $('ul#lists li.inbox').plancake().getId();
+        }
         
         if (taskContent.length) {
             task = (new PLANCAKE.Task()).init({

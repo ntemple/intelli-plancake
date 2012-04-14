@@ -212,11 +212,11 @@ PLANCAKE.resizePanels = function (hidePanel2) {
 
     var panelAdditionalOffset = 55;
     
-    // rather than hardcoding 200, we were using
+    // rather than hardcoding 205, we were using
     // $('#sidebar').css('width').replace('px', '')
     // but that was generating some problems in IE, because during the initial
     // loading the sidebar was wider for a split second!
-    var panelsWidth = $(window).width() - 200 - panelAdditionalOffset;
+    var panelsWidth = $(window).width() - 210 - panelAdditionalOffset;
 
     if (!hidePanel2) {
         $('.panel').css('width', panelsWidth/2 + 'px');

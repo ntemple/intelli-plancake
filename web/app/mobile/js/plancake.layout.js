@@ -89,7 +89,11 @@ $(document).ready(function() {
         PLANCAKE.activeListId = activeListId;
         $.mobile.changePage($('#add-task-screen'), {transition: "pop", role: "dialog", reverse: false});
         e.preventDefault();
-    });     
+    });
+    
+    if (PLANCAKE.ignoreLocalStorage) {
+        $('a.syncButton').hide();
+    }
 });
 
 /**

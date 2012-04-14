@@ -3,22 +3,26 @@
     width: 100%; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
     height: 100%; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
     overflow: auto; /* needed to fix the problem with position:fixed on IE - http://ryanfait.com/resources/fixed-positioning-in-internet-explorer/ */
+        background: url(/app/desktop/img/background.jpg) top center fixed; 
 }
 
 #sidebar {
-    background-color: #E8ECFF;
+    background: url(../img/pattern.png) repeat top;
     float: left;
-    width: 200px;
-    padding-left: 10px;
-    padding-right: 5px;
-    border-right: 1px solid #ccc;
+    width: 220px;
+    padding: 0px;
+    -moz-box-shadow:    10px 0px 5px -2px #888; 
+    webkit-box-shadow:  10px 0px 5px -2px #888; 
+    box-shadow:         10px 0px 5px -2px #888;
+    margin-right: 5px;
 }
 
 #panels {
     /* float: right; */
     margin-left: 220px;
     margin-right: 5px;
-    height: 100%;
+    height: 100%;    
+    overflow: visible;
 }
 
 #panel1 {
@@ -42,16 +46,16 @@
 }
 
 .panel {
-    border-top: 2px solid #fff;    
+    border-top: 2px solid transparent; 
     height: 100%;
-    margin-top: 10px;
-    overflow: visible;
+    min-height: 100%;
+    /* margin-top: 10px; */
     padding-top: 10px;
     position: relative;
 }
 
 .activePanel {
-    background-color: #fef6df;
+    background-color: rgba(254, 246, 223, 0.85);
     border-top: 2px solid #ff6622;
 }
 
@@ -79,11 +83,21 @@
     padding: 5px;
 }
 
-#mainAd a { 
+#mainAd a.removeAd { 
     display: block;
     float: right;
     margin-bottom: 3px;
     margin-right: 3px;
+}
+
+#mainAd div { 
+    clear: right;
+    padding: 8px; 
+    margin-top: 3px;
+    border: 1px solid #1C94C4;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .tip ul li {
@@ -94,7 +108,13 @@
 div.panelActions {
     position: absolute;
     top: 2px;
-    right: 8px;    
+    right: 8px;
+    background: #fff;
+    padding: 4px;
+    border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    width: 120px !important;
 }
 
 .panelAction {

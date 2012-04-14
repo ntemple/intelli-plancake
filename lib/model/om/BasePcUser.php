@@ -158,6 +158,13 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	protected $reminders_active;
 
 	/**
+	 * The value for the unsubscribed field.
+	 * Note: this column has a database default value of: false
+	 * @var        boolean
+	 */
+	protected $unsubscribed;
+
+	/**
 	 * The value for the latest_blog_access field.
 	 * @var        string
 	 */
@@ -426,6 +433,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	protected $singlePcHideableHintsSetting;
 
 	/**
+	 * @var        array PcSplitTestUserResult[] Collection to store aggregation of PcSplitTestUserResult objects.
+	 */
+	protected $collPcSplitTestUserResults;
+
+	/**
+	 * @var        Criteria The criteria used to select the current contents of collPcSplitTestUserResults.
+	 */
+	private $lastPcSplitTestUserResultCriteria = null;
+
+	/**
 	 * Flag to prevent endless save loop, if this object is referenced
 	 * by another object which falls in this transaction.
 	 * @var        boolean
@@ -464,6 +481,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		$this->has_requested_free_trial = false;
 		$this->avatar_random_suffix = '';
 		$this->reminders_active = false;
+		$this->unsubscribed = false;
 		$this->last_promotional_code_inserted = '';
 		$this->blocked = false;
 		$this->session_entry_point = '';
@@ -716,6 +734,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	public function getRemindersActive()
 	{
 		return $this->reminders_active;
+	}
+
+	/**
+	 * Get the [unsubscribed] column value.
+	 * 
+	 * @return     boolean
+	 */
+	public function getUnsubscribed()
+	{
+		return $this->unsubscribed;
 	}
 
 	/**
@@ -1374,6 +1402,26 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	} // setRemindersActive()
 
 	/**
+	 * Set the value of [unsubscribed] column.
+	 * 
+	 * @param      boolean $v new value
+	 * @return     PcUser The current object (for fluent API support)
+	 */
+	public function setUnsubscribed($v)
+	{
+		if ($v !== null) {
+			$v = (boolean) $v;
+		}
+
+		if ($this->unsubscribed !== $v || $this->isNew()) {
+			$this->unsubscribed = $v;
+			$this->modifiedColumns[] = PcUserPeer::UNSUBSCRIBED;
+		}
+
+		return $this;
+	} // setUnsubscribed()
+
+	/**
 	 * Sets the value of [latest_blog_access] column to a normalized version of the date/time value specified.
 	 * 
 	 * @param      mixed $v string, integer (timestamp), or DateTime value.  Empty string will
@@ -1731,6 +1779,10 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				return false;
 			}
 
+			if ($this->unsubscribed !== false) {
+				return false;
+			}
+
 			if ($this->last_promotional_code_inserted !== '') {
 				return false;
 			}
@@ -1790,15 +1842,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$this->has_requested_free_trial = ($row[$startcol + 18] !== null) ? (boolean) $row[$startcol + 18] : null;
 			$this->avatar_random_suffix = ($row[$startcol + 19] !== null) ? (string) $row[$startcol + 19] : null;
 			$this->reminders_active = ($row[$startcol + 20] !== null) ? (boolean) $row[$startcol + 20] : null;
-			$this->latest_blog_access = ($row[$startcol + 21] !== null) ? (string) $row[$startcol + 21] : null;
-			$this->latest_backup_request = ($row[$startcol + 22] !== null) ? (string) $row[$startcol + 22] : null;
-			$this->latest_import_request = ($row[$startcol + 23] !== null) ? (string) $row[$startcol + 23] : null;
-			$this->latest_breaking_news_closed = ($row[$startcol + 24] !== null) ? (int) $row[$startcol + 24] : null;
-			$this->last_promotional_code_inserted = ($row[$startcol + 25] !== null) ? (string) $row[$startcol + 25] : null;
-			$this->blocked = ($row[$startcol + 26] !== null) ? (boolean) $row[$startcol + 26] : null;
-			$this->session_entry_point = ($row[$startcol + 27] !== null) ? (string) $row[$startcol + 27] : null;
-			$this->session_referral = ($row[$startcol + 28] !== null) ? (string) $row[$startcol + 28] : null;
-			$this->created_at = ($row[$startcol + 29] !== null) ? (string) $row[$startcol + 29] : null;
+			$this->unsubscribed = ($row[$startcol + 21] !== null) ? (boolean) $row[$startcol + 21] : null;
+			$this->latest_blog_access = ($row[$startcol + 22] !== null) ? (string) $row[$startcol + 22] : null;
+			$this->latest_backup_request = ($row[$startcol + 23] !== null) ? (string) $row[$startcol + 23] : null;
+			$this->latest_import_request = ($row[$startcol + 24] !== null) ? (string) $row[$startcol + 24] : null;
+			$this->latest_breaking_news_closed = ($row[$startcol + 25] !== null) ? (int) $row[$startcol + 25] : null;
+			$this->last_promotional_code_inserted = ($row[$startcol + 26] !== null) ? (string) $row[$startcol + 26] : null;
+			$this->blocked = ($row[$startcol + 27] !== null) ? (boolean) $row[$startcol + 27] : null;
+			$this->session_entry_point = ($row[$startcol + 28] !== null) ? (string) $row[$startcol + 28] : null;
+			$this->session_referral = ($row[$startcol + 29] !== null) ? (string) $row[$startcol + 29] : null;
+			$this->created_at = ($row[$startcol + 30] !== null) ? (string) $row[$startcol + 30] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -1808,7 +1861,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			}
 
 			// FIXME - using NUM_COLUMNS may be clearer.
-			return $startcol + 30; // 30 = PcUserPeer::NUM_COLUMNS - PcUserPeer::NUM_LAZY_LOAD_COLUMNS).
+			return $startcol + 31; // 31 = PcUserPeer::NUM_COLUMNS - PcUserPeer::NUM_LAZY_LOAD_COLUMNS).
 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating PcUser object", $e);
@@ -1938,6 +1991,9 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$this->lastPcContactNoteCriteria = null;
 
 			$this->singlePcHideableHintsSetting = null;
+
+			$this->collPcSplitTestUserResults = null;
+			$this->lastPcSplitTestUserResultCriteria = null;
 
 		} // if (deep)
 	}
@@ -2301,6 +2357,14 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				}
 			}
 
+			if ($this->collPcSplitTestUserResults !== null) {
+				foreach ($this->collPcSplitTestUserResults as $referrerFK) {
+					if (!$referrerFK->isDeleted()) {
+						$affectedRows += $referrerFK->save($con);
+					}
+				}
+			}
+
 			$this->alreadyInSave = false;
 
 		}
@@ -2562,6 +2626,14 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 					}
 				}
 
+				if ($this->collPcSplitTestUserResults !== null) {
+					foreach ($this->collPcSplitTestUserResults as $referrerFK) {
+						if (!$referrerFK->validate($columns)) {
+							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
+						}
+					}
+				}
+
 
 			$this->alreadyInValidation = false;
 		}
@@ -2659,30 +2731,33 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				return $this->getRemindersActive();
 				break;
 			case 21:
-				return $this->getLatestBlogAccess();
+				return $this->getUnsubscribed();
 				break;
 			case 22:
-				return $this->getLatestBackupRequest();
+				return $this->getLatestBlogAccess();
 				break;
 			case 23:
-				return $this->getLatestImportRequest();
+				return $this->getLatestBackupRequest();
 				break;
 			case 24:
-				return $this->getLatestBreakingNewsClosed();
+				return $this->getLatestImportRequest();
 				break;
 			case 25:
-				return $this->getLastPromotionalCodeInserted();
+				return $this->getLatestBreakingNewsClosed();
 				break;
 			case 26:
-				return $this->getBlocked();
+				return $this->getLastPromotionalCodeInserted();
 				break;
 			case 27:
-				return $this->getSessionEntryPoint();
+				return $this->getBlocked();
 				break;
 			case 28:
-				return $this->getSessionReferral();
+				return $this->getSessionEntryPoint();
 				break;
 			case 29:
+				return $this->getSessionReferral();
+				break;
+			case 30:
 				return $this->getCreatedAt();
 				break;
 			default:
@@ -2727,15 +2802,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$keys[18] => $this->getHasRequestedFreeTrial(),
 			$keys[19] => $this->getAvatarRandomSuffix(),
 			$keys[20] => $this->getRemindersActive(),
-			$keys[21] => $this->getLatestBlogAccess(),
-			$keys[22] => $this->getLatestBackupRequest(),
-			$keys[23] => $this->getLatestImportRequest(),
-			$keys[24] => $this->getLatestBreakingNewsClosed(),
-			$keys[25] => $this->getLastPromotionalCodeInserted(),
-			$keys[26] => $this->getBlocked(),
-			$keys[27] => $this->getSessionEntryPoint(),
-			$keys[28] => $this->getSessionReferral(),
-			$keys[29] => $this->getCreatedAt(),
+			$keys[21] => $this->getUnsubscribed(),
+			$keys[22] => $this->getLatestBlogAccess(),
+			$keys[23] => $this->getLatestBackupRequest(),
+			$keys[24] => $this->getLatestImportRequest(),
+			$keys[25] => $this->getLatestBreakingNewsClosed(),
+			$keys[26] => $this->getLastPromotionalCodeInserted(),
+			$keys[27] => $this->getBlocked(),
+			$keys[28] => $this->getSessionEntryPoint(),
+			$keys[29] => $this->getSessionReferral(),
+			$keys[30] => $this->getCreatedAt(),
 		);
 		return $result;
 	}
@@ -2831,30 +2907,33 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 				$this->setRemindersActive($value);
 				break;
 			case 21:
-				$this->setLatestBlogAccess($value);
+				$this->setUnsubscribed($value);
 				break;
 			case 22:
-				$this->setLatestBackupRequest($value);
+				$this->setLatestBlogAccess($value);
 				break;
 			case 23:
-				$this->setLatestImportRequest($value);
+				$this->setLatestBackupRequest($value);
 				break;
 			case 24:
-				$this->setLatestBreakingNewsClosed($value);
+				$this->setLatestImportRequest($value);
 				break;
 			case 25:
-				$this->setLastPromotionalCodeInserted($value);
+				$this->setLatestBreakingNewsClosed($value);
 				break;
 			case 26:
-				$this->setBlocked($value);
+				$this->setLastPromotionalCodeInserted($value);
 				break;
 			case 27:
-				$this->setSessionEntryPoint($value);
+				$this->setBlocked($value);
 				break;
 			case 28:
-				$this->setSessionReferral($value);
+				$this->setSessionEntryPoint($value);
 				break;
 			case 29:
+				$this->setSessionReferral($value);
+				break;
+			case 30:
 				$this->setCreatedAt($value);
 				break;
 		} // switch()
@@ -2902,15 +2981,16 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if (array_key_exists($keys[18], $arr)) $this->setHasRequestedFreeTrial($arr[$keys[18]]);
 		if (array_key_exists($keys[19], $arr)) $this->setAvatarRandomSuffix($arr[$keys[19]]);
 		if (array_key_exists($keys[20], $arr)) $this->setRemindersActive($arr[$keys[20]]);
-		if (array_key_exists($keys[21], $arr)) $this->setLatestBlogAccess($arr[$keys[21]]);
-		if (array_key_exists($keys[22], $arr)) $this->setLatestBackupRequest($arr[$keys[22]]);
-		if (array_key_exists($keys[23], $arr)) $this->setLatestImportRequest($arr[$keys[23]]);
-		if (array_key_exists($keys[24], $arr)) $this->setLatestBreakingNewsClosed($arr[$keys[24]]);
-		if (array_key_exists($keys[25], $arr)) $this->setLastPromotionalCodeInserted($arr[$keys[25]]);
-		if (array_key_exists($keys[26], $arr)) $this->setBlocked($arr[$keys[26]]);
-		if (array_key_exists($keys[27], $arr)) $this->setSessionEntryPoint($arr[$keys[27]]);
-		if (array_key_exists($keys[28], $arr)) $this->setSessionReferral($arr[$keys[28]]);
-		if (array_key_exists($keys[29], $arr)) $this->setCreatedAt($arr[$keys[29]]);
+		if (array_key_exists($keys[21], $arr)) $this->setUnsubscribed($arr[$keys[21]]);
+		if (array_key_exists($keys[22], $arr)) $this->setLatestBlogAccess($arr[$keys[22]]);
+		if (array_key_exists($keys[23], $arr)) $this->setLatestBackupRequest($arr[$keys[23]]);
+		if (array_key_exists($keys[24], $arr)) $this->setLatestImportRequest($arr[$keys[24]]);
+		if (array_key_exists($keys[25], $arr)) $this->setLatestBreakingNewsClosed($arr[$keys[25]]);
+		if (array_key_exists($keys[26], $arr)) $this->setLastPromotionalCodeInserted($arr[$keys[26]]);
+		if (array_key_exists($keys[27], $arr)) $this->setBlocked($arr[$keys[27]]);
+		if (array_key_exists($keys[28], $arr)) $this->setSessionEntryPoint($arr[$keys[28]]);
+		if (array_key_exists($keys[29], $arr)) $this->setSessionReferral($arr[$keys[29]]);
+		if (array_key_exists($keys[30], $arr)) $this->setCreatedAt($arr[$keys[30]]);
 	}
 
 	/**
@@ -2943,6 +3023,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		if ($this->isColumnModified(PcUserPeer::HAS_REQUESTED_FREE_TRIAL)) $criteria->add(PcUserPeer::HAS_REQUESTED_FREE_TRIAL, $this->has_requested_free_trial);
 		if ($this->isColumnModified(PcUserPeer::AVATAR_RANDOM_SUFFIX)) $criteria->add(PcUserPeer::AVATAR_RANDOM_SUFFIX, $this->avatar_random_suffix);
 		if ($this->isColumnModified(PcUserPeer::REMINDERS_ACTIVE)) $criteria->add(PcUserPeer::REMINDERS_ACTIVE, $this->reminders_active);
+		if ($this->isColumnModified(PcUserPeer::UNSUBSCRIBED)) $criteria->add(PcUserPeer::UNSUBSCRIBED, $this->unsubscribed);
 		if ($this->isColumnModified(PcUserPeer::LATEST_BLOG_ACCESS)) $criteria->add(PcUserPeer::LATEST_BLOG_ACCESS, $this->latest_blog_access);
 		if ($this->isColumnModified(PcUserPeer::LATEST_BACKUP_REQUEST)) $criteria->add(PcUserPeer::LATEST_BACKUP_REQUEST, $this->latest_backup_request);
 		if ($this->isColumnModified(PcUserPeer::LATEST_IMPORT_REQUEST)) $criteria->add(PcUserPeer::LATEST_IMPORT_REQUEST, $this->latest_import_request);
@@ -3045,6 +3126,8 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		$copyObj->setAvatarRandomSuffix($this->avatar_random_suffix);
 
 		$copyObj->setRemindersActive($this->reminders_active);
+
+		$copyObj->setUnsubscribed($this->unsubscribed);
 
 		$copyObj->setLatestBlogAccess($this->latest_blog_access);
 
@@ -3205,6 +3288,12 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			$relObj = $this->getPcHideableHintsSetting();
 			if ($relObj) {
 				$copyObj->setPcHideableHintsSetting($relObj->copy($deepCopy));
+			}
+
+			foreach ($this->getPcSplitTestUserResults() as $relObj) {
+				if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+					$copyObj->addPcSplitTestUserResult($relObj->copy($deepCopy));
+				}
 			}
 
 		} // if ($deepCopy)
@@ -6597,6 +6686,207 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 	}
 
 	/**
+	 * Clears out the collPcSplitTestUserResults collection (array).
+	 *
+	 * This does not modify the database; however, it will remove any associated objects, causing
+	 * them to be refetched by subsequent calls to accessor method.
+	 *
+	 * @return     void
+	 * @see        addPcSplitTestUserResults()
+	 */
+	public function clearPcSplitTestUserResults()
+	{
+		$this->collPcSplitTestUserResults = null; // important to set this to NULL since that means it is uninitialized
+	}
+
+	/**
+	 * Initializes the collPcSplitTestUserResults collection (array).
+	 *
+	 * By default this just sets the collPcSplitTestUserResults collection to an empty array (like clearcollPcSplitTestUserResults());
+	 * however, you may wish to override this method in your stub class to provide setting appropriate
+	 * to your application -- for example, setting the initial array to the values stored in database.
+	 *
+	 * @return     void
+	 */
+	public function initPcSplitTestUserResults()
+	{
+		$this->collPcSplitTestUserResults = array();
+	}
+
+	/**
+	 * Gets an array of PcSplitTestUserResult objects which contain a foreign key that references this object.
+	 *
+	 * If this collection has already been initialized with an identical Criteria, it returns the collection.
+	 * Otherwise if this PcUser has previously been saved, it will retrieve
+	 * related PcSplitTestUserResults from storage. If this PcUser is new, it will return
+	 * an empty collection or the current collection, the criteria is ignored on a new object.
+	 *
+	 * @param      PropelPDO $con
+	 * @param      Criteria $criteria
+	 * @return     array PcSplitTestUserResult[]
+	 * @throws     PropelException
+	 */
+	public function getPcSplitTestUserResults($criteria = null, PropelPDO $con = null)
+	{
+		if ($criteria === null) {
+			$criteria = new Criteria(PcUserPeer::DATABASE_NAME);
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collPcSplitTestUserResults === null) {
+			if ($this->isNew()) {
+			   $this->collPcSplitTestUserResults = array();
+			} else {
+
+				$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+				PcSplitTestUserResultPeer::addSelectColumns($criteria);
+				$this->collPcSplitTestUserResults = PcSplitTestUserResultPeer::doSelect($criteria, $con);
+			}
+		} else {
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return the collection.
+
+
+				$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+				PcSplitTestUserResultPeer::addSelectColumns($criteria);
+				if (!isset($this->lastPcSplitTestUserResultCriteria) || !$this->lastPcSplitTestUserResultCriteria->equals($criteria)) {
+					$this->collPcSplitTestUserResults = PcSplitTestUserResultPeer::doSelect($criteria, $con);
+				}
+			}
+		}
+		$this->lastPcSplitTestUserResultCriteria = $criteria;
+		return $this->collPcSplitTestUserResults;
+	}
+
+	/**
+	 * Returns the number of related PcSplitTestUserResult objects.
+	 *
+	 * @param      Criteria $criteria
+	 * @param      boolean $distinct
+	 * @param      PropelPDO $con
+	 * @return     int Count of related PcSplitTestUserResult objects.
+	 * @throws     PropelException
+	 */
+	public function countPcSplitTestUserResults(Criteria $criteria = null, $distinct = false, PropelPDO $con = null)
+	{
+		if ($criteria === null) {
+			$criteria = new Criteria(PcUserPeer::DATABASE_NAME);
+		} else {
+			$criteria = clone $criteria;
+		}
+
+		if ($distinct) {
+			$criteria->setDistinct();
+		}
+
+		$count = null;
+
+		if ($this->collPcSplitTestUserResults === null) {
+			if ($this->isNew()) {
+				$count = 0;
+			} else {
+
+				$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+				$count = PcSplitTestUserResultPeer::doCount($criteria, false, $con);
+			}
+		} else {
+			// criteria has no effect for a new object
+			if (!$this->isNew()) {
+				// the following code is to determine if a new query is
+				// called for.  If the criteria is the same as the last
+				// one, just return count of the collection.
+
+
+				$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+				if (!isset($this->lastPcSplitTestUserResultCriteria) || !$this->lastPcSplitTestUserResultCriteria->equals($criteria)) {
+					$count = PcSplitTestUserResultPeer::doCount($criteria, false, $con);
+				} else {
+					$count = count($this->collPcSplitTestUserResults);
+				}
+			} else {
+				$count = count($this->collPcSplitTestUserResults);
+			}
+		}
+		return $count;
+	}
+
+	/**
+	 * Method called to associate a PcSplitTestUserResult object to this object
+	 * through the PcSplitTestUserResult foreign key attribute.
+	 *
+	 * @param      PcSplitTestUserResult $l PcSplitTestUserResult
+	 * @return     void
+	 * @throws     PropelException
+	 */
+	public function addPcSplitTestUserResult(PcSplitTestUserResult $l)
+	{
+		if ($this->collPcSplitTestUserResults === null) {
+			$this->initPcSplitTestUserResults();
+		}
+		if (!in_array($l, $this->collPcSplitTestUserResults, true)) { // only add it if the **same** object is not already associated
+			array_push($this->collPcSplitTestUserResults, $l);
+			$l->setPcUser($this);
+		}
+	}
+
+
+	/**
+	 * If this collection has already been initialized with
+	 * an identical criteria, it returns the collection.
+	 * Otherwise if this PcUser is new, it will return
+	 * an empty collection; or if this PcUser has previously
+	 * been saved, it will retrieve related PcSplitTestUserResults from storage.
+	 *
+	 * This method is protected by default in order to keep the public
+	 * api reasonable.  You can provide public methods for those you
+	 * actually need in PcUser.
+	 */
+	public function getPcSplitTestUserResultsJoinPcSplitTest($criteria = null, $con = null, $join_behavior = Criteria::LEFT_JOIN)
+	{
+		if ($criteria === null) {
+			$criteria = new Criteria(PcUserPeer::DATABASE_NAME);
+		}
+		elseif ($criteria instanceof Criteria)
+		{
+			$criteria = clone $criteria;
+		}
+
+		if ($this->collPcSplitTestUserResults === null) {
+			if ($this->isNew()) {
+				$this->collPcSplitTestUserResults = array();
+			} else {
+
+				$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+				$this->collPcSplitTestUserResults = PcSplitTestUserResultPeer::doSelectJoinPcSplitTest($criteria, $con, $join_behavior);
+			}
+		} else {
+			// the following code is to determine if a new query is
+			// called for.  If the criteria is the same as the last
+			// one, just return the collection.
+
+			$criteria->add(PcSplitTestUserResultPeer::USER_ID, $this->id);
+
+			if (!isset($this->lastPcSplitTestUserResultCriteria) || !$this->lastPcSplitTestUserResultCriteria->equals($criteria)) {
+				$this->collPcSplitTestUserResults = PcSplitTestUserResultPeer::doSelectJoinPcSplitTest($criteria, $con, $join_behavior);
+			}
+		}
+		$this->lastPcSplitTestUserResultCriteria = $criteria;
+
+		return $this->collPcSplitTestUserResults;
+	}
+
+	/**
 	 * Resets all collections of referencing foreign keys.
 	 *
 	 * This method is a user-space workaround for PHP's inability to garbage collect objects
@@ -6714,6 +7004,11 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 			if ($this->singlePcHideableHintsSetting) {
 				$this->singlePcHideableHintsSetting->clearAllReferences($deep);
 			}
+			if ($this->collPcSplitTestUserResults) {
+				foreach ((array) $this->collPcSplitTestUserResults as $o) {
+					$o->clearAllReferences($deep);
+				}
+			}
 		} // if ($deep)
 
 		$this->collPcRemembermeKeys = null;
@@ -6740,6 +7035,7 @@ abstract class BasePcUser extends BaseObject  implements Persistent {
 		$this->collPcContactsTagss = null;
 		$this->collPcContactNotes = null;
 		$this->singlePcHideableHintsSetting = null;
+		$this->collPcSplitTestUserResults = null;
 			$this->aPcTimezone = null;
 	}
 

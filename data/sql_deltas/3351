@@ -1,0 +1,64 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_CONTACT_MULTILINGUAL_SUPPORT', '19', '25', '0', NULL, '0', '2012-03-21 00:00:00'), ('WEBSITE_CONTACT_AUTOMATIC_SUPPORT', '19', '600', '0', 'this is used by our team when they reply to enquiries via email using Google Translate', '0', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_CONTACT_MULTILINGUAL_SUPPORT', 'You can use your native language here - our support team can handle it, whichever it is.', '2012-03-21 00:00:00'), ('it', 'WEBSITE_CONTACT_MULTILINGUAL_SUPPORT', 'Puoi usare l''italiano - il nostro team di supporto lo parla.', '2012-03-21 00:00:00');
+
+INSERT INTO  `pc_translation` (
+`language_id` ,
+`string_id` ,
+`string` ,
+`updated_at`
+)
+VALUES (
+'en',  'WEBSITE_CONTACT_AUTOMATIC_SUPPORT',  'Hello. The reply to your enquiry has been generated from English using an automated tool because our support team doesn''t speak your language yet.
+We are sorry it won''t probably read great, that''s why we have also included the original English version underneath it.
+We decided to use this solution to hopefully make things as easy as possible for you.',  '2012-03-21 00:00:00'
+);
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake.com is making my life easier - now I have more time for myself and I am more relaxed!' WHERE `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Plancake.com mi sta rendendo la vita più semplice - ora ho più tempo per me stesso e sono più rilassato!' WHERE `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` =  'GENERAL_TWITTER_COPY';
+
+UPDATE  `pc_translation` SET  `string` =  'Create and account and start an easier life today!' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_REGISTRATION_HEADER';
+
+UPDATE  `pc_translation` SET  `string` =  'Crea un account e inizia una vita più semplice da oggi!' WHERE  `pc_translation`.`language_id` =  'it' AND `pc_translation`.`string_id` =  'WEBSITE_REGISTRATION_HEADER';
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_MAIN_COPY1', '1', '15', '0', NULL, '0', '2012-03-21 00:00:00'), ('WEBSITE_HOMEPAGE_MAIN_COPY2', '1', '16', '0', NULL, '0', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'Online GTD Software and Task Manager', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Make your life easier, at work and home', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('es', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'GTD Software en línea y administrador de tareas', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('es', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Haz tu vida más sencilla en tu trabajo y en tu casa', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('fr', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'Programme GTD Online et gestionnaire de tâches', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('fr', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Rend votre vie plus simple, au travail et à la maison', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'Software GTD e Personal Organizer Online', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('it', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Semplificati la vita, in ufficio e a casa', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('nb', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'GTD-programvare og oppgavekalender på nett', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('nb', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Gjør livet lettere, på jobben og hjemme', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('nl', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'Online GTD-software en taakbeheer', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('nl', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Vereenvoudig je leven, thuis en op het werk', '2012-03-21 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('pt', 'WEBSITE_HOMEPAGE_MAIN_COPY1', 'Software GTD Online e Gerenciador de Tarefas', '2012-03-21 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('pt', 'WEBSITE_HOMEPAGE_MAIN_COPY2', 'Faz sua vida mais fácil, no trabalho e em casa', '2012-03-21 00:00:00');
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`string_id` = 'WEBSITE_HOMEPAGE_MAIN_COPY';
+DELETE FROM `pc_string` WHERE `pc_string`.`id` = 'WEBSITE_HOMEPAGE_MAIN_COPY';
+
+
+INSERT INTO 
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

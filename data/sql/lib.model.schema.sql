@@ -33,6 +33,7 @@ CREATE TABLE `pc_user`
 	`has_requested_free_trial` TINYINT(1) default 0,
 	`avatar_random_suffix` VARCHAR(32) default '',
 	`reminders_active` TINYINT(1) default 0,
+	`unsubscribed` TINYINT(1) default 0,
 	`latest_blog_access` DATETIME,
 	`latest_backup_request` DATETIME,
 	`latest_import_request` DATETIME,
@@ -1429,6 +1430,91 @@ CREATE TABLE `pc_testimonial`
 	`updated_at` DATETIME  NOT NULL,
 	`created_at` DATETIME  NOT NULL,
 	PRIMARY KEY (`id`,`user_id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_email_campaign
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_email_campaign`;
+
+
+CREATE TABLE `pc_email_campaign`
+(
+	`id` SMALLINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`comment` VARCHAR(255)  NOT NULL,
+	`email_subject` VARCHAR(255)  NOT NULL,
+	`email_body` TEXT  NOT NULL,
+	`sql_query` TEXT  NOT NULL,
+	`email_addresses` MEDIUMTEXT  NOT NULL,
+	`sent_count` INTEGER default 0 NOT NULL,
+	`open_count` INTEGER default 0 NOT NULL,
+	`email_count` INTEGER  NOT NULL,
+	`updated_at` DATETIME  NOT NULL,
+	`created_at` DATETIME  NOT NULL,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_split_test
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_split_test`;
+
+
+CREATE TABLE `pc_split_test`
+(
+	`id` SMALLINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(128)  NOT NULL,
+	`number_of_variants` SMALLINT UNSIGNED  NOT NULL,
+	`variants_description` TEXT  NOT NULL,
+	`comment` TEXT  NOT NULL,
+	`created_at` DATETIME  NOT NULL,
+	PRIMARY KEY (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_split_test_result
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_split_test_result`;
+
+
+CREATE TABLE `pc_split_test_result`
+(
+	`test_id` SMALLINT UNSIGNED  NOT NULL,
+	`variant_id` SMALLINT UNSIGNED  NOT NULL,
+	`number_of_tries` INTEGER default 0 NOT NULL,
+	`number_of_successes` INTEGER default 0 NOT NULL,
+	`updated_at` DATETIME  NOT NULL,
+	PRIMARY KEY (`test_id`,`variant_id`),
+	CONSTRAINT `pc_split_test_result_FK_1`
+		FOREIGN KEY (`test_id`)
+		REFERENCES `pc_split_test` (`id`)
+)Type=InnoDB;
+
+#-----------------------------------------------------------------------------
+#-- pc_split_test_user_result
+#-----------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS `pc_split_test_user_result`;
+
+
+CREATE TABLE `pc_split_test_user_result`
+(
+	`user_id` INTEGER UNSIGNED  NOT NULL,
+	`test_id` SMALLINT UNSIGNED  NOT NULL,
+	`variant_id` SMALLINT UNSIGNED  NOT NULL,
+	`updated_at` DATETIME  NOT NULL,
+	PRIMARY KEY (`user_id`,`test_id`,`variant_id`),
+	KEY `pc_split_test_user_result_I_1`(`user_id`),
+	CONSTRAINT `pc_split_test_user_result_FK_1`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `pc_user` (`id`),
+	INDEX `pc_split_test_user_result_FI_2` (`test_id`),
+	CONSTRAINT `pc_split_test_user_result_FK_2`
+		FOREIGN KEY (`test_id`)
+		REFERENCES `pc_split_test` (`id`)
 )Type=InnoDB;
 
 # This restores the fkey checks, after having unset them earlier

@@ -17,6 +17,7 @@ body a
 h1 {
     background: url(/app/desktop/img/logo2.png) no-repeat 0 0;
     margin-bottom: 10px;
+    margin-left: 10px;
     margin-top: 5px;
     text-indent: -9999px;
     height: 40px;
@@ -28,12 +29,21 @@ h1:hover {
 
 h3 {
     font-weight: bold;
-    font-size: 120%;
+    font-size: 140%;
     width: 100%;
-    border-bottom: 2px solid #1C94C4;
-    color: #1C94C4;
     color: #f63;
+    text-shadow: 0px 1px 3px #333;
     text-indent: 5px;
+}
+
+.panel h3 {
+    color: #fff;    
+}
+
+#sidebar h3 {
+    font-size: 130%;
+    color: #333;
+    text-shadow: 0px 1px 3px #fff;
 }
 
 .dialogForm {
@@ -70,7 +80,7 @@ div.dragging {
 
 .highlighedBackground
 {
-  background-color: yellow !important;
+    background-color: #39f !important;
 }
 
 
@@ -94,4 +104,16 @@ input[type=text], textarea {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border: 1px solid #666;
+    background-color: #fff;
+    color: #333;
 }
+
+.taskDescriptionBlock input[type=text], .taskDescriptionBlock textarea {
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border: 0px solid #666;
+    background-color: transparent !important;
+    color: #fff;
+}
+

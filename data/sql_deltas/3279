@@ -1,0 +1,14 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_HOMEPAGE_AS_FEATURED_IN', '1', '670', '0', 'this is near the logos of the blogs that featured us', '0', '2012-02-23 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_HOMEPAGE_AS_FEATURED_IN', 'as featured in:', '2012-02-23 00:00:00'), ('it', 'WEBSITE_HOMEPAGE_AS_FEATURED_IN', 'citato in:', '2012-02-23 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

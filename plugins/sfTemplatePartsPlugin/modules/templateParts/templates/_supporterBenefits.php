@@ -55,7 +55,7 @@
 
         
         
-        <tr><td class="nonCenteredContent" style="font-weight: bold">Ebook "Plancake and GTD: a practical guide to an easier life" (coming soon)<p><span>small ebook with screenshots and written in easy English</span></p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td></tr>        
+        <tr><td class="nonCenteredContent" style="font-weight: bold">Ebook "Plancake and GTD: when todo lists become your secret weapon"<p><span>concise ebook with screenshots and written in easy English</span></p></td><td>&nbsp;</td><td class="supporter"><img src="/images/tick.png" /></td></tr>        
         
         
         

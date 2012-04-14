@@ -112,7 +112,7 @@ class mainActions extends PlancakeActions
     if ($this->getUser()->getAttribute('user_first_login_of_the_day') === 1)
     {
         $userTodayQuote = PcQuoteOfTheDayPeer::getUserTodayQuote();
-        if (! $userTodayQuote) {
+        if ($userTodayQuote === null) {
             sfErrorNotifier::alert("THERE ARE NOT QUOTES LEFT!!!!!!");
         }
     }

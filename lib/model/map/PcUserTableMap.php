@@ -57,6 +57,7 @@ class PcUserTableMap extends TableMap {
 		$this->addColumn('HAS_REQUESTED_FREE_TRIAL', 'HasRequestedFreeTrial', 'BOOLEAN', false, null, false);
 		$this->addColumn('AVATAR_RANDOM_SUFFIX', 'AvatarRandomSuffix', 'VARCHAR', false, 32, '');
 		$this->addColumn('REMINDERS_ACTIVE', 'RemindersActive', 'BOOLEAN', false, null, false);
+		$this->addColumn('UNSUBSCRIBED', 'Unsubscribed', 'BOOLEAN', false, null, false);
 		$this->addColumn('LATEST_BLOG_ACCESS', 'LatestBlogAccess', 'TIMESTAMP', false, null, null);
 		$this->addColumn('LATEST_BACKUP_REQUEST', 'LatestBackupRequest', 'TIMESTAMP', false, null, null);
 		$this->addColumn('LATEST_IMPORT_REQUEST', 'LatestImportRequest', 'TIMESTAMP', false, null, null);
@@ -99,6 +100,7 @@ class PcUserTableMap extends TableMap {
     $this->addRelation('PcContactsTags', 'PcContactsTags', RelationMap::ONE_TO_MANY, array('id' => 'creator_id', ), null, null);
     $this->addRelation('PcContactNote', 'PcContactNote', RelationMap::ONE_TO_MANY, array('id' => 'creator_id', ), null, null);
     $this->addRelation('PcHideableHintsSetting', 'PcHideableHintsSetting', RelationMap::ONE_TO_ONE, array('id' => 'id', ), null, null);
+    $this->addRelation('PcSplitTestUserResult', 'PcSplitTestUserResult', RelationMap::ONE_TO_MANY, array('id' => 'user_id', ), null, null);
 	} // buildRelations()
 
 	/**

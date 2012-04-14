@@ -1009,6 +1009,10 @@ a.serviceMoreInfo
     background-position: -1180px -10px;
 }
 
+#stepsForPlancake li p {
+    width: 290px !important;
+}
+
 #stepsForPlancake li div.stepHeader {
     color: #fff;
     margin-bottom: 0px;
@@ -1062,7 +1066,7 @@ div#whatsPlancakeColumn {
     float: left;
     margin: 0 20px;
     width: 45%;
-    margin-top: -50px;
+    margin-top: -40px;
     margin-bottom: 30px;
 }
 
@@ -1113,7 +1117,7 @@ div#homepageTestimonials {
     margin: 0 auto;
     padding: 0;
     width: 45%;
-    margin-top: -50px;
+    margin-top: -40px;
     margin-bottom: 30px;    
 }
 

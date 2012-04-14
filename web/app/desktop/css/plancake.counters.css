@@ -7,23 +7,42 @@
     color: #fff;
     font-size: 12px;
     font-weight: bold;
-    border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;     
-    height: 14px;
-    max-width: 18px;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;     
+    height: 16px;
+    max-width: 28px;
     padding: 2px 3px;
     text-align: center;    
 }
 
+ul#lists li.selected  .inboxCounter {
+    background-color: #206189;
+    -webkit-box-shadow: inset 2px 2px 6px #1a4f70;
+    -moz-box-shadow: inset 2px 2px 6px #1a4f70;
+    box-shadow: inset 2px 2px 6px #1a4f70;
+    text-shadow: 1px 1px 1px black;
+    -webkit-box-shadow: 0px 1px 0px #6bb6e7;
+    -moz-box-shadow: 0px 1px 0px #6bb6e7;
+    box-shadow: 0px 1px 0px #6bb6e7; 
+    color: #fff;
+}
+
 .inboxCounter {
     right: 5px;
-    top: 1px;
+    top: 5px;
+    -webkit-box-shadow: inset 1px 1px 6px #aaa;
+    -moz-box-shadow: inset 1px 1px 6px #aaa;
+    box-shadow: inset 1px 1px 6px #aaa;
+    background-color: #E8ECFF;
+    color: #999;
+    width: 28px;
 }
 
 .todayCounter {
-    left: -5px;
-    top: -7px;
+    left: -9px;
+    top: -11px;
+    width: 14px;
 }
 
 .newsCounter {

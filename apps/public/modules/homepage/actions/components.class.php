@@ -21,38 +21,8 @@
 
 class homepageComponents extends sfComponents
 {
-/*
-  public function executeFreshness(sfWebRequest $request)
-  {
-    $latestDevelopmentActivity = PcActivities::getLatestDevelopmentActivity();
-    $latestCommunityActivities = PcActivities::getLatestCommunityActivities(1);
-
-    $this->latestDevelopmentTimeExpression =
-            PcUtils::getHumanFriendlyTimeElapsedFromNow($latestDevelopmentActivity['created_at']);
-    $this->latestCommunityTimeExpression =
-            PcUtils::getHumanFriendlyTimeElapsedFromNow(strtotime($latestCommunityActivities[0]['created_at']));
-
-    $type = '';
-    
-    switch($latestCommunityActivities[0]['type'])
+    public function executeHomepageSplash()
     {
-        case PcActivities::USER_REGISTRATION:
-            $type = 'new user';
-            break;
-        case PcActivities::NEW_LIST:
-            $type = 'new list';
-            break;
-        case PcActivities::NEW_TASK:
-            $type = 'new task';
-            break;
-        case PcActivities::TASK_DONE:
-            $type = 'task done';
-            break;
-        case PcActivities::FORUM_POST:
-            $type = 'new post';
-            break;
+        $this->variantId = PcSplitTestPeer::retrieveByPK(PcSplitTestPeer::SPLIT_TEST_VIDEO_AND_STEPS_HOMEPAGE)->setVariant();
     }
-    $this->latestCommunityType = $type;
-  }
-*/
 }

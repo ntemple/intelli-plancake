@@ -8,6 +8,8 @@
 
 .taskTags {
     font-size: 70%;
+    position: relative;	
+    top: -3px;    
 }
 
 ul.tasks .inList {
@@ -17,19 +19,19 @@ ul.tasks .inList {
 
 .overdue
 {
-  background-color: #FFB0A4;
+  background-color: #FFB0A4 !important;
   background: repeat scroll 0 0 #FFB0A4; /* this is useful for mobile app */
 }
 
 .dueToday
 {
-  background-color: #B1E88F;
+  background-color: #B1E88F !important;
   background: repeat scroll 0 0 #B1E88F; /* this is useful for mobile app */
 }
 
 .dueTomorrow
 {
-  background-color: #B4CFF8;
+  background-color: #B4CFF8 !important;
   background: repeat scroll 0 0 #B4CFF8; /* this is useful for mobile app */  
 }
 

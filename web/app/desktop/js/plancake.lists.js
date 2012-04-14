@@ -120,7 +120,7 @@ $(document).ready(function () {
         hide: 'mouseleave',
         position: {
           corner: {
-             tooltip: 'bottomLeft'
+             tooltip: 'topLeft'
           }
        },   
        style: PLANCAKE.getQtipStyleObject()

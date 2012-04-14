@@ -1,0 +1,16 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_translation` SET  `string` =  'You can reorder tasks only within a list (such as your Inbox) or in ''Overdue & Today''.',
+`updated_at` =  '2011-03-25 20:00:00' WHERE  `pc_translation`.`language_id` =  'en' AND  `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_REORDER_WHILE_FILTER_BY_TAG';
+
+UPDATE  `pc_translation` SET  `string` =  'Puoi riordinare le attività solo quando sei in una lista (come la Inbox) o in ''Passate & Di Oggi''.',
+`updated_at` =  '2011-03-25 20:00:00' WHERE  `pc_translation`.`language_id` =  'it' AND  `pc_translation`.`string_id` = 'ACCOUNT_ERROR_CANT_REORDER_WHILE_FILTER_BY_TAG';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

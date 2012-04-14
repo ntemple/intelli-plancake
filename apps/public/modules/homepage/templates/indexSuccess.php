@@ -50,17 +50,19 @@
         <h2 style="margin-top: 0px; margin-bottom: 5px;"><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_TITLE') ?></h2>
         <p>
         <?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_BODY') ?>
-            <a href="<?php echo 'http://' . $baseUrl . $cultureUrlPart . '/services' ?>"><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK') ?></a>.
+            <a href="<?php echo 'http://' . $baseUrl . $cultureUrlPart . '/services' ?>"><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_TASKS_LINK') ?></a>
         </p>
       </li>
    
+<!--      
       <li>
         <h2><?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_TITLE') ?></h2>
         <p>
         <?php echo __('WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY') ?>
         </p>
       </li>
-      
+-->
+
     </ul>
     
     <span id="homepageMarketingTitles"><?php echo __('WEBSITE_HOMEPAGE_WHY_US_HEADER') ?></span>
@@ -104,7 +106,7 @@
 
 <div id="homepageBadges">
     <img src="/images/shell_award.jpg" />
-    <div>as featured in:</div>
+    <div><?php echo __('WEBSITE_HOMEPAGE_AS_FEATURED_IN') ?></div>
     <img src="/images/reviewers_logos.png" />
 </div>
 

@@ -66,7 +66,7 @@
         <?php endif ?>
       </div> 
 
-      <div id="mainContent">
+      <div id="mainContent" style="margin-right: 15px !important">
 	<?php echo $sf_content ?>
       </div> <!-- id="mainContent" -->
 

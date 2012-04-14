@@ -15,7 +15,7 @@ generator:
       actions: ~
       fields:  ~
       list:
-        display: [id, description, amount, date, needs_clarification]
+        display: [id, description, _moneyOut, _moneyIn, date, needs_clarification]
       filter:  ~
       form:    ~
       edit:    ~

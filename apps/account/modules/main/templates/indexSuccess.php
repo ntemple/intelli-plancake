@@ -25,13 +25,23 @@
 
     <link href="/app/common/css/reset.css" rel="stylesheet" type="text/css" />
     
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">            
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-114x114-precomposed.png" /> 
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-57x57-precomposed.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-114x114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" href="https://www.plancake.com/app/mobile/img/apple-icons/touch-icon-57x57.png" />
+    <link rel="apple-touch-startup-image" href="https://www.plancake.com/app/mobile/img/apple-icons/startup-320x460.png">    
 
     <meta property="og:title" content="<?php echo __('WEBSITE_HOMEPAGE_META_OG_TITLE') ?>" />
     <meta property="og:description" content="<?php echo __('WEBSITE_HOMEPAGE_SECONDARY_COPY') ?>" />    
     
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" /> 
-    <!-- <link href="/app/css/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="/app/desktop/css/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" /> -->
     
     <!-- START: CSS --> <!-- this comment is very important for minification of assets and dymanic generation of cache manifest -->
     <link href="/app/desktop/css/jquery.alerts.css" rel="stylesheet" type="text/css" />
@@ -57,7 +67,7 @@
     
     <!-- We need to insert JQuery in the HEAD becuase we need to call holdReady -->
     <!-- All the other JS is at the bottom for performance -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <!-- <script src="/app/desktop/js/jquery-1.6.1.min.js"></script> -->
     <script type="text/javascript">
         $.holdReady(true); // this will be released by plancake.init.js
@@ -132,7 +142,7 @@
                     <input type="text" class="light" name="searchQuery" id="searchQuery" value="" />
                 </form>            
 
-                <br style="clear: both;" /><br />            
+                <br style="clear: both;" />           
 
                 <div id="listsTitle">
                     <h3><span class="lang lang_ACCOUNT_LISTS_HEADER"></span></h3>
@@ -174,8 +184,13 @@
 
                 <?php if(! PcUserPeer::getLoggedInUser()->isSupporter()): ?>
                     <div id="mainAd">
-                        <!-- <a  class="inboundLink" href="/account.php/upgrade?feature=ad"><span class="lang lang_ACCOUNT_MISC_REMOVE_THIS_AD"></span></a> -->
-                        <!-- place ad here -->                              
+                        <a  class="removeAd" class="inboundLink" href="/account.php/upgrade?feature=ad"><span class="lang lang_ACCOUNT_MISC_REMOVE_THIS_AD"></span></a>
+                        <!-- place ad here -->   
+                        <div>
+                        Would you like to get things done with a team? <br />
+                        Check out the <a target="_blank" href="http://team.plancake.com">other product</a> we have been developing for you.
+                        </div>
+                        
                     </div>
                 <?php endif ?>
 
@@ -222,6 +237,7 @@
                     <h3 class="panelHeader"></h3>
                     <div class="panelContent"></div>                    
                 </div>
+                
             </div>       
 
         </div>     
@@ -289,7 +305,7 @@
                     </div></li>                 
 
                     <li class="secondaryNavDivider"><div class="secondaryNavItemWrapper"></div></li>
-                    <li><div class="secondaryNavItemWrapper"><?php echo __('WEBSITE_MISC_FOLLOW_US') ?>
+                    <li><div class="secondaryNavItemWrapper" style="padding-right: 0px;"><?php echo __('WEBSITE_MISC_FOLLOW_US') ?>
                         <a class="followUsBottomPanel" target="_blank" href="https://www.facebook.com/plancake"><img src="/images/facebook_icon.png" /></a>
                         <a class="followUsBottomPanel" target="_blank" href="https://twitter.com/#!/plancakeGTD"><img src="/images/twitter_icon.png" /></a>                        
                         <a class="followUsBottomPanel" target="_blank" href="/blog" class="inboundLink"><img src="/images/feed_icon.png" /></a>
@@ -611,6 +627,7 @@
     <script src="/app/desktop/js/plancake.lists.js"></script>
     <script src="/app/common/js/plancake.tags.common.js"></script>
     <script src="/app/desktop/js/plancake.tags.js"></script>
+    <script src="/app/desktop/js/plancake.todayTasksReordering.js"></script>    
     <script src="/app/common/js/plancake.taskRepetitionParam.js"></script>
     <script src="/app/common/js/plancake.tasks.common.js"></script>    
     <script src="/app/desktop/js/plancake.tasks.js"></script>

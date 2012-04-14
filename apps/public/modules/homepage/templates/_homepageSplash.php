@@ -1,6 +1,16 @@
 <div id="homepageSplash">
     <div>
-        <h1><?php echo __('WEBSITE_HOMEPAGE_MAIN_COPY') ?></h1>
+        <h1>
+            <?php if ( ($variantId == 2) || ($variantId == 4) ): ?>
+                <?php echo __('WEBSITE_HOMEPAGE_MAIN_COPY2') ?>
+                <br />
+                <?php echo __('WEBSITE_HOMEPAGE_MAIN_COPY1') ?>
+            <?php else: ?>
+                <?php echo __('WEBSITE_HOMEPAGE_MAIN_COPY1') ?>
+                <br />
+                <?php echo __('WEBSITE_HOMEPAGE_MAIN_COPY2') ?>
+            <?php endif ?>
+        </h1>
 
         <ul id="stepsForPlancake">
             <li id="stepCapture">
@@ -30,9 +40,12 @@
             &nbsp;
         </div>
         
-        <div id="watchVideo">
-            <img  alt="Plancake Video Tutorial" src="/images/watch_video_tutorial.png" />
-            <div><?php echo __('WEBSITE_HOMEPAGE_PLAY_VIDEO') ?></div>
-        </div>
+        <?php if ( ($variantId == 3) || ($variantId == 4) ): ?>
+            <div id="watchVideo">
+                <img  alt="Plancake Video Tutorial" src="/images/watch_video_tutorial.png" />
+                <div><?php echo __('WEBSITE_HOMEPAGE_PLAY_VIDEO') ?></div>
+            </div>
+        <?php endif ?>        
+        
     </div>
 </div>
