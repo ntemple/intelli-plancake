@@ -1,0 +1,7 @@
+cache/
+settings/
+config/
+web/php_errors.log
+.buildpath
+.settings
+.project

@@ -41,8 +41,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => new sfWidgetFormFilterInput(),
       'session_referral'               => new sfWidgetFormFilterInput(),
       'created_at'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
-      'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('model' => 'PcTask', 'add_empty' => true)),
       'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('model' => 'PcList', 'add_empty' => true)),
+      'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('model' => 'PcTask', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -75,8 +75,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => new sfValidatorPass(array('required' => false)),
       'session_referral'               => new sfValidatorPass(array('required' => false)),
       'created_at'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('model' => 'PcTask', 'required' => false)),
       'pc_users_lists_list'            => new sfValidatorPropelChoice(array('model' => 'PcList', 'required' => false)),
+      'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('model' => 'PcTask', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('pc_user_filters[%s]');
@@ -84,31 +84,6 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
     parent::setup();
-  }
-
-  public function addPcDirtyTaskListColumnCriteria(Criteria $criteria, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $criteria->addJoin(PcDirtyTaskPeer::USER_ID, PcUserPeer::ID);
-
-    $value = array_pop($values);
-    $criterion = $criteria->getNewCriterion(PcDirtyTaskPeer::TASK_ID, $value);
-
-    foreach ($values as $value)
-    {
-      $criterion->addOr($criteria->getNewCriterion(PcDirtyTaskPeer::TASK_ID, $value));
-    }
-
-    $criteria->add($criterion);
   }
 
   public function addPcUsersListsListColumnCriteria(Criteria $criteria, $field, $values)
@@ -131,6 +106,31 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
     foreach ($values as $value)
     {
       $criterion->addOr($criteria->getNewCriterion(PcUsersListsPeer::LIST_ID, $value));
+    }
+
+    $criteria->add($criterion);
+  }
+
+  public function addPcDirtyTaskListColumnCriteria(Criteria $criteria, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $criteria->addJoin(PcDirtyTaskPeer::USER_ID, PcUserPeer::ID);
+
+    $value = array_pop($values);
+    $criterion = $criteria->getNewCriterion(PcDirtyTaskPeer::TASK_ID, $value);
+
+    foreach ($values as $value)
+    {
+      $criterion->addOr($criteria->getNewCriterion(PcDirtyTaskPeer::TASK_ID, $value));
     }
 
     $criteria->add($criterion);
@@ -174,8 +174,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => 'Text',
       'session_referral'               => 'Text',
       'created_at'                     => 'Date',
-      'pc_dirty_task_list'             => 'ManyKey',
       'pc_users_lists_list'            => 'ManyKey',
+      'pc_dirty_task_list'             => 'ManyKey',
     );
   }
 }

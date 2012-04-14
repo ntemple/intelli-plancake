@@ -25,6 +25,7 @@ We will assume you want to install Plancake in the directory /var/www/myplancake
 set up this domain for it: http://plancake.mywebsite.com
 
 1 - Create an empty database using InnoDB as storage engine and utf8_general_ci as collation
+(from mysql: CREATE DATABASE pancake DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;)
 
 1.5 - Make sure the collation of the database is utf8_general_ci
 
@@ -43,6 +44,7 @@ That will ask you some questions in order to setup Plancake correctly
 7 - From the directory /var/www/myplancake, run:
 ./symfony install
 That will create all the tables in the database.
+(I had to install the xslt package: sudo apt-get install php5-xsl)
 
 8 - From the directory /var/www/myplancake, run:
 ./symfony create-user [email_address] [password]
