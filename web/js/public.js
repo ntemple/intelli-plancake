@@ -18,14 +18,7 @@
 *                                                                                    *
 **************************************************************************************/
 
-$(function(){
-    
-        // We redirect to the mobile app if the offline support has been enabled and is supported
-        // This way we can skip the login page when the Intenet connection is on
-        if (jQuery.browser.mobile && PLANCAKE.isLocalDatastoreAvailable()) {
-            PLANCAKE.redirectToMobileApp();
-        }    
-    
+$(function(){    
 	$('div.thumb').parent().css({'margin':'0 auto','width':'150px'});
 
         $("#homepageSignUp .signUp").click(function() { $("#homepageSignUp form").submit(); });

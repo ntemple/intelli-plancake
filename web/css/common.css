@@ -484,7 +484,6 @@ div#subscriptionPage table td.nonCenteredContent p
 {
     display: block;
     height: 32px;
-    overflow: hidden;    
 }
 
 div#subscriptionPage table td.nonCenteredContent p span
@@ -492,7 +491,7 @@ div#subscriptionPage table td.nonCenteredContent p span
     font-size: 95% !important;
     color: #666;
     font-style: italic;
-    // display: none;
+    /* display: none; */
 }
 
 div#subscriptionPage table .supporter
@@ -673,6 +672,15 @@ div#subscriptionPage #discountCodeError {
 
 div#subscriptionPage #discountForCharities {
   background: url("/images/charity_icon.gif") no-repeat scroll 0 0 transparent;
+  padding-top: 5px;  
+  padding-left: 33px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+div#subscriptionPage #discountForStudents {
+  background: url("/images/student_icon.gif") no-repeat scroll 0 0 transparent;
   padding-top: 5px;  
   padding-left: 33px;
   height: 30px;

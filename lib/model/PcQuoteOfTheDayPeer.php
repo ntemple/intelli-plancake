@@ -37,7 +37,7 @@ require_once 'lib/model/om/BasePcQuoteOfTheDayPeer.php';
 class PcQuoteOfTheDayPeer extends BasePcQuoteOfTheDayPeer {
 
     /**
-     * @return PcQuoteOfTheDay|null
+     * @return PcQuoteOfTheDay|null|false
      */
     public static function getUserTodayQuote()
     {
@@ -47,7 +47,7 @@ class PcQuoteOfTheDayPeer extends BasePcQuoteOfTheDayPeer {
         
         if ($hideableHintsSetting[PcHideableHintsSettingPeer::QUOTE_HINT] === 1)
         {
-            return null;
+            return false;
         }
 
         $localTimestamp = $loggedInUser->getTime();

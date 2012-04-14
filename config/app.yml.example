@@ -7,6 +7,7 @@ all:
 
   site:
     url: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/settings/site_url'); echo "\n"; ?>
+    encryptionKey: e34ujjknREe94welsd
     maintenance: 0  # set to put the account under maintenance    
     urlForUpdates: http://updates.plancake.com/updates # DO NOT EDIT THIS
     version: <?php echo file_get_contents(sfConfig::get('sf_root_dir') . '/version'); echo "\n"; ?>

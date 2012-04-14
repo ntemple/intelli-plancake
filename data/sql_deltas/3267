@@ -1,0 +1,388 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE `pc_translation` SET `string` = 'non dimenticare nulla anche quando non accedi al tuo account' WHERE `string_id` =''ACCOUNT_SUBSCRIPTION_COMPARISON_REMINDERS_HELP'';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+      Plancake Mobile works on any smartphone with a web browser supporting the basic functionalities of HTML5 - nowadays most smartphones should do.
+  </p>
+  
+  <p>
+      If you have problems with the default browser (probably not), try and install Dolphin or Opera Mobile from your app store
+and login to Plancake with them.
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+
+
+
+
+UPDATE `pc_translation` SET `string` = '  <p>
+  Just visit www.plancake.com with your smartphone and login. Plancake will detect you are on a small-screen device and redirect you to Plancake Mobile automatically. Easy!
+  </p>
+   
+  <p>
+      The first time you log in, all the data in your account will be downloaded to your smartphone. After that, you can start using Plancake Mobile even
+      without an Internet connection.
+</p>
+
+<p>To mark a task as done, you just need to long press it.</p>
+
+<p>
+      Every time you make a change, the modification will <b>not</b> be transfered to the Plancake servers automatically. Tasks changed locally will show a yellow border. <br />
+  </p>
+
+  <p>
+      Once you are ready to synchronise the data between your smartphone and the Plancake servers (and the other way around, too), click the ''Sync'' button at
+      the bottom of the screen (you need an Internet connection available to sync).
+  </p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY3';
+
+
+
+DELETE FROM `pc_translation` WHERE `string_id`='WEBSITE_SERVICES_SMARTPHONE_APP_HEADER2';
+DELETE FROM `pc_translation` WHERE `string_id`='WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+DELETE FROM `pc_string` WHERE `id`='WEBSITE_SERVICES_SMARTPHONE_APP_HEADER2';
+DELETE FROM `pc_string` WHERE `id`='WEBSITE_SERVICES_SMARTPHONE_APP_BODY2';
+
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('WEBSITE_SERVICES_SMARTPHONE_APP_HEADER4', '122', '100', '0', NULL, '0', '2012-02-22 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_HEADER5', '122', '110', '0', NULL, '0', '2012-02-22 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_BODY4', '122', '120', '0', NULL, '0', '2012-02-22 00:00:00'), ('WEBSITE_SERVICES_SMARTPHONE_APP_BODY5', '122', '130', '0', NULL, '0', '2012-02-22 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_HEADER4', 'How to create a shortcut on your home screen', '2012-02-22 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY4', '  <p>
+      <b>Once you are logged in</b>, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+  </p>
+  
+  <p>
+On <b>Android</b> (if you use the default browser), you need to:
+<ol>
+<li>open the browser "Bookmarks" screen</li>
+<li>long-press the Plancake bookmark, probably the last item in the list</li>
+<li>select "Add shortcut to Home"</li>
+</ol>
+Alternatively you can download our launcher from the market - just go to the Android market and search for <em>Plancake Mobile</em>.
+</p>
+
+<br />
+
+<p>
+On <b>Iphone</b> (if you use Safari), you need to:
+<ol>
+<li>tap the plus button at the bottom of the Safari window</li>
+<li>tap "Add to Home Screen"</li>
+<li>tap the "Add" button at the top of the screen</li>
+</ol>
+</p>
+
+<br />
+
+<p>
+On <b>Blackberry</b>, you need to:
+<ol>
+<li>press the "Blackberry" key</li>
+<li>select "Add to Home Screen"</li>
+</ol>
+Alternatively you can download our launcher from the market - just go to the Blackberry App World and search for <em>Plancake Mobile</em>.
+</p>', '2012-02-22 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_HEADER5', 'Problems?', '2012-02-22 00:00:00'), ('en', 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY5', '<p>
+      Plancake Mobile works on any smartphone with a web browser supporting the basic functionalities of HTML5 - nowadays most smartphones should do.
+  </p>
+  
+  <p>
+      If you have problems with the default browser (probably not), try and install Dolphin or Opera Mobile from your app store
+and login to Plancake with them.
+  </p>  
+  
+  
+<p><b>If you experience unexpected problems, reloading the page (using the browser menu) or clearing the cache of your browser may solve the issue.</b></p>', '2012-02-22 00:00:00');
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_TUTORIAL_SUBTITLES', '102', '20', '0', 'Subtitles to the Youtube video - please leave the numbers are they are', '0', '2012-02-22 00:00:00');
+
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_TUTORIAL_SUBTITLES', '0:00:09.000,0:00:13.100
+Hi. In this video I''ll show you how to get the most out of Plancake,
+
+0:00:13.100,0:00:15.000
+in order to become more organised 
+
+0:00:15.000,0:00:18.800
+and take control of all the things you need to do.
+
+0:00:21.000,0:00:23.500
+You can watch this video again at any time
+
+0:00:23.500,0:00:28.000
+by clicking the video icon at the bottom of the screen.
+
+0:00:32.800,0:00:35.650
+One of the most interesting Plancake features
+
+0:00:35.650,0:00:40.000
+is the ability to load two lists on the same screen.
+
+0:00:43.000,0:00:47.200
+This saves you time which is lost switching between lists.
+
+0:00:56.950,0:01:00.000
+Now, let''s say I want to plan an event.
+
+0:01:00.000,0:01:01.600
+I am going to create a new list
+
+0:01:01.600,0:01:04.000
+under the header ''Important projects''.
+
+0:01:15.200,0:01:18.200
+Headers (the labels in orange) are very easy to create
+
+0:01:18.200,0:01:21.000
+and help you organise your lists.
+
+0:01:23.000,0:01:26.500
+Let''s add some tasks to this new list.
+
+0:01:34.000,0:01:38.000
+You can use some handy shortcuts when adding a task.
+
+0:01:53.800,0:01:57.000
+You can specify more details for your task...
+
+0:02:00.000,0:02:03.000
+...such as ''due date'', whether the task repeats
+
+0:02:03.000,0:02:08.000
+and an additional note that you can even use for sub-tasks.
+
+0:02:11.000,0:02:13.000
+Each task belongs to a list -
+
+0:02:13.000,0:02:19.000
+- if a list is not specified, the task is added to the ''Default list''.
+
+0:02:25.000,0:02:32.000
+You can edit a task by clicking on the task itself or its ''edit'' icon.
+
+0:02:38.000,0:02:40.600
+When you add a task you can set its position
+
+0:02:40.600,0:02:44.000
+to anywhere in the list.
+
+0:02:51.000,0:02:54.200
+You can also drag and drop tasks to reorder them
+
+0:02:54.200,0:02:57.500
+or to move them to another list.
+
+0:03:08.000,0:03:11.500
+Clicking the star button marks tasks that are important
+
+0:03:11.500,0:03:14.200
+or require extra attention.
+
+0:03:18.000,0:03:21.400
+You can see all your starred tasks by clicking the Starred button
+
+0:03:21.400,0:03:26.000
+located with the task filters at the bottom of the screen.
+
+0:03:32.000,0:03:34.000
+You can mark tasks as done
+
+0:03:34.000,0:03:37.500
+and reverse it if you make a mistake.
+
+0:03:47.000,0:03:50.000
+When viewing a list, you can find the completed tasks
+
+0:03:50.000,0:03:55.000
+by clicking the Completed filter at the bottom of the screen.
+
+0:04:00.000,0:04:03.000
+Another useful filter is the Calendar which allows you
+
+0:04:03.000,0:04:05.700
+to quickly see tasks due this week,
+
+0:04:05.700,0:04:09.000
+or browse to any other point in time.
+
+0:04:14.500,0:04:17.100
+Finally, don''t forget to check out the guide
+
+0:04:17.100,0:04:19.600
+on how to use Plancake when an internet connection
+
+0:04:19.600,0:04:21.300
+is not available.
+
+0:04:23.000,0:04:25.800
+You can use Plancake on your smartphone too.
+
+0:04:25.900,0:04:29.000
+View the Mobile guide to find out more.
+
+0:04:31.000,0:04:33.600
+There are no apps to download or keep updated
+
+0:04:33.600,0:04:38.000
+and it works without an Internet connection on most devices.
+
+0:04:40.000,0:04:41.800
+That''s it for now! Thank you
+
+0:04:41.800,0:04:44.500
+for viewing the Plancake video tutorial.
+
+0:04:44.700,0:04:46.000
+If you require any extra help
+
+0:04:46.000,0:04:49.000
+then please don''t hesitate to contact us.
+
+0:04:52.000,0:04:54.500
+Happy Plancaking!', '2012-02-22 00:00:00'), ('it', 'ACCOUNT_TUTORIAL_SUBTITLES', '0:00:09.000,0:00:13.100
+Salve. In questo video vi mostrerò come sfruttare al meglio Plancake,
+
+0:00:13.100,0:00:15.000
+per diventare più organizzati
+
+0:00:15.000,0:00:18.800
+e tenere sotto controllo tutto ciò che dovete fare.
+
+0:00:21.000,0:00:23.500
+Potete riguardare questo video quando desiderate
+
+0:00:23.500,0:00:28.000
+cliccando sull''icona video nella parte bassa dello schermo.
+
+0:00:32.800,0:00:35.650
+Una delle caratteristiche più interessanti di Plancake
+
+0:00:35.650,0:00:40.000
+è la possibilità di caricare due liste contemporaneamente.
+
+0:00:43.000,0:00:47.200
+Questo vi fa risparmiare il tempo che perdete cambiando lista.
+
+0:00:56.950,0:01:00.000
+Ora, supponiamo che io voglia pianificare un evento.
+
+0:01:00.000,0:01:01.600
+Creerò una nuova lista
+
+0:01:01.600,0:01:04.000
+sotto il titolo ''Progetti importanti''.
+
+0:01:15.200,0:01:18.200
+I titoli (le etichette arancioni) sono molto facili da creare
+
+0:01:18.200,0:01:21.000
+e vi aiutano a organizzare le vostre liste.
+
+0:01:23.000,0:01:26.500
+Aggiungiamo delle attività a questa nuova lista.
+
+0:01:34.000,0:01:38.000
+Potete usare le scorciatoie quando aggiungete un''attività.
+
+0:01:53.800,0:01:57.000
+Potete specificare maggior dettagli per la vostra attività...
+
+0:02:00.000,0:02:03.000
+come per esempio ''data fissata'', se l''attività è ricorrente
+
+0:02:03.000,0:02:08.000
+e una nota aggiuntiva che potete usare perfino per le sotto-attività.
+
+0:02:11.000,0:02:13.000
+Ogni attività appartiene a una lista -
+
+0:02:13.000,0:02:19.000
+- se una lista non è specificata, l''attività viene messa in ''Default list''.
+
+0:02:25.000,0:02:32.000
+Potete modificare un''attività cliccando su di essa o sull''icona ''modifica''.
+
+0:02:38.000,0:02:40.600
+Quando aggiungete un''attività potete impostare la sua posizione
+
+0:02:40.600,0:02:44.000
+in qualsiasi punto della lista.
+
+0:02:51.000,0:02:54.200
+Potete anche fare il drag and drop delle attività per riordinarle
+
+0:02:54.200,0:02:57.500
+o per spostarle in un''altra lista.
+
+0:03:08.000,0:03:11.500
+Cliccando sulla stella indicherete attività importanti
+
+0:03:11.500,0:03:14.200
+o che richiedono particolare attenzione.
+
+0:03:18.000,0:03:21.400
+Potete vedere tutte le vostre attività "stellate" cliccando sul pulsante Importanti
+
+0:03:21.400,0:03:26.000
+situato con i filtri per le attività in basso allo schermo.
+
+0:03:32.000,0:03:34.000
+Potete segnare le attività come completate
+
+0:03:34.000,0:03:37.500
+e annullare tale operazione se avete fatto un errore.
+
+0:03:47.000,0:03:50.000
+Quando visualizzate una lista, potete trovare le attività completate
+
+0:03:50.000,0:03:55.000
+cliccando sul pulsante Completate in basso allo schermo.
+
+0:04:00.000,0:04:03.000
+Un altro filtro utile è il Calendario che vi permetterà
+
+0:04:03.000,0:04:05.700
+di vedere velocemente le attività da completare nella settimana,
+
+0:04:05.700,0:04:09.000
+o consultare qualsiasi altro periodo in tempo.
+
+0:04:14.500,0:04:17.100
+Infine, non dimenticate di controllare la guida
+
+0:04:17.100,0:04:19.600
+sull''uso di Plancake quando la connessione Internet
+
+0:04:19.600,0:04:21.300
+non è disponibile.
+
+0:04:23.000,0:04:25.800
+Potete usare Plancake anche sul vostro smartphone.
+
+0:04:25.900,0:04:29.000
+Consultate la guida Mobile per maggiori informazioni.
+
+0:04:31.000,0:04:33.600
+Non ci sono applicazioni da scaricare o da mantenere aggiornate
+
+0:04:33.600,0:04:38.000
+e funziona senza connessione Internet sulla maggior parte degli apparecchi.
+
+0:04:40.000,0:04:41.800
+Per ora è tutto! Grazie
+
+0:04:41.800,0:04:44.500
+per aver guardato il video del tutorial di Plancake.
+
+0:04:44.700,0:04:46.000
+Se avete ancora bisogno di aiuto
+
+0:04:46.000,0:04:49.000
+per favore non esitate a contattarci.
+
+0:04:52.000,0:04:54.500
+Buona fortuna con Plancake!', '2012-02-22 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

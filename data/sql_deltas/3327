@@ -1,0 +1,13 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO `pc_string` (`id`, `category_id`, `sort_order_in_category`, `max_length`, `note`, `is_archived`, `created_at`) VALUES ('ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_STUDENTS', '104', '536', '0', NULL, '0', '2012-03-05 00:00:00');
+INSERT INTO `pc_translation` (`language_id`, `string_id`, `string`, `updated_at`) VALUES ('en', 'ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_STUDENTS', 'Are you a student? You can <a target="_blank" href="%s">contact us</a>: we should be able to give you a free Premium account in exchange of some service (promotion, translations, development, ...).', '2012-03-05 00:00:00'), ('it', 'ACCOUNT_SUBSCRIPTION_DISCOUNT_FOR_STUDENTS', 'Sei uno studente? Puoi <a target="_blank" href="%s">contattarci</a>: dovremmo poterti fornire un account Premium gratis in cambio di qualche servizio (promozione, traduzioni, sviluppo, ...)', '2012-03-05 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

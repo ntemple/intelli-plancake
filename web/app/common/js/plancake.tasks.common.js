@@ -134,7 +134,7 @@ PLANCAKE.getHtmlTaskObj = function(task, _activePanel) {
             var gmailRegExp = /http(s)?:\/\/mail.google.com\/mail[^ ]+/;
             try {
                 var gmailUrl = (task.description + ' ' + task.note).replace(/(\n|\t)/, ' ').match(gmailRegExp)[0];
-                taskDescription.after('&nbsp;&nbsp;<a target="_blank" href="' + gmailUrl + '"><img style="border: 0px" class="taskGmailIcon" title="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" alt="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" src="/app/common/img/gmail_icon.png" /></a>');
+                taskDescription.after('&nbsp;&nbsp;<a class="taskGmailLink" target="_blank" href="' + gmailUrl + '"><img style="border: 0px" class="taskGmailIcon" title="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" alt="' + PLANCAKE.lang.ACCOUNT_HINT_CLICK_TO_SEE_GMAIL + '" src="/app/common/img/gmail_icon.png" /></a>');
                 if (task.note.trim().length === gmailUrl.length) { // the note contains only the link to GMail that we show via the Gmail icon, therefore
                     taskHtml.find('.taskNoteIcon').remove();       // no need to show note icon
                 }
@@ -203,7 +203,8 @@ PLANCAKE.getHtmlTaskObj = function(task, _activePanel) {
         PLANCAKE.hideTaskInCurrentContent(taskHtml);
     }    
     
-    if (PLANCAKE.getActivePanelContentConfig(activePanel).type === PLANCAKE.CONTENT_TYPE_LIST) {
+    if ( (PLANCAKE.getActivePanelContentConfig(activePanel).type === PLANCAKE.CONTENT_TYPE_LIST) ||
+         (PLANCAKE.getActivePanelContentConfig(activePanel).type === PLANCAKE.CONTENT_TYPE_TODAY) ){
         // tasks need to have an id to serialize when we reorder them
         taskHtml.attr('id', 'task_' + activePanel.attr('id') + '_' + task.id);
     }
@@ -408,6 +409,11 @@ PLANCAKE.loadCalendarNextWeek = function (link) {
  * @return PLANCAKE.Task task
  */
 PLANCAKE.getTaskObjFromHtml = function(taskHtml) {
+    
+    if ( (taskHtml === null) || (taskHtml === undefined) ) {
+        return null;
+    }
+    
     var taskData = taskHtml.data(PLANCAKE.JQUERY_TASK_DATA_KEY);
     var task = new PLANCAKE.Task();
 

@@ -56,7 +56,7 @@ class userActions extends PlancakeActions
     // we need to add a 'random' code otherwise GMail groups all of them together
     $subject .= ' ' . date('YmdHis');
 
-    $message = $message . "\n XX \n" . $_SERVER['HTTP_USER_AGENT'];
+    $message = $message . "\n ----- \n" . $_SERVER['HTTP_USER_AGENT'];
     
     PcUtils::sendEmail($to,
                        $subject,
@@ -79,7 +79,7 @@ class userActions extends PlancakeActions
     // we need to add a 'random' code otherwise GMail groups all of them together
     $subject .= ' ' . date('YmdHis');
 
-    $error = $error . "\n\nUserId:" . PcUserPeer::getLoggedInUser()->getId() . "\n XX \n" . $_SERVER['HTTP_USER_AGENT'];
+    $error = $error . "\n\nUserId:" . PcUserPeer::getLoggedInUser()->getId() . "\n ----- \n" . $_SERVER['HTTP_USER_AGENT'];
     
     PcUtils::sendEmail($to,
                        $subject,

@@ -23,6 +23,7 @@
     <column name="has_requested_free_trial" type="boolean" sqlType="TINYINT(1)" default="0" />
     <column name="avatar_random_suffix" type="varchar" size="32" default="" />
     <column name="reminders_active" type="boolean" sqlType="TINYINT(1)" default="0" />    
+    <column name="unsubscribed" type="boolean" sqlType="TINYINT(1)" default="0" />
     <column name="latest_blog_access" type="timestamp" />
     <column name="latest_backup_request" type="timestamp" />
     <column name="latest_import_request" type="timestamp" />  
@@ -870,5 +871,55 @@
     <column name="updated_at" type="timestamp"  required="true" />
     <column name="created_at" type="timestamp"  required="true" />   
   </table>  
-
+  
+  <table name="pc_email_campaign">
+    <column name="id" type="integer"  sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="comment" type="varchar" required="true" size="255" /> 
+    <column name="email_subject" type="varchar" required="true" size="255" />
+    <column name="email_body" type="varchar" sqlType="TEXT" required="true" />    
+    <column name="sql_query" type="varchar" sqlType="TEXT" required="true" />
+    <column name="email_addresses" type="varchar" sqlType="MEDIUMTEXT" required="true" />
+    <column name="sent_count" type="integer" required="true" default="0" />     
+    <column name="open_count" type="integer" required="true" default="0" />
+    <column name="email_count" type="integer" required="true" />    
+    <column name="updated_at" type="timestamp"  required="true" />
+    <column name="created_at" type="timestamp"  required="true" />      
+  </table>
+  
+  <table name="pc_split_test">
+    <column name="id" type="integer" sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" autoIncrement="true" />
+    <column name="name" type="varchar" size="128" required="true" />
+    <column name="number_of_variants" type="integer" sqlType="SMALLINT UNSIGNED" required="true" />
+    <column name="variants_description" type="varchar" sqlType="TEXT" required="true" />  
+    <column name="comment" type="varchar" sqlType="TEXT" required="true" />    
+    <column name="created_at" type="timestamp"  required="true" />    
+  </table>  
+  
+  <table name="pc_split_test_result">
+    <column name="test_id" type="integer" sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" />
+    <foreign-key foreignTable="pc_split_test">
+      <reference local="test_id" foreign="id" />
+    </foreign-key>
+    <column name="variant_id" type="integer"  sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" />
+    <column name="number_of_tries" type="integer" required="true" default="0" />
+    <column name="number_of_successes" type="integer" required="true" default="0" />
+    <column name="updated_at" type="timestamp"  required="true" />    
+  </table>   
+  
+  <table name="pc_split_test_user_result">
+    <column name="user_id" type="integer" sqlType="INTEGER UNSIGNED" required="true" primaryKey="true" />     
+    <index>
+      <index-column name="user_id"/>
+    </index>
+    <foreign-key foreignTable="pc_user">
+      <reference local="user_id" foreign="id" />
+    </foreign-key>      
+    <column name="test_id" type="integer" sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" />
+    <foreign-key foreignTable="pc_split_test">
+      <reference local="test_id" foreign="id" />
+    </foreign-key>
+    <column name="variant_id" type="integer"  sqlType="SMALLINT UNSIGNED" required="true" primaryKey="true" />
+    <column name="updated_at" type="timestamp"  required="true" />    
+  </table> 
+  
 </database>

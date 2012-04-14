@@ -32,6 +32,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'has_requested_free_trial'       => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'avatar_random_suffix'           => new sfWidgetFormFilterInput(),
       'reminders_active'               => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'unsubscribed'                   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'latest_blog_access'             => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'latest_backup_request'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'latest_import_request'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
@@ -41,6 +42,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => new sfWidgetFormFilterInput(),
       'session_referral'               => new sfWidgetFormFilterInput(),
       'created_at'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('model' => 'PcSplitTest', 'add_empty' => true)),
       'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('model' => 'PcTask', 'add_empty' => true)),
       'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('model' => 'PcList', 'add_empty' => true)),
     ));
@@ -66,6 +68,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'has_requested_free_trial'       => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'avatar_random_suffix'           => new sfValidatorPass(array('required' => false)),
       'reminders_active'               => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'unsubscribed'                   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'latest_blog_access'             => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'latest_backup_request'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'latest_import_request'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
@@ -75,6 +78,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => new sfValidatorPass(array('required' => false)),
       'session_referral'               => new sfValidatorPass(array('required' => false)),
       'created_at'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('model' => 'PcSplitTest', 'required' => false)),
       'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('model' => 'PcTask', 'required' => false)),
       'pc_users_lists_list'            => new sfValidatorPropelChoice(array('model' => 'PcList', 'required' => false)),
     ));
@@ -84,6 +88,31 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
     parent::setup();
+  }
+
+  public function addPcSplitTestUserResultListColumnCriteria(Criteria $criteria, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $criteria->addJoin(PcSplitTestUserResultPeer::USER_ID, PcUserPeer::ID);
+
+    $value = array_pop($values);
+    $criterion = $criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value);
+
+    foreach ($values as $value)
+    {
+      $criterion->addOr($criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value));
+    }
+
+    $criteria->add($criterion);
   }
 
   public function addPcDirtyTaskListColumnCriteria(Criteria $criteria, $field, $values)
@@ -165,6 +194,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'has_requested_free_trial'       => 'Boolean',
       'avatar_random_suffix'           => 'Text',
       'reminders_active'               => 'Boolean',
+      'unsubscribed'                   => 'Boolean',
       'latest_blog_access'             => 'Date',
       'latest_backup_request'          => 'Date',
       'latest_import_request'          => 'Date',
@@ -174,6 +204,7 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_entry_point'            => 'Text',
       'session_referral'               => 'Text',
       'created_at'                     => 'Date',
+      'pc_split_test_user_result_list' => 'ManyKey',
       'pc_dirty_task_list'             => 'ManyKey',
       'pc_users_lists_list'            => 'ManyKey',
     );

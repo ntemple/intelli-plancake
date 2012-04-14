@@ -1,0 +1,65 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+UPDATE  `pc_string` SET  `max_length` =  '123' WHERE  `pc_string`.`id` =  'WEBSITE_HOMEPAGE_STEP3_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_PLANCAKE_NOTES_BODY';
+
+UPDATE `pc_translation` SET `string` = '  <p>
+      <b>Once you are logged in</b>, we suggest you create a shortcut on your Home Screen (sometimes referred to as ''Home''), so that you get an icon you just need to tap in order to launch Plancake Mobile. <br />
+  </p>
+  
+  <p>
+On <b>Android</b> (if you use the default browser), you need to:
+<ol>
+<li>open the browser "Bookmarks" screen</li>
+<li>long-press the Plancake bookmark, probably the last item in the list</li>
+<li>select "Add shortcut to Home"</li>
+</ol>
+Alternatively you can download our launcher from the market - just go to the Android market and search for <em>Plancake Mobile</em>.
+</p>
+
+<br />
+
+<p>
+On <b>iPhone</b> (if you use Safari), you need to:
+<ol>
+<li>tap the plus button at the bottom of the Safari window</li>
+<li>tap "Add to Home Screen"</li>
+<li>tap the "Add" button at the top of the screen</li>
+</ol>
+</p>
+
+<br />
+
+<p>
+On <b>Blackberry</b>, you need to:
+<ol>
+<li>press the "Blackberry" key</li>
+<li>select "Add to Home Screen"</li>
+</ol>
+Alternatively you can download our launcher from the market - just go to the Blackberry App World and search for <em>Plancake Mobile</em>.
+</p>' WHERE `pc_translation`.`language_id` = 'en' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_SMARTPHONE_APP_BODY4';
+
+UPDATE  `pc_translation` SET  `string` =  'Thanks to this extension, you don''t need to bring up the Plancake website everytime you want to add a task.
+<br />
+Without leaving the webpage you are viewing, you will be able to jot down your ideas and add them to Plancake.' WHERE  `pc_translation`.`language_id` =  'en' AND `pc_translation`.`string_id` =  'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_SERVICES_HOME_CHROME_EXTENSION_BODY';
+
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_NOT_REGISTERED_YET';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_LOGIN_NOT_REGISTERED_YET';
+
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'es' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_GET_IN_TOUCH_BODY';
+DELETE FROM `pc_translation` WHERE `pc_translation`.`language_id` = 'fr' AND `pc_translation`.`string_id` = 'WEBSITE_PRESS_GET_IN_TOUCH_BODY';
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=1;

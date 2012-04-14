@@ -185,7 +185,7 @@ PLANCAKE.sync = function () {
                          // either they didn't do "rememberme", or they logged out from another window, or
                          // their "rememberme" session has expired
                          alert(PLANCAKE.lang.ACCOUNT_MOBILE_NEED_TO_LOGIN);
-                         window.location.href = 'http://www.plancake.com/login?ignorelocalstorage=1';                         
+                         window.location.href = 'https://www.plancake.com/login?ignorelocalstorage=1';                         
                     } else {
                         var errorMessage = "An error occurred E" + syncErrorCode + ": " + e.message;
 

@@ -38,7 +38,8 @@ class PcUserPeer extends BasePcUserPeer
     $userid = sfContext::getInstance()->getUser()->getAttribute('userid');
     if (!$userid) // user is not logged in
     {
-      header('Location: /login');
+      // header('Location: /login');
+      self::$loggedInUser = null;
     }
     self::$loggedInUser = PcUserPeer::retrieveByPk($userid);
 

@@ -174,7 +174,7 @@ PLANCAKE.sendAjaxRequest = function(urlPath, data, successMessage, successCallba
 PLANCAKE.willServeAjaxRequestLocally = function(urlPath) {
   var getDataLocally = true;
   
-  if (!PLANCAKE.isOfflineEnabled || !PLANCAKE.supportsHtml5Storage()) {
+  if (!PLANCAKE.isOfflineEnabled || !PLANCAKE.supportsHtml5Storage() || PLANCAKE.ignoreLocalStorage) {
       getDataLocally = false;
   }
   

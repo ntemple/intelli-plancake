@@ -56,7 +56,7 @@
 
               <li><p><?php echo __('WEBSITE_FOOTER_SUPPORT_HEADER') ?></p>
                   <ul>
-                      <li><a href='http://<?php echo $baseUrl . $cultureUrlPart ?>/services'>Plancake <?php echo __('WEBSITE_HEADER_SERVICES_LINK') ?></a></li>                      
+                      <li><a href='http://<?php echo $baseUrl . $cultureUrlPart ?>/services'><?php echo __('WEBSITE_HEADER_SERVICES_LINK') ?></a></li>                      
                       <!-- <li><a href='http://<?php echo $baseUrl ?>/forums'><?php echo __('WEBSITE_HEADER_FORUM_LINK') ?></a> </li> -->
                       <li><a href='http://<?php echo $baseUrl ?>/faq'>FAQ</a> </li>
                       <li><a href='http://<?php echo $baseUrl . $cultureUrlPart ?>/contact'><?php echo __('WEBSITE_FOOTER_CONTACT_US_LINK') ?></a></li>

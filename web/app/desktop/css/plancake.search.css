@@ -1,11 +1,15 @@
 #searchForm {
-    background: url("/app/desktop/img/search_background.png") no-repeat scroll 0 0 #fff;
-    border: 2px solid #ADD1F3;
-    border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;      
+    background: url("/app/desktop/img/search_background.png") no-repeat scroll 0 0 #fff;    
+    border: 1px solid #e1dfdd;
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;      
     padding: 5px 3px 3px 2px;
     width: 190px;
+    margin-left: 10px;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(255, 255, 255);
+    box-shadow: 1px 1px 0px 0px rgba(255, 255, 255);
 }
 
 #searchQuery {
