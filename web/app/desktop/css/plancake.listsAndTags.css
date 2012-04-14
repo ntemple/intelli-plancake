@@ -35,25 +35,29 @@ ul#tags {
 }
 
 ul#lists li, ul#tags li {
-    padding: 3px 2px;
-    border-bottom: 1px dotted #aaa;
+    padding: 7px 10px;
+    background: url("/app/desktop/img/sidebar-item-bg.png") repeat-x scroll 0 0 #f3f4f6;
     font-size: 90%;
     padding-right: 43px;
     position: relative;
 }
 
 ul#lists li.hover, ul#tags li.hover {
-    background-color: #ffee99;
     cursor: pointer;
+    background: url("/app/desktop/img/sidebar-item-hover-bg.png") repeat-x scroll 0 0 #fbfcfd;
 }
 
 ul#lists li.selected, ul#tags li.selected {
-    background-color: #ffcc33;
+   background: url("/app/desktop/img/sidebar-item-selected-bg.png") repeat-x scroll 0 0 #168ad4;
+   color: #fff;
+   text-shadow: #125A8A 0px 1px 2px;
+   font-weight: bold;
 }
 
 div#listsTitle, div#tagsTitle {
     position: relative;
     width: 200px;
+    margin-bottom: 4px;
 }
 
 .listAction, .tagAction {
@@ -76,7 +80,8 @@ div#listsTitle, div#tagsTitle {
 }
 
 .hovered {
-    background-color: #feca40;
+    background-image: none !important;
+    background-color: #feca40 !important;
 }
 
 .dropped {
@@ -101,7 +106,7 @@ ul#lists .header {
 
 #listsActions, #tagsActions {
     position: absolute;
-    top: -9px;
+    top: -3px;
     right: 0px;
     margin: 0px;
 }
@@ -110,4 +115,12 @@ ul#lists .header {
     float: right;
     margin-left: 7px;
     font-size: 80%;
+}
+
+.tagLinkInList {
+    background: url(/app/desktop/img/tag-bg.png) no-repeat top left;
+    padding-right: 5px;
+    padding-left: 12px;
+    padding-bottom: 5px;
+    height: 14px;
 }

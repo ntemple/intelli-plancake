@@ -35,6 +35,7 @@ abstract class BasePcUserForm extends BaseFormPropel
       'has_requested_free_trial'       => new sfWidgetFormInputCheckbox(),
       'avatar_random_suffix'           => new sfWidgetFormInputText(),
       'reminders_active'               => new sfWidgetFormInputCheckbox(),
+      'unsubscribed'                   => new sfWidgetFormInputCheckbox(),
       'latest_blog_access'             => new sfWidgetFormDateTime(),
       'latest_backup_request'          => new sfWidgetFormDateTime(),
       'latest_import_request'          => new sfWidgetFormDateTime(),
@@ -44,8 +45,9 @@ abstract class BasePcUserForm extends BaseFormPropel
       'session_entry_point'            => new sfWidgetFormInputText(),
       'session_referral'               => new sfWidgetFormInputText(),
       'created_at'                     => new sfWidgetFormDateTime(),
-      'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcList')),
+      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest')),
       'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcTask')),
+      'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcList')),
     ));
 
     $this->setValidators(array(
@@ -70,6 +72,7 @@ abstract class BasePcUserForm extends BaseFormPropel
       'has_requested_free_trial'       => new sfValidatorBoolean(array('required' => false)),
       'avatar_random_suffix'           => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'reminders_active'               => new sfValidatorBoolean(array('required' => false)),
+      'unsubscribed'                   => new sfValidatorBoolean(array('required' => false)),
       'latest_blog_access'             => new sfValidatorDateTime(array('required' => false)),
       'latest_backup_request'          => new sfValidatorDateTime(array('required' => false)),
       'latest_import_request'          => new sfValidatorDateTime(array('required' => false)),
@@ -79,8 +82,9 @@ abstract class BasePcUserForm extends BaseFormPropel
       'session_entry_point'            => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'session_referral'               => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'created_at'                     => new sfValidatorDateTime(array('required' => false)),
-      'pc_users_lists_list'            => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcList', 'required' => false)),
+      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest', 'required' => false)),
       'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcTask', 'required' => false)),
+      'pc_users_lists_list'            => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcList', 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
@@ -104,15 +108,15 @@ abstract class BasePcUserForm extends BaseFormPropel
   {
     parent::updateDefaultsFromObject();
 
-    if (isset($this->widgetSchema['pc_users_lists_list']))
+    if (isset($this->widgetSchema['pc_split_test_user_result_list']))
     {
       $values = array();
-      foreach ($this->object->getPcUsersListss() as $obj)
+      foreach ($this->object->getPcSplitTestUserResults() as $obj)
       {
-        $values[] = $obj->getListId();
+        $values[] = $obj->getTestId();
       }
 
-      $this->setDefault('pc_users_lists_list', $values);
+      $this->setDefault('pc_split_test_user_result_list', $values);
     }
 
     if (isset($this->widgetSchema['pc_dirty_task_list']))
@@ -126,24 +130,36 @@ abstract class BasePcUserForm extends BaseFormPropel
       $this->setDefault('pc_dirty_task_list', $values);
     }
 
+    if (isset($this->widgetSchema['pc_users_lists_list']))
+    {
+      $values = array();
+      foreach ($this->object->getPcUsersListss() as $obj)
+      {
+        $values[] = $obj->getListId();
+      }
+
+      $this->setDefault('pc_users_lists_list', $values);
+    }
+
   }
 
   protected function doSave($con = null)
   {
     parent::doSave($con);
 
-    $this->savePcUsersListsList($con);
+    $this->savePcSplitTestUserResultList($con);
     $this->savePcDirtyTaskList($con);
+    $this->savePcUsersListsList($con);
   }
 
-  public function savePcUsersListsList($con = null)
+  public function savePcSplitTestUserResultList($con = null)
   {
     if (!$this->isValid())
     {
       throw $this->getErrorSchema();
     }
 
-    if (!isset($this->widgetSchema['pc_users_lists_list']))
+    if (!isset($this->widgetSchema['pc_split_test_user_result_list']))
     {
       // somebody has unset this widget
       return;
@@ -155,17 +171,17 @@ abstract class BasePcUserForm extends BaseFormPropel
     }
 
     $c = new Criteria();
-    $c->add(PcUsersListsPeer::USER_ID, $this->object->getPrimaryKey());
-    PcUsersListsPeer::doDelete($c, $con);
+    $c->add(PcSplitTestUserResultPeer::USER_ID, $this->object->getPrimaryKey());
+    PcSplitTestUserResultPeer::doDelete($c, $con);
 
-    $values = $this->getValue('pc_users_lists_list');
+    $values = $this->getValue('pc_split_test_user_result_list');
     if (is_array($values))
     {
       foreach ($values as $value)
       {
-        $obj = new PcUsersLists();
+        $obj = new PcSplitTestUserResult();
         $obj->setUserId($this->object->getPrimaryKey());
-        $obj->setListId($value);
+        $obj->setTestId($value);
         $obj->save();
       }
     }
@@ -201,6 +217,41 @@ abstract class BasePcUserForm extends BaseFormPropel
         $obj = new PcDirtyTask();
         $obj->setUserId($this->object->getPrimaryKey());
         $obj->setTaskId($value);
+        $obj->save();
+      }
+    }
+  }
+
+  public function savePcUsersListsList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['pc_users_lists_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $c = new Criteria();
+    $c->add(PcUsersListsPeer::USER_ID, $this->object->getPrimaryKey());
+    PcUsersListsPeer::doDelete($c, $con);
+
+    $values = $this->getValue('pc_users_lists_list');
+    if (is_array($values))
+    {
+      foreach ($values as $value)
+      {
+        $obj = new PcUsersLists();
+        $obj->setUserId($this->object->getPrimaryKey());
+        $obj->setListId($value);
         $obj->save();
       }
     }

@@ -1,34 +1,49 @@
+ul.tasks {
+    margin-right: 20px;
+}
+
 ul.tasks li.task {
     position: relative;
     padding: 5px;
-    margin: 5px;
-    border: 1px solid #aaa;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
+    margin-left: 3px;
     clear: both;
-    width: 97%;
+    width: 99%;
+    border:1px solid #edeef1;
+    background-color: #edeef2;
+    -webkit-box-shadow: 0px 1px 2px #333;
+    -moz-box-shadow: 0px 1px 2px #333;
+    box-shadow: 0px 1px 2px #333;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;        
 }
 
 .addTask {
     background-color: #F8D76E;
     padding: 5px;
-    margin: 10px 5px 15px 5px;
+    margin: 11px 5px 15px 5px;
 }
 
 .addTaskLighterBackground {
-    background-color: #feeebe;
+    background-color: rgba(254, 238, 190, 0.3);
 }
 
 .addTask .taskDescription, .addTaskDescriptionBottom {
     padding: 5px;
     border: 0 none; 
     outline: medium none;
+    color: #000 !important;
 }
 
 .taskDescriptionBlock {
-    background-color: #fff; 
-    border: 1px solid #fc9a30; 
+    background-color: #fff;
+    border: 1px solid #fc9a30;
     padding: 2px;
-    height: 32px;
+    height: 33px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;   
 }
 
 .taskDescriptionBlock div {
@@ -112,7 +127,7 @@ a.taskOptionsLink:hover {
 }
 
 ul.tasks li.task.hover {
-    background-color: #ffee99;
+    background-color: #fff;
     cursor: pointer;
 }
 
@@ -130,12 +145,22 @@ img.star {
 }
 
 ul.completedTasks {
-    margin: 10px;
+    margin-right: 20px;	
+    margin-top: 20px;
 }
 
 ul.completedTasks li {
     position: relative;
-    margin-bottom: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+    width: 99%;
+    background-color: rgba(240,240,240,0.5);
+    -webkit-box-shadow: 0px 1px 2px #333;
+    -moz-box-shadow: 0px 1px 2px #333;
+    box-shadow: 0px 1px 2px #333;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 ul.completedTasks li .taskAction {
@@ -166,6 +191,8 @@ ul.completedTasks li span {
 
 .taskOptions .taskOptionName {
     width: 115px;
+    vertical-align: top;
+    padding-top: 3px;    
 }
 
 .taskOptions .taskOptionDueDate {
@@ -184,7 +211,7 @@ ul.completedTasks li span {
 
 .taskDueDate { 
     color: green;
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
     height: 25px;
     margin-right: 5px;    
@@ -202,6 +229,8 @@ ul.completedTasks li span {
 .taskRepetition {
     margin-left: 5px;
     margin-right: 5px;
+    padding-top: 2px;
+    vertical-align: text-top;    
 }
 
 .taskRepetitionString {
@@ -231,6 +260,7 @@ ul.completedTasks li span {
 
 .taskFilters {
     margin-bottom: 15px;
+    text-shadow: 0px 0px 2px #fff;
 }
 
 .hideScheduledTasks {
@@ -242,26 +272,27 @@ ul.completedTasks li span {
 .sortTasks {
     display: block;
     float: right;
-    margin-right: 20px;
+    margin-right: 25px;
 
 }
 
 .doneWrapper {
     position: absolute; 
-    left: 2px;
-    top: 4px;
+    left: 5px;
+    top: 6px;
 }
 
 .starWrapper {
     position: absolute; 
-    left: 20px;
-    top: 4px;
+    left: 22px;
+    top: 2px;
 }
 
 .tasksLoader {
     display: none;
-    background-image: url('/app/desktop/img/ajax_loader_big_orange.gif');
+    background-image: url('/app/desktop/img/ajax_content_loader.gif');
     background-position: center center;
+    background-repeat: no-repeat;
     width: 66px;
     height: 66px;
     margin: 20px auto;
@@ -282,4 +313,34 @@ div.newTaskInCalButton {
 
 div.newTaskInCalButton .ui-button-text {
     font-size: 80% !important;
+}
+
+.calendarDate {
+    margin-bottom: 5px;
+}
+
+.taskNoteIcon {
+    position: relative;
+    top: 4px;
+}
+
+.taskFilters select {
+    font-size: 1.0em !important;
+}
+
+form.addTaskBottom {
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+ul.tasks .ui-state-highlight {
+    background: #999 !important;
+    -webkit-box-shadow: 0px 1px 2px #333;
+    -moz-box-shadow: 0px 1px 2px #333;
+    box-shadow: 0px 1px 2px #333;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 7px;
 }

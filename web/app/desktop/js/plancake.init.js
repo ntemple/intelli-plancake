@@ -26,6 +26,7 @@ PLANCAKE.isOfflineEnabled = false;
 PLANCAKE.COOKIE_NAME_FOR_FEEDBACK_BOX = 'feedbackBox';
 PLANCAKE.COOKIE_NAME_FOR_PANEL2_VISIBLE = 'panel2Visible';
 PLANCAKE.COOKIE_NAME_SPLIT_VIEW_HINT_SHOWN = 'splitViewHintShown';
+PLANCAKE.COOKIE_NAME_TODAY_SORT_ORDER = 'todaySortOrder';
 PLANCAKE.BASE_URL = /https?:\/\/*\/.*\.php/i.exec(document.URL)[0]; // i.e.: http://www.plancake.com/account.php
 
 PLANCAKE.ENTER_KEY_CODE = 13;

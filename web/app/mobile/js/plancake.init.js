@@ -28,6 +28,8 @@ PLANCAKE.BASE_URL_MOBILE = /([^#]*\.php\/mobile)/i.exec(document.URL)[1]; // i.e
 
 PLANCAKE.FIRST_LOGIN_COOKIE_NAME = "firstLogin";
 
+PLANCAKE.ignoreLocalStorage = false;
+
 PLANCAKE.numberOfDaysOnCalendar = 2;
 
 $.holdReady(true);

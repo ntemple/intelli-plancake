@@ -44,8 +44,11 @@ $(document).ready(function () {
         focusOnNoteTextareaWhileEditing = false;
     });
     
-           
-    $('.taskOptionsWrapper').html($('.taskOptions'));
+    $('a.taskGmailLink').live('click', function(e) {
+        e.stopPropagation();
+    });
+
+$('.taskOptionsWrapper').html($('.taskOptions'));
     $('.panelContent').find('div.taskOptionsWrapper').hide();
 
     $('.tagLinkInList').live('click', function(e) {
@@ -140,7 +143,11 @@ $(document).ready(function () {
                      (contentConfig.done === false) ) {
                     var ajaxParam = PLANCAKE.activePanel.find('ul.tasks').sortable('serialize');
                     PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_SORT_TASKS, 
-                                             ajaxParam, PLANCAKE.lang.ACCOUNT_SUCCESS_TASKS_REORDERED, null);                    
+                                             ajaxParam, PLANCAKE.lang.ACCOUNT_SUCCESS_TASKS_REORDERED, null);  
+                } else if ( (contentConfig.type === PLANCAKE.CONTENT_TYPE_TODAY) && 
+                     (contentConfig.done === false) ) {
+                     PLANCAKE.storeTodayOrder();
+                     PLANCAKE.rescheduleTodayTasks(ui.item); // has the user dragged tasks to another day?
                 } else {
                     PLANCAKE.activePanel.find("ul.tasks").sortable("cancel");
                     alert(PLANCAKE.lang.ACCOUNT_ERROR_CANT_REORDER_WHILE_FILTER_BY_TAG);                                        
@@ -619,6 +626,11 @@ PLANCAKE.addTask = function(task, position, activePanel, manual, successCallback
             if (!found) {
                 tasks.append(htmlTask);
             }
+            
+            if (PLANCAKE.isTodayOrderCookieValid()) {
+                PLANCAKE.storeTodayOrder();
+            }
+            
         } else if ( manual &&
             (activePanelConfig.type === PLANCAKE.CONTENT_TYPE_CALENDAR) ) { // in this case I insert sorting by due date
 

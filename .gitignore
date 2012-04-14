@@ -1,6 +1,7 @@
 cache/
 settings/
 config/
+log/
 web/php_errors.log
 .buildpath
 .settings

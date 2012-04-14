@@ -1,0 +1,76 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+--
+-- Table structure for table `pc_split_test`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_split_test` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `number_of_variants` smallint(5) unsigned NOT NULL,
+  `variants_description` text NOT NULL,
+  `comment` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_split_test_result`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_split_test_result` (
+  `test_id` smallint(5) unsigned NOT NULL,
+  `variant_id` smallint(5) unsigned NOT NULL,
+  `number_of_tries` int(11) NOT NULL DEFAULT '0',
+  `number_of_successes` int(11) NOT NULL DEFAULT '0',
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`test_id`,`variant_id`)
+) ENGINE=InnoDB;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pc_split_test_user_result`
+--
+
+CREATE TABLE IF NOT EXISTS `pc_split_test_user_result` (
+  `user_id` int(10) unsigned NOT NULL,
+  `test_id` smallint(5) unsigned NOT NULL,
+  `variant_id` smallint(5) unsigned NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`user_id`,`test_id`,`variant_id`),
+  KEY `pc_split_test_user_result_I_1` (`user_id`),
+  KEY `pc_split_test_user_result_FI_2` (`test_id`)
+) ENGINE=InnoDB;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `pc_split_test_result`
+--
+ALTER TABLE `pc_split_test_result`
+  ADD CONSTRAINT `pc_split_test_result_FK_1` FOREIGN KEY (`test_id`) REFERENCES `pc_split_test` (`id`);
+
+--
+-- Constraints for table `pc_split_test_user_result`
+--
+ALTER TABLE `pc_split_test_user_result`
+  ADD CONSTRAINT `pc_split_test_user_result_FK_1` FOREIGN KEY (`user_id`) REFERENCES `pc_user` (`id`),
+  ADD CONSTRAINT `pc_split_test_user_result_FK_2` FOREIGN KEY (`test_id`) REFERENCES `pc_split_test` (`id`);
+
+
+INSERT INTO `pc_split_test` (`id`, `name`, `number_of_variants`, `variants_description`, `comment`, `created_at`) VALUES ('1', 'video and steps homepage', '4', '1: no video, marketing later
+2: no video, marketing first
+3: video, marketing later
+4: video, marketing first', 'Split test for the homepage.
+', '2012-04-11 00:00:00');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+--//@UNDO
+
+SET FOREIGN_KEY_CHECKS=1;

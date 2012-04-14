@@ -78,7 +78,7 @@ class PcUtils
    * @param string $replyTo
    * @param string $attachmentFilePath
    */
-  public static function sendEmail($to, $subject, $body, $from, $replyTo = '', $attachmentFilePath = '')
+  public static function sendEmail($to, $subject, $body, $from, $replyTo = '', $attachmentFilePath = '', $html = false)
   {
     if (! defined('PLANCAKE_PUBLIC_RELEASE'))
     {
@@ -97,6 +97,10 @@ class PcUtils
               ->setTo($to)
               //Give it a body
               ->setBody($body);
+        
+        if ($html) {
+            $message->setContentType("text/html");
+        }
 
         if ($replyTo != '')
         {
@@ -574,7 +578,7 @@ class PcUtils
         }
     }
 
-    if ($user->isAuthenticated())
+    if ($loggedInUser && $user->isAuthenticated())
     {
         self::redirectToApp($action);
     }
@@ -631,6 +635,20 @@ class PcUtils
       } else {
           return false;
       }
+  }
+  
+  // from: http://stackoverflow.com/questions/1289061/best-way-to-use-php-to-encrypt-and-decrypt
+  public static function encryptString($s)
+  {
+      $key = sfConfig::get('app_site_encryptionKey');
+      return base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $s, MCRYPT_MODE_CBC, md5(md5($key))));
+  }
+  
+  // from: http://stackoverflow.com/questions/1289061/best-way-to-use-php-to-encrypt-and-decrypt
+  public static function decryptString($s)
+  {
+      $key = sfConfig::get('app_site_encryptionKey');     
+      return mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($key), base64_decode($s), MCRYPT_MODE_CBC, md5(md5($key)));      
   }
   
 }

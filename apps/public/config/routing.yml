@@ -112,7 +112,7 @@ jobs:
   param: { module: jobs, action: index }
 
 job1:
-  url: /jobs/marketing-and-business-assistant
+  url: /jobs/marketing-and-business-executive
   param: { module: jobs, action: position1 }
 
 job2:
