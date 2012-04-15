@@ -26,7 +26,7 @@
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <title><?php if (!include_slot('title')): ?>
-      <?= sfConfig::get('app_site_name' ?> - Free Tasks Manager and Todo Lists
+      <?= sfConfig::get('app_site_name') ?> - Free Tasks Manager and Todo Lists
     <?php endif; ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
