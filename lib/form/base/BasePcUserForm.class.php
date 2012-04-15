@@ -46,8 +46,8 @@ abstract class BasePcUserForm extends BaseFormPropel
       'session_referral'               => new sfWidgetFormInputText(),
       'created_at'                     => new sfWidgetFormDateTime(),
       'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcList')),
-      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest')),
       'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcTask')),
+      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest')),
     ));
 
     $this->setValidators(array(
@@ -83,8 +83,8 @@ abstract class BasePcUserForm extends BaseFormPropel
       'session_referral'               => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'created_at'                     => new sfValidatorDateTime(array('required' => false)),
       'pc_users_lists_list'            => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcList', 'required' => false)),
-      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest', 'required' => false)),
       'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcTask', 'required' => false)),
+      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('multiple' => true, 'model' => 'PcSplitTest', 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
@@ -119,17 +119,6 @@ abstract class BasePcUserForm extends BaseFormPropel
       $this->setDefault('pc_users_lists_list', $values);
     }
 
-    if (isset($this->widgetSchema['pc_split_test_user_result_list']))
-    {
-      $values = array();
-      foreach ($this->object->getPcSplitTestUserResults() as $obj)
-      {
-        $values[] = $obj->getTestId();
-      }
-
-      $this->setDefault('pc_split_test_user_result_list', $values);
-    }
-
     if (isset($this->widgetSchema['pc_dirty_task_list']))
     {
       $values = array();
@@ -141,6 +130,17 @@ abstract class BasePcUserForm extends BaseFormPropel
       $this->setDefault('pc_dirty_task_list', $values);
     }
 
+    if (isset($this->widgetSchema['pc_split_test_user_result_list']))
+    {
+      $values = array();
+      foreach ($this->object->getPcSplitTestUserResults() as $obj)
+      {
+        $values[] = $obj->getTestId();
+      }
+
+      $this->setDefault('pc_split_test_user_result_list', $values);
+    }
+
   }
 
   protected function doSave($con = null)
@@ -148,8 +148,8 @@ abstract class BasePcUserForm extends BaseFormPropel
     parent::doSave($con);
 
     $this->savePcUsersListsList($con);
-    $this->savePcSplitTestUserResultList($con);
     $this->savePcDirtyTaskList($con);
+    $this->savePcSplitTestUserResultList($con);
   }
 
   public function savePcUsersListsList($con = null)
@@ -187,41 +187,6 @@ abstract class BasePcUserForm extends BaseFormPropel
     }
   }
 
-  public function savePcSplitTestUserResultList($con = null)
-  {
-    if (!$this->isValid())
-    {
-      throw $this->getErrorSchema();
-    }
-
-    if (!isset($this->widgetSchema['pc_split_test_user_result_list']))
-    {
-      // somebody has unset this widget
-      return;
-    }
-
-    if (null === $con)
-    {
-      $con = $this->getConnection();
-    }
-
-    $c = new Criteria();
-    $c->add(PcSplitTestUserResultPeer::USER_ID, $this->object->getPrimaryKey());
-    PcSplitTestUserResultPeer::doDelete($c, $con);
-
-    $values = $this->getValue('pc_split_test_user_result_list');
-    if (is_array($values))
-    {
-      foreach ($values as $value)
-      {
-        $obj = new PcSplitTestUserResult();
-        $obj->setUserId($this->object->getPrimaryKey());
-        $obj->setTestId($value);
-        $obj->save();
-      }
-    }
-  }
-
   public function savePcDirtyTaskList($con = null)
   {
     if (!$this->isValid())
@@ -252,6 +217,41 @@ abstract class BasePcUserForm extends BaseFormPropel
         $obj = new PcDirtyTask();
         $obj->setUserId($this->object->getPrimaryKey());
         $obj->setTaskId($value);
+        $obj->save();
+      }
+    }
+  }
+
+  public function savePcSplitTestUserResultList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['pc_split_test_user_result_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $c = new Criteria();
+    $c->add(PcSplitTestUserResultPeer::USER_ID, $this->object->getPrimaryKey());
+    PcSplitTestUserResultPeer::doDelete($c, $con);
+
+    $values = $this->getValue('pc_split_test_user_result_list');
+    if (is_array($values))
+    {
+      foreach ($values as $value)
+      {
+        $obj = new PcSplitTestUserResult();
+        $obj->setUserId($this->object->getPrimaryKey());
+        $obj->setTestId($value);
         $obj->save();
       }
     }
