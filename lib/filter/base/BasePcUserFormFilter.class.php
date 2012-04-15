@@ -43,8 +43,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_referral'               => new sfWidgetFormFilterInput(),
       'created_at'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'pc_users_lists_list'            => new sfWidgetFormPropelChoice(array('model' => 'PcList', 'add_empty' => true)),
-      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('model' => 'PcSplitTest', 'add_empty' => true)),
       'pc_dirty_task_list'             => new sfWidgetFormPropelChoice(array('model' => 'PcTask', 'add_empty' => true)),
+      'pc_split_test_user_result_list' => new sfWidgetFormPropelChoice(array('model' => 'PcSplitTest', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -79,8 +79,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_referral'               => new sfValidatorPass(array('required' => false)),
       'created_at'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'pc_users_lists_list'            => new sfValidatorPropelChoice(array('model' => 'PcList', 'required' => false)),
-      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('model' => 'PcSplitTest', 'required' => false)),
       'pc_dirty_task_list'             => new sfValidatorPropelChoice(array('model' => 'PcTask', 'required' => false)),
+      'pc_split_test_user_result_list' => new sfValidatorPropelChoice(array('model' => 'PcSplitTest', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('pc_user_filters[%s]');
@@ -115,31 +115,6 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
     $criteria->add($criterion);
   }
 
-  public function addPcSplitTestUserResultListColumnCriteria(Criteria $criteria, $field, $values)
-  {
-    if (!is_array($values))
-    {
-      $values = array($values);
-    }
-
-    if (!count($values))
-    {
-      return;
-    }
-
-    $criteria->addJoin(PcSplitTestUserResultPeer::USER_ID, PcUserPeer::ID);
-
-    $value = array_pop($values);
-    $criterion = $criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value);
-
-    foreach ($values as $value)
-    {
-      $criterion->addOr($criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value));
-    }
-
-    $criteria->add($criterion);
-  }
-
   public function addPcDirtyTaskListColumnCriteria(Criteria $criteria, $field, $values)
   {
     if (!is_array($values))
@@ -160,6 +135,31 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
     foreach ($values as $value)
     {
       $criterion->addOr($criteria->getNewCriterion(PcDirtyTaskPeer::TASK_ID, $value));
+    }
+
+    $criteria->add($criterion);
+  }
+
+  public function addPcSplitTestUserResultListColumnCriteria(Criteria $criteria, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $criteria->addJoin(PcSplitTestUserResultPeer::USER_ID, PcUserPeer::ID);
+
+    $value = array_pop($values);
+    $criterion = $criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value);
+
+    foreach ($values as $value)
+    {
+      $criterion->addOr($criteria->getNewCriterion(PcSplitTestUserResultPeer::TEST_ID, $value));
     }
 
     $criteria->add($criterion);
@@ -205,8 +205,8 @@ abstract class BasePcUserFormFilter extends BaseFormFilterPropel
       'session_referral'               => 'Text',
       'created_at'                     => 'Date',
       'pc_users_lists_list'            => 'ManyKey',
-      'pc_split_test_user_result_list' => 'ManyKey',
       'pc_dirty_task_list'             => 'ManyKey',
+      'pc_split_test_user_result_list' => 'ManyKey',
     );
   }
 }
