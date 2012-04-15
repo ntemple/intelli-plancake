@@ -189,15 +189,15 @@ class PcTask extends BasePcTask
     }
 
     // NLT we also want to match #hashtags, and create them if they don't exist.
-    // @bug - if a new tag is created, it isn't seen until the tag list
+    // @todo bug - if a new tag is created, it isn't seen until the tag list
     // is updated with a refresh
 
-    preg_match_all("/\#(\\w+)/", $taskDescription, $matches);
-    $create = sfConfig::get('experimental');   
+    preg_match_all("/\#([!@$*[:word:]]+)/", $taskDescription, $matches);
+    $create = sfConfig::get('app_feature_createtags');   
  
     foreach ($matches[1] as $tag) {
       $id = array_search(strtolower($tag), $existingContextsLowercase);
-      if (! $id && $experimental) {
+      if (! $id && $create) {
         // We need to create a new tag
         // getting max sortOrder
         $c = new Criteria();
