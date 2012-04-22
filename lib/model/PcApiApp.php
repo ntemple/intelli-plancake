@@ -48,6 +48,11 @@ class PcApiApp extends BasePcApiApp
         if ($stats === null)
         {
             self::$stats = PcApiAppStatsPeer::retrieveByApiAppId($this->getId());
+            // Fix null exception if there are currently no stats
+            if (!self::$stats) {
+              self::$stats = new PcApiAppStats();
+              self::$stats->setApiAppId($this->getId());
+            }
         }
 
         return self::$stats;
