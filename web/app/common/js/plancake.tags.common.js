@@ -47,7 +47,7 @@ PLANCAKE.initTags = function(tags) {
         $('ul#tags').listview();    
         $('ul#tags').listview('refresh');
     }    
-}
+};
 
 /**
  * @param PLANCAKE.Tag tag
@@ -101,4 +101,4 @@ PLANCAKE.addTag = function (tag, highlight) {
             addTagToLayout(tagFromServer);
         });
     }    
-}
+};

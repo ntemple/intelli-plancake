@@ -49,6 +49,43 @@ class taskActions extends PlancakeActions
       return $this->renderJson($task->toArray());
     }
   }
+  
+  /*
+   * NLT called when an action is linked to a project 
+   */ 
+ 
+  public function executeLink(sfWebRequest $request)
+  {
+  	$taskId = $request->getParameter('taskId');
+  	$targetId = $request->getParameter('targetId');
+  	
+  	
+  	// The task is now a *act, ensure tagged
+  	// the project is now a *prj, ensure tagged
+  	// tag noth with the *targetId tag
+  	$actTag = PcTasksContextsPeer::lookupTag('*act');
+  	$prjTag = PcTasksContextsPeer::lookupTag('*prj');
+  	$linkTag = PcTasksContextsPeer::lookupTag('*' . $targetId);
+  	
+  	// NLT @todo make sure that the user ids match. Working on tags.
+  	
+  	$task = PcTaskPeer::retrieveByPK($taskId);
+  	PcUtils::checkLoggedInUserPermission($task->getList()->getCreator());
+  	
+  	$target = PcTaskPeer::retrieveByPK($targetId);
+  	PcUtils::checkLoggedInUserPermission($target->getList()->getCreator());
+  	
+  	$task->addContexts(array($actTag->getId(), $linkTag->getId()));
+  	$task->save();
+  	
+  	$target->addContexts(array($prjTag->getId(), $linkTag->getId()));
+  	$target->save();
+  
+    file_put_contents('/tmp/il.log', "link $taskId -> $targetId\n", FILE_APPEND);
+    file_put_contents('/tmp/il.log', print_r($task, true), FILE_APPEND);
+    file_put_contents('/tmp/il.log', print_r($target, true), FILE_APPEND);
+    return $this->renderDefault();
+  }
 
   // called when an action is made complete
   public function executeComplete(sfWebRequest $request)
@@ -96,7 +133,7 @@ class taskActions extends PlancakeActions
 
   }
 
-  // called when a task is made imcomplete
+  // called when a task is made incomplete
   public function executeIncomplete(sfWebRequest $request)
   {
     $taskId = (int)$request->getParameter('taskId');

@@ -60,6 +60,9 @@ class PcTask extends BasePcTask
 	{
             $this->clearRelevantCache();
             $savedObject = parent::save($con);
+
+            // NLT
+            $this->alignTasksContextsTable();
             
             return $savedObject;
         }

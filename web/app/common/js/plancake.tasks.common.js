@@ -30,7 +30,7 @@ $(document).ready( function() {
 PLANCAKE.toggleNote = function (noteIcon, e) {
     noteIcon.parents('li.task').find('.taskNote').toggle();
     e.stopPropagation();
-}
+};
 
 /**
  * @param PLANCAKE.Task task
@@ -222,7 +222,7 @@ PLANCAKE.getHtmlTaskObj = function(task, _activePanel) {
     }    
 
     return taskHtml;    
-}
+};
 
 
 /**
@@ -246,7 +246,7 @@ PLANCAKE.isTaskToBeShownInActiveContent = function(task, activeContent) {
     } 
     
     return toBeShown;
-}
+};
 
 
 /**
@@ -256,7 +256,7 @@ PLANCAKE.isTaskToBeShownInActiveContent = function(task, activeContent) {
  */
 PLANCAKE.hideTaskInCurrentContent = function (taskHtml) {
     taskHtml.fadeTo('fast', 0.4);    
-}
+};
 
 /**
  * see PLANCAKE.hideTaskInCurrentContent
@@ -265,13 +265,13 @@ PLANCAKE.hideTaskInCurrentContent = function (taskHtml) {
  */
 PLANCAKE.showHiddenTaskInCurrentContent = function (taskHtml) {
     taskHtml.fadeTo('fast', 1);    
-}
+};
 
 PLANCAKE.getCalendarCurrentDateTs = function(activePanel) {
     var currentDate = PLANCAKE.getActivePanelContentConfig(activePanel).extraParam;      
     var currentDateParts = currentDate.match(/([0-9]{4})-([0-9]{2})-([0-9]{2})/);
     return strtotime(currentDateParts[2] + '/' + currentDateParts[1] + '/' + currentDateParts[3]);        
-}
+};
 
 PLANCAKE.sendCalendarJumpToDateValue = function(dateText, inst) {
     var selectedDay = null;
@@ -299,12 +299,12 @@ PLANCAKE.sendCalendarJumpToDateValue = function(dateText, inst) {
     });               
     
     PLANCAKE.activePanel.find('input.calendarJumpDate').parent().find('.ui-datepicker').hide();
-}
+};
 
 PLANCAKE.getDateFormatForDatePicker = function () {
     return PLANCAKE.userSettings.dateFormat.replace('d', 'dd').
         replace('m', 'mm').replace('Y', 'yy');
-}
+};
 
 PLANCAKE.getDatePickerConfig = function () {
     var o = {
@@ -350,7 +350,7 @@ PLANCAKE.getDatePickerConfig = function () {
     }
     
     return o;
-}
+};
 
 /*
  * @param JQuery link
@@ -363,7 +363,7 @@ PLANCAKE.loadCalendarPrevMonth = function (link) {
         extraParam: date('Y-m-d', strtotime("-1 month", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
     }, calPanel);
     $('.calendarJumpDate').val('');    
-}
+};
 
 /*
  * @param JQuery link
@@ -376,7 +376,7 @@ PLANCAKE.loadCalendarNextMonth = function (link) {
             extraParam: date('Y-m-d', strtotime("+1 month", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
         }, calPanel);
         $('.calendarJumpDate').val('');     
-}
+};
 
 /*
  * @param JQuery link
@@ -389,7 +389,7 @@ PLANCAKE.loadCalendarPrevWeek = function (link) {
             extraParam: date('Y-m-d', strtotime("-" + PLANCAKE.numberOfDaysOnCalendar + " days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
         }, calPanel);
         $('.calendarJumpDate').val('');        
-}
+};
 
 /*
  * @param JQuery link
@@ -402,7 +402,7 @@ PLANCAKE.loadCalendarNextWeek = function (link) {
             extraParam: date('Y-m-d', strtotime("+" + PLANCAKE.numberOfDaysOnCalendar + " days", PLANCAKE.getCalendarCurrentDateTs(calPanel)))
         }, calPanel);
         $('.calendarJumpDate').val('');              
-}
+};
 
 /**
  * @param JQuery - li element
@@ -424,4 +424,4 @@ PLANCAKE.getTaskObjFromHtml = function(taskHtml) {
     }
 
     return task;
-}
+};

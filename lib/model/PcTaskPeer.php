@@ -132,7 +132,8 @@ class PcTaskPeer extends BasePcTaskPeer
 
     return PcTaskPeer::doSelect($criteria);
   }
-
+  
+  
   /**
    * Creates (or edits) a task
    * By default, it sets isFromSystem false. That is because a user may
@@ -408,11 +409,15 @@ class PcTaskPeer extends BasePcTaskPeer
     if ($task->getRepetitionId() && $setNextOccurrence)
     {
       $task->setNextOccurrence(true); // N.B.: this saves the object!!!!!!!
+    } else {
+      // Determine if we can save here, remove duplicate save	
+    	
     }
 
     // we need to do this operation here because we need the object
     // saved in the db to be able to refer to it via its ID
-    $task->alignTasksContextsTable();
+    // Added to save method! NLT
+    // $task->alignTasksContextsTable();
 
     // {{{
     // this is to fix a bug:

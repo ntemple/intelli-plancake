@@ -42,6 +42,7 @@ PLANCAKE.AJAX_URL_SORT_TASKS = '/tasks/reorder';
 PLANCAKE.AJAX_URL_STAR_TASKS = '/task/starTaskToggle';
 PLANCAKE.AJAX_URL_COMPLETE_TASKS = '/task/complete';
 PLANCAKE.AJAX_URL_UNCOMPLETE_TASKS = '/task/incomplete';
+PLANCAKE.AJAX_URL_LINK_TASKS     =    '/task/link';
 
 PLANCAKE.AJAX_URL_SEND_FEEDBACK = '/user/sendFeedback';
 PLANCAKE.AJAX_URL_HIDE_BREAKING_NEWS = '/user/hideBreakingNews';
@@ -156,7 +157,7 @@ PLANCAKE.sendAjaxRequest = function(urlPath, data, successMessage, successCallba
       
       $.ajax(ajaxOptions);
   }
-}
+};
 
 /**
  * Returns whether the AJAX call should be served from the localStorage or from 
@@ -207,14 +208,14 @@ PLANCAKE.willServeAjaxRequestLocally = function(urlPath) {
 PLANCAKE._afterAjaxRequest = function()
 {
       PLANCAKE.sendingAJAXRequest = false;
-}
+};
 
 PLANCAKE.appendToUrl = function(url, param, value)
 {
     var paramAndValue = param + '=' + value;
 
     return url + (url.indexOf('?') != -1 ? ("&" + paramAndValue) : ("?" + paramAndValue));
-}
+};
 
 /**
   *
@@ -235,7 +236,7 @@ PLANCAKE.prepareForAjaxTransmission = function(text)
   text = text.replace(/\+/g,'%2B');
 
   return text;
-}
+};
 
 /**
  * @param PLANCAKE.Task task
@@ -260,5 +261,5 @@ PLANCAKE.getAjaxParams = function (task) {
     }                
                 
     return ajaxParams;
-}
+};
 

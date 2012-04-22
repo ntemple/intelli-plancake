@@ -3,9 +3,9 @@
 * Software by: Danyuki Software Limited                                              *
 * This file is part of Plancake.                                                     *
 *                                                                                    *
-* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                          *
+* Copyright 2009-2010-2011-2012 by:     Danyuki Software Limited                     *
 * Support, News, Updates at:  http://www.plancake.com                                *
-* Licensed under the AGPL version 3 license.                                         *                                                       *
+* Licensed under the AGPL version 3 license.                                         *
 * Danyuki Software Limited is registered in England and Wales (Company No. 07554549) *
 **************************************************************************************
 * Plancake is distributed in the hope that it will be useful,                        *
@@ -111,7 +111,15 @@ PLANCAKE.editTag = function (tag) {
         // changing the title of the panel if the tag is loaded there
         PLANCAKE.reloadPanelIfTagLoaded(tag);        
     });    
-}
+};
+
+PLANCAKE.reloadTags = function() {
+
+ var ajaxParam = $("ul#tags").sortable('serialize');
+     PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_SORT_TAGS,
+        ajaxParam, PLANCAKE.lang.ACCOUNT_SUCCESS_TAGS_REORDERED, null);
+};
+
 
 /**
  * @param PLANCAKE.Tag tag
@@ -132,7 +140,7 @@ PLANCAKE.reloadPanelIfTagLoaded = function (tag) {
     }
     
     PLANCAKE.setActivePanel(activePanel);    
-} 
+}; 
 
 PLANCAKE.deleteTag = function(tagId) {
     var ajaxParams = 'op=delete&id=' + tagId;
@@ -154,8 +162,7 @@ PLANCAKE.deleteTag = function(tagId) {
         }
         // }}}          
     });     
-}
-
+};
 
 
 /**
@@ -258,4 +265,4 @@ PLANCAKE.openTagDialog = function(mode, tag) {
             }
     });   
     dialogForm.dialog( "open" );
-}
+};

@@ -72,6 +72,7 @@ $('.taskOptionsWrapper').html($('.taskOptions'));
     });    
 
     $("ul.tasks").sortable({
+        greedy: false,
         placeholder: "ui-state-highlight",
         items: "li.task",
         helper: function(e, element)
@@ -88,8 +89,15 @@ $('.taskOptionsWrapper').html($('.taskOptions'));
                 alert(PLANCAKE.lang.ACCOUNT_ERROR_CANT_DRAG_WHEN_SORTED_BY_DATE);
                 $(this).sortable('cancel');
             }
-        },       
+        },  
+
+        receive: function(event, ui) {
+          console.log('receive');
+          console.log(ui);
+        },
+     
         stop: function(event, ui) {
+
             if (PLANCAKE.taskDropped) { // the task was dropped on a list or a tag
                 
                 // {{{ START: I don't remember exactly why I needed this - search on StackOverflow
@@ -137,11 +145,34 @@ $('.taskOptionsWrapper').html($('.taskOptions'));
                         PLANCAKE.updateTaskCounters();
                     });                    
                 }                               
-            } else { // the task was dragged in order to change its order
+            } else { // the task was dragged in order to change its order or linked
+
+                if (PLANCAKE.tasksLinked) {
+                  console.log('tasks linked, not saving sort');
+                  PLANCAKE.tasksLinked = false;
+                  return;
+                }
+
                 var contentConfig = PLANCAKE.getActivePanelContentConfig();
+//                var task = PLANCAKE.getTaskObjFromHtml(ui.item);
+/*
+             
+                console.log('Sortable Drop');
+
+                // This is accurate 
+                itemPanel = $(ui.item).plancake().getTaskPanelId();
+                console.log("Task from: " + itemPanel);
+
+                // This is not. It ALWAWS returns the same panel
+                thisPanel = $(this).parent().parent().parent().attr('id');
+                thisPanel = PLANCAKE.activePanel.find('ul.tasks').sortable();
+                console.log(thisPanel);
+
+*/
                 if ( (contentConfig.type === PLANCAKE.CONTENT_TYPE_LIST) && 
                      (contentConfig.done === false) ) {
                     var ajaxParam = PLANCAKE.activePanel.find('ul.tasks').sortable('serialize');
+                    // console.log(ajaxParam);
                     PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_SORT_TASKS, 
                                              ajaxParam, PLANCAKE.lang.ACCOUNT_SUCCESS_TASKS_REORDERED, null);  
                 } else if ( (contentConfig.type === PLANCAKE.CONTENT_TYPE_TODAY) && 
@@ -155,17 +186,78 @@ $('.taskOptionsWrapper').html($('.taskOptions'));
             }
         }
     });
-    
+
+/*  This takes over, maing it impossible to drag & drop tasks onto each other
     $(".panel").livequery ( function() {
+        greedy: false;
         $(this).droppable({
             accept: "ul.tasks > li.task",        
             drop:function(event, ui){
                 if ($(this).attr('id') !== $(ui.draggable).plancake().getTaskPanelId()) {
-                    alert(PLANCAKE.lang.ACCOUNT_ERROR_CANT_DROP_TO_PANEL);
+                    // alert(PLANCAKE.lang.ACCOUNT_ERROR_CANT_DROP_TO_PANEL);
+                    console.log("panel is droppable");
+                    console.log(ui); 
                 }
             }
         });
     });    
+*/
+ // NLT
+    $("ul.tasks li.task").livequery( function() {
+ //     $(this).draggable({});
+
+      $(this).droppable({
+        accept: "ul.tasks > li.task",
+//        activeClass: 'active',
+        hoverClass: 'hovered',
+        
+        drop:function(event,ui){
+            var task = PLANCAKE.getTaskObjFromHtml(ui.draggable);
+            var taskPanel1 = $(ui.draggable).plancake().getTaskPanelId();
+
+            var target = PLANCAKE.getTaskObjFromHtml($(this));
+            var taskPanel2 = $(this).plancake().getTaskPanelId();
+
+            if (taskPanel1 == taskPanel2) {
+             // Illegal drop, must drop between panels to 
+             // differentiate from sorting
+             console.log('Same Panel: Propogate');
+            } else {
+             console.log('Link Tasks!!');
+             console.log(task.id);
+             ajaxParam = "taskId=" + task.id + "&targetId=" + target.id;
+             console.log(PLANCAKE.getAjaxParams(task));
+             console.log(ajaxParam);
+             PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_LINK_TASKS, ajaxParam, PLANCAKE.lang.ACCOUNT_SUCCESS_TASKS_REORDERED, null);
+             PLANCAKE.tasksLinked = true;
+             PLANCAKE.reloadTags();
+            }
+        }
+
+      });
+    });
+    
+    /*
+     * // NLT
+PLANCAKE.addTaskTag(task, tagId) {
+
+//                    var task = PLANCAKE.getTaskObjFromHtml(ui.item);
+//                    task.addTag(PLANCAKE.tagIdForTaskDropped);
+                    task.addTag(tagId)
+                    var ajaxParams = PLANCAKE.getAjaxParams(task);
+
+                    ajaxParams += "&op=edit";
+
+                    PLANCAKE.sendAjaxRequest(PLANCAKE.AJAX_URL_EDIT_TASK ,
+                                             ajaxParams, PLANCAKE.lang.ACCOUNT_SUCCESS_TASK_UPDATED, function(taskFromServer) {
+                        PLANCAKE.tagIdForTaskDropped = 0;
+                        ui.item.replaceWith(PLANCAKE.getHtmlTaskObj((new PLANCAKE.Task()).init(taskFromServer)));
+                        PLANCAKE.updateTaskCounters();
+                    });
+}
+
+     */
+
 
     $('form.addTask').submit(function() {
         var task = PLANCAKE.createTaskFromForm($(this));
@@ -1086,7 +1178,7 @@ PLANCAKE.populateTaskOptions = function (taskOptions, context, task) {
     }
     
     taskOptions.find('.taskOptionNote').val( (task && (task.note.length > 0)) ? task.note : '');
-}
+};
 
 /**
  * @param JQuery taskOptionList
@@ -1136,7 +1228,7 @@ PLANCAKE.setBasicTaskOptions = function (taskOptionList, taskOptionTags, taskOpt
             taskOptionDueDate.val(PLANCAKE.formatDateForUser(task.dueDate));
         }
     }
-} 
+}; 
 
 
 /**
@@ -1144,4 +1236,4 @@ PLANCAKE.setBasicTaskOptions = function (taskOptionList, taskOptionTags, taskOpt
  */
 PLANCAKE.areTasksSortedByDueDate = function () {
     return (PLANCAKE.activePanel.find('.sortTasks select').val() == 'sortTasksByDueDate');
-}
+};
