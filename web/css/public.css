@@ -1265,6 +1265,7 @@ div#pc_googleAccountLinkLogin
 {
     float: right; 
     margin-top: 8px;    
+    display: none
 }
 
 div#pc_notRegisteredYet {

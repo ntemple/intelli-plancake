@@ -19,7 +19,6 @@
 *                                                                                    *
 **************************************************************************************/
 ?>
-
 <html>
 <head>
 
@@ -97,14 +96,14 @@
     <div id="hiddenDuringInitialLoading" style="display: none">
         <div id="content">             
 
-            <?php if ($updateAvailable): ?>
+            <?php if (0 && $updateAvailable): ?>
                 <div id="updatesNotification" class="noPrint">
                     There is a newer release available for download <a class="inboundLink" href="/open-source">here</a>.
                 </div>
             <?php endif ?>        
 
             <div id="sidebar"  class="noPrint">
-
+<?php /* NLT for whitelabel 
                 <h1>Plancake</h1>                 
 
                 <div id="socialWidgets">
@@ -135,12 +134,18 @@
                         <g:plusone size="medium" count="false" href="http://www.plancake.com"></g:plusone>
                     </div>                
                 </div>
+*/ ?>
+<?php 
+       // Search requires a separate indexing engine, so is disabled for now 
 
-                <br style="clear: both;" /><br />
+       if (sfConfig::get('app_feature_search')) { ?>
+          
+        <br style="clear: both;" /><br />
 
                 <form name="search" id="searchForm" method="post">
                     <input type="text" class="light" name="searchQuery" id="searchQuery" value="" />
                 </form>            
+<?php } ?>
 
                 <br style="clear: both;" />           
 
